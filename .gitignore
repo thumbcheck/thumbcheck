@@ -1,0 +1,3 @@
+node_modules
+.jshintrc
+./client/dist/bundle.js
