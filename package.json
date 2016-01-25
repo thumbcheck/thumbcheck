@@ -1,0 +1,19 @@
+{
+  "name": "ambivalent-acacia",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ambivalent-acacia/ambivalent-acacia.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ambivalent-acacia/ambivalent-acacia/issues"
+  },
+  "homepage": "https://github.com/ambivalent-acacia/ambivalent-acacia#readme"
+}
