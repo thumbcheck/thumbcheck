@@ -28,6 +28,6 @@ export function startVote() {
 export function stopVote() {
   return {
     meta: {remote: true},
-    type: 'STop_VOTE'
+    type: 'STOP_VOTE'
   };
 }
