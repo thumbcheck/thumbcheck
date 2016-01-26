@@ -1,5 +1,6 @@
 import express from 'express';
 import bodyParser from 'body-parser';
+import io from './server'
 
 const router = express.Router();
 
@@ -11,10 +12,16 @@ function createRoom () {
   return room;
 }
 
-router.route('/rooms')
+router.route('/room')
   .post((req, res) => {
-    res.status(201).json(createRoom());
+    const room = createRoom()
+    res.redirect(room+'/host/')
   });
+
+router.route(/room\d+\/host/)
+  .get((req, res) => {
+    res.send('teacher route :'+ req.url.substr(1,5));
+  })
 
 router.route(/room\d+/)
   .get((req, res) => {

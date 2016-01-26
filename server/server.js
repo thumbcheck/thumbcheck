@@ -18,13 +18,20 @@ const server = app.listen(port, ()  => {
 
 var io = socket.listen(server);
 
-io.on('connection', (socket) => {
-  socket.emit('state', () => {
-    console.log('Emitting State from server!');
-  });
 
-  socket.on('action', (data) => {
-    console.log('Action heard by server', data);
-  });
+// io.on('connection', (socket) => {
+//   socket.emit('state', () => {
+//     console.log('Emitting State from server!');
+//   });
 
-});
+//   socket.on('action', (data) => {
+//     console.log('Action heard by server', data);
+//   });
+
+//   socket.on('createRoom', (data) => {
+
+//   })
+
+// });
+
+module.exports = io;
