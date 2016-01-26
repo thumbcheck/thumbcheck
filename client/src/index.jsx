@@ -18,8 +18,8 @@ import {EducatorContainer} from './components/educator/EducatorMain';
 const socket = io(`${location.protocol}//${location.hostname}:8090`);
 socket.on('state', function(state) {
   console.log('Received state from server!');
-  // store.dispatch(setState(state));
-  store.dispatch(setState({voting: true, tally: {thumbsUp: 2, thumbsDown: 1}}));
+  store.dispatch(setState(state));
+  // store.dispatch(setState({voting: true, tally: {thumbsUp: 2, thumbsDown: 1}}));
 });
 
 // Create redux store

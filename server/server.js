@@ -27,12 +27,13 @@ store.subscribe(
 );
 
 io.on('connection', (socket) => {
-  socket.emit('state', () => {
-    console.log('Emitting State from server!');
-    return store.getState().toJS();
-  });
+  console.log('Emitting State from server!', store.getState().toJS());
+  socket.emit('state', store.getState().toJS());
 
-  socket.on('action', store.dispatch.bind(store));
+  socket.on('action', (data) =>
+    console.log('Action of server side:', data);
+    store.dispatch.bind(store);
+  );
 
   socket.on('joinRoom', (roomname) => {
     console.log(' socket room:', socket.room);
