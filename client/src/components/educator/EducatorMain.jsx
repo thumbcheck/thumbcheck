@@ -1,13 +1,37 @@
 import React from 'react';
-import Navbar from './NavBar Educator';
+import {connect} from 'react-redux';
+import RequestCheckin from './EducatorRequestCheckin';
+import ResultsDisplay from './ResultsDisplay';
+// import Navbar from './NavBarEducator';
+import * as actionCreators from '../../action_creators';
 
-export default React.createClass({
+export const Educator = React.createClass({
   render: function() {
-    return 
+  console.log("Ed const PROPS:", this.props);
+    return (
+      <div>
+        {this.props.voting ?
+          <ResultsDisplay ref="resultsDisplay" {...this.props} /> :
+          <RequestCheckin />}
+      </div>
+    )
+  }
+});
     	// render the navbar
     	// <Navbar />
     	
     	// render whatever other view it's currently on
 
-  }
-});
+function mapStateToProps(state) {
+  console.log("edMain state", state.getIn(['tally', 'thumbsUp']));
+  return {
+    voting: state.get('voting'),
+    upCount: state.getIn(['tally', 'thumbsUp']),
+    downCount: state.getIn(['tally', 'thumbsDown'])
+  };
+}
+
+export const EducatorContainer = connect(
+  mapStateToProps,
+  actionCreators
+)(Educator);
