@@ -2,10 +2,13 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Router, {Route} from 'react-router';
 import {createStore} from 'redux';
+import {Provider} from 'react-redux';
 import reducer from './reducer';
 import App from './components/App';
 import io from 'socket.io-client';
-import {setState} from './components/action_creators';
+import {setState} from './action_creators';
+
+// import {TestContainer} from './components/Test';
 
 // Create redux store
 const store = createStore(reducer);
@@ -23,6 +26,8 @@ const routes = <Route component={App}>
 
 // Renders App to DOM
 ReactDOM.render(
-  <Router>{routes}</Router>,
+  <Provider store={store}>
+    <Router>{routes}</Router>
+  </Provider>,
   document.getElementById('app')
 );
