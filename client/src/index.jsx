@@ -7,6 +7,7 @@ import reducer from './reducer';
 import App from './components/App';
 import io from 'socket.io-client';
 import {setState} from './action_creators';
+import {StudentContainer} from './components/student/StudentMain';
 
 // import {TestContainer} from './components/Test';
 
@@ -16,12 +17,14 @@ const store = createStore(reducer);
 const socket = io(`${location.protocol}//${location.hostname}:8090`);
 socket.on('state', function(state) {
   console.log('Received state from server!');
-  store.dispatch(setState(state));
+  // store.dispatch(setState(state));
+  store.dispatch(setState({voting: true, tally: {thumbsUp: 2, thumbsDown: 1}}));
 });
 
 // Sets up Routing
 const routes = <Route component={App}>
   <Route path = '/' component={App} />
+  <Route path = '/student' component={StudentContainer} />
 </Route>;
 
 // Renders App to DOM

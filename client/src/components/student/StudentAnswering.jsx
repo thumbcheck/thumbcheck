@@ -3,11 +3,9 @@ import React from 'react';
 export default React.createClass({
   render: function() {
     return <div className="answering">
-      <button className="thumb-up"
-              onClick={() => this.props.upvote()}>
+      <button className="thumb-up">
       </button>
-      <button className="thumb-down"
-              onClick={() => this.props.downvote()}>
+      <button className="thumb-down">
       </button>
     </div>;
   }
