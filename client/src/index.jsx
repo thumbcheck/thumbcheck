@@ -8,6 +8,8 @@ import App from './components/App';
 import io from 'socket.io-client';
 import {setState} from './action_creators';
 import {StudentContainer} from './components/student/StudentMain';
+import EducatorLanding from './components/educator/EducatorLanding';
+import {EducatorContainer} from './components/educator/EducatorMain';
 
 // import {TestContainer} from './components/Test';
 
@@ -23,8 +25,9 @@ socket.on('state', function(state) {
 
 // Sets up Routing
 const routes = <Route component={App}>
-  <Route path = '/' component={App} />
+  <Route path = '/' component={EducatorLanding} />
   <Route path = '/student' component={StudentContainer} />
+  <Route path = '/educator' component={EducatorContainer} />
 </Route>;
 
 // Renders App to DOM
