@@ -1,17 +1,26 @@
-import Server from 'socket.io';
+import express from 'express';
+import socket from 'socket.io';
+import bodyParser from 'body-parser';
+import path from 'path';
 
-const startServer = function() {
-  var io = new Server().attach(8090);
+const port = process.env.PORT || 8090;
 
-  io.on('connection', (socket) => {
-    socket.emit('state', () => {
-      console.log('Emitting State from server!');
-    });
-    socket.on('action', (data) => {
-      console.log('Action heard by server', data);
-    });
+const app = express();
+
+app.use(express.static(path.join(__dirname, "/../client/dist")));
+
+const server = app.listen(port, ()  => {
+  console.log('Server listening at port ', port);
+});
+
+var io = socket.listen(server);
+
+io.on('connection', (socket) => {
+  socket.emit('state', () => {
+    console.log('Emitting State from server!');
   });
-};
+  socket.on('action', (data) => {
+    console.log('Action heard by server', data);
+  });
+});
 
-startServer();
-console.log('Listening on port 8090');
