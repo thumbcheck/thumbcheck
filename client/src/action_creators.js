@@ -17,3 +17,17 @@ export function downvote() {
     type: 'DOWNVOTE'
   };
 }
+
+export function startVote() {
+  return {
+    meta: {remote: true},
+    type: 'START_VOTE'
+  };
+}
+
+export function stopVote() {
+  return {
+    meta: {remote: true},
+    type: 'STop_VOTE'
+  };
+}
