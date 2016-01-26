@@ -1,6 +1,6 @@
 import express from 'express';
 import bodyParser from 'body-parser';
-import io from './server'
+//import io from './server'
 
 const router = express.Router();
 
