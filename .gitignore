@@ -1,4 +1,4 @@
 node_modules
 .jshintrc
-./client/dist/bundle.js
-./server/npm-debug.log
+client/dist/bundle.js
+server/npm-debug.log
