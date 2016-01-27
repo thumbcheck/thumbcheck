@@ -52,9 +52,9 @@ io.on('connection', (socket) => {
   //   io.to(socket.room).emit('endVote', voteState);
   // });
 
-  // socket.on('vote', (voteData) => {
-  //   console.log('yes');
-  //   io.to(socket.room).emit('newVotes', voteData);
-  // });
+  socket.on('vote', (voteData) => {
+    console.log('yes');
+    io.to(socket.room).emit('newVotes', voteData);
+  });
 
 });

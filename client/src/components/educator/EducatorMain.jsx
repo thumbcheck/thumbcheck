@@ -11,6 +11,10 @@ export const Educator = React.createClass({
   console.log("Ed const PROPS:", this.props);
   var socket = io();
   socket.emit('joinRoom', this.props.room);
+  socket.emit('vote', 'Yes');
+
+
+
     return (
       <div>
         <h4>Room Number: {this.props.room}</h4>
