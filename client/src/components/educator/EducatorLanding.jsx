@@ -7,16 +7,17 @@ export default React.createClass({
 
   getInitialState: function() {
     return {
-      userType: window.localStorage.getItem('userType')
+      userType: window.localStorage.getItem('userType'),
+      roomNumber: window.localStorage.getItem('room')
     }
 
   },
 
   render: function() {
     if (this.state.userType === 'student') {
-      return <StudentContainer />
+      return <StudentContainer room={this.state.roomNumber} />
     } else if (this.state.userType === 'educator') {
-      return <EducatorContainer />
+      return <EducatorContainer room={this.state.roomNumber} />
     } else {
       return (
       	<div className="jumbotron">

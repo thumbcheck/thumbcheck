@@ -38,6 +38,7 @@ function getParameterByName(name) {
 
 let path = window.location.pathname.slice(1);
 console.log(path);
+window.localStorage.setItem('room', path);
 if (path && getParameterByName('type')) {
   // teacher in the room
   window.localStorage.setItem('userType', 'educator');

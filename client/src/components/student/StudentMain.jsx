@@ -8,6 +8,7 @@ export const Student = React.createClass({
   render: function() {
     return (
       <div>
+        <h4>Room Number: {this.props.room}</h4>
         {(this.props.voting && !this.props.hasVoted)?
           <StudentAnswering ref="answer" {...this.props} /> :
           <Wait />}

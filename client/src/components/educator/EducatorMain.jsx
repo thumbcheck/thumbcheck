@@ -10,16 +10,18 @@ export const Educator = React.createClass({
   console.log("Ed const PROPS:", this.props);
     return (
       <div>
+        <h4>Room Number: {this.props.room}</h4>
         {this.props.voting ?
           <ResultsDisplay ref="resultsDisplay" {...this.props} /> :
           <EducatorRequestCheckin {...this.props} />}
+        }
       </div>
     )
   }
 });
     	// render the navbar
     	// <Navbar />
-    	
+
     	// render whatever other view it's currently on
 
 function mapStateToProps(state) {

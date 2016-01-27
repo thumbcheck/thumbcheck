@@ -27,7 +27,7 @@ router.route('/whatever')
 router.route('/createRoom')
   .get((req, res) => {
     const number = createRoom();
-    res.redirect(`/${number}?type=host&roomNumber=number`);
+    res.redirect(`/${number}?type=host&roomNumber=${number}`);
   });
 
 router.route('/:roomNumber')
