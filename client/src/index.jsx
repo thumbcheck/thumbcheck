@@ -11,6 +11,7 @@ import reduxStateEmitterMiddleware from './reduxStateEmitterMiddleware';
 import {StudentContainer} from './components/student/StudentMain';
 import EducatorLanding from './components/educator/EducatorLanding';
 import {EducatorContainer} from './components/educator/EducatorMain';
+// import getParameterByName from '/../dist/javascripts/main.js';
 
 // import {TestContainer} from './components/Test';
 
@@ -26,6 +27,28 @@ socket.on('state', function(state) {
 // Create redux store
 const createStoreWithMiddleware = applyMiddleware(reduxStateEmitterMiddleware(socket))(createStore); 
 const store = createStoreWithMiddleware(reducer);
+
+/*  THIS SHOUDL GO IN MAIN.JS  */
+function getParameterByName(name) {
+  name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+  let regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+    results = regex.exec(location.search);
+  return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+};
+
+let path = window.location.pathname.slice(1,2);
+console.log(path);
+if (path && getParameterByName('type')) {
+  // teacher in the room
+  console.log('teacher in room')
+} else if (path[0]) {
+  // student in the room
+  console.log('student in room')
+} else {
+  // teacher on the home page
+  console.log('teacher on home page')
+}
+/*  THIS SHOUDL GO IN MAIN.JS EENNNDDDD */
 
 // Sets up Routing
 const routes = <Route component={App}>
