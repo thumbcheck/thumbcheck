@@ -6,7 +6,7 @@ import {Provider} from 'react-redux';
 import reducer from './reducer';
 import App from './components/App';
 import io from 'socket.io-client';
-import {setState} from './action_creators';
+import {setState, startVote} from './action_creators';
 import reduxStateEmitterMiddleware from './reduxStateEmitterMiddleware';
 import {StudentContainer} from './components/student/StudentMain';
 import EducatorLanding from './components/educator/EducatorLanding';
@@ -17,10 +17,10 @@ import {EducatorContainer} from './components/educator/EducatorMain';
 
 // Socket Connection to server
 const socket = io(`${location.protocol}//${location.hostname}:8090`);
-socket.on('state', function(state) {
+socket.on('remoteAction', function(remoteAction) {
   console.log('Received state from server!');
-  console.log(state, 'state from server');
-  store.dispatch(setState(state));
+  console.log(remoteAction, 'action from server');
+  store.dispatch(remoteAction, typeof remoteAction);
   // store.dispatch(setState({voting: true, hasVoted: true, tally: {thumbsUp: 2, thumbsDown: 1}}));
 });
 
@@ -52,6 +52,7 @@ if (path && getParameterByName('type')) {
   window.localStorage.setItem('userType', '');
   console.log('teacher on home page')
 }
+socket.emit('joinRoom', path);
 /*  THIS SHOUDL GO IN MAIN.JS EENNNDDDD */
 
 // Sets up Routing

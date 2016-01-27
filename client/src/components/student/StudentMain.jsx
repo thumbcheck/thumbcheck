@@ -8,11 +8,11 @@ import * as actionCreators from '../../action_creators';
 export const Student = React.createClass({
   render: function() {
     var socket = io();
-    socket.emit('joinRoom', this.props.room);
+   // socket.emit('joinRoom', this.props.room);
 
-  socket.on('newVotes', function (data) {
-    console.log(data);
-  });
+  // socket.on('newVotes', function (data) {
+  //   console.log(data);
+  // });
 
     return (
       <div>

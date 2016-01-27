@@ -6,7 +6,7 @@ import router from './router';
 import makeStore from './src/store';
 import {toJS} from 'immutable';
 
-const store = makeStore();
+// const store = makeStore();
 
 const port = process.env.PORT || 8090;
 
@@ -24,16 +24,20 @@ let room = '';
 
 var io = socket.listen(server);
 
-store.subscribe(
-  () => io.emit('state', store.getState().toJS())
-);
+// store.subscribe(
+//   () => io.emit('state', store.getState().toJS())
+// );
 
 io.on('connection', (socket) => {
-  console.log('Emitting State from server!', store.getState().toJS());
+  // console.log('Emitting State from server!', store.getState().toJS());
 
   //socket.emit('state', store.getState().toJS());
 
-  socket.on('action', store.dispatch.bind(store));
+  socket.on('action', function(action) {
+    action.meta.remote = false;
+    console.log(action, 'action');
+    socket.broadcast.to(socket.room).emit('remoteAction', action);
+  });
 
   socket.on('joinRoom', (roomname) => {
     console.log(' socket room:', socket.room);

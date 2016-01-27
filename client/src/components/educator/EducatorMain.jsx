@@ -10,8 +10,8 @@ export const Educator = React.createClass({
   render: function() {
   console.log("Ed const PROPS:", this.props);
   var socket = io();
-  socket.emit('joinRoom', this.props.room);
-  socket.emit('vote', 'Yes');
+  // socket.emit('joinRoom', this.props.room);
+  // socket.emit('vote', 'Yes');
 
 
 
