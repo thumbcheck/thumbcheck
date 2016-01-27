@@ -1,7 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import Wait from './StudentWaiting';
-import Answer from './StudentAnswering';
+import StudentAnswering from './StudentAnswering';
 import * as actionCreators from '../../action_creators';
 
 export const Student = React.createClass({
@@ -9,7 +9,7 @@ export const Student = React.createClass({
     return (
       <div>
         {this.props.voting ?
-          <Answer ref="answer" upvote={this.props.upvote} downvote={this.props.downvote} /> :
+          <StudentAnswering ref="answer" {...this.props} /> :
           <Wait />}
       </div>
     );
