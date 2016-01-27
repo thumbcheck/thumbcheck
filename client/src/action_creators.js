@@ -4,6 +4,7 @@ export function setState(state) {
     state
   };
 }
+
 export function upvote() {
   return {
     meta: {remote: true},
@@ -20,7 +21,7 @@ export function downvote() {
 
 export function vote() {
   return {
-    type: 'VOTE'
+    type: 'VOTE',
   };
 }
 
