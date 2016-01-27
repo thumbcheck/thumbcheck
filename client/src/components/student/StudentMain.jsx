@@ -1,15 +1,15 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import Wait from './StudentWaiting';
-import Answer from './StudentAnswering';
+import StudentAnswering from './StudentAnswering';
 import * as actionCreators from '../../action_creators';
 
 export const Student = React.createClass({
   render: function() {
     return (
       <div>
-        {this.props.voting ?
-          <Answer ref="answer" upvote={this.props.upvote} downvote={this.props.downvote} /> :
+        {(this.props.voting && !this.props.hasVoted)?
+          <StudentAnswering ref="answer" {...this.props} /> :
           <Wait />}
       </div>
     );
@@ -20,7 +20,8 @@ function mapStateToProps(state) {
   return {
     voting: state.get('voting'),
     upvote: state.getIn(['tally', 'thumbsUp']),
-    downvote: state.getIn(['tally', 'thumbsDown'])
+    downvote: state.getIn(['tally', 'thumbsDown']),
+    hasVoted: state.get('hasVoted')
   };
 }
 

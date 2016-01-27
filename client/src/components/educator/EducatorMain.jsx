@@ -1,6 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import RequestCheckin from './EducatorRequestCheckin';
+import EducatorRequestCheckin from './EducatorRequestCheckin';
 import ResultsDisplay from './ResultsDisplay';
 // import Navbar from './NavBarEducator';
 import * as actionCreators from '../../action_creators';
@@ -12,7 +12,7 @@ export const Educator = React.createClass({
       <div>
         {this.props.voting ?
           <ResultsDisplay ref="resultsDisplay" {...this.props} /> :
-          <RequestCheckin />}
+          <EducatorRequestCheckin {...this.props} />}
       </div>
     )
   }

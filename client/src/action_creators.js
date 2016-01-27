@@ -4,6 +4,7 @@ export function setState(state) {
     state
   };
 }
+
 export function upvote() {
   return {
     meta: {remote: true},
@@ -18,16 +19,22 @@ export function downvote() {
   };
 }
 
+export function vote() {
+  return {
+    type: 'VOTE',
+  };
+}
+
 export function startVote() {
   return {
     meta: {remote: true},
-    type: 'START_VOTE'
+    type: 'START_VOTE',
   };
 }
 
 export function stopVote() {
   return {
     meta: {remote: true},
-    type: 'STOP_VOTE'
+    type: 'STOP_VOTE',
   };
 }

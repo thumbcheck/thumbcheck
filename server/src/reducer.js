@@ -5,8 +5,7 @@ function setState(state, newState) {
 }
 
 function upVote(state) {
-  const currentThumbsUpTally = state.getIn(['tally', 'thumbsUp']);
-  return currentThumbsUpTally.updateIn(
+  return state.updateIn(
     ['tally', 'thumbsUp'],
     0,
     thumbsUp => thumbsUp + 1
@@ -14,8 +13,7 @@ function upVote(state) {
 }
 
 function downVote(state) {
-  const currentThumbsDownTally = state.getIn(['tally', 'thumbsDown']);
-  return currentThumbsDownTally.updateIn(
+  return state.updateIn(
     ['tally', 'thumbsDown'],
     0,
     thumbsDown => thumbsDown + 1
@@ -23,7 +21,7 @@ function downVote(state) {
 }
 
 function stopVote() {
-  return fromJS({voting: false});
+  return fromJS({voting: false, hasVoted: false});
 }
 
 function startVote() {
