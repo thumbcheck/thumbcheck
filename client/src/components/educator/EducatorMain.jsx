@@ -12,7 +12,7 @@ export const Educator = React.createClass({
       <div>
         {this.props.voting ?
           <ResultsDisplay ref="resultsDisplay" {...this.props} /> :
-          <EducatorRequestCheckin startVote = {this.props.startVote} />}
+          <EducatorRequestCheckin {...this.props} />}
       </div>
     )
   }

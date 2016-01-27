@@ -24,11 +24,10 @@ export function vote() {
   };
 }
 
-export function startVote(state) {
+export function startVote() {
   return {
     meta: {remote: true},
     type: 'START_VOTE',
-    state
   };
 }
 
@@ -36,6 +35,5 @@ export function stopVote() {
   return {
     meta: {remote: true},
     type: 'STOP_VOTE',
-    state
   };
 }
