@@ -19,6 +19,7 @@ app.use('/', router);
 const server = app.listen(port, ()  => {
   console.log('Server listening at port ', port);
 });
+export default server;
 
 var io = socket.listen(server);
 
@@ -42,6 +43,8 @@ io.on('connection', (socket) => {
     console.log(socket.room);
     console.log("room joined");
   });
+
+
 
   // socket.on('startVote', (voteState) => {
   //   io.to(socket.room).emit('startVote', voteState);
