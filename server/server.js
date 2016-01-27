@@ -30,10 +30,10 @@ io.on('connection', (socket) => {
   console.log('Emitting State from server!', store.getState().toJS());
   socket.emit('state', store.getState().toJS());
 
-  socket.on('action', (data) =>
-    console.log('Action of server side:', data);
+  socket.on('action', function(data) {
+    console.log(data, 'data');
     store.dispatch.bind(store);
-  );
+  });
 
   socket.on('joinRoom', (roomname) => {
     console.log(' socket room:', socket.room);
