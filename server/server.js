@@ -43,6 +43,8 @@ io.on('connection', (socket) => {
     console.log("room joined");
   });
 
+
+
   // socket.on('startVote', (voteState) => {
   //   io.to(socket.room).emit('startVote', voteState);
   // });
