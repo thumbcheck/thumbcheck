@@ -25,7 +25,7 @@ socket.on('state', function(state) {
 });
 
 // Create redux store
-const createStoreWithMiddleware = applyMiddleware(reduxStateEmitterMiddleware(socket))(createStore); 
+const createStoreWithMiddleware = applyMiddleware(reduxStateEmitterMiddleware(socket))(createStore);
 const store = createStoreWithMiddleware(reducer);
 
 /*  THIS SHOUDL GO IN MAIN.JS  */
@@ -36,16 +36,19 @@ function getParameterByName(name) {
   return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
 };
 
-let path = window.location.pathname.slice(1,2);
+let path = window.location.pathname.slice(1);
 console.log(path);
 if (path && getParameterByName('type')) {
   // teacher in the room
+  window.localStorage.setItem('userType', 'educator');
   console.log('teacher in room')
 } else if (path[0]) {
   // student in the room
+  window.localStorage.setItem('userType', 'student');
   console.log('student in room')
 } else {
   // teacher on the home page
+  window.localStorage.setItem('userType', '');
   console.log('teacher on home page')
 }
 /*  THIS SHOUDL GO IN MAIN.JS EENNNDDDD */
@@ -53,9 +56,12 @@ if (path && getParameterByName('type')) {
 // Sets up Routing
 const routes = <Route component={App}>
   <Route path = '/' component={EducatorLanding} />
-  <Route path = '/student' component={StudentContainer} />
-  <Route path = '/educator' component={EducatorContainer} />
 </Route>;
+// const routes = <Route component={App}>
+//   <Route path = '/' component={EducatorLanding} />
+//   <Route path = '/student' component={StudentContainer} />
+//   <Route path = '/educator' component={EducatorContainer} />
+// </Route>;
 
 // Renders App to DOM
 ReactDOM.render(
