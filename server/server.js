@@ -20,6 +20,8 @@ const server = app.listen(port, ()  => {
   console.log('Server listening at port ', port);
 });
 
+let room = '';
+
 var io = socket.listen(server);
 
 store.subscribe(
@@ -28,7 +30,8 @@ store.subscribe(
 
 io.on('connection', (socket) => {
   console.log('Emitting State from server!', store.getState().toJS());
-  socket.emit('state', store.getState().toJS());
+
+  //socket.emit('state', store.getState().toJS());
 
   socket.on('action', store.dispatch.bind(store));
 
@@ -37,10 +40,9 @@ io.on('connection', (socket) => {
     socket.join(roomname);
     socket.room = roomname;
     console.log(socket.room);
+    room = socket.room;
     console.log("room joined");
   });
-
-
 
   // socket.on('startVote', (voteState) => {
   //   io.to(socket.room).emit('startVote', voteState);

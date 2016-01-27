@@ -16,7 +16,7 @@ export const Educator = React.createClass({
         <h4>Room Number: {this.props.room}</h4>
         {this.props.voting ?
           <ResultsDisplay ref="resultsDisplay" {...this.props} /> :
-          <EducatorRequestCheckin {...this.props} />}
+          <EducatorRequestCheckin {...this.props} />
         }
       </div>
     )
