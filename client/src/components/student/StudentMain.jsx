@@ -1,11 +1,14 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import Wait from './StudentWaiting';
+import io from 'socket.io-client';
 import StudentAnswering from './StudentAnswering';
 import * as actionCreators from '../../action_creators';
 
 export const Student = React.createClass({
   render: function() {
+    var socket = io();
+    socket.emit('joinRoom', this.props.room);
     return (
       <div>
         <h4>Room Number: {this.props.room}</h4>

@@ -2,12 +2,15 @@ import React from 'react';
 import {connect} from 'react-redux';
 import EducatorRequestCheckin from './EducatorRequestCheckin';
 import ResultsDisplay from './ResultsDisplay';
+import io from 'socket.io-client';
 // import Navbar from './NavBarEducator';
 import * as actionCreators from '../../action_creators';
 
 export const Educator = React.createClass({
   render: function() {
   console.log("Ed const PROPS:", this.props);
+  var socket = io();
+  socket.emit('joinRoom', this.props.room);
     return (
       <div>
         <h4>Room Number: {this.props.room}</h4>
