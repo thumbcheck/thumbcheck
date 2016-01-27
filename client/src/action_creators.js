@@ -18,16 +18,24 @@ export function downvote() {
   };
 }
 
-export function startVote() {
+export function vote() {
+  return {
+    type: 'VOTE'
+  };
+}
+
+export function startVote(state) {
   return {
     meta: {remote: true},
-    type: 'START_VOTE'
+    type: 'START_VOTE',
+    state
   };
 }
 
 export function stopVote() {
   return {
     meta: {remote: true},
-    type: 'STOP_VOTE'
+    type: 'STOP_VOTE',
+    state
   };
 }
