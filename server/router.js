@@ -6,6 +6,7 @@ import path from 'path';
 
 const router = express.Router();
 
+
 var roomNumber = 0;
 
 function createRoom () {  
@@ -40,4 +41,6 @@ router.route('/:roomNumber')
     } else {
       res.sendFile(path.join(__dirname, "/../client/dist/index.html"));      
     }
-  });  
+  })  
+
+  export default router;

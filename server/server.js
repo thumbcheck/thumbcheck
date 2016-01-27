@@ -19,7 +19,6 @@ app.use('/', router);
 const server = app.listen(port, ()  => {
   console.log('Server listening at port ', port);
 });
-export default server;
 
 var io = socket.listen(server);
 
