@@ -8,7 +8,7 @@ export default React.createClass({
         <div className="up-thumb-count">{this.props.upCount}</div>
         <div className="down-thumb-count">{this.props.downCount}</div>
         
-        <button className="end-thumb-check" onClick={this.props.stopVote}>
+        <button className="btn orange white-text end-thumb-check" onClick={this.props.stopVote}>
         END VOTE
         </button>
       </div>
