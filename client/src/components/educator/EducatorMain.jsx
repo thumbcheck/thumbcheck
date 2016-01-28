@@ -14,7 +14,7 @@ export const Educator = React.createClass({
         <Navbar />          
         <div className="educator-container">
           <div className="center-text">
-            <h4>Share this URL with your students: thumbscheck.r/{this.props.room}</h4>
+            <h4>Share this URL with your students: {window.location.href.split('?')[0]}</h4>
             {this.props.voting ?
               <ResultsDisplay ref="resultsDisplay" {...this.props} /> :
               <EducatorRequestCheckin {...this.props} />
