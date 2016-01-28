@@ -8,13 +8,6 @@ import * as actionCreators from '../../action_creators';
 
 export const Educator = React.createClass({
   render: function() {
-  console.log("Ed const PROPS:", this.props);
-  var socket = io();
-  // socket.emit('joinRoom', this.props.room);
-  // socket.emit('vote', 'Yes');
-
-
-
     return (
       <div>
         <h4>Room Number: {this.props.room}</h4>
@@ -32,7 +25,6 @@ export const Educator = React.createClass({
     	// render whatever other view it's currently on
 
 function mapStateToProps(state) {
-  console.log("edMain state", state.getIn(['tally', 'thumbsUp']));
   return {
     voting: state.get('voting'),
     upCount: state.getIn(['tally', 'thumbsUp']),
@@ -40,7 +32,4 @@ function mapStateToProps(state) {
   };
 }
 
-export const EducatorContainer = connect(
-  mapStateToProps,
-  actionCreators
-)(Educator);
+export const EducatorContainer = connect(mapStateToProps,actionCreators)(Educator);

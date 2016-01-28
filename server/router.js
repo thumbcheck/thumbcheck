@@ -18,11 +18,7 @@ function createRoom () {
 router.route('/')
   .get((req, res) => {
     res.sendfile(__dirname + '/../client/dist/index.html');
-  })
-router.route('/whatever')
-  .get((req, res) => {
-    res.sendFile(path.join(__dirname, "/../client/dist/index.html"));
-  })
+  });
 
 router.route('/createRoom')
   .get((req, res) => {
@@ -41,6 +37,6 @@ router.route('/:roomNumber')
     } else {
       res.sendFile(path.join(__dirname, "/../client/dist/index.html"));
     }
-  })
+  });
 
   export default router;
