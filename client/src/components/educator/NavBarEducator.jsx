@@ -25,7 +25,7 @@ export default React.createClass({
 			            <li><a href="#">Another action</a></li>
 			            <li><a href="#">Something else here</a></li>
 			            <li role="separator" className="divider"></li>
-			            <li><a href="#"></a></li>
+			            <li><a href="#">Log out</a></li>
 			          </ul>
 			        </li>
 			      </ul>

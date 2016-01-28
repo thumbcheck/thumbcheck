@@ -8,12 +8,12 @@ import * as actionCreators from '../../action_creators';
 export const Student = React.createClass({
   render: function() {
     return (
-      <div>
-        <div className="student-container center-text">
+      <div className="student-container center-text">
           <h4>Room Number: {this.props.room}</h4>
+          <div className="student-content">
           {(this.props.voting && !this.props.hasVoted)?
             <StudentAnswering ref="answer" {...this.props} /> :
-            <Wait />}
+            <Wait  />}
         </div>
       </div>
     );

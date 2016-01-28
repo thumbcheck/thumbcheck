@@ -1,5 +1,11 @@
 /*  ********** general styles ************* */
-
+@font-face {
+  font-family: 'HelveticaNeue-Thin'; /*a name to be used later*/
+  src: url('../images/HelveticaNeue-Thin.otf'); /*URL to font*/
+}
+body {
+	font-family: 'HelveticaNeue-Thin';
+}
 .blue {	
 	background-color: #007DC3;
 }
@@ -19,6 +25,8 @@
 	text-align: center;
 }
 
+
+
 /*  ------- navbar styling  ----- */
 .brand-image {
 	width: 40px;
@@ -35,3 +43,20 @@
 
 
 /*  ************* student page styling  ************* */
+.student-content {
+	margin: 5% 10% 0 10%;	
+}
+.waiting-text {
+  font-size: 80px;
+  font-family: HelveticaNeue-Thin;
+  padding-bottom: 15px;
+  text-shadow: 6px 6px 10px rgba(f, f, f, 0.6);
+  color: #000;
+  font-weight: 400;
+}
+.thumbs {
+	width: 200px;
+	margin-left: 5%;
+}
+
+

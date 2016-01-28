@@ -12,8 +12,8 @@ export default React.createClass({
   render: function() {
     return (
       <div className="answering">
-        <button className="thumb-up" onClick ={this.upvoteClick}>THUMBS UP</button>
-        <button className="thumb-down" onClick={this.downvoteClick}>THUMBS DOWN</button>
+        <span className="thumb-up"><img src="/images/thumbsup3.ico" className="thumbs" onClick ={this.upvoteClick}></img></span>
+        <span className="thumb-down"><img src="/images/thumbsdown3.ico" className="thumbs" onClick={this.downvoteClick}></img></span>
       </div>
     );
   }
