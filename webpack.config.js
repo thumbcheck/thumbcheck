@@ -23,6 +23,6 @@ module.exports = {
     contentBase: './client/dist',
     hot: true
   },
-  plugins: [
+  plugins: []
 
 };
