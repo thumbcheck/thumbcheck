@@ -12,7 +12,7 @@ import MainLanding from './components/MainLanding';
 import setLocalStorage from './setLocalStorage';
 
 // Socket Connection to server
-const socket = io(`${location.protocol}//${location.hostname}:8090`);
+const socket = io();
 socket.on('remoteAction', function(remoteAction) {
   store.dispatch(remoteAction);
 });

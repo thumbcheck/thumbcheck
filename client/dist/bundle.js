@@ -54,7 +54,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "7b9c22910bc43876d833"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "71e704e98341523b5648"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
 /******/ 	
@@ -604,7 +604,7 @@
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	// Socket Connection to server
-	var socket = (0, _socket2.default)(location.protocol + '//' + location.hostname + ':8090');
+	var socket = (0, _socket2.default)();
 	socket.on('remoteAction', function (remoteAction) {
 	  store.dispatch(remoteAction);
 	});
