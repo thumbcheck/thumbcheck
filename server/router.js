@@ -3,30 +3,27 @@ import bodyParser from 'body-parser';
 import url from 'url';
 import app from './server';
 import path from 'path';
+import randomWord from 'random-word';
 
 const router = express.Router();
 
-
-var roomNumber = 0;
-
 function createRoom () {
-  roomNumber++;
-  return roomNumber;
+  return randomWord();
 }
 
 // base route directs to teacher landing page
 router.route('/')
   .get((req, res) => {
-    res.sendfile(__dirname + '/../client/dist/index.html');
+    res.sendFile(__dirname + '/../client/dist/index.html');
   });
 
 router.route('/createRoom')
   .get((req, res) => {
-    const number = createRoom();
-    res.redirect(`/${number}?type=host&roomNumber=${number}`);
+    const roomName = createRoom();
+    res.redirect(`/${roomName}?type=host&roomName=${roomName}`);
   });
 
-router.route('/:roomNumber')
+router.route('/:roomname')
   .get((req, res) => {
     // conditional to see if it's the host
     const url_parts = url.parse(req.url, true);
