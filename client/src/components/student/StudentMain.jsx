@@ -1,19 +1,24 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import Wait from './StudentWaiting';
+import WaitAnswered from './StudentAnsweredWaiting';
 import io from 'socket.io-client';
 import StudentAnswering from './StudentAnswering';
 import * as actionCreators from '../../action_creators';
 
 export const Student = React.createClass({
-  render: function() {
+      
+  render: function() {            
     return (
       <div className="student-container center-text">
-          <h4>Room Number: {this.props.room}</h4>
-          <div className="student-content">
-          {(this.props.voting && !this.props.hasVoted)?
-            <StudentAnswering ref="answer" {...this.props} /> :
-            <Wait  />}
+          <h4>Room name: {this.props.room}</h4>
+          <div className="student-content">   
+          
+            { (!this.props.voting) ? 
+                <Wait /> : 
+                (this.props.hasVoted) ?               
+                  <WaitAnswered /> : 
+                  <StudentAnswering ref="answer" {...this.props} /> }
         </div>
       </div>
     );
