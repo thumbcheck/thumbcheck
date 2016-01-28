@@ -54,7 +54,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "71e704e98341523b5648"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "9f60b9b3cd3b05cffafd"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
 /******/ 	
@@ -597,7 +597,7 @@
 
 	var _MainLanding2 = _interopRequireDefault(_MainLanding);
 
-	var _setLocalStorage = __webpack_require__(296);
+	var _setLocalStorage = __webpack_require__(297);
 
 	var _setLocalStorage2 = _interopRequireDefault(_setLocalStorage);
 
@@ -26140,15 +26140,23 @@
 	}
 
 	function upVote(state) {
-	  return state.updateIn(['tally', 'thumbsUp'], 0, function (thumbsUp) {
-	    return thumbsUp + 1;
-	  });
+	  if (state.get('hasVoted') !== true) {
+	    return state.updateIn(['tally', 'thumbsUp'], 0, function (thumbsUp) {
+	      return thumbsUp + 1;
+	    });
+	  } else {
+	    return state;
+	  }
 	}
 
 	function downVote(state) {
-	  return state.updateIn(['tally', 'thumbsDown'], 0, function (thumbsDown) {
-	    return thumbsDown + 1;
-	  });
+	  if (state.get('hasVoted') !== true) {
+	    return state.updateIn(['tally', 'thumbsDown'], 0, function (thumbsDown) {
+	      return thumbsDown + 1;
+	    });
+	  } else {
+	    return state;
+	  }
 	}
 
 	function stopVote() {
@@ -38830,6 +38838,10 @@
 
 	var _EducatorMain = __webpack_require__(293);
 
+	var _NavBarEducator = __webpack_require__(296);
+
+	var _NavBarEducator2 = _interopRequireDefault(_NavBarEducator);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	exports.default = _react2.default.createClass({
@@ -38844,33 +38856,37 @@
 	    } else {
 	      return _react2.default.createElement(
 	        'div',
-	        { className: 'jumbotron' },
+	        null,
 	        _react2.default.createElement(
-	          'h1',
-	          null,
-	          'Hello, world!'
-	        ),
-	        _react2.default.createElement(
-	          'p',
-	          null,
-	          'Welcome to whatever thisThisIsCalled.com! We are glad youre here.'
-	        ),
-	        _react2.default.createElement(
-	          'p',
-	          null,
+	          'div',
+	          { className: 'jumbotron' },
 	          _react2.default.createElement(
-	            'a',
-	            { className: 'btn btn-success btn-lg', href: '/createRoom', role: 'button' },
-	            'Get started'
-	          )
-	        ),
-	        _react2.default.createElement(
-	          'p',
-	          null,
+	            'h1',
+	            null,
+	            'Hello, world!'
+	          ),
 	          _react2.default.createElement(
-	            'a',
-	            { className: 'btn btn-primary btn-lg', href: '#', role: 'button' },
-	            'Learn more'
+	            'p',
+	            null,
+	            'Welcome to whatever thisThisIsCalled.com! We are glad youre here.'
+	          ),
+	          _react2.default.createElement(
+	            'p',
+	            null,
+	            _react2.default.createElement(
+	              'a',
+	              { className: 'btn btn-success btn-lg', href: '/createRoom', role: 'button' },
+	              'Get started'
+	            )
+	          ),
+	          _react2.default.createElement(
+	            'p',
+	            null,
+	            _react2.default.createElement(
+	              'a',
+	              { className: 'btn btn-primary btn-lg', href: '#', role: 'button' },
+	              'Learn more'
+	            )
 	          )
 	        )
 	      );
@@ -38928,14 +38944,18 @@
 	  render: function render() {
 	    return _react2.default.createElement(
 	      'div',
-	      null,
+	      { className: 'student-container center-text' },
 	      _react2.default.createElement(
 	        'h4',
 	        null,
 	        'Room Number: ',
 	        this.props.room
 	      ),
-	      this.props.voting && !this.props.hasVoted ? _react2.default.createElement(_StudentAnswering2.default, _extends({ ref: 'answer' }, this.props)) : _react2.default.createElement(_StudentWaiting2.default, null)
+	      _react2.default.createElement(
+	        'div',
+	        { className: 'student-content' },
+	        this.props.voting && !this.props.hasVoted ? _react2.default.createElement(_StudentAnswering2.default, _extends({ ref: 'answer' }, this.props)) : _react2.default.createElement(_StudentWaiting2.default, null)
+	      )
 	    );
 	  }
 	});
@@ -38978,7 +38998,7 @@
 	  render: function render() {
 	    return _react2.default.createElement(
 	      "div",
-	      { className: "waiting" },
+	      { className: "waiting waiting-text" },
 	      "You are connected. Please wait for teacher prompt."
 	    );
 	  }
@@ -39021,14 +39041,14 @@
 	      "div",
 	      { className: "answering" },
 	      _react2.default.createElement(
-	        "button",
-	        { className: "thumb-up", onClick: this.upvoteClick },
-	        "THUMBS UP"
+	        "span",
+	        { className: "thumb-up" },
+	        _react2.default.createElement("img", { src: "/images/thumbsup3.ico", className: "thumbs", onClick: this.upvoteClick })
 	      ),
 	      _react2.default.createElement(
-	        "button",
-	        { className: "thumb-down", onClick: this.downvoteClick },
-	        "THUMBS DOWN"
+	        "span",
+	        { className: "thumb-down" },
+	        _react2.default.createElement("img", { src: "/images/thumbsdown3.ico", className: "thumbs", onClick: this.downvoteClick })
 	      )
 	    );
 	  }
@@ -39046,7 +39066,6 @@
 	'use strict';
 
 	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-	// import Navbar from './NavBarEducator';
 
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
@@ -39071,6 +39090,10 @@
 
 	var _socket2 = _interopRequireDefault(_socket);
 
+	var _NavBarEducator = __webpack_require__(296);
+
+	var _NavBarEducator2 = _interopRequireDefault(_NavBarEducator);
+
 	var _action_creators = __webpack_require__(287);
 
 	var actionCreators = _interopRequireWildcard(_action_creators);
@@ -39086,20 +39109,25 @@
 	    return _react2.default.createElement(
 	      'div',
 	      null,
+	      _react2.default.createElement(_NavBarEducator2.default, null),
 	      _react2.default.createElement(
-	        'h4',
-	        null,
-	        'Room Number: ',
-	        this.props.room
-	      ),
-	      this.props.voting ? _react2.default.createElement(_ResultsDisplay2.default, _extends({ ref: 'resultsDisplay' }, this.props)) : _react2.default.createElement(_EducatorRequestCheckin2.default, this.props)
+	        'div',
+	        { className: 'educator-container' },
+	        _react2.default.createElement(
+	          'div',
+	          { className: 'center-text' },
+	          _react2.default.createElement(
+	            'h4',
+	            null,
+	            'Room Number: ',
+	            this.props.room
+	          ),
+	          this.props.voting ? _react2.default.createElement(_ResultsDisplay2.default, _extends({ ref: 'resultsDisplay' }, this.props)) : _react2.default.createElement(_EducatorRequestCheckin2.default, this.props)
+	        )
+	      )
 	    );
 	  }
 	});
-	// render the navbar
-	// <Navbar />
-
-	// render whatever other view it's currently on
 
 	function mapStateToProps(state) {
 	  return {
@@ -39141,7 +39169,7 @@
 	      null,
 	      _react2.default.createElement(
 	        'button',
-	        { type: 'button', className: 'thumb-check-start',
+	        { type: 'button', className: 'btn orange request-btn white-text thumb-check-start',
 	          onClick: this.props.startVote },
 	        'START VOTE'
 	      )
@@ -39189,7 +39217,7 @@
 	      ),
 	      _react2.default.createElement(
 	        "button",
-	        { className: "end-thumb-check", onClick: this.props.stopVote },
+	        { className: "btn orange request-btn white-text end-thumb-check", onClick: this.props.stopVote },
 	        "END VOTE"
 	      )
 	    );
@@ -39201,6 +39229,124 @@
 
 /***/ },
 /* 296 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/* WEBPACK VAR INJECTION */(function(module) {/* REACT HOT LOADER */ if (true) { (function () { var ReactHotAPI = __webpack_require__(3), RootInstanceProvider = __webpack_require__(11), ReactMount = __webpack_require__(13), React = __webpack_require__(66); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
+
+	"use strict";
+
+	Object.defineProperty(exports, "__esModule", {
+			value: true
+	});
+
+	var _react = __webpack_require__(66);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	exports.default = _react2.default.createClass({
+			displayName: "NavBarEducator",
+
+			render: function render() {
+					return _react2.default.createElement(
+							"nav",
+							{ className: "navbar navbar-default" },
+							_react2.default.createElement(
+									"div",
+									{ className: "container-fluid blue" },
+									_react2.default.createElement(
+											"div",
+											{ className: "navbar-header" },
+											_react2.default.createElement(
+													"button",
+													{ type: "button", className: "navbar-toggle collapsed", "data-toggle": "collapse", "data-target": "#bs-example-navbar-collapse-1", "aria-expanded": "false" },
+													_react2.default.createElement(
+															"span",
+															{ className: "sr-only" },
+															"Toggle navigation"
+													),
+													_react2.default.createElement("span", { className: "icon-bar" }),
+													_react2.default.createElement("span", { className: "icon-bar" }),
+													_react2.default.createElement("span", { className: "icon-bar" })
+											),
+											_react2.default.createElement(
+													"span",
+													{ className: "logo-name navbar-brand white-text" },
+													"Thumbscheck.r"
+											)
+									),
+									_react2.default.createElement(
+											"div",
+											{ className: "collapse navbar-collapse", id: "bs-example-navbar-collapse-1" },
+											_react2.default.createElement(
+													"ul",
+													{ className: "nav navbar-nav navbar-right" },
+													_react2.default.createElement(
+															"li",
+															{ className: "dropdown" },
+															_react2.default.createElement(
+																	"a",
+																	{ href: "#", className: "dropdown-toggle white-text", "data-toggle": "dropdown", role: "button", "aria-haspopup": "true", "aria-expanded": "false" },
+																	"Options",
+																	_react2.default.createElement("span", { className: "caret" })
+															),
+															_react2.default.createElement(
+																	"ul",
+																	{ className: "dropdown-menu" },
+																	_react2.default.createElement(
+																			"li",
+																			null,
+																			_react2.default.createElement(
+																					"a",
+																					{ href: "#" },
+																					"Action"
+																			)
+																	),
+																	_react2.default.createElement(
+																			"li",
+																			null,
+																			_react2.default.createElement(
+																					"a",
+																					{ href: "#" },
+																					"Another action"
+																			)
+																	),
+																	_react2.default.createElement(
+																			"li",
+																			null,
+																			_react2.default.createElement(
+																					"a",
+																					{ href: "#" },
+																					"Something else here"
+																			)
+																	),
+																	_react2.default.createElement("li", { role: "separator", className: "divider" }),
+																	_react2.default.createElement(
+																			"li",
+																			null,
+																			_react2.default.createElement(
+																					"a",
+																					{ href: "#" },
+																					"Log out"
+																			)
+																	)
+															)
+													)
+											)
+									)
+							)
+					);
+			}
+	});
+
+	// <!-- <img className="brand-image" alt="brand" src="https://upload.wikimedia.org/wikipedia/commons/b/b2/Hausziege_04.jpg"/> -->
+
+	/* REACT HOT LOADER */ }).call(this); } finally { if (true) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = __webpack_require__(237); if (makeExportsHot(module, __webpack_require__(66))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "NavBarEducator.jsx" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2)(module)))
+
+/***/ },
+/* 297 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(module) {/* REACT HOT LOADER */ if (true) { (function () { var ReactHotAPI = __webpack_require__(3), RootInstanceProvider = __webpack_require__(11), ReactMount = __webpack_require__(13), React = __webpack_require__(66); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
