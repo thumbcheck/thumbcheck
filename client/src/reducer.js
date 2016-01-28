@@ -9,19 +9,27 @@ function vote(state) {
 }
 
 function upVote(state) {
-  return state.updateIn(
-    ['tally', 'thumbsUp'],
-    0,
-    thumbsUp => thumbsUp + 1
-  );
+  if (state.get('hasVoted') !== true) {
+    return state.updateIn(
+      ['tally', 'thumbsUp'],
+      0,
+      thumbsUp => thumbsUp + 1
+    );    
+  } else {
+    return state;
+  }
 }
 
 function downVote(state) {
-  return state.updateIn(
-    ['tally', 'thumbsDown'],
-    0,
-    thumbsDown => thumbsDown + 1
-  );
+  if (state.get('hasVoted') !== true) {
+    return state.updateIn(
+      ['tally', 'thumbsDown'],
+      0,
+      thumbsDown => thumbsDown + 1
+    );    
+  } else {
+    return state;
+  }
 }
 
 function stopVote() {

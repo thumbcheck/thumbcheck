@@ -52,7 +52,69 @@ describe('reducer', () => {
     }));
   });
 
-  it('removes hasVoted on state when STOP_VOTE is emitted', () => {
+  it('handles UPVOTE', () => {
+    const initialState = fromJS({
+      voting: true,
+      tally: {
+        thumbsUp : 0,
+        thumbsDown: 0
+      }
+    });
+    const action = {type: 'UPVOTE'};
+    const nextState = reducer(initialState, action);
+    const finalState = reducer(nextState, {type: 'VOTE'});
+
+    expect(finalState).to.equal(fromJS({
+      voting: true,
+      hasVoted: true, 
+      tally: {
+        thumbsUp : 1,
+        thumbsDown: 0
+      }  
+    }));
+  });
+
+  it('handles DOWNVOTE', () => {
+    const initialState = fromJS({
+      voting: true,
+      tally: {
+        thumbsUp : 0,
+        thumbsDown: 0
+      }
+    });
+    const action = {type: 'DOWNVOTE'};
+    const nextState = reducer(initialState, action);
+    const finalState = reducer(nextState, {type: 'VOTE'});
+
+    expect(finalState).to.equal(fromJS({
+      voting: true,
+      hasVoted: true, 
+      tally: {
+        thumbsUp : 0,
+        thumbsDown: 1
+      }  
+    }));
+  });
+
+  it('handles START_VOTE', () => {
+    const initialState = fromJS({
+      state: {
+        voting: false
+      }
+    });
+    const action = {type: 'START_VOTE'};
+    const nextState = reducer(initialState, action);
+
+    expect(nextState).to.equal(fromJS({
+      voting: true,
+      tally: {
+        thumbsUp : 0,
+        thumbsDown: 0
+      }  
+    }));
+  });
+
+  it('it handles STOP_VOTE and removes hasVoted on state', () => {
     const initialState = fromJS({
       voting: true,
       hasVoted: true,
@@ -76,8 +138,8 @@ describe('reducer', () => {
     }));
   });
 
-  it('handles UPVOTE', () => {
-    const initialState = fromJS({
+  it('does not allow client to VOTE more than once in same voting period' , () => {
+    const state = fromJS({
       voting: true,
       tally: {
         thumbsUp : 0,
@@ -85,17 +147,28 @@ describe('reducer', () => {
       }
     });
     const action = {type: 'UPVOTE'};
-    const nextState = reducer(initialState, action);
-    const finalState = reducer(nextState, {type: 'VOTE'});
+    const action2 = {type: 'VOTE'};
+    const nextState = reducer(reducer(state, action), action2);
+    const finalState = reducer(reducer(nextState, action), action2);
 
-    expect(finalState).to.equal(fromJS({
+    expect(nextState).to.equal(fromJS({
       voting: true,
-      hasVoted: true, 
+      hasVoted: true,
       tally: {
         thumbsUp : 1,
         thumbsDown: 0
-      }  
+      }
+    }));
+
+    expect(finalState).to.equal(fromJS({
+      voting: true,
+      hasVoted: true,
+      tally: {
+        thumbsUp : 1,
+        thumbsDown: 0
+      }
     }));
   });
+
 
 });
