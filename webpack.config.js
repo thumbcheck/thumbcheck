@@ -24,5 +24,5 @@ module.exports = {
     hot: true
   },
   plugins: [
-  ]
+
 };
