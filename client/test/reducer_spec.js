@@ -75,4 +75,27 @@ describe('reducer', () => {
       hasVoted: false
     }));
   });
+
+  it('handles UPVOTE', () => {
+    const initialState = fromJS({
+      voting: true,
+      tally: {
+        thumbsUp : 0,
+        thumbsDown: 0
+      }
+    });
+    const action = {type: 'UPVOTE'};
+    const nextState = reducer(initialState, action);
+    const finalState = reducer(nextState, {type: 'VOTE'});
+
+    expect(finalState).to.equal(fromJS({
+      voting: true,
+      hasVoted: true, 
+      tally: {
+        thumbsUp : 1,
+        thumbsDown: 0
+      }  
+    }));
+  });
+
 });
