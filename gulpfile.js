@@ -9,7 +9,7 @@ gulp.task('babel', function () {
     gulp.src([es6Path])
         .pipe(plumber())
         .pipe(babel())
-        .pipe(gulp.dest(compilePath + '/babel'));
+        .pipe(gulp.dest(compilePath));
 });
 
 gulp.task('watch', function() {
