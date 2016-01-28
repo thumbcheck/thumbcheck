@@ -1,12 +1,32 @@
-/*  ********** educator page styling  ************* */
+/*  ********** general styles ************* */
+
+.blue {	
+	background-color: #007DC3;
+}
+.orange {	
+	background-color: #F05133;
+}
+.blueText {
+	color: #007DC3;
+}
+.orangeText {
+	color: #F05133;
+}
+.center-text {
+	text-align: center;
+}
 
 /*  ------- navbar styling  ----- */
 .brand-image {
 	width: 40px;
+	padding-top: 5px
 }
 
 
-
+/*  ********** educator page styling  ************* */
+.educator-content {
+	
+}
 
 
 
