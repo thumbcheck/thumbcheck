@@ -19,11 +19,11 @@ router.route('/')
 
 router.route('/createRoom')
   .get((req, res) => {
-    const number = createRoom();
-    res.redirect(`/${number}?type=host&roomNumber=${number}`);
+    const roomName = createRoom();
+    res.redirect(`/${roomName}?type=host&roomName=${roomName}`);
   });
 
-router.route('/:roomNumber')
+router.route('/:roomname')
   .get((req, res) => {
     // conditional to see if it's the host
     const url_parts = url.parse(req.url, true);
