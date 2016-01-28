@@ -46,6 +46,7 @@
     "history": "^1.17.0",
     "immutable": "^3.7.6",
     "path": "^0.12.7",
+    "random-word": "^1.0.2",
     "react": "^0.14.6",
     "react-dom": "^0.14.6",
     "react-redux": "^4.0.6",

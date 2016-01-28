@@ -24,15 +24,16 @@ var _path = require('path');
 
 var _path2 = _interopRequireDefault(_path);
 
+var _randomWord = require('random-word');
+
+var _randomWord2 = _interopRequireDefault(_randomWord);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var router = _express2.default.Router();
 
-var roomNumber = 0;
-
 function createRoom() {
-  roomNumber++;
-  return roomNumber;
+  return (0, _randomWord2.default)();
 }
 
 // base route directs to teacher landing page
