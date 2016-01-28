@@ -11,7 +11,7 @@ export const Educator = React.createClass({
     return (
       <div>
         <Navbar />          
-        <div className="educator-contain">
+        <div className="educator-container">
           <div className="center-text">
             <h4>Room Number: {this.props.room}</h4>
             {this.props.voting ?
