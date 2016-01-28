@@ -2,7 +2,6 @@ import React from 'react';
 
 export default React.createClass({
   render: function() {
-    console.log("resultsdisplay props", this.props);
     return (
       <div className="results-container">
 

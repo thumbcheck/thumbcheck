@@ -7,13 +7,6 @@ import * as actionCreators from '../../action_creators';
 
 export const Student = React.createClass({
   render: function() {
-    var socket = io();
-    socket.emit('joinRoom', this.props.room);
-
-  socket.on('newVotes', function (data) {
-    console.log(data);
-  });
-
     return (
       <div>
         <h4>Room Number: {this.props.room}</h4>
@@ -34,7 +27,4 @@ function mapStateToProps(state) {
   };
 }
 
-export const StudentContainer = connect(
-  mapStateToProps,
-  actionCreators
-)(Student);
+export const StudentContainer = connect(mapStateToProps,actionCreators)(Student);
