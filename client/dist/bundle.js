@@ -109,9 +109,14 @@
 	var createStoreWithMiddleware = (0, _redux.applyMiddleware)((0, _reduxStateEmitterMiddleware2.default)(socket))(_redux.createStore);
 	var store = createStoreWithMiddleware(_reducer2.default);
 
+	store.subscribe(function () {
+	  return socket.emit('state', store.getState().toJS());
+	});
+
 	/****THIS NEEDS TO BE REFACTORED (setLocalStorage()) ****/
 	// Join specific room when socket is created
 	socket.emit('joinRoom', (0, _setLocalStorage2.default)());
+	socket.emit('joinRoom', (0, _setLocalStorage2.default)(true, store));
 	/****END THIS NEEDS TO BE REFACTORED ***/
 
 	// Sets up Routing
@@ -25380,7 +25385,10 @@
 	var _immutable = __webpack_require__(228);
 
 	function setState(state, newState) {
-	  return state.merge(newState);
+	  console.log('newState', newState);
+	  var stateAfter = state.merge(newState);
+	  console.log('state after', stateAfter.toJS());
+	  return stateAfter;
 	}
 
 	function vote(state) {
@@ -38069,6 +38077,7 @@
 	exports.startVote = startVote;
 	exports.stopVote = stopVote;
 	function setState(state) {
+	  console.log('hi', state);
 	  return {
 	    type: 'SET_STATE',
 	    state: state
@@ -42446,25 +42455,41 @@
 	  value: true
 	});
 
-	exports.default = function () {
+	exports.default = function (moveToState, store) {
 	  var path = window.location.pathname.slice(1);
-	  // console.log(path);
+	  var stateAddition = {};
+
 	  window.localStorage.setItem('room', path);
 	  if (path && getParameterByName('type')) {
 	    // teacher in the room
+	    stateAddition.userType = 'educator';
 	    window.localStorage.setItem('userType', 'educator');
 	    // console.log('teacher in room')
 	  } else if (path[0]) {
 	      // student in the room
+	      stateAddition.userType = 'student';
 	      window.localStorage.setItem('userType', 'student');
 	      // console.log('student in room')
 	    } else {
 	        // teacher on the home page
+	        stateAddition.userType = '';
 	        window.localStorage.setItem('userType', '');
 	        // console.log('teacher on home page')
 	      }
+	  if (moveToState) {
+	    store.dispatch({
+	      type: 'SET_STATE',
+	      state: { currentRoom: path, userType: stateAddition.userType }
+	    });
+	  }
 	  return path;
 	};
+
+	var _react = __webpack_require__(2);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	function getParameterByName(name) {
 	  name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");

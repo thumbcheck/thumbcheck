@@ -7,8 +7,7 @@ import Navbar from './NavBarEducator';
 import * as actionCreators from '../../action_creators';
 
 export const Educator = React.createClass({
-  render: function() {
-    console.log('props here', this.props);
+  render: function() {    
     return (
       <div>
         <Navbar />          
