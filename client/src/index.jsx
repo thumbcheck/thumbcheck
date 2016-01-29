@@ -8,7 +8,7 @@ import App from './components/App';
 import io from 'socket.io-client';
 import {setState, startVote} from './action_creators';
 import reduxStateEmitterMiddleware from './reduxStateEmitterMiddleware';
-import MainLanding from './components/MainLanding';
+import {MainLandingContainer} from './components/MainLanding';
 import setLocalStorage from './setLocalStorage';
 import {Map} from 'immutable';
 
@@ -41,7 +41,7 @@ socket.emit('joinRoom', setLocalStorage(true, store ));
 
 // Sets up Routing
 const routes = <Route component={App}>
-  <Route path = '/' component={MainLanding} />
+  <Route path = '/' component={MainLandingContainer} />
 </Route>;
 
 
