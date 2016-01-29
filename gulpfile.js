@@ -2,7 +2,7 @@ var gulp = require('gulp'),
     traceur = require('gulp-traceur'),
     babel = require('gulp-babel'),
     plumber = require('gulp-plumber'),
-    es6Path = 'server/*.js',
+    es6Path = 'server/**/*.js',
     compilePath = 'compiled';
 
 gulp.task('babel', function () {

@@ -21,6 +21,10 @@ socket.on('remoteAction', function(remoteAction) {
 const createStoreWithMiddleware = applyMiddleware(reduxStateEmitterMiddleware(socket))(createStore);
 const store = createStoreWithMiddleware(reducer);
 
+store.subscribe(
+  () => socket.emit('state', store.getState().toJS())
+);
+
 /****THIS NEEDS TO BE REFACTORED (setLocalStorage()) ****/
 // Join specific room when socket is created
 socket.emit('joinRoom', setLocalStorage());
