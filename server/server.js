@@ -4,6 +4,7 @@ import bodyParser from 'body-parser';
 import path from 'path';
 import router from './router';
 import {toJS} from 'immutable';
+import redisStateController from './controllers/redisStateController';
 
 const port = process.env.PORT || 8090;
 
@@ -24,6 +25,10 @@ io.on('connection', (socket) => {
   socket.on('action', function(action) {
     action.meta.remote = false;
     socket.broadcast.to(socket.room).emit('remoteAction', action);
+  });
+
+  socket.on('state', function(state) {
+    redisStateController();
   });
 
   socket.on('joinRoom', (roomname) => {
