@@ -28,6 +28,7 @@ store.subscribe(
 /****THIS NEEDS TO BE REFACTORED (setLocalStorage()) ****/
 // Join specific room when socket is created
 socket.emit('joinRoom', setLocalStorage());
+socket.emit('joinRoom', setLocalStorage(true, store ));
 /****END THIS NEEDS TO BE REFACTORED ***/
 
 
