@@ -28,7 +28,7 @@ io.on('connection', (socket) => {
   });
 
   socket.on('state', function(state) {
-    redisStateController();
+    redisStateController(state);
   });
 
   socket.on('joinRoom', (roomname) => {

@@ -21,8 +21,8 @@ socket.on('remoteAction', function(remoteAction) {
 const createStoreWithMiddleware = applyMiddleware(reduxStateEmitterMiddleware(socket))(createStore);
 const store = createStoreWithMiddleware(reducer);
 
-store.dispatch(
-  () => socket.emit('state', store.getState())
+store.subscribe(
+  () => socket.emit('state', store.getState().toJS())
 );
 
 /****THIS NEEDS TO BE REFACTORED (setLocalStorage()) ****/
