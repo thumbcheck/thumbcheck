@@ -4,7 +4,7 @@ import bodyParser from 'body-parser';
 import path from 'path';
 import router from './router';
 import {toJS} from 'immutable';
-import redisStateController from './controllers/redisStateController';
+import {storeState, retrieveState} from './controllers/redisStateController';
 
 const port = process.env.PORT || 8090;
 
@@ -28,12 +28,15 @@ io.on('connection', (socket) => {
   });
 
   socket.on('state', function(state) {
-    redisStateController(state);
+    storeState(state);
   });
 
   socket.on('joinRoom', (roomname) => {
     socket.join(roomname);
     socket.room = roomname;
+    retrieveState(roomname, (appState) => {
+      socket.emit('syncState', appState);
+    });
   });
 
 });

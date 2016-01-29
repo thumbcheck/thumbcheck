@@ -1,7 +1,7 @@
 import redis from 'redis';
-import {fromJS} from 'immutable';
+import {Map,fromJS} from 'immutable';
 
-const scrubProps = ['hasVoted'];
+const scrubProps = ['hasVoted', 'userType'];
 
 function scrubState(state, props) {
   for (let i = 0; i < props.length; i++) {
@@ -12,16 +12,39 @@ function scrubState(state, props) {
   return state;
 }
 
-export default function(state) {
-    // scrub state (remove local values)
-    const appState = scrubState(state, scrubProps);
-    const appStateString = JSON.stringify(appState);
+export function storeState(state) {
+  // scrub state (remove local values)
+  const appState = scrubState(state, scrubProps);
+  const appStateString = JSON.stringify(appState);
+  console.log('in storeSTate', appStateString);
 
-    // connect to db
-    const client = redis.createClient();
-    client.set('1', appStateString, function(err, replies) {
-      if(err) throw new Error(err);
+  // connect to db
+  const client = redis.createClient();
+  client.set(state.currentRoom, appStateString, function(err, replies) {
+    if(err) throw new Error(err);
+    client.quit();
+  });
+}
 
-      client.quit();
-    });
+export function retrieveState(currentRoom, callback) {
+  const client = redis.createClient();
+  client.get(currentRoom, function(err, replies) {
+    if(err) throw new Error(err);
+    
+    replies = JSON.parse(replies);
+    if(replies) {
+      replies.connected = true;
+    } else {
+      replies = {connected: true};
+    }
+    console.log(replies, 'were');
+    let appState = {
+      type: 'SET_STATE',
+      state: replies
+    };
+    callback(appState);
+      
+
+    client.quit();
+  });
 }
