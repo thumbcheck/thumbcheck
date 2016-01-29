@@ -22,6 +22,10 @@ var _router2 = _interopRequireDefault(_router);
 
 var _immutable = require('immutable');
 
+var _redisStateController = require('./controllers/redisStateController');
+
+var _redisStateController2 = _interopRequireDefault(_redisStateController);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var port = process.env.PORT || 8090;
@@ -43,6 +47,10 @@ io.on('connection', function (socket) {
   socket.on('action', function (action) {
     action.meta.remote = false;
     socket.broadcast.to(socket.room).emit('remoteAction', action);
+  });
+
+  socket.on('state', function (state) {
+    (0, _redisStateController2.default)(state);
   });
 
   socket.on('joinRoom', function (roomname) {
