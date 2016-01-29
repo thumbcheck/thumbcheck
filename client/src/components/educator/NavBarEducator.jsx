@@ -12,7 +12,7 @@ export default React.createClass({
 			        <span className="icon-bar"></span>
 			        <span className="icon-bar"></span>
 			      </button>
-			      <span className="logo-name navbar-brand white-text">Thumbscheck.r</span>
+			      <a href="/"><span className="logo-name navbar-brand white-text">Thumbscheck.r</span></a>
 			      
 			    </div>
 			    
