@@ -29,7 +29,7 @@ export function vote() {
 export function startVote() {
   return {
     meta: {remote: true},
-    type: 'START_VOTE',
+    type: 'START_VOTE'
   };
 }
 

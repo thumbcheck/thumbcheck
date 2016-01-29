@@ -32,18 +32,20 @@ function downVote(state) {
   }
 }
 
-function stopVote() {
-  return fromJS({voting: false, hasVoted: false});
+function stopVote(state) {
+  const newState = fromJS({voting: false, hasVoted: false});
+  return state.merge(newState);
 }
 
-function startVote() {
-  return fromJS({
+function startVote(state) {
+  const newState = fromJS({
    voting: true,
    tally: {
     thumbsUp : 0,
     thumbsDown: 0
    }
  });
+  return state.merge(newState);
 }
 
 
@@ -58,9 +60,9 @@ export default function(state = fromJS({voting: false}), action) {
   case 'DOWNVOTE':
     return downVote(state);
   case 'STOP_VOTE':
-    return stopVote();
+    return stopVote(state);
   case 'START_VOTE':
-    return startVote();
+    return startVote(state);
   }
   return state;
 }

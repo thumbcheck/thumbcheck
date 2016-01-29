@@ -10,24 +10,31 @@ import {setState, startVote} from './action_creators';
 import reduxStateEmitterMiddleware from './reduxStateEmitterMiddleware';
 import MainLanding from './components/MainLanding';
 import setLocalStorage from './setLocalStorage';
+import {Map} from 'immutable';
 
 // Socket Connection to server
 const socket = io();
-socket.on('remoteAction', function(remoteAction) {
+socket.on('remoteAction', (remoteAction) => {
   store.dispatch(remoteAction);
+});
+socket.on('syncState', (appState) => {
+  store.dispatch(appState);
 });
 
 // Create redux store
 const createStoreWithMiddleware = applyMiddleware(reduxStateEmitterMiddleware(socket))(createStore);
 const store = createStoreWithMiddleware(reducer);
 
-store.subscribe(
-  () => socket.emit('state', store.getState().toJS())
-);
+store.subscribe(() => {
+  let currentState = store.getState().toJS();
+  if(currentState.connected) {
+    socket.emit('state', store.getState().toJS());
+  }
+});
 
 /****THIS NEEDS TO BE REFACTORED (setLocalStorage()) ****/
 // Join specific room when socket is created
-socket.emit('joinRoom', setLocalStorage());
+// socket.emit('joinRoom', setLocalStorage());
 socket.emit('joinRoom', setLocalStorage(true, store ));
 /****END THIS NEEDS TO BE REFACTORED ***/
 
