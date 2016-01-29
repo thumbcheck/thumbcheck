@@ -25,15 +25,7 @@ router.route('/createRoom')
 
 router.route('/:roomname')
   .get((req, res) => {
-    // conditional to see if it's the host
-    const url_parts = url.parse(req.url, true);
-    const query = url_parts.query;
-    const isEducator = query.type !== undefined ? true : false;
-    if (isEducator) {
-      res.sendFile(path.join(__dirname, "/../client/dist/index.html"));
-    } else {
-      res.sendFile(path.join(__dirname, "/../client/dist/index.html"));
-    }
+    res.sendFile(path.join(__dirname, "/../client/dist/index.html"));
   });
 
   export default router;
