@@ -38180,7 +38180,7 @@
 	        null,
 	        _react2.default.createElement(
 	          'div',
-	          { className: 'jumbotron' },
+	          { className: 'jumbotron center-text' },
 	          _react2.default.createElement(
 	            'h1',
 	            null,
@@ -38198,15 +38198,6 @@
 	              'a',
 	              { className: 'btn btn-success btn-lg', href: '/createRoom', role: 'button' },
 	              'Get started'
-	            )
-	          ),
-	          _react2.default.createElement(
-	            'p',
-	            null,
-	            _react2.default.createElement(
-	              'a',
-	              { className: 'btn btn-primary btn-lg', href: '#', role: 'button' },
-	              'Learn more'
 	            )
 	          )
 	        )
