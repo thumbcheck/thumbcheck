@@ -7,18 +7,25 @@ import StudentAnswering from './StudentAnswering';
 import * as actionCreators from '../../action_creators';
 
 export const Student = React.createClass({
-      
+  renderProperElement: function() {
+    if(!this.props.voting) {
+      if(this.props.voting === false) {
+        return <Wait/>;
+      } else {
+        return null;
+      }
+    } else if (this.props.hasVoted) {
+      return <WaitAnswered />;
+    } else {
+      return <StudentAnswering ref="answer" {...this.props} />;
+    }
+  },
   render: function() {            
     return (
       <div className="student-container center-text">
           <h4>Room name: {this.props.room}</h4>
           <div className="student-content">   
-          
-            { (!this.props.voting) ? 
-                <Wait /> : 
-                (this.props.hasVoted) ?               
-                  <WaitAnswered /> : 
-                  <StudentAnswering ref="answer" {...this.props} /> }
+            {this.renderProperElement()}
         </div>
       </div>
     );

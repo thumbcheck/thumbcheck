@@ -7,6 +7,9 @@ import Navbar from './NavBarEducator';
 import * as actionCreators from '../../action_creators';
 
 export const Educator = React.createClass({
+  componentDidMount: function() {
+    this.props.stopVote();
+  },
   render: function() {    
     return (
       <div>

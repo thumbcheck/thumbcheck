@@ -49,7 +49,7 @@ function startVote(state) {
 }
 
 
-export default function(state = fromJS({voting: false}), action) {
+export default function(state = fromJS({}), action) {
   switch (action.type) {
   case 'SET_STATE':
     return setState(state, action.state);
