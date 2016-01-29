@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node compiled/server.js",
+    "start": "webpack; gulp; node compiled/server.js",
     "test": "mocha --compilers js:babel-core/register --require ./client/test/test_helper.js 'client/test/**/*.@(js|jsx)'"
   },
   "babel": {

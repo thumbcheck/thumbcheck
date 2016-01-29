@@ -12,10 +12,4 @@ gulp.task('babel', function () {
         .pipe(gulp.dest(compilePath));
 });
 
-gulp.task('watch', function() {
-
-    gulp.watch([es6Path], ['babel']);
-
-});
-
-gulp.task('default', ['babel', 'watch']);
+gulp.task('default', ['babel']);
