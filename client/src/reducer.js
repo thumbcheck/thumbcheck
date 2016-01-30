@@ -48,12 +48,14 @@ function startVote(state) {
     window.localStorage.setItem('hasVoted', false);
   }
   const newState = fromJS({
-    voting: true,
+    voting: true,    
+    showgraph: "1",
     tally: {
       thumbsUp : 0,
       thumbsDown: 0
     }
   });
+  console.log('new', newState);
   return state.merge(newState);
 }
 

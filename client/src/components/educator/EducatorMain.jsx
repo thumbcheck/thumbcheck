@@ -8,10 +8,14 @@ import QuestionButton from './QuestionButton';
 import * as actionCreators from '../../action_creators';
 
 export const Educator = React.createClass({
+ componentWillMount: function() {
+   return this.props.showgraph === "1" ? "1" : "0";  
+ },
  componentDidMount: function() {
    this.props.stopVote();
  },
- render: function() {     
+ render: function() {  
+  console.log('on parent', this.props);   
    return (
      <div>
        <Navbar />          
@@ -25,6 +29,7 @@ export const Educator = React.createClass({
               <EducatorRequestCheckin {...this.props} />
             }
           </div>
+
        </div>
      </div>
    )
