@@ -97,11 +97,7 @@ describe('reducer', () => {
   });
 
   it('handles START_VOTE', () => {
-    const initialState = fromJS({
-      state: {
-        voting: false
-      }
-    });
+    const initialState = fromJS({});
     const action = {type: 'START_VOTE'};
     const nextState = reducer(initialState, action);
 
@@ -134,7 +130,11 @@ describe('reducer', () => {
 
     expect(nextState).to.equal(fromJS({
       voting: false,
-      hasVoted: false
+      hasVoted: false,
+      tally: {
+        thumbsUp : 5,
+        thumbsDown: 2
+      }
     }));
   });
 

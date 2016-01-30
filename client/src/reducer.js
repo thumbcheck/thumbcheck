@@ -39,12 +39,12 @@ function stopVote(state) {
 
 function startVote(state) {
   const newState = fromJS({
-   voting: true,
-   tally: {
-    thumbsUp : 0,
-    thumbsDown: 0
-   }
- });
+    voting: true,
+    tally: {
+      thumbsUp : 0,
+      thumbsDown: 0
+    }
+  });
   return state.merge(newState);
 }
 
