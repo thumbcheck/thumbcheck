@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "start": "webpack; gulp; node compiled/server.js",
-    "test": "mocha --compilers js:babel-core/register --require ./client/test/test_helper.js 'client/test/**/*.@(js|jsx)'",
-    "test-server": "mocha --compilers js:babel-core/register 'server/test/server/server_spec.@(js|jsx)' "
+    "test": "mocha --compilers js:babel-core/register --require ./client/test/test_helper.js 'client/test/**/*.@(js|jsx)' 'server/test/server/server_spec.@(js|jsx)' "
+    //"test-server": "mocha --compilers js:babel-core/register 'server/test/server/server_spec.@(js|jsx)' "
   },
   "babel": {
     "presets": [

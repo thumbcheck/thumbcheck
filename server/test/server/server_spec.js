@@ -4,7 +4,7 @@ import router from '../../router';
 //import stubs from './Stubs';
 import request from 'request';
 
-describe('server requests', () => {
+describe('server HTTP requests', () => {
   // see if it sends back 200 for main page
   it('responds with "200 OK" for a GET request for main landing page', () => {    
     request('http://localhost:8090', (error, response, done) => {
