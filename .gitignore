@@ -4,6 +4,7 @@ npm-debug.log
 .notes
 compiled
 client/dist/bundle.js
+dump.rdb
 
 # Elastic Beanstalk Files
 .elasticbeanstalk/*
