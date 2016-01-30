@@ -16,11 +16,10 @@ export function storeState(state) {
   // scrub state (remove local values)
   const appState = scrubState(state, scrubProps);
   const appStateString = JSON.stringify(appState);
-  console.log('in storeSTate', appStateString);
 
   // connect to db
   const client = redis.createClient();
-  client.set(state.currentRoom, appStateString, function(err, replies) {
+  client.set(state.currentRoom, appStateString, (err, replies) => {
     if(err) throw new Error(err);
     client.quit();
   });
@@ -28,21 +27,25 @@ export function storeState(state) {
 
 export function retrieveState(currentRoom, callback) {
   const client = redis.createClient();
-  client.get(currentRoom, function(err, replies) {
+  client.get(currentRoom, (err, replies) => {
     if(err) throw new Error(err);
     
+    // Handle reply from db
     replies = JSON.parse(replies);
     if(replies) {
       replies.connected = true;
     } else {
       replies = {connected: true};
     }
-    console.log(replies, 'were');
+
+    // Create Action Creator
     let appState = {
       type: 'SET_STATE',
       state: replies
     };
-    callback(appState);
+
+    // Callback 
+    callback(err, appState);
       
 
     client.quit();
