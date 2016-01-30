@@ -9,8 +9,9 @@ import * as actionCreators from '../../action_creators';
 export const Student = React.createClass({
   askQuestion: function(name) {
     // change to not be hardcoded later
+    const studentId = Math.floor(Math.random() * (1000 - 1) * 1);
     name = 'joey';    
-    this.props.addQuestionToQueue(name);  
+    this.props.addQuestionToQueue(name, studentId);  
   },
 
  renderProperElement: function() {

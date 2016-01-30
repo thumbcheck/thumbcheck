@@ -45,10 +45,11 @@ export function toggleTakingQuestions() {
     type: 'TAKING_QUESTIONS',
   };
 }
-export function addQuestionToQueue(name) {
+export function addQuestionToQueue(name, id) {
   return {
     meta: {remote: true},
     type: 'ADD_QUESTION',
-    name: name
+    name: name,
+    id: id
   };
 }

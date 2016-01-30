@@ -84,17 +84,17 @@ function toggleTakingQuestions(state) {
   }
 }
 
-function addQuestion(state, name) {  
+function addQuestion(state, name, id) {  
   return state.updateIn(
     ['questions'],
     0,
-    questions => questions.push(name)     
+    questions => questions.push({id: id, name: name})     
   );
 }
 
 
 
-export default function(state = fromJS({questions: []}), action) {
+export default function(state = fromJS({questions: fromJS([]) }), action) {
   switch (action.type) {
   case 'SET_STATE':
     return setState(state, action.state);
@@ -111,7 +111,7 @@ export default function(state = fromJS({questions: []}), action) {
   case 'TAKING_QUESTIONS':
     return toggleTakingQuestions(state);
   case 'ADD_QUESTION':        
-    return addQuestion(state, action.name);
+    return addQuestion(state, action.name, action.id);
   }
   return state;
 }
