@@ -51,6 +51,9 @@ body {
 	width: 600px;
 	height: 450px;
 }
+.dont-show {
+	display: none;
+}
 
 
 /*  ************* student page styling  ************* */

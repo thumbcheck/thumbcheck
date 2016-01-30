@@ -7,6 +7,12 @@ import StudentAnswering from './StudentAnswering';
 import * as actionCreators from '../../action_creators';
 
 export const Student = React.createClass({
+  askQuestion: function(name) {
+    // change to not be hardcoded later
+    name = 'joey';    
+    this.props.addQuestionToQueue(name);  
+  },
+
  renderProperElement: function() {
    if(!this.props.voting) {
      if(this.props.voting === false) {
@@ -20,11 +26,11 @@ export const Student = React.createClass({
      return <StudentAnswering ref="answer" {...this.props} />;
    }
  },
- render: function() {
- console.log('state student', this.props);
+ render: function() {  
+  console.log('state student', this.props);
    return (
      <div className="student-container center-text">
-         <h4>Room name: {this.props.currentRoom}</h4>
+         <h4 onClick={this.askQuestion}>Room name: {this.props.currentRoom}</h4>
          <div className="student-content">
            {this.renderProperElement()}
        </div>

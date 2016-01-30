@@ -48,12 +48,13 @@ function startVote(state) {
     window.localStorage.setItem('hasVoted', false);
   }
   const newState = fromJS({
-    voting: true,
+    voting: true,    
+    showgraph: "1",
     tally: {
       thumbsUp : 0,
       thumbsDown: 0
     }
-  });
+  }); 
   return state.merge(newState);
 }
 
@@ -83,8 +84,17 @@ function toggleTakingQuestions(state) {
   }
 }
 
+function addQuestion(state, name) {  
+  return state.updateIn(
+    ['questions'],
+    0,
+    questions => questions.push(name)     
+  );
+}
 
-export default function(state = fromJS({}), action) {
+
+
+export default function(state = fromJS({questions: []}), action) {
   switch (action.type) {
   case 'SET_STATE':
     return setState(state, action.state);
@@ -100,6 +110,8 @@ export default function(state = fromJS({}), action) {
     return startVote(state);
   case 'TAKING_QUESTIONS':
     return toggleTakingQuestions(state);
+  case 'ADD_QUESTION':        
+    return addQuestion(state, action.name);
   }
   return state;
 }
