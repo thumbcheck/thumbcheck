@@ -15,7 +15,7 @@ export const Educator = React.createClass({
    this.props.stopVote();
  },
  render: function() {  
-  console.log('on parent', this.props);   
+  console.log('on teacher main', this.props);   
    return (
      <div>
        <Navbar />          

@@ -4,10 +4,10 @@ import QuestionButton from './QuestionButton';
 
 export default React.createClass({
   showGraph: function() {
-    return this.props.showgraph === "1" ? "last-graph-container" : "dont-show";
+    // change later to conditional
+    return this.props.showgraph === "1" ? "last-graph-container" : "last-graph-container";
   },
-  render: function() {
-    console.log('on page', this.props);
+  render: function() {    
     return (
       <div>
         <button type='button' className="btn orange request-btn white-text thumb-check-start"
