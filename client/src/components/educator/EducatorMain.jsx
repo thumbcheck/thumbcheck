@@ -4,6 +4,7 @@ import EducatorRequestCheckin from './EducatorRequestCheckin';
 import ResultsDisplay from './ResultsDisplay';
 import io from 'socket.io-client';
 import Navbar from './NavBarEducator';
+import QuestionButton from './QuestionButton';
 import * as actionCreators from '../../action_creators';
 
 export const Educator = React.createClass({
@@ -14,16 +15,16 @@ export const Educator = React.createClass({
    return (
      <div>
        <Navbar />          
-       <div className="educator-container">
-         <div className="center-text">
-           <h4>Share this URL with your students: {window.location.href.split('?')[0]}
-           <br />Or have them enter this room name: {this.props.currentRoom}
-           </h4>
-           {this.props.voting ?
-             <ResultsDisplay ref="resultsDisplay" {...this.props} /> :
-             <EducatorRequestCheckin {...this.props} />
-           }
-         </div>
+        <div className="educator-container">
+          <div className="center-text">
+            <h4>Share this URL with your students: {window.location.href.split('?')[0]}
+            <br />Or have them enter this room name: {this.props.currentRoom}
+            </h4>
+            {this.props.voting ?
+              <ResultsDisplay ref="resultsDisplay" {...this.props} /> :
+              <EducatorRequestCheckin {...this.props} />
+            }
+          </div>
        </div>
      </div>
    )

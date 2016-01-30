@@ -1,5 +1,6 @@
 import React from 'react';
 import BarGraph from './EducatorBarGraph';
+import QuestionButton from './QuestionButton';
 
 export default React.createClass({  
 
@@ -15,6 +16,7 @@ export default React.createClass({
         <button className="btn orange request-btn white-text end-thumb-check" onClick={this.props.stopVote}>
         END VOTE
         </button>
+        <QuestionButton {...this.props}/>
       </div>
     );    
     

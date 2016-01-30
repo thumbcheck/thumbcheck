@@ -1,5 +1,4 @@
 export function setState(state) {
-  console.log('hi', state);
   return {
     type: 'SET_STATE',
     state
@@ -37,5 +36,12 @@ export function stopVote() {
   return {
     meta: {remote: true},
     type: 'STOP_VOTE',
+  };
+}
+
+export function toggleTakingQuestions() {
+  return {
+    meta: {remote: true},
+    type: 'TAKING_QUESTIONS',
   };
 }

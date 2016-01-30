@@ -4,6 +4,8 @@ import reducer from '../src/reducer';
 
 describe('reducer', () => {
 
+  const window = false;
+
   it('handles SET_STATE', () => {
     const initialState = Map();
     const action = {
@@ -170,5 +172,45 @@ describe('reducer', () => {
     }));
   });
 
+  it('handles TAKING_QUESTIONS', () => {
+    const initialState = fromJS({
+      voting: true,
+      tally: {
+        thumbsUp : 0,
+        thumbsDown: 0
+      }
+    });
+    const action = {type: 'TAKING_QUESTIONS'};
+    const nextState = reducer(initialState, action);
+
+    expect(nextState).to.equal(fromJS({
+      voting: true,
+      takingQuestions: {
+        takingQuestions: true,
+        buttonClass: 'btn red request-btn white-text',
+        buttonText: 'End Allow Questions'
+      },
+      tally: {
+        thumbsUp : 0,
+        thumbsDown: 0
+      }  
+    }));
+
+    const finalState = reducer(nextState, action);
+
+    expect(finalState).to.equal(fromJS({
+      voting: true,
+      takingQuestions: {
+        takingQuestions: false,
+        buttonClass: 'btn green request-btn white-text',
+        buttonText: 'Allow Questions'
+      },
+      tally: {
+        thumbsUp : 0,
+        thumbsDown: 0
+      }  
+    }));
+
+  });
 
 });

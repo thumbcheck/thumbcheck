@@ -5,7 +5,9 @@ function setState(state, newState) {
 }
 
 function vote(state) {
-  window.localStorage.setItem('hasVoted', true);
+  if (window) {
+    window.localStorage.setItem('hasVoted', true);
+  }
   return state.set('hasVoted', true);
 }
 
@@ -35,12 +37,16 @@ function downVote(state) {
 
 function stopVote(state) {
   const newState = fromJS({voting: false, hasVoted: false});
-  window.localStorage.setItem('hasVoted', false);
+  if (window) {
+    window.localStorage.setItem('hasVoted', false);
+  }
   return state.merge(newState);
 }
 
 function startVote(state) {
-  window.localStorage.setItem('hasVoted', false);
+  if (window) {
+    window.localStorage.setItem('hasVoted', false);
+  }
   const newState = fromJS({
     voting: true,
     tally: {
@@ -49,6 +55,32 @@ function startVote(state) {
     }
   });
   return state.merge(newState);
+}
+
+function toggleTakingQuestions(state) {
+
+  // Take care of takingQuestions is undefined case
+  let currentTakingQuestions = state.get('takingQuestions');
+  if (currentTakingQuestions) {
+    currentTakingQuestions = state.getIn(['takingQuestions', 'allowQuestions']);
+  }
+  if (currentTakingQuestions) {
+    return state.merge(fromJS({
+      takingQuestions: {
+        allowQuestions: false,
+        buttonClass: 'btn btn-success request-btn white-text',
+        buttonText: 'Allow Questions'
+      }
+    }));
+  } else {
+    return state.merge(fromJS({
+      takingQuestions: {
+        allowQuestions: true,
+        buttonClass: 'btn btn-danger request-btn white-text',
+        buttonText: 'End Allow Questions'
+      }
+    }));
+  }
 }
 
 
@@ -66,6 +98,8 @@ export default function(state = fromJS({}), action) {
     return stopVote(state);
   case 'START_VOTE':
     return startVote(state);
+  case 'TAKING_QUESTIONS':
+    return toggleTakingQuestions(state);
   }
   return state;
 }
