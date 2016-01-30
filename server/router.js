@@ -17,7 +17,7 @@ router.route('/')
     res.sendFile(__dirname + '/../client/dist/index.html');
   });
 
-router.route('/createRoom')
+router.route('/room')
   .get((req, res) => {
     const roomName = createRoom();
     res.redirect(`/${roomName}?type=host&roomName=${roomName}`);
