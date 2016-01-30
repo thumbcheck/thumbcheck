@@ -17,8 +17,8 @@ export const Main = React.createClass({
      return (
        <div>           
            <div className="jumbotron center-text">
-                 <h1>Hello, world!</h1>
-                 <p>Welcome to whatever thisThisIsCalled.com! We are glad youre here.</p>
+                 <h1>Hello!</h1>
+                 <p>Welcome to Thumbcheck</p>
                  <p><a className="btn btn-success btn-lg" href="/room" role="button">Get started</a></p>                  
                </div>
        </div>
