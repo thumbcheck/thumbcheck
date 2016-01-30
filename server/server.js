@@ -22,7 +22,7 @@ var io = socket.listen(server);
 
 io.on('connection', (socket) => {
 
-  socket.on('action', function(action) {
+  socket.on('action', (action) => {
     action.meta.remote = false;
     socket.broadcast.to(socket.room).emit('remoteAction', action);
   });
