@@ -40,4 +40,8 @@ io.on('connection', (socket) => {
     });
   });
 
+  socket.on('error', (err) =>{
+    if(err) throw new Error(err);
+  });
+
 });
