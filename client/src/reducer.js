@@ -92,6 +92,13 @@ function addQuestion(state, name, id) {
   );
 }
 
+function toggleHandRaise(state) {
+  if (state.get('handRaised')) {
+    return state.set('handRaised', false);
+  } else {
+    return state.set('handRaised', true);
+  }
+}
 
 
 export default function(state = fromJS({questions: fromJS([]) }), action) {
@@ -111,7 +118,9 @@ export default function(state = fromJS({questions: fromJS([]) }), action) {
   case 'TAKING_QUESTIONS':
     return toggleTakingQuestions(state);
   case 'ADD_QUESTION':        
-    return addQuestion(state, action.name, action.id);
+    return addQuestion(state, action.name);
+  case 'TOGGLE_HAND_RAISE':
+    return toggleHandRaise(state);
   }
   return state;
 }

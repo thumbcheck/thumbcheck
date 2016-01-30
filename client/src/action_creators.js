@@ -53,3 +53,9 @@ export function addQuestionToQueue(name, id) {
     id: id
   };
 }
+
+export function toggleHandRaise() {
+  return {
+    type: 'TOGGLE_HAND_RAISE'
+  };
+}
