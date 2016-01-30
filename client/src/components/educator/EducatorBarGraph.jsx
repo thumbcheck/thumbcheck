@@ -18,8 +18,9 @@ export default React.createClass({
 		    data: [this.props.downCount]
 		  }]
 		};
-
-    return <BarGraph data={barChartData} width="600" height="450"/>
+		//if (this.props.lastOrCurrent === undefined) {this.props.lastOrCurrent = 'current-result-graph';}
+		console.log('lat or current?', this.props.lastOrCurrent);
+    return <BarGraph data={barChartData} className={this.props.lastOrCurrent} />
   }
 });
 

@@ -1,4 +1,3 @@
-
 import React from 'react';
 import {connect} from 'react-redux';
 import EducatorRequestCheckin from './EducatorRequestCheckin';
@@ -11,14 +10,15 @@ export const Educator = React.createClass({
  componentDidMount: function() {
    this.props.stopVote();
  },
- render: function() {    
-   console.log('state educator', this.props);
+ render: function() {     
    return (
      <div>
        <Navbar />          
        <div className="educator-container">
          <div className="center-text">
-           <h4>Share this URL with your students: {window.location.href.split('?')[0]}</h4>
+           <h4>Share this URL with your students: {window.location.href.split('?')[0]}
+           <br />Or have them enter this room name: {this.props.currentRoom}
+           </h4>
            {this.props.voting ?
              <ResultsDisplay ref="resultsDisplay" {...this.props} /> :
              <EducatorRequestCheckin {...this.props} />
