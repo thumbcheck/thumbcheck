@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "webpack; gulp; node compiled/server.js",
-    "test": "mocha --compilers js:babel-core/register --require ./client/test/test_helper.js 'client/test/**/*.@(js|jsx)'"
+    "test": "mocha --compilers js:babel-core/register --require ./client/test/test_helper.js 'client/test/**/*.@(js|jsx)' 'server/test/server/server_spec.@(js|jsx)'"
   },
   "babel": {
     "presets": [
@@ -43,9 +43,9 @@
   "dependencies": {
     "body-parser": "^1.14.2",
     "chart.js": "^1.0.2",
-    "express": "^4.13.4",
+    "express": "^4.13.4", 
     "history": "^1.17.0",
-    "immutable": "^3.7.6",
+    "immutable": "^3.7.6",    
     "path": "^0.12.7",
     "random-word": "^1.0.2",
     "react": "^0.14.6",

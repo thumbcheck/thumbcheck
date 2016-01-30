@@ -20,7 +20,7 @@ export const Main = React.createClass({
            <div className="jumbotron center-text">
                  <h1>Hello, world!</h1>
                  <p>Welcome to whatever thisThisIsCalled.com! We are glad youre here.</p>
-                 <p><a className="btn btn-success btn-lg" href="/createRoom" role="button">Get started</a></p>                  
+                 <p><a className="btn btn-success btn-lg" href="/room" role="button">Get started</a></p>                  
                </div>
        </div>
      );
