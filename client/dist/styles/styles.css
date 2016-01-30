@@ -25,8 +25,6 @@ body {
 	text-align: center;
 }
 
-
-
 /*  ------- navbar styling  ----- */
 .brand-image {
 	width: 40px;	
@@ -42,8 +40,17 @@ body {
 .move-right {
 	margin-left: 5%;
 }
-
-
+.last-graph-container {
+	margin-top: 6%;
+}
+.last-result-graph {
+	width: 500px;
+	height: 350px;
+}
+.current-result-graph {
+	width: 600px;
+	height: 450px;
+}
 
 
 /*  ************* student page styling  ************* */

@@ -8,8 +8,7 @@ import * as actionCreators from '../action_creators';
 
 export const Main = React.createClass({
  /*** NEED TO REFACTOR LOCAL STORAGE ITEMS ***/
- render: function() {
-   console.log('state main', this.props);
+ render: function() {   
    if (this.props.userType === 'student') {
      return <StudentContainer userType={this.props.userType} currentRoom={this.props.currentRoom} />
    } else if (this.props.userType === 'educator') {
