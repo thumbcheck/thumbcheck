@@ -5,6 +5,7 @@ import WaitAnswered from './StudentAnsweredWaiting';
 import io from 'socket.io-client';
 import StudentAnswering from './StudentAnswering';
 import * as actionCreators from '../../action_creators';
+import RaiseHand from './RaiseHand';
 
 export const Student = React.createClass({
   askQuestion: function(name) {
@@ -33,8 +34,9 @@ export const Student = React.createClass({
      <div className="student-container center-text">
          <h4 onClick={this.askQuestion}>Room name: {this.props.currentRoom}</h4>
          <div className="student-content">
-           {this.renderProperElement()}
-       </div>
+           {this.renderProperElement()}  
+         </div>
+         <RaiseHand {...this.props} />
      </div>
    );
  }
@@ -45,7 +47,8 @@ function mapStateToProps(state) {
    voting: state.get('voting'),
    upvote: state.getIn(['tally', 'thumbsUp']),
    downvote: state.getIn(['tally', 'thumbsDown']),
-   hasVoted: state.get('hasVoted')
+   hasVoted: state.get('hasVoted'),
+   handRaised: state.get('handRaised')
  };
 }
 
