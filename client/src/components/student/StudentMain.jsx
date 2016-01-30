@@ -14,18 +14,18 @@ export const Student = React.createClass({
      } else {
        return null;
      }
-   } else if (this.props.hasVoted) {
+   } else if (this.props.hasVoted || window.localStorage.getItem('hasVoted')==='true') {
      return <WaitAnswered />;
    } else {
      return <StudentAnswering ref="answer" {...this.props} />;
    }
  },
- render: function() {          
- console.log('state student', this.props);  
+ render: function() {
+ console.log('state student', this.props);
    return (
      <div className="student-container center-text">
          <h4>Room name: {this.props.currentRoom}</h4>
-         <div className="student-content">   
+         <div className="student-content">
            {this.renderProperElement()}
        </div>
      </div>

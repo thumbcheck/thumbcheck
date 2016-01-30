@@ -1,10 +1,11 @@
 import {Map, fromJS} from 'immutable';
 
-function setState(state, newState) {  
+function setState(state, newState) {
   return state.merge(newState);
 }
 
 function vote(state) {
+  window.localStorage.setItem('hasVoted', true);
   return state.set('hasVoted', true);
 }
 
@@ -14,7 +15,7 @@ function upVote(state) {
       ['tally', 'thumbsUp'],
       0,
       thumbsUp => thumbsUp + 1
-    );    
+    );
   } else {
     return state;
   }
@@ -26,7 +27,7 @@ function downVote(state) {
       ['tally', 'thumbsDown'],
       0,
       thumbsDown => thumbsDown + 1
-    );    
+    );
   } else {
     return state;
   }
@@ -34,10 +35,12 @@ function downVote(state) {
 
 function stopVote(state) {
   const newState = fromJS({voting: false, hasVoted: false});
+  window.localStorage.setItem('hasVoted', false);
   return state.merge(newState);
 }
 
 function startVote(state) {
+  window.localStorage.setItem('hasVoted', false);
   const newState = fromJS({
     voting: true,
     tally: {
