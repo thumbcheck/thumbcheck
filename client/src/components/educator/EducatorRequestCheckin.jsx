@@ -1,5 +1,6 @@
 import React from 'react';
 import BarGraph from './EducatorBarGraph';
+import QuestionButton from './QuestionButton';
 
 export default React.createClass({
   render: function() {
@@ -13,6 +14,7 @@ export default React.createClass({
           <h4>Results from last thumbs check</h4> 
           <BarGraph ref="resultsDisplay" lastOrCurrent="last-result-graph" {...this.props} />
         </div>
+        <QuestionButton {...this.props}/>
       </div>
     );
   }

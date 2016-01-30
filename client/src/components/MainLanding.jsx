@@ -34,7 +34,8 @@ function mapStateToProps2(state) {
    currentRoom : state.get('currentRoom'),
    voting: state.get('voting'),
    upCount: state.getIn(['tally', 'thumbsUp']),
-   downCount: state.getIn(['tally', 'thumbsDown'])
+   downCount: state.getIn(['tally', 'thumbsDown']),
+   takingQuestions: state.get('takingQuestions')
  }
 }
 
