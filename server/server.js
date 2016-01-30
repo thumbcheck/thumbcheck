@@ -22,19 +22,20 @@ var io = socket.listen(server);
 
 io.on('connection', (socket) => {
 
-  socket.on('action', function(action) {
+  socket.on('action', (action) => {
     action.meta.remote = false;
     socket.broadcast.to(socket.room).emit('remoteAction', action);
   });
 
-  socket.on('state', function(state) {
+  socket.on('state', (state) => {
     storeState(state);
   });
 
   socket.on('joinRoom', (roomname) => {
     socket.join(roomname);
     socket.room = roomname;
-    retrieveState(roomname, (appState) => {
+    retrieveState(roomname, (err, appState) => {
+      if (err) throw new Error(err);
       socket.emit('syncState', appState);
     });
   });
