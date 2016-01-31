@@ -1,4 +1,5 @@
-import {Map, fromJS} from 'immutable';
+import {Map, fromJS, toJS} from 'immutable';
+import underscore from 'underscore';
 
 function setState(state, newState) {
   return state.merge(newState);
@@ -84,12 +85,18 @@ function toggleTakingQuestions(state) {
   }
 }
 
-function addQuestion(state, name, id) {  
-  return state.updateIn(
-    ['questions'],
-    0,
-    questions => questions.push({id: id, name: name})     
-  );
+function addQuestion(state, id, name, alreadyAsked) {  
+  const studentId = id;
+  // handle pulling name out of list here
+  if (alreadyAsked) {        
+    return state
+  } else {    
+    return state.updateIn(
+      ['questions'],
+      0,
+      questions => questions.push([id, name])     
+    );
+  }
 }
 
 function toggleHandRaise(state) {
@@ -99,7 +106,14 @@ function toggleHandRaise(state) {
     return state.set('handRaised', true);
   }
 }
-
+function addStudentIdentity(state, id, name) {   
+  //return state.set('id', id);  
+  const newState = fromJS({
+    id: id,    
+    name: name,    
+  }); 
+  return state.merge(newState);
+}
 
 export default function(state = fromJS({questions: fromJS([]) }), action) {
   switch (action.type) {
@@ -118,9 +132,11 @@ export default function(state = fromJS({questions: fromJS([]) }), action) {
   case 'TAKING_QUESTIONS':
     return toggleTakingQuestions(state);
   case 'ADD_QUESTION':        
-    return addQuestion(state, action.name);
+    return addQuestion(state, action.id, action.name, action.alreadyAsked);
   case 'TOGGLE_HAND_RAISE':
     return toggleHandRaise(state);
+  case 'ADD_STUDENT_ID_TO_CLIENT':    
+    return addStudentIdentity(state, action.id, action.name);
   }
   return state;
 }

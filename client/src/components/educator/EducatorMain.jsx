@@ -6,6 +6,8 @@ import io from 'socket.io-client';
 import Navbar from './NavBarEducator';
 import QuestionButton from './QuestionButton';
 import * as actionCreators from '../../action_creators';
+import _ from 'underscore';
+import {toJS} from 'immutable';
 
 export const Educator = React.createClass({
  componentWillMount: function() {
@@ -13,6 +15,9 @@ export const Educator = React.createClass({
  },
  componentDidMount: function() {
    this.props.stopVote();
+ },
+ showQuestions: function() {
+  return this.props.questions;  
  },
  render: function() {  
   console.log('on teacher main', this.props);   
@@ -29,7 +34,7 @@ export const Educator = React.createClass({
               <EducatorRequestCheckin {...this.props} />
             }
           </div>
-
+          <div className="questions-queue">{this.showQuestions()}</div>
        </div>
      </div>
    )
