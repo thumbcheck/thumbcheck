@@ -1,5 +1,6 @@
 import React from 'react';
 
+// necessary??
 function getParameterByName(name) {
   name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
   let regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
@@ -41,7 +42,7 @@ export default function(moveToState, store) {
     store.dispatch({
       type: 'SET_STATE',
       state: {currentRoom: path, userType: stateAddition.userType }
-    }) 
+    }); 
   }
   return path;
 }
