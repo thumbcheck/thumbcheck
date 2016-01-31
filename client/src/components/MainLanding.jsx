@@ -18,46 +18,26 @@ export const Main = React.createClass({
     }
   },
  /*** NEED TO REFACTOR LOCAL STORAGE ITEMS ***/
-// <<<<<<< a48b596ea36084b8014b3bbffb7fe97378c32fbd
- render: function() {   
-   if (this.props.userType === 'student') {
-     return <StudentContainer userType={this.props.userType} currentRoom={this.props.currentRoom} takingQuestions={this.props.takingQuestions} />
-   } else if (this.props.userType === 'educator') {
-     return <EducatorContainer {...this.props}  />
-   } else {
-     return (
-       <div>           
-           <div className="jumbotron center-text">
-                 <h1>Hello!</h1>
-                 <p>Welcome to Thumbcheck</p>
-                 <p><a className="btn btn-success btn-lg" href="/room" role="button">Get started</a></p>                  
-               </div>
-       </div>
-     );
-   }
-// =======
-//   render: function() {
-//     if (this.canWriteLocalStorage()) {
-//       if (this.props.userType === 'student') {
-//         return <StudentContainer userType={this.props.userType} currentRoom={this.props.currentRoom} />
-//       } else if (this.props.userType === 'educator') {
-//         return <EducatorContainer {...this.props}  />
-//       } else {
-//         return (
-//           <div>           
-//               <div className="jumbotron center-text">
-//                 <h1>Hello!</h1>
-//                 <p>Welcome to Thumbcheck</p>
-//                 <p><a className="btn btn-success btn-lg" href="/room" role="button">Get started</a></p>                  
-//                 </div>
-//           </div>
-//         );
-//       }      
-//     } else {
-//       return <PrivateBrowsingPage />;
-//     }
-// >>>>>>> Handles private browsing on mobile
-
+  render: function() {
+    if (this.canWriteLocalStorage()) {
+      if (this.props.userType === 'student') {
+        return <StudentContainer userType={this.props.userType} currentRoom={this.props.currentRoom} />
+      } else if (this.props.userType === 'educator') {
+        return <EducatorContainer {...this.props}  />
+      } else {
+        return (
+          <div>           
+              <div className="jumbotron center-text">
+                <h1>Hello!</h1>
+                <p>Welcome to Thumbcheck</p>
+                <p><a className="btn btn-success btn-lg" href="/room" role="button">Get started</a></p>                  
+                </div>
+          </div>
+        );
+      }      
+    } else {
+      return <PrivateBrowsingPage />;
+    }
   }
 });
 
