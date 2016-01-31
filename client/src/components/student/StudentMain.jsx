@@ -30,13 +30,21 @@ export const Student = React.createClass({
  },
  render: function() {  
   console.log('state student', this.props);
+  console.log('this.props.takingQuestions', this.props.takingQuestions);
+  if (this.props.takingQuestions) {
+    console.log('this.props.takingQuestions.allowQuestions', this.props.takingQuestions.allowQuestions);
+    console.log('this.props.takingQuestions._root.entries[0][1]', this.props.takingQuestions._root.entries[0][1]);
+  }
    return (
      <div className="student-container center-text">
-         <h4 onClick={this.askQuestion}>Room name: {this.props.currentRoom}</h4>
-         <div className="student-content">
+        <h4 onClick={this.askQuestion}>Room name: {this.props.currentRoom}</h4>
+        <div className="student-content">
            {this.renderProperElement()}  
-         </div>
-         <RaiseHand {...this.props} />
+        </div>
+        {(this.props.takingQuestions && this.props.takingQuestions._root.entries[0][1]) ?
+          <RaiseHand {...this.props} /> :
+          null
+        }
      </div>
    );
  }

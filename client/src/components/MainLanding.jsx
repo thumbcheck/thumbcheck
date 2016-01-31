@@ -10,7 +10,7 @@ export const Main = React.createClass({
  /*** NEED TO REFACTOR LOCAL STORAGE ITEMS ***/
  render: function() {   
    if (this.props.userType === 'student') {
-     return <StudentContainer userType={this.props.userType} currentRoom={this.props.currentRoom} />
+     return <StudentContainer userType={this.props.userType} currentRoom={this.props.currentRoom} takingQuestions={this.props.takingQuestions} />
    } else if (this.props.userType === 'educator') {
      return <EducatorContainer {...this.props}  />
    } else {
