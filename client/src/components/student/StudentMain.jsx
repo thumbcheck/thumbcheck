@@ -28,13 +28,7 @@ export const Student = React.createClass({
      return <StudentAnswering ref="answer" {...this.props} />;
    }
  },
- render: function() {  
-  console.log('state student', this.props);
-  console.log('this.props.takingQuestions', this.props.takingQuestions);
-  if (this.props.takingQuestions) {
-    console.log('this.props.takingQuestions.allowQuestions', this.props.takingQuestions.allowQuestions);
-    console.log('this.props.takingQuestions._root.entries[0][1]', this.props.takingQuestions._root.entries[0][1]);
-  }
+ render: function() {
    return (
      <div className="student-container center-text">
         <h4 onClick={this.askQuestion}>Room name: {this.props.currentRoom}</h4>
