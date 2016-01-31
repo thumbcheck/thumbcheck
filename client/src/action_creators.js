@@ -45,17 +45,24 @@ export function toggleTakingQuestions() {
     type: 'TAKING_QUESTIONS',
   };
 }
-export function addQuestionToQueue(name, id) {
+export function addQuestion(id, name, alreadyAsked) {
   return {
     meta: {remote: true},
     type: 'ADD_QUESTION',
     name: name,
-    id: id
+    id: id,
+    alreadyAsked: alreadyAsked
   };
 }
-
 export function toggleHandRaise() {
   return {
     type: 'TOGGLE_HAND_RAISE'
+  };
+}
+export function addStudentIdentity(id, name) {  
+  return {
+    type: 'ADD_STUDENT_ID_TO_CLIENT',
+    id: id,
+    name: name
   };
 }

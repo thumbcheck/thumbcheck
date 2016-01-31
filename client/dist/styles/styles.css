@@ -54,6 +54,11 @@ body {
 .dont-show {
 	display: none;
 }
+.questions-queue {
+	position: absolute;
+  left: 200px;
+  top: 200px;
+}
 
 
 /*  ************* student page styling  ************* */

@@ -7,14 +7,7 @@ import StudentAnswering from './StudentAnswering';
 import * as actionCreators from '../../action_creators';
 import RaiseHand from './RaiseHand';
 
-export const Student = React.createClass({
-  askQuestion: function(name) {
-    // change to not be hardcoded later
-    const studentId = Math.floor(Math.random() * (1000 - 1) * 1);
-    name = 'joey';    
-    this.props.addQuestionToQueue(name, studentId);  
-  },
-
+export const Student = React.createClass({  
  renderProperElement: function() {
    if(!this.props.voting) {
      if(this.props.voting === false) {
@@ -31,8 +24,8 @@ export const Student = React.createClass({
  render: function() {
    return (
      <div className="student-container center-text">
-        <h4 onClick={this.askQuestion}>Room name: {this.props.currentRoom}</h4>
-        <div className="student-content">
+         <h4>Room name: {this.props.currentRoom}</h4>
+         <div className="student-content">
            {this.renderProperElement()}  
         </div>
         {(this.props.takingQuestions && this.props.takingQuestions._root.entries[0][1]) ?
@@ -50,7 +43,9 @@ function mapStateToProps(state) {
    upvote: state.getIn(['tally', 'thumbsUp']),
    downvote: state.getIn(['tally', 'thumbsDown']),
    hasVoted: state.get('hasVoted'),
-   handRaised: state.get('handRaised')
+   handRaised: state.get('handRaised'),
+   id: state.get('id'),
+   name: state.get('name')   
  };
 }
 
