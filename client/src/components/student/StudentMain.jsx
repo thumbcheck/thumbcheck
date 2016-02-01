@@ -6,6 +6,7 @@ import io from 'socket.io-client';
 import StudentAnswering from './StudentAnswering';
 import * as actionCreators from '../../action_creators';
 import RaiseHand from './RaiseHand';
+import {toJS, fromJS} from 'immutable';
 
 export const Student = React.createClass({  
  renderProperElement: function() {
@@ -22,6 +23,7 @@ export const Student = React.createClass({
    }
  },
  render: function() {
+   console.log('on student main', this.props);
    return (
      <div className="student-container center-text">
          <h4>Room name: {this.props.currentRoom}</h4>

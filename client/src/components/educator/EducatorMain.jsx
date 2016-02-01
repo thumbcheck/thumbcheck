@@ -14,15 +14,20 @@ export const Educator = React.createClass({
    return this.props.showgraph === "1" ? "1" : "0";  
  },
  componentDidMount: function() {
-    if(this.props.currentRoom === '') {
+    if(this.props.currentRoom !== '') {
       this.props.stopVote();
     }
  },
- showQuestions: function() {
-  return this.props.questions;  
+ showQuestions: function() {  
+  let questions = this.props.questions.toJS();
+  console.log('qeustions', questions);
+  let allNames = []
+  return questions.map(function(tuple, index) {
+    return <div>{tuple[1]}</div>
+  });    
  },
- render: function() {  
-  // console.log('on teacher main', this.props);   
+ render: function() {    
+  console.log('on educator main', this.props);
    return (
      <div>
        <Navbar />          
@@ -36,14 +41,14 @@ export const Educator = React.createClass({
               <EducatorRequestCheckin {...this.props} />
             }
           </div>
-          <div className="questions-queue">{this.showQuestions()}</div>
+          <div className="questions-queue">{this.props.questions !== undefined ? this.showQuestions() : null}</div>
        </div>
      </div>
    )
  }
 });        
 
-// function mapStateToProps(state) {
+// functigion mapStateToProps(state) {
 //  return {
 //    voting: state.get('voting'),
 //    upCount: state.getIn(['tally', 'thumbsUp']),

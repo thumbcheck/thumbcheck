@@ -1,4 +1,4 @@
-import {Map, fromJS, toJS} from 'immutable';
+import {Map, fromJS, toJS, List} from 'immutable';
 import underscore from 'underscore';
 
 function setState(state, newState) {
@@ -90,12 +90,12 @@ function addQuestion(state, id, name, alreadyAsked) {
   // handle pulling name out of list here
   if (alreadyAsked) {
     return state
-  } else {
-    return state.updateIn(
-      ['questions'],
-      0,
-      questions => questions.push([id, name])
-    );
+  } else {    
+    let questions = state.get('questions') || fromJS([]);     
+    questions = questions.push([id, name]);
+    console.log('qeustoins redcuer', questions);
+    let newState = fromJS({questions: questions});  
+    return state.merge(newState);
   }
 }
 
@@ -128,7 +128,7 @@ function joinRoom(state, roomName) {
   return state.merge(newState);
 }
 
-export default function(state = fromJS({questions: fromJS([]) }), action) {
+export default function(state = fromJS({}), action) {
   switch (action.type) {
   case 'SET_STATE':
     return setState(state, action.state);
