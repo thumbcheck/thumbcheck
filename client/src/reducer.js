@@ -122,7 +122,7 @@ function chooseRole(state, choice) {
 
 function joinRoom(state, roomName) {
   const newState = fromJS({
-    currentRoom: roomName
+    roomName: roomName
   });
   window.localStorage.setItem('state', state);
   return state.merge(newState);
@@ -153,7 +153,7 @@ export default function(state = fromJS({questions: fromJS([]) }), action) {
   case 'CHOOSE_ROLE':
     return chooseRole(state, action.choice);
   case 'JOIN_ROOM':
-    return joinRoom(state, action.currentRoom);
+    return joinRoom(state, action.roomName);
   }
   return state;
 }

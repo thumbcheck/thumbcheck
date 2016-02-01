@@ -5,6 +5,7 @@ import {Educator as EducatorContainer} from './educator/EducatorMain';
 import Navbar from './educator/NavBarEducator';
 import * as actionCreators from '../action_creators';
 import PrivateBrowsingPage from './PrivateBrowsingPage';
+import RoleChoice from './RoleChoice';
 
 
 export const Main = React.createClass({
@@ -26,22 +27,22 @@ export const Main = React.createClass({
         return <EducatorContainer {...this.props}  />
       } else {
         return (
-          <div>           
+          <div>
               <div className="jumbotron center-text">
                 <h1>Hello!</h1>
                 <p>Welcome to Thumbcheck</p>
-                <p><a className="btn btn-success btn-lg" href="/room" role="button">Get started</a></p>                  
+                <RoleChoice {...this.props} />
                 </div>
           </div>
         );
-      }      
+      }
     } else {
       return <PrivateBrowsingPage />;
     }
   }
 });
 
-function mapStateToProps2(state) {    
+function mapStateToProps2(state) {
  return {
    userType: state.get('userType'),
    currentRoom : state.get('currentRoom'),
@@ -49,7 +50,9 @@ function mapStateToProps2(state) {
    upCount: state.getIn(['tally', 'thumbsUp']),
    downCount: state.getIn(['tally', 'thumbsDown']),
    takingQuestions: state.get('takingQuestions'),
-   questions: state.get('questions')
+   questions: state.get('questions'),
+   choice: state.get('choice'),
+   roomName: state.get('roomName')
  }
 }
 
