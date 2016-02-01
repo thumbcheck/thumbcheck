@@ -98,8 +98,7 @@ function addQuestion(state, id, name, alreadyAsked) {
 
   } else {    
     let questions = state.get('questions') || fromJS([]);     
-    questions = questions.push([id, name]);
-    console.log('qeustoins redcuer', questions);
+    questions = questions.push([id, name]);    
     let newState = fromJS({questions: questions});  
     return state.merge(newState);
   }

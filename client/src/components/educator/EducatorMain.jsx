@@ -19,8 +19,7 @@ export const Educator = React.createClass({
     }
  },
  showQuestions: function() {  
-  let questions = this.props.questions.toJS();
-  console.log('qeustions', questions);
+  let questions = this.props.questions.toJS();  
   let allNames = []
   return questions.map(function(tuple, index) {
     return <div>{tuple[1]}</div>
