@@ -14,13 +14,15 @@ export const Educator = React.createClass({
    return this.props.showgraph === "1" ? "1" : "0";  
  },
  componentDidMount: function() {
-   this.props.stopVote();
+    if(this.props.currentRoom === '') {
+      this.props.stopVote();
+    }
  },
  showQuestions: function() {
   return this.props.questions;  
  },
  render: function() {  
-  console.log('on teacher main', this.props);   
+  // console.log('on teacher main', this.props);   
    return (
      <div>
        <Navbar />          
