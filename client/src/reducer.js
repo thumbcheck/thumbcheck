@@ -89,7 +89,13 @@ function addQuestion(state, id, name, alreadyAsked) {
   const studentId = id;
   // handle pulling name out of list here
   if (alreadyAsked) {
-    return state
+    let questions = state.get('questions');
+    questions = questions.filter(function(tuple) {
+      return tuple[0] !== id 
+    });
+    let newState = fromJS({questions: questions});
+    return state.merge(newState);
+
   } else {    
     let questions = state.get('questions') || fromJS([]);     
     questions = questions.push([id, name]);
