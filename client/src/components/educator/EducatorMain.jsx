@@ -22,7 +22,7 @@ export const Educator = React.createClass({
   return this.props.questions;  
  },
  render: function() {  
-  console.log('on teacher main', this.props);   
+  // console.log('on teacher main', this.props);   
    return (
      <div>
        <Navbar />          

@@ -3,8 +3,7 @@ import BarGraph from './EducatorBarGraph';
 import QuestionButton from './QuestionButton';
 
 export default React.createClass({
-  showGraph: function() {
-    // change later to conditional
+  showGraph: function() {    
     return this.props.showgraph === "1" ? "last-graph-container" : "dont-show";
   },
   render: function() {    
