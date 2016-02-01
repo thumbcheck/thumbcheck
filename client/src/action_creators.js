@@ -59,10 +59,26 @@ export function toggleHandRaise() {
     type: 'TOGGLE_HAND_RAISE'
   };
 }
-export function addStudentIdentity(id, name) {  
+export function addStudentIdentity(id, name) {
   return {
     type: 'ADD_STUDENT_ID_TO_CLIENT',
     id: id,
     name: name
   };
+}
+
+export function chooseRole(choice) {
+  return {
+    meta: {remote: true},
+    type: 'CHOOSE_ROLE',
+    choice: choice
+  }
+}
+
+export function joinRoom(room) {
+  return {
+    meta: {remote: true},
+    type: 'JOIN_ROOM',
+    roomName: room
+  }
 }

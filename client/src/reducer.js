@@ -49,13 +49,13 @@ function startVote(state) {
     window.localStorage.setItem('hasVoted', false);
   }
   const newState = fromJS({
-    voting: true,    
+    voting: true,
     showgraph: "1",
     tally: {
       thumbsUp : 0,
       thumbsDown: 0
     }
-  }); 
+  });
   return state.merge(newState);
 }
 
@@ -85,16 +85,16 @@ function toggleTakingQuestions(state) {
   }
 }
 
-function addQuestion(state, id, name, alreadyAsked) {  
+function addQuestion(state, id, name, alreadyAsked) {
   const studentId = id;
   // handle pulling name out of list here
-  if (alreadyAsked) {        
+  if (alreadyAsked) {
     return state
-  } else {    
+  } else {
     return state.updateIn(
       ['questions'],
       0,
-      questions => questions.push([id, name])     
+      questions => questions.push([id, name])
     );
   }
 }
@@ -106,12 +106,25 @@ function toggleHandRaise(state) {
     return state.set('handRaised', true);
   }
 }
-function addStudentIdentity(state, id, name) {   
-  //return state.set('id', id);  
+
+function addStudentIdentity(state, id, name) {
+  //return state.set('id', id);
   const newState = fromJS({
-    id: id,    
-    name: name,    
-  }); 
+    id: id,
+    name: name,
+  });
+  return state.merge(newState);
+}
+
+function chooseRole(state, choice) {
+  return state.set('choice', choice);
+}
+
+function joinRoom(state, roomName) {
+  const newState = fromJS({
+    roomName: roomName
+  });
+  window.localStorage.setItem('state', state);
   return state.merge(newState);
 }
 
@@ -131,12 +144,16 @@ export default function(state = fromJS({questions: fromJS([]) }), action) {
     return startVote(state);
   case 'TAKING_QUESTIONS':
     return toggleTakingQuestions(state);
-  case 'ADD_QUESTION':        
+  case 'ADD_QUESTION':
     return addQuestion(state, action.id, action.name, action.alreadyAsked);
   case 'TOGGLE_HAND_RAISE':
     return toggleHandRaise(state);
-  case 'ADD_STUDENT_ID_TO_CLIENT':    
+  case 'ADD_STUDENT_ID_TO_CLIENT':
     return addStudentIdentity(state, action.id, action.name);
+  case 'CHOOSE_ROLE':
+    return chooseRole(state, action.choice);
+  case 'JOIN_ROOM':
+    return joinRoom(state, action.roomName);
   }
   return state;
 }
