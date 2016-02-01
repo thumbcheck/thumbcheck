@@ -69,7 +69,6 @@ export function addStudentIdentity(id, name) {
 
 export function chooseRole(choice) {
   return {
-    meta: {remote: true},
     type: 'CHOOSE_ROLE',
     choice: choice
   }
@@ -77,7 +76,6 @@ export function chooseRole(choice) {
 
 export function joinRoom(room) {
   return {
-    meta: {remote: true},
     type: 'JOIN_ROOM',
     roomName: room
   }
