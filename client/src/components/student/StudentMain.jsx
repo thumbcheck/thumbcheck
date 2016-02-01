@@ -45,7 +45,7 @@ function mapStateToProps(state) {
    hasVoted: state.get('hasVoted'),
    handRaised: state.get('handRaised'),
    id: state.get('id'),
-   name: state.get('name')   
+   name: state.get('name')
  };
 }
 
