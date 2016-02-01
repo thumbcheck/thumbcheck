@@ -26,8 +26,8 @@ export default React.createClass({
     } else if(this.props.choice === 'teacher'){
       return (
         <div>
-          <p>Message here<br/><br/><br/></p>
-          <p><a className="btn btn-success btn-lg" href="/room" role="button">Get started</a></p>
+          <p>Enter roomname here <input onChange={this.onChange} /> <a className="btn btn-primary btn-md" role="button" href={"/"+this.props.roomName+"?type=host"} >Create</a></p>
+          <p><a className="btn btn-success btn-lg" href="/room" role="button">Generate Random Roomname</a></p>
           <p>Student? Click here to join a room instead. <a className="btn btn-primary btn-md" role="button" onClick={this.chooseStudent} >Student</a></p>
         </div>
       )
