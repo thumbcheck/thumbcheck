@@ -52,7 +52,8 @@ function mapStateToProps2(state) {
    takingQuestions: state.get('takingQuestions'),
    questions: state.get('questions'),
    choice: state.get('choice'),
-   roomName: state.get('roomName')
+   roomName: state.get('roomName'),
+   showgraph: state.get('showgraph')   
  }
 }
 
