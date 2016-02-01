@@ -14,40 +14,44 @@ function scrubState(state, props) {
 
 export function storeState(state) {
   // scrub state (remove local values)
-  const appState = scrubState(state, scrubProps);
-  const appStateString = JSON.stringify(appState);
+  if (state.currentRoom !== '') {
+    const appState = scrubState(state, scrubProps);
+    const appStateString = JSON.stringify(appState);
 
-  // connect to db
-  const client = redis.createClient();
-  client.set(state.currentRoom, appStateString, (err, replies) => {
-    if(err) throw new Error(err);
-    client.quit();
-  });
+    // connect to db
+    const client = redis.createClient();
+    client.set(state.currentRoom, appStateString, (err, replies) => {
+      if(err) throw new Error(err);
+      client.quit();
+    });    
+  }
 }
 
 export function retrieveState(currentRoom, callback) {
-  const client = redis.createClient();
-  client.get(currentRoom, (err, replies) => {
-    if(err) throw new Error(err);
-    
-    // Handle reply from db
-    replies = JSON.parse(replies);
-    if(replies) {
-      replies.connected = true;
-    } else {
-      replies = {connected: true};
-    }
-
-    // Create Action Creator
-    let appState = {
-      type: 'SET_STATE',
-      state: replies
-    };
-
-    // Callback 
-    callback(err, appState);
+  if (currentRoom !== '') {
+    const client = redis.createClient();
+    client.get(currentRoom, (err, replies) => {
+      if(err) throw new Error(err);
       
+      // Handle reply from db
+      replies = JSON.parse(replies);
+      if(replies) {
+        replies.connected = true;
+      } else {
+        replies = {connected: true};
+      }
 
-    client.quit();
-  });
+      // Create Action Creator
+      let appState = {
+        type: 'SET_STATE',
+        state: replies
+      };
+
+      // Callback 
+      callback(err, appState);
+        
+
+      client.quit();
+    });    
+  }
 }
