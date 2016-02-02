@@ -26,10 +26,12 @@ export function downvote() {
   };
 }
 
-export function vote() {
+export function vote(participantID) {
+  console.log(participantID);
   return {
     meta: {remote: true},
     type: 'VOTE',
+    participantID: participantID
   };
 }
 

@@ -9,6 +9,7 @@ function scrubState(state, props) {
       delete state[props[i]];
     } 
   }
+  console.log(state,'state');
   return state;
 }
 

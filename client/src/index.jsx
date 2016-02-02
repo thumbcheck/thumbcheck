@@ -25,7 +25,8 @@ socket.on('syncState', (appState) => {
 // Create redux store
 const createStoreWithMiddleware = applyMiddleware(reduxStateEmitterMiddleware(socket))(createStore);
 const store = createStoreWithMiddleware(reducer);
-store.dispatch(setParticipantID(generateID()));
+// store.dispatch(setParticipantID(generateID()));
+generateID();
 
 store.subscribe(() => {
   let currentState = store.getState().toJS();

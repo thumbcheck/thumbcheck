@@ -5,37 +5,26 @@ function setState(state, newState) {
   return state.merge(newState);
 }
 
-function vote(state) {
-  let id = state.get('participantID');
-  return state.updateIn(
-    ['tally', 'haveVoted'],
-    [],
-    haveVoted => haveVoted.concat(id)
-  );
+function vote(state, participantID) {
+  let haveVoted = state.getIn(['tally', 'haveVoted']) || [];
+  haveVoted = haveVoted.push(participantID);
+  return state.mergeIn(['tally', 'haveVoted'], haveVoted);
 }
 
 function upVote(state) {
-  if (state.get('hasVoted') !== true) {
-    return state.updateIn(
+  return state.updateIn(
       ['tally', 'thumbsUp'],
       0,
       thumbsUp => thumbsUp + 1
-    );
-  } else {
-    return state;
-  }
+  );
 }
 
 function downVote(state) {
-  if (state.get('hasVoted') !== true) {
-    return state.updateIn(
+  return state.updateIn(
       ['tally', 'thumbsDown'],
       0,
       thumbsDown => thumbsDown + 1
-    );
-  } else {
-    return state;
-  }
+  );
 }
 
 function stopVote(state) {
@@ -128,7 +117,7 @@ export default function(state = fromJS({}), action) {
   case 'SET_PARTICIPANT_ID':
     return state.set('participantID', action.participantID);
   case 'VOTE':
-    return vote(state);
+    return vote(state, action.participantID);
   case 'UPVOTE':
     return upVote(state);
   case 'DOWNVOTE':
