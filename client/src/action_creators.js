@@ -73,10 +73,3 @@ export function chooseRole(choice) {
     choice: choice
   }
 }
-
-export function joinRoom(room) {
-  return {
-    type: 'JOIN_ROOM',
-    roomName: room
-  }
-}
