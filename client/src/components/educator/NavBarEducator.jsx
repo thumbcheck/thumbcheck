@@ -1,7 +1,18 @@
 import React from 'react';
+import {toJS} from 'immutable';
 
 export default React.createClass({
+  showQuestions: function() {  	
+  	if (this.props.questions) {
+	  	let questions = this.props.questions.toJS();  
+	  	return questions.map(function(tuple, index) {
+	  		//glyphicon glyphicon-remove
+	    	return <li className="questions-list">{tuple[1]}<span className=" remove-icon" aria-hidden="true">X</span></li>
+	  	});   
+	  } 
+  },
   render: function() {
+  	console.log('navvar probs', this.props);
     return ( 
     	<nav className="navbar navbar-default">
 			  <div className="container-fluid blue">			    
@@ -20,13 +31,9 @@ export default React.createClass({
 			      
 			      <ul className="nav navbar-nav navbar-right">			        
 			        <li className="dropdown">
-			          <a href="#" className="dropdown-toggle white-text" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" >Options<span className="caret"></span></a>
+			          <a href="#" className="dropdown-toggle white-text right-nav" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" ><img src="/images/raise_hand1.png" className="raise-hand-icon" /><span className="caret"></span></a>
 			          <ul className="dropdown-menu">
-			            <li><a href="#">Action</a></li>
-			            <li><a href="#">Another action</a></li>
-			            <li><a href="#">Something else here</a></li>
-			            <li role="separator" className="divider"></li>
-			            <li><a href="#">Log out</a></li>
+			            { this.showQuestions() }
 			          </ul>
 			        </li>
 			      </ul>

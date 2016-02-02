@@ -32,7 +32,20 @@ body {
 .logo-name {
 	font-size: 1.8em;	
 }
-
+.raise-hand-icon {
+	width: 35px;	
+}
+.right-nav {
+	padding-top: 8px !important;
+	padding-bottom: 8px !important;
+}
+.questions-list {
+	padding-left: 8px;
+}
+.remove-icon {
+	float: right;
+	padding-right: 10px;
+}
 /*  ********** educator page styling  ************* */
 .request-btn {
 	font-size: 2em;
