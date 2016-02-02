@@ -5,6 +5,8 @@ import app from './server';
 import path from 'path';
 import randomWord from 'random-word';
 
+import {checkRoom} from './controllers/redisStateController'
+
 const router = express.Router();
 
 function createRoom () {
@@ -26,6 +28,16 @@ router.route('/room')
 router.route('/:roomname')
   .get((req, res) => {
     res.sendFile(path.join(__dirname, "/../client/dist/index.html"));
+  });
+
+router.route('/:roomname')
+  .post((req, res) => {
+    console.log('recieved Post Request')
+    checkRoom(req.params, (boolean) => {
+      console.log("in checkRoom", boolean)
+      return boolean;
+    });
+    //res.sendFile(path.join(__dirname, "/../client/dist/index.html"));
   });
 
   export default router;

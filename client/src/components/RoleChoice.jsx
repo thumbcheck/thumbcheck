@@ -17,12 +17,6 @@ export default React.createClass({
 
   },
 
-  handleTeacherSubmit: function (e) {
-    e.preventDefault();
-    const inputValue = "/"+this.teacherInput.value+"?type=host";
-    window.location.assign(inputValue);
-  },
-
   handleCreateRoom: function (e) {
     e.preventDefault();
     $.ajax({
