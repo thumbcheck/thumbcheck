@@ -20,22 +20,19 @@ export default function(moveToState, store) {
   const path = window.location.pathname.slice(1);
   let stateAddition = {};
   if(canWriteLocalStorage()) {
-    window.localStorage.setItem('room', path);
+    // window.localStorage.setItem('room', path);
     if (path && getParameterByName('type')) {
       // teacher in the room
       stateAddition.userType = 'educator';
-      window.localStorage.setItem('userType', 'educator');
-      // console.log('teacher in room')
+      // window.localStorage.setItem('userType', 'educator');      
     } else if (path[0]) {
       // student in the room
       stateAddition.userType = 'student';
-      window.localStorage.setItem('userType', 'student');
-      // console.log('student in room')
+      // window.localStorage.setItem('userType', 'student');      
     } else {
       // teacher on the home page
       stateAddition.userType = '';
-      window.localStorage.setItem('userType', '');
-      // console.log('teacher on home page')
+      // window.localStorage.setItem('userType', '');      
     }    
   }
   if (moveToState) {     

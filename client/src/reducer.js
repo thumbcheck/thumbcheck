@@ -87,7 +87,7 @@ function toggleTakingQuestions(state) {
 
 function addQuestion(state, id, name, alreadyAsked) {
   const studentId = id;
-  // handle pulling name out of list here
+  // if the student's hand is already up, remove it from question queue
   if (alreadyAsked) {
     let questions = state.get('questions');
     questions = questions.filter(function(tuple) {
@@ -112,8 +112,7 @@ function toggleHandRaise(state) {
   }
 }
 
-function addStudentIdentity(state, id, name) {
-  //return state.set('id', id);
+function addStudentIdentity(state, id, name) {  
   const newState = fromJS({
     id: id,
     name: name,
