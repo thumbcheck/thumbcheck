@@ -16,7 +16,7 @@ export const Student = React.createClass({
      } else {
        return null;
      }
-   } else if (this.props.hasVoted || window.localStorage.getItem('hasVoted')==='true') {
+   } else if (this.props.hasVoted) {
      return <WaitAnswered />;
    } else {
      return <StudentAnswering ref="answer" {...this.props} />;
