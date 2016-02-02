@@ -23,6 +23,19 @@ export default React.createClass({
     window.location.assign(inputValue);
   },
 
+  handleCreateRoom: function (e) {
+    e.preventDefault();
+    $.ajax({
+      type: 'POST',
+      url: '/room',
+      //data: data
+    })
+    .success(function(data) {
+      console.log(data);
+      window.location.assign(data);
+    })
+  },
+
   render: function() {
     return (
       <div>
@@ -35,7 +48,7 @@ export default React.createClass({
             <div>
               <p>Create new room <input ref={(ref) => this.teacherInput = ref} /> <a className="btn btn-primary btn-md" role="button" onClick={this.handleTeacherSubmit}  >Create</a></p>
               <p>or</p>
-              <p><a className="btn btn-primary btn-md" href="/room" role="button">Generate Random Room Name</a></p>
+              <p><a className="btn btn-primary btn-md" onClick={this.handleCreateRoom} role="button">Generate Random Room Name</a></p>
               <a className="btn btn-warning btn-md" role="button" onClick={this.chooseStudent} >Student</a>
             </div>
         }
