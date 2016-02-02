@@ -6,12 +6,8 @@ function setState(state, newState) {
 }
 
 function vote(state, participantID) {
-  // let id = state.get('participantID');
-  console.log(participantID, 'heeeeerre');
   let haveVoted = state.getIn(['tally', 'haveVoted']) || [];
-  console.log(haveVoted, 'haveVoted1');
   haveVoted = haveVoted.push(participantID);
-  console.log(haveVoted, 'havevoted2');
   return state.mergeIn(['tally', 'haveVoted'], haveVoted);
 }
 

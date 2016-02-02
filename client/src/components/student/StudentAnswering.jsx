@@ -8,7 +8,6 @@ export default React.createClass({
   },
   downvoteClick: function() {
     this.props.downvote();
-    console.log(window.localStorage.getItem('participantID'), 'console lgo participant');
     this.props.vote(window.localStorage.getItem('participantID'));
 
   },
