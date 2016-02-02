@@ -110,6 +110,10 @@ function chooseRole(state, choice) {
   return state.set('choice', choice);
 }
 
+function setErrorMessage(state, error) {
+  return state.set('errMessage', error);
+}
+
 export default function(state = fromJS({}), action) {
   switch (action.type) {
   case 'SET_STATE':
@@ -136,6 +140,8 @@ export default function(state = fromJS({}), action) {
     return addStudentIdentity(state, action.id, action.name);
   case 'CHOOSE_ROLE':
     return chooseRole(state, action.choice);
+  case 'SET_ERROR':
+    return setErrorMessage(state, action.errMessage);
   }
   return state;
 }

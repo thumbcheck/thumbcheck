@@ -32,12 +32,9 @@ router.route('/:roomname')
 
 router.route('/:roomname')
   .post((req, res) => {
-    console.log('recieved Post Request')
-    checkRoom(req.params, (boolean) => {
-      console.log("in checkRoom", boolean)
-      return boolean;
+    checkRoom(req.params.roomname, (boolean) => {
+      res.send(boolean);
     });
-    //res.sendFile(path.join(__dirname, "/../client/dist/index.html"));
   });
 
   export default router;

@@ -83,3 +83,11 @@ export function chooseRole(choice) {
     choice: choice
   }
 }
+
+export function setError(errMessage) {
+  return {
+    type: 'SET_ERROR',
+    errMessage: errMessage
+  }
+}
+
