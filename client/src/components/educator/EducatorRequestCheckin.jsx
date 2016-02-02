@@ -1,6 +1,7 @@
 import React from 'react';
 import BarGraph from './EducatorBarGraph';
 import QuestionButton from './QuestionButton';
+import QuestionList from './QuestionList';
 
 export default React.createClass({
   showGraph: function() {    
@@ -21,7 +22,8 @@ export default React.createClass({
           <span className="down-thumb-count move-right">Thumbs down count: {this.props.downCount}</span>
         </div>
         </div>
-        <QuestionButton {...this.props}/>
+        <QuestionButton {...this.props} />
+        <QuestionList {...this.props} />
       </div>
     );
   }
