@@ -6,10 +6,12 @@ function setState(state, newState) {
 }
 
 function vote(state) {
-  if (window) {
-    window.localStorage.setItem('hasVoted', true);
-  }
-  return state.set('hasVoted', true);
+  let id = state.get('participantID');
+  return state.updateIn(
+    ['tally', 'haveVoted'],
+    [],
+    haveVoted => haveVoted.concat(id)
+  );
 }
 
 function upVote(state) {
@@ -37,23 +39,18 @@ function downVote(state) {
 }
 
 function stopVote(state) {
-  const newState = fromJS({voting: false, hasVoted: false});
-  if (window) {
-    window.localStorage.setItem('hasVoted', false);
-  }
+  let newState = fromJS({voting: false});
   return state.merge(newState);
 }
 
 function startVote(state) {
-  if (window) {
-    window.localStorage.setItem('hasVoted', false);
-  }
   const newState = fromJS({
     voting: true,
     showgraph: "1",
     tally: {
       thumbsUp : 0,
-      thumbsDown: 0
+      thumbsDown: 0,
+      haveVoted: []
     }
   });
   return state.merge(newState);
@@ -128,6 +125,8 @@ export default function(state = fromJS({}), action) {
   switch (action.type) {
   case 'SET_STATE':
     return setState(state, action.state);
+  case 'SET_PARTICIPANT_ID':
+    return state.set('participantID', action.participantID);
   case 'VOTE':
     return vote(state);
   case 'UPVOTE':

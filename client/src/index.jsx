@@ -6,10 +6,11 @@ import {Provider} from 'react-redux';
 import reducer from './reducer';
 import App from './components/App';
 import io from 'socket.io-client';
-import {setState, startVote} from './action_creators';
+import {setState, startVote, setParticipantID} from './action_creators';
 import reduxStateEmitterMiddleware from './reduxStateEmitterMiddleware';
 import {MainLandingContainer} from './components/MainLanding';
 import setLocalStorage from './setLocalStorage';
+import generateID from './helpers/generateID';
 import {Map} from 'immutable';
 
 // Socket Connection to server
@@ -24,6 +25,7 @@ socket.on('syncState', (appState) => {
 // Create redux store
 const createStoreWithMiddleware = applyMiddleware(reduxStateEmitterMiddleware(socket))(createStore);
 const store = createStoreWithMiddleware(reducer);
+store.dispatch(setParticipantID(generateID()));
 
 store.subscribe(() => {
   let currentState = store.getState().toJS();
