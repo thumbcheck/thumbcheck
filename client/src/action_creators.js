@@ -5,6 +5,13 @@ export function setState(state) {
   };
 }
 
+export function setParticipantID(participantID) {
+  return {
+    type: 'SET_PARTICIPANT_ID',
+    participantID
+  };
+}
+
 export function upvote() {
   return {
     meta: {remote: true},
@@ -21,6 +28,7 @@ export function downvote() {
 
 export function vote() {
   return {
+    meta: {remote: true},
     type: 'VOTE',
   };
 }

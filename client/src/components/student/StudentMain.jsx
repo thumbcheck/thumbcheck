@@ -6,6 +6,7 @@ import io from 'socket.io-client';
 import StudentAnswering from './StudentAnswering';
 import * as actionCreators from '../../action_creators';
 import RaiseHand from './RaiseHand';
+import checkHasVoted from '../../helpers/checkHasVoted';
 import {toJS, fromJS} from 'immutable';
 
 export const Student = React.createClass({  
@@ -16,7 +17,7 @@ export const Student = React.createClass({
      } else {
        return null;
      }
-   } else if (this.props.hasVoted) {
+   } else if (checkHasVoted(this.props.haveVoted, window.localStorage.getItem('participantID'))) {
      return <WaitAnswered />;
    } else {
      return <StudentAnswering ref="answer" {...this.props} />;
@@ -44,7 +45,7 @@ function mapStateToProps(state) {
    voting: state.get('voting'),
    upvote: state.getIn(['tally', 'thumbsUp']),
    downvote: state.getIn(['tally', 'thumbsDown']),
-   hasVoted: state.get('hasVoted'),
+   haveVoted: state.getIn(['tally', 'haveVoted']),
    handRaised: state.get('handRaised'),
    id: state.get('id'),
    name: state.get('name')

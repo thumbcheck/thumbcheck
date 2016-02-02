@@ -1,4 +1,5 @@
 import React from 'react';
+import checkHasVoted from '../../helpers/checkHasVoted';
 
 export default React.createClass({
   upvoteClick: function() {
@@ -6,8 +7,9 @@ export default React.createClass({
     this.props.vote();
   },
   downvoteClick: function() {
-    this.props.downvote();
-    this.props.vote();   
+    this.props.upvote();
+    this.props.vote();
+
   },
   render: function() {
     return (

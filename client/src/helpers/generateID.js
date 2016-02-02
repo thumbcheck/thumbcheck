@@ -5,6 +5,7 @@ export default function generateID() {
   if (!id) {
     id = uuid.v4();
     localStorage.setItem('participantID', id);
+    console.log('id!', id);
   }
   return id;
 }

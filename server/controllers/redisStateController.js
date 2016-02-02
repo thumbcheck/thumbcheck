@@ -1,7 +1,7 @@
 import redis from 'redis';
 import {Map,fromJS} from 'immutable';
 
-const scrubProps = ['hasVoted', 'userType'];
+const scrubProps = ['hasVoted', 'userType', 'participantID'];
 
 function scrubState(state, props) {
   for (let i = 0; i < props.length; i++) {
