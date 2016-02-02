@@ -28,13 +28,14 @@ export default React.createClass({
       <div>
         {!this.props.choice ?
           <div>
-            <p>Enter roomname <input ref={(ref) => this.studentInput = ref} /> <a className="btn btn-primary btn-md" role="button" onClick={this.handleStudentSubmit} >Join</a></p>
+            <p>Join existing room <input ref={(ref) => this.studentInput = ref} /> <a className="btn btn-primary btn-md" role="button" onClick={this.handleStudentSubmit} >Join</a></p>
             <a className="btn btn-warning btn-md" role="button" onClick={this.chooseTeacher} >Teacher</a>
           </div>
           :
             <div>
-              <p>Create custom room <input ref={(ref) => this.teacherInput = ref} /> <a className="btn btn-primary btn-md" role="button" onClick={this.handleTeacherSubmit}  >Create</a></p>
-              <p><a className="btn btn-success btn-lg" href="/room" role="button">Generate Random Roomname</a></p>
+              <p>Create new room <input ref={(ref) => this.teacherInput = ref} /> <a className="btn btn-primary btn-md" role="button" onClick={this.handleTeacherSubmit}  >Create</a></p>
+              <p>or</p>
+              <p><a className="btn btn-primary btn-md" href="/room" role="button">Generate Random Room Name</a></p>
               <a className="btn btn-warning btn-md" role="button" onClick={this.chooseStudent} >Student</a>
             </div>
         }
