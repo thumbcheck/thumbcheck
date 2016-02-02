@@ -3,6 +3,13 @@
   font-family: 'HelveticaNeue-Thin'; /*a name to be used later*/
   src: url('../images/HelveticaNeue-Thin.otf'); /*URL to font*/
 }
+/*html { 
+  background: url(/images/cliche_learning1.jpg) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}*/
 body {
 	font-family: 'HelveticaNeue-Thin';
 }
