@@ -7,37 +7,39 @@ export default React.createClass({
   },
 
   chooseStudent: function () {
-    this.props.chooseRole('student');
+    this.props.chooseRole('');
   },
 
-  onChange: function (e) {
-    this.props.joinRoom(e.target.value);
-    //console.log(e.target.value);
-    console.log(this.props.roomName);
+  handleStudentSubmit: function (e) {
+    e.preventDefault();
+    const inputValue = "/"+this.studentInput.value;
+    window.location.assign(inputValue);
+
+  },
+
+  handleTeacherSubmit: function (e) {
+    e.preventDefault();
+    const inputValue = "/"+this.teacherInput.value+"?type=host";
+    window.location.assign(inputValue);
   },
 
   render: function() {
-    //console.log(this.props.choice);
-    if(!this.props.choice){
-      return (
-        <p><a className="btn btn-primary btn-md" role="button" onClick={this.chooseTeacher} >Teacher</a>
-        <a className="btn btn-primary btn-md" role="button" onClick={this.chooseStudent} >Student</a></p>
-      )
-    } else if(this.props.choice === 'teacher'){
-      return (
-        <div>
-          <p>Message here<br/><br/><br/></p>
-          <p><a className="btn btn-success btn-lg" href="/room" role="button">Get started</a></p>
-          <p>Student? Click here to join a room instead. <a className="btn btn-primary btn-md" role="button" onClick={this.chooseStudent} >Student</a></p>
-        </div>
-      )
-    } else {
-      return (
-        <div>
-          <p>Enter roomname here <input onChange={this.onChange} /> <a className="btn btn-primary btn-md" role="button" href={"/"+this.props.roomName} >Join</a></p>
-          <p>Teacher? Click here to create a room instead. <a className="btn btn-primary btn-md" role="button" onClick={this.chooseTeacher} >Teacher</a></p>
-        </div>
-      )
-    }
+    return (
+      <div>
+        {!this.props.choice ?
+          <div>
+            <p>Join existing room <input ref={(ref) => this.studentInput = ref} /> <a className="btn btn-primary btn-md" role="button" onClick={this.handleStudentSubmit} >Join</a></p>
+            <a className="btn btn-warning btn-md" role="button" onClick={this.chooseTeacher} >Teacher</a>
+          </div>
+          :
+            <div>
+              <p>Create new room <input ref={(ref) => this.teacherInput = ref} /> <a className="btn btn-primary btn-md" role="button" onClick={this.handleTeacherSubmit}  >Create</a></p>
+              <p>or</p>
+              <p><a className="btn btn-primary btn-md" href="/room" role="button">Generate Random Room Name</a></p>
+              <a className="btn btn-warning btn-md" role="button" onClick={this.chooseStudent} >Student</a>
+            </div>
+        }
+      </div>
+    )
   }
 });
