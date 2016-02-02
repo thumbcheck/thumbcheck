@@ -9,7 +9,6 @@ function scrubState(state, props) {
       delete state[props[i]];
     } 
   }
-  console.log(state,'state');
   return state;
 }
 
@@ -55,4 +54,18 @@ export function retrieveState(currentRoom, callback) {
       client.quit();
     });    
   }
+}
+
+export function checkRoom(room, callback) {
+  const client = redis.createClient();
+  client.get(room, (err, reply) => {
+    if (err) throw new Error(err);
+
+    if (reply === null) {
+      callback(false);
+    } else {
+      callback(true);
+    }
+    client.quit();
+  });
 }
