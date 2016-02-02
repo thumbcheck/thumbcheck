@@ -29,7 +29,7 @@ export const Educator = React.createClass({
   console.log('on educator main', this.props);
    return (
      <div>
-       <Navbar />          
+       <Navbar {...this.props} />          
         <div className="educator-container">
           <div className="center-text">
             <h4>Share this URL with your students: {window.location.href.split('?')[0]}
