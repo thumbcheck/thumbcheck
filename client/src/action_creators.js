@@ -35,10 +35,11 @@ export function vote(participantID) {
   };
 }
 
-export function startVote() {
+export function startVote(option) {
   return {
     meta: {remote: true},
-    type: 'START_VOTE'
+    type: 'START_VOTE',
+    option: option || 'thumbs'
   };
 }
 
@@ -46,6 +47,14 @@ export function stopVote() {
   return {
     meta: {remote: true},
     type: 'STOP_VOTE',
+  };
+}
+
+export function multipleChoiceAnswer(answer) {
+  return {
+    meta: {remote: true},
+    type: 'MULTIPLE_CHOICE_ANSWER',
+    answer: answer
   };
 }
 
