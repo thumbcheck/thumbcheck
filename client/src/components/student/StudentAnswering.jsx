@@ -4,11 +4,12 @@ import checkHasVoted from '../../helpers/checkHasVoted';
 export default React.createClass({
   upvoteClick: function() {
     this.props.upvote();
-    this.props.vote();
+    this.props.vote(window.localStorage.getItem('participantID'));
   },
   downvoteClick: function() {
-    this.props.upvote();
-    this.props.vote();
+    this.props.downvote();
+    console.log(window.localStorage.getItem('participantID'), 'console lgo participant');
+    this.props.vote(window.localStorage.getItem('participantID'));
 
   },
   render: function() {
