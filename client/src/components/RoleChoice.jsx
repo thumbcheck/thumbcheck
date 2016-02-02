@@ -16,6 +16,8 @@ export default React.createClass({
     const that = this;
     if (inputValue === 'room') {
       this.props.setError('Room not found. Please enter a valid.');
+    } else if (!inputValue) {
+      this.props.setError('Please enter a room name.');
     } else {
       $.ajax({
         type: 'POST',
@@ -23,7 +25,6 @@ export default React.createClass({
       })
       .success(function(data) {
         if (data) {
-          that.props.setError('');
           window.location.assign(inputValue);
         } else {
           that.props.setError('Room not found. Please try again.');
@@ -56,8 +57,6 @@ export default React.createClass({
           </div>
           :
             <div>
-              <p>Create new room <input ref={(ref) => this.teacherInput = ref} /> <a className="btn btn-primary btn-md" role="button" onClick={this.handleTeacherSubmit}  >Create</a></p>
-              <p>or</p>
               <p><a className="btn btn-primary btn-md" onClick={this.handleCreateRoom} role="button">Generate Random Room Name</a></p>
               <a className="btn btn-warning btn-md" role="button" onClick={this.chooseStudent} >Student</a>
             </div>
