@@ -91,15 +91,15 @@ function addQuestion(state, id, name, alreadyAsked) {
   if (alreadyAsked) {
     let questions = state.get('questions');
     questions = questions.filter(function(tuple) {
-      return tuple[0] !== id 
+      return tuple[0] !== id
     });
     let newState = fromJS({questions: questions});
     return state.merge(newState);
 
-  } else {    
-    let questions = state.get('questions') || fromJS([]);     
-    questions = questions.push([id, name]);    
-    let newState = fromJS({questions: questions});  
+  } else {
+    let questions = state.get('questions') || fromJS([]);
+    questions = questions.push([id, name]);
+    let newState = fromJS({questions: questions});
     return state.merge(newState);
   }
 }
@@ -157,8 +157,6 @@ export default function(state = fromJS({}), action) {
     return addStudentIdentity(state, action.id, action.name);
   case 'CHOOSE_ROLE':
     return chooseRole(state, action.choice);
-  case 'JOIN_ROOM':
-    return joinRoom(state, action.roomName);
   }
   return state;
 }
