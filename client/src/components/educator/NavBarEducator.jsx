@@ -20,8 +20,7 @@ export default React.createClass({
 	  } 
   },
 
-  render: function() {
-  	console.log('navvar probs', this.props);
+  render: function() {  	
     return ( 
     	<nav className="navbar navbar-default">
 			  <div className="container-fluid blue">			    
