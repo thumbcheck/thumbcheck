@@ -133,7 +133,7 @@ function toggleTakingQuestions(state) {
     return state.merge(fromJS({
       takingQuestions: {
         allowQuestions: false,
-        buttonClass: 'btn btn-success request-btn white-text',
+        buttonClass: 'btn grey white-text',
         buttonText: 'Allow Questions'
       }
     }));
@@ -141,8 +141,8 @@ function toggleTakingQuestions(state) {
     return state.merge(fromJS({
       takingQuestions: {
         allowQuestions: true,
-        buttonClass: 'btn btn-danger request-btn white-text',
-        buttonText: 'End Allow Questions'
+        buttonClass: 'btn light-grey white-text',
+        buttonText: 'Disable Questions'
       }
     }));
   }
