@@ -51,9 +51,18 @@ export function stopVote() {
 }
 
 export function multipleChoiceAnswer(answer) {
+  console.log(answer);
   return {
     meta: {remote: true},
     type: 'MULTIPLE_CHOICE_ANSWER',
+    answer: answer
+  };
+}
+
+export function openResponse(answer) {
+  return {
+    meta: {remote: true},
+    type: 'OPEN_RESPONSE',
     answer: answer
   };
 }
