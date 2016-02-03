@@ -4,6 +4,7 @@ import bodyParser from 'body-parser';
 import path from 'path';
 import router from './router';
 import {toJS} from 'immutable';
+import sendNumUsers from './helpers/sendNumUsers';
 import {storeState, retrieveState} from './controllers/redisStateController';
 
 const port = process.env.PORT || 8090;
@@ -41,29 +42,13 @@ io.on('connection', (socket) => {
     });
 
     let numUsers = io.sockets.adapter.rooms[roomname].length;
-    var sendNumUsers = (numUsers, socket) => {
-      let newAppState = {
-        meta: {remote: true},
-        type: 'SET_NUMUSERS',
-        numUsers: numUsers
-      };
-      io.sockets.in(socket.room).emit('syncState', newAppState);
-    };
-    sendNumUsers(numUsers, socket);
+    sendNumUsers(numUsers, socket, io);
   });
 
   socket.on('disconnect', () => {
     if (io.sockets.adapter.rooms[socket.room]) {
       let numUsers = io.sockets.adapter.rooms[socket.room].length;
-      var sendNumUsers = (numUsers, socket) => {
-        let newAppState = {
-          meta: {remote: true},
-          type: 'SET_NUMUSERS',
-          numUsers: numUsers
-        };
-        io.sockets.in(socket.room).emit('syncState', newAppState);
-      };
-      sendNumUsers(numUsers, socket);
+      sendNumUsers(numUsers, socket, io);
     }
   });
 
