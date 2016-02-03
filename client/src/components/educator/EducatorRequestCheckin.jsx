@@ -16,7 +16,7 @@ export default React.createClass({
         <div className={this.showGraph()}>
           <h4>Results from last thumbs check</h4> 
           <BarGraph ref="resultsDisplay" lastOrCurrent="last-result-graph" {...this.props} />
-          <button onClick={this.props.toggleShareResultsGraph}>SHARE RESULTS WITH PARTICIPANTS</button>
+          <button onClick={this.props.toggleThumbsCheckResultsGraph}>SHARE RESULTS WITH PARTICIPANTS</button>
         <div>
           <span className="up-thumb-count">Thumbs up count: {this.props.upCount}</span>
           <span className="down-thumb-count move-right">Thumbs down count: {this.props.downCount}</span>

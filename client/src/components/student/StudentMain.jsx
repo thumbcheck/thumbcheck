@@ -36,7 +36,8 @@ export const Student = React.createClass({
         <RaiseHand {...this.props} /> :
         null
         }
-        <BarGraph ref="resultsDisplay" lastOrCurrent="current-result-graph" {...this.props}/>
+        {this.props.shareThumbsCheckResults ? <BarGraph ref="resultsDisplay" lastOrCurrent="current-result-graph" {...this.props}/> :
+        null}
      </div>
    );
  }
@@ -52,6 +53,7 @@ function mapStateToProps(state) {
    id: state.get('id'),
    name: state.get('name'),
    questions: state.get('questions'),   
+   shareThumbsCheckResults: state.get('shareThumbsCheckResults')
  };
 }
 
