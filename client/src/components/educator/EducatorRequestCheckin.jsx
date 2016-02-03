@@ -62,16 +62,7 @@ export default React.createClass({
       { value: 'open', label: 'Two' }
     ];
 
-    return (
-      <div>
-      <div id="selectorContainer">
-          <select id="testSelectorE" name="testSelector4" onSelect={this.chooseThumbs}>
-            <option value="thumbs" selected>Thumbs Check</option>
-            <option value="multipleChoice3">Multiple Choice</option>
-            <option value="open" >Open Response</option>>
-          </select>
-      </div>
-      <div>
+    return (      
     
       <div>
         <SliderNativeBootstrap
@@ -81,7 +72,7 @@ export default React.createClass({
           max={2}
           min={0}
           disabled="no" />
- 
+    
 
 
         <button type='button' className="btn orange request-btn white-text thumb-check-start"
@@ -97,20 +88,31 @@ export default React.createClass({
         <button type='button' className="btn blue request-btn white-text thumb-check-start"
                 onClick={this.sendMultipleChoice3}>
           Open Response
-        </button>
-      </div>
+        </button>      
 
-      <div className={this.showGraph()}>
-        <h4>Results from last thumbs check</h4>
-        <BarGraph ref="resultsDisplay" lastOrCurrent="last-result-graph" {...this.props} />
-        <p><button onClick={this.props.toggleThumbsCheckResultsGraph}>SHARE RESULTS WITH PARTICIPANTS</button></p>
-      <div>
-        <span className="up-thumb-count">Thumbs up count: {this.props.upCount}</span>
-        <span className="down-thumb-count move-right">Thumbs down count: {this.props.downCount}</span>
-      </div>
-      </div>
-        <QuestionButton {...this.props}/>
+        <div className={this.showGraph()}>
+          <h4>Results from last thumbs check</h4>
+          <BarGraph ref="resultsDisplay" lastOrCurrent="last-result-graph" {...this.props} />
+          <p><button onClick={this.props.toggleThumbsCheckResultsGraph}>SHARE RESULTS WITH PARTICIPANTS</button></p>
+          <div>
+            <span className="up-thumb-count">Thumbs up count: {this.props.upCount}</span>
+            <span className="down-thumb-count move-right">Thumbs down count: {this.props.downCount}</span>
+          </div>
+        </div>
+        <div>
+          <QuestionButton {...this.props} />
+        </div>
       </div>
     );
   }
 });
+
+// <div>
+      //   <div id="selectorContainer">
+      //       <select id="testSelectorE" name="testSelector4" onSelect={this.chooseThumbs}>
+      //         <option value="thumbs" selected>Thumbs Check</option>
+      //         <option value="multipleChoice3">Multiple Choice</option>
+      //         <option value="open" >Open Response</option>>
+      //       </select>
+      //   </div>
+      // <div>
