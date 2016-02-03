@@ -1,5 +1,5 @@
 import React from 'react';
-import chartJS from 'react-chartjs'
+import chartJS from 'react-chartjs';
 const BarGraph = chartJS.Bar;
 
 export default React.createClass({
@@ -25,6 +25,5 @@ export default React.createClass({
     };
     
     return <BarGraph data={barChartData} className={this.props.lastOrCurrent} />
-    } 
   }
 });
