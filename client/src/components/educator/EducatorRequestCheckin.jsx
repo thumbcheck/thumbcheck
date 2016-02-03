@@ -19,8 +19,8 @@ export default React.createClass({
 
   },
 
-  chooseThumbs: function() {
-    console.log("SELECTOR CHANGED!!!!!!!!")
+  chooseThumbs: function(e) {
+    console.log("SELECTOR CHANGED!!!!!!!!", e.target.value)
     this.props.chooseQuestionType('thumbs');
     console.log('in enducator checkin', this.props.questionType);
   },
@@ -37,35 +37,47 @@ export default React.createClass({
 
   render: function() {
     console.log('question type', this.props.questionType);
+    let options = [
+      { value: 'thumbs', label: 'One' },
+      { value: 'multipleChoice3', label: 'Two' },
+      { value: 'open', label: 'Two' }
+    ];
+
     return (
       <div>
       <div id="selectorContainer">
-          <select id="testSelectorE" name="testSelector4" onChange={this.chooseThumbs}>
+          <select id="testSelectorE" name="testSelector4" onSelect={this.chooseThumbs}>
             <option value="thumbs" selected>Thumbs Check</option>
-            <option value="multipleChoice3" onChange={this.chooseMultiple}>Multiple Choice</option>
-            <option value="open" onChange={this.chooseOpen}>Open Response</option>>
+            <option value="multipleChoice3">Multiple Choice</option>
+            <option value="open" >Open Response</option>>
           </select>
       </div>
-
+      <div>
         <button type='button' className="btn orange request-btn white-text thumb-check-start"
                 onClick={this.sendThumbscheck}>
-          START VOTE
+          Thumbscheck
         </button>
 
-        <button type='button' className="btn orange request-btn white-text thumb-check-start"
+        <button type='button' className="btn green request-btn white-text thumb-check-start"
                 onClick={this.sendMultipleChoice3}>
           Multiple choice
         </button>
 
-        <div className={this.showGraph()}>
-          <h4>Results from last thumbs check</h4>
-          <BarGraph ref="resultsDisplay" lastOrCurrent="last-result-graph" {...this.props} />
-          <button onClick={this.props.toggleThumbsCheckResultsGraph}>SHARE RESULTS WITH PARTICIPANTS</button>
-        <div>
-          <span className="up-thumb-count">Thumbs up count: {this.props.upCount}</span>
-          <span className="down-thumb-count move-right">Thumbs down count: {this.props.downCount}</span>
-        </div>
-        </div>
+        <button type='button' className="btn blue request-btn white-text thumb-check-start"
+                onClick={this.sendMultipleChoice3}>
+          Open Response
+        </button>
+      </div>
+
+      <div className={this.showGraph()}>
+        <h4>Results from last thumbs check</h4>
+        <BarGraph ref="resultsDisplay" lastOrCurrent="last-result-graph" {...this.props} />
+        <p><button onClick={this.props.toggleThumbsCheckResultsGraph}>SHARE RESULTS WITH PARTICIPANTS</button></p>
+      <div>
+        <span className="up-thumb-count">Thumbs up count: {this.props.upCount}</span>
+        <span className="down-thumb-count move-right">Thumbs down count: {this.props.downCount}</span>
+      </div>
+      </div>
         <QuestionButton {...this.props}/>
       </div>
     );
