@@ -3,10 +3,10 @@ import BarGraph from './EducatorBarGraph';
 import QuestionButton from './QuestionButton';
 
 export default React.createClass({
-  showGraph: function() {    
+  showGraph: function() {
     return this.props.showgraph === "1" ? "last-graph-container" : "dont-show";
   },
-  render: function() {    
+  render: function() {
     return (
       <div>
       <div id="selectorContainer">        
@@ -21,8 +21,14 @@ export default React.createClass({
                 onClick={this.props.startVote}>
           START VOTE
         </button>
+
+        <button type='button' className="btn orange request-btn white-text thumb-check-start"
+                onClick={this.props.startVote(3)}>
+          Multiple choice
+        </button>
+
         <div className={this.showGraph()}>
-          <h4>Results from last thumbs check</h4> 
+          <h4>Results from last thumbs check</h4>
           <BarGraph ref="resultsDisplay" lastOrCurrent="last-result-graph" {...this.props} />
           <button onClick={this.props.toggleThumbsCheckResultsGraph}>SHARE RESULTS WITH PARTICIPANTS</button>
         <div>

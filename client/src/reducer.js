@@ -33,17 +33,22 @@ function stopVote(state) {
 }
 
 function startVote(state, option) {
-  const newState = fromJS({
-    voting: true,
-    showgraph: "1",
-    if (option === 'thumbs') {
+  let newState;
+  if (option === 'thumbs') {
+    newState = fromJS({
+      voting: true,
+      showgraph: "1",
       questionType: 'thumbs',
       tally: {
         thumbsUp : 0,
         thumbsDown: 0,
         haveVoted: []
       }
-    } else if (option === 3) {
+    });
+  } else if (option === 3) {
+    newState = fromJS({
+      voting: true,
+      showgraph: "1",
       questionType: 'multipleChoice3',
       tally: {
         a: 0,
@@ -51,7 +56,11 @@ function startVote(state, option) {
         c: 0,
         haveVoted: []
       }
-    } else if (option == 4) {
+    });
+  } else if (option == 4) {
+    newState = fromJS({
+      voting: true,
+      showgraph: "1",
       questionType: 'multipleChoice4',
       tally: {
         a: 0,
@@ -60,7 +69,11 @@ function startVote(state, option) {
         d: 0,
         haveVoted: []
       }
-    } else if (option === 5) {
+    });
+  } else if (option === 5) {
+    newState = fromJS({
+      voting: true,
+      showgraph: "1",
       questionType: 'multipleChoice5',
       tally: {
         a: 0,
@@ -70,15 +83,18 @@ function startVote(state, option) {
         e: 0,
         haveVoted: []
       }
-    } else if (option === 'open') {
+    });
+  } else if (option === 'open') {
+    newState = fromJS({
+      voting: true,
+      showgraph: "1",
       questionType: 'open',
       tally: {
         answers: [],
         haveVoted: []
       }
-    }
-
-  });
+    });
+  }
   return state.merge(newState);
 }
 
