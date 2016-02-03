@@ -56,6 +56,7 @@ function mapStateToProps2(state) {
    aCount: state.getIn(['tally', 'a']),
    bCount: state.getIn(['tally', 'b']),
    cCount: state.getIn(['tally', 'c']),
+   openResponseAnswers: state.getIn(['tally', 'answers']),
    takingQuestions: state.get('takingQuestions'),
    questions: state.get('questions'),
    choice: state.get('choice'),

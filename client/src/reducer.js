@@ -122,6 +122,12 @@ function multipleChoiceAnswer(state, answer) {
   );
 }
 
+function openResponse(state, answer) {
+  let answers = state.getIn(['tally', 'answers']) || [];
+  answers = answers.push(answer);
+  return state.mergeIn(['tally', 'answers'], answers);
+}
+
 function toggleTakingQuestions(state) {
 
   // Take care of takingQuestions is undefined case
@@ -212,6 +218,8 @@ export default function(state = fromJS({}), action) {
     return startVote(state, action.option);
   case 'MULTIPLE_CHOICE_ANSWER':
     return multipleChoiceAnswer(state, action.answer);
+  case 'OPEN_RESPONSE':
+    return openResponse(state, action.answer);
   case 'TAKING_QUESTIONS':
     return toggleTakingQuestions(state);
   case 'ADD_QUESTION':

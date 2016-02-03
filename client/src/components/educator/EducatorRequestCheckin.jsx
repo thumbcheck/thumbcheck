@@ -17,6 +17,10 @@ export default React.createClass({
     this.props.startVote('thumbs');
   },
 
+  sendOpenResponse: function() {
+    this.props.startVote('open');
+  },
+
   triggerVote: function() {
 
   },
@@ -58,11 +62,6 @@ export default React.createClass({
   render: function() {
 
     console.log('question type', this.props.questionType);
-    let options = [
-      { value: 'thumbs', label: 'One' },
-      { value: 'multipleChoice3', label: 'Two' },
-      { value: 'open', label: 'Two' }
-    ];
 
     return (      
     
@@ -88,7 +87,7 @@ export default React.createClass({
         </button>
 
         <button type='button' className="btn blue request-btn white-text thumb-check-start"
-                onClick={this.sendMultipleChoice3}>
+                onClick={this.sendOpenResponse}>
           Open Response
         </button>      
 
