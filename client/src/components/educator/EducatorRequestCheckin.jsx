@@ -2,6 +2,7 @@ import React from 'react';
 import BarGraph from './EducatorBarGraph';
 import QuestionButton from './QuestionButton';
 import SliderNativeBootstrap from './QuestionSlider';
+import renderCorrectGraphType from '../../helpers/renderCorrectGraphType';
 
 export default React.createClass({
   showGraph: function() {
@@ -53,6 +54,7 @@ export default React.createClass({
     }    
       
   },
+
   render: function() {
 
     console.log('question type', this.props.questionType);
@@ -90,18 +92,17 @@ export default React.createClass({
           Open Response
         </button>      
 
-        <div className={this.showGraph()}>
-          <h4>Results from last thumbs check</h4>
-          <BarGraph ref="resultsDisplay" lastOrCurrent="last-result-graph" {...this.props} />
-          <p><button onClick={this.props.toggleThumbsCheckResultsGraph}>SHARE RESULTS WITH PARTICIPANTS</button></p>
-          <div>
-            <span className="up-thumb-count">Thumbs up count: {this.props.upCount}</span>
-            <span className="down-thumb-count move-right">Thumbs down count: {this.props.downCount}</span>
-          </div>
-        </div>
-        <div>
-          <QuestionButton {...this.props} />
-        </div>
+
+      <div className={this.showGraph()}>
+        <h4>Results from last thumbs check</h4>
+        {renderCorrectGraphType(this.props)}
+        <p><button onClick={this.props.toggleThumbsCheckResultsGraph}>SHARE RESULTS WITH PARTICIPANTS</button></p>
+      <div>
+        <span className="up-thumb-count">Thumbs up count: {this.props.upCount}</span>
+        <span className="down-thumb-count move-right">Thumbs down count: {this.props.downCount}</span>
+      </div>
+      </div>
+        <QuestionButton {...this.props}/>
       </div>
     );
   }

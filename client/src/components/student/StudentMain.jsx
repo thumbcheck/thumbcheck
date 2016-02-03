@@ -7,7 +7,9 @@ import StudentAnswering from './StudentAnswering';
 import * as actionCreators from '../../action_creators';
 import RaiseHand from './RaiseHand';
 import BarGraph from '../educator/EducatorBarGraph';
+import BinaryThumbsGraph from '../results-graphs/BinaryThumbs';
 import checkHasVoted from '../../helpers/checkHasVoted';
+import renderCorrectGraphType from '../../helpers/renderCorrectGraphType';
 import {toJS, fromJS} from 'immutable';
 
 export const Student = React.createClass({
@@ -37,7 +39,7 @@ export const Student = React.createClass({
         <RaiseHand {...this.props} /> :
         null
         }
-        {this.props.shareThumbsCheckResults ? <BarGraph ref="resultsDisplay" lastOrCurrent="current-result-graph" {...this.props}/> :
+        {this.props.shareThumbsCheckResults ? renderCorrectGraphType(this.props) :
         null}
      </div>
    );
