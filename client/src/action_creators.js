@@ -64,11 +64,20 @@ export function addQuestion(id, name, alreadyAsked) {
     alreadyAsked: alreadyAsked
   };
 }
+export function lowerStudentHand(id) {  
+  return {
+    meta: {remote: true},
+    type: 'LOWER_STUDENT_HAND',
+    id: id
+  }
+}
+
 export function toggleHandRaise() {
   return {
     type: 'TOGGLE_HAND_RAISE'
   };
 }
+
 export function addStudentIdentity(id, name) {
   return {
     type: 'ADD_STUDENT_ID_TO_CLIENT',

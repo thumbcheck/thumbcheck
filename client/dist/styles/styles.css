@@ -49,9 +49,16 @@ body {
 .questions-list {
 	padding-left: 8px;
 }
-.remove-icon {
+.remove-right {
 	float: right;
-	padding-right: 10px;
+	padding-right: 15%;	
+} 
+.remove-icon {
+	width: 12px;
+}
+.dropdown-menu.drop-down-spacing {
+	top: 60px;
+	min-height: 2em;
 }
 /*  ********** educator page styling  ************* */
 .request-btn {
