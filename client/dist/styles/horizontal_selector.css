@@ -4,13 +4,17 @@ body {
 
 
 #selectorContainer{
-background: #EDEDED;
-	padding: 30px;
-	width: 900px;
+	padding: 30px;	
 	margin-left: auto;
 	margin-right: auto;
+	margin-bottom: 10%;
 }
-
+#selectorContainer table {
+	margin: 0 auto;
+}
+#selectorContainer table th h6 {
+	margin-bottom: -15px;
+}
 #headerTop{
 	margin-top: 16px;
 	width: 900px;
@@ -90,37 +94,37 @@ th > h6 {
 }
 
 .first-hole{
-	background: url("../img/slider_1_off.png");
+	background: url("/images/slider_images/slider_1_off.png");
 }
 
 .between-hole{
-	background: url("../img/slider_2_off.png");
+	background: url("/images/slider_images/slider_2_off.png");
 }
 
 .last-hole{
-	background: url("../img/slider_5_off.png");
+	background: url("/images/slider_images/slider_5_off.png");
 }
 
 .first-hole.selected-hole{
-	background: url("../img/slider_1_on.png");
+	background: url("/images/slider_images/slider_1_on.png");
 }
 
 .between-hole.selected-hole{
-	background: url("../img/slider_2_on.png");
+	background: url("/images/slider_images/slider_2_on.png");
 }
 
 .last-hole.selected-hole{
-	background: url("../img/slider_5_on.png");
+	background: url("/images/slider_images/slider_5_on.png");
 }
 
 .hole-spacer{
-	background: url("../img/slider_repeat.png");
+	background: url("/images/slider_images/slider_repeat.png");
 	background-repeat: repeat-x;
-	width: 200px;
+	width: 120px;
 }
 
 .between-holes{
-	background: url("../img/slider_2_off.png");
+	background: url("/images/slider_images/slider_2_off.png");
 }
 
 #selectorOptions > td{

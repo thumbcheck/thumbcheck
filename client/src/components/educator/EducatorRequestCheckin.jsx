@@ -9,15 +9,12 @@ export default React.createClass({
   render: function() {    
     return (
       <div>
-      <div id="selectorContainer">
-
-        <form id="testForm">
+      <div id="selectorContainer">        
           <select id="testSelectorE" name="testSelector4">
-            <option value="0" >One</option>
-            <option value="1" selected>Two</option>
-            <option value="2" >Three</option>
+            <option value="0" >Thumbs Check</option>
+            <option value="1" selected>Multiple Choice</option>
+            <option value="2" >Open Response</option>
           </select>
-        </form>
       </div>  
 
         <button type='button' className="btn orange request-btn white-text thumb-check-start"
