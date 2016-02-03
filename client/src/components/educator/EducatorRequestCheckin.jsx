@@ -9,37 +9,17 @@ export default React.createClass({
     return this.props.showgraph === "1" ? "last-graph-container" : "dont-show";
   },
 
-  sendMultipleChoice3: function() {
-    this.props.startVote(3);
-  },
-
-  sendThumbscheck: function() {
-    this.props.startVote('thumbs');
-  },
-
-  sendOpenResponse: function() {
-    this.props.startVote('open');
+  sendCheckin: function() {
+    if (this.props.questionType === 'multipleChoice3') {
+      this.props.startVote(3);
+    } else {
+    this.props.startVote(this.props.questionType);
+    }
   },
 
   triggerVote: function() {
-
   },
 
-  chooseThumbs: function(e) {
-    console.log("SELECTOR CHANGED!!!!!!!!", e.target.value)
-    this.props.chooseQuestionType('thumbs');
-    console.log('in enducator checkin', this.props.questionType);
-  },
-
-  chooseMultiple: function() {
-    this.props.chooseQuestionType('multipleChoice3');
-    console.log('in enducator checkin', this.props.questionType);
-  },
-
-  chooseOpen: function() {
-    this.props.chooseQuestionType('open');
-    console.log('in enducator checkin', this.props.questionType);
-  },
   changeSliderValue: function(e) {
     const selection = e.target.value.toString(); 
     let questionSelection = '';        
@@ -56,41 +36,40 @@ export default React.createClass({
       default: 
         questionSelection = 'thumbs';
     }    
-      
+    this.props.chooseQuestionType(questionSelection);
   },
+  renderProperButton: function() {    
+    if (this.props.questionType === undefined) {this.props.chooseQuestionType('thumbs');}
 
-  render: function() {
-
-    console.log('question type', this.props.questionType);
-
+    if (this.props.questionType === 'thumbs') {
+      return <button type='button' className="btn orange request-btn white-text thumb-check-start"
+                onClick={this.sendCheckin}>
+                Thumbscheck          
+        </button>  
+    } else if (this.props.questionType === 'multipleChoice3') {
+      return <button type='button' className="btn green request-btn white-text thumb-check-start"
+                onClick={this.sendCheckin}>
+                Multiple Choice          
+        </button> 
+    } else {
+      return <button type='button' className="btn blue request-btn white-text thumb-check-start"
+                onClick={this.sendCheckin}>
+                Open Response          
+        </button> 
+    }
+  },
+  render: function() {    
     return (      
-    
       <div>
         <SliderNativeBootstrap
           defaultValue={0}
-          handleChange= { this.changeSliderValue }
+          handleChange={ this.changeSliderValue }
           step={1}
           max={2}
           min={0}
           disabled="no" />
-    
 
-
-        <button type='button' className="btn orange request-btn white-text thumb-check-start"
-                onClick={this.sendThumbscheck}>
-          Thumbscheck
-        </button>
-
-        <button type='button' className="btn green request-btn white-text thumb-check-start"
-                onClick={this.sendMultipleChoice3}>
-          Multiple choice
-        </button>
-
-        <button type='button' className="btn blue request-btn white-text thumb-check-start"
-                onClick={this.sendOpenResponse}>
-          Open Response
-        </button>      
-
+          { this.renderProperButton() }      
 
       <div className={this.showGraph()}>
         <h4>Results from last thumbs check</h4>
