@@ -12,6 +12,7 @@ export default React.createClass({
 
   },
   render: function() {
+    console.log(this.props.questionType);
     return (
       <div className="answering">
         <span className="thumb-up"><img src="/images/thumbsup3.ico" className="thumbs" onClick ={this.upvoteClick}></img></span>

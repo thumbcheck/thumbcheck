@@ -33,6 +33,7 @@ function stopVote(state) {
 }
 
 function startVote(state, option) {
+  console.log("options", option);
   let newState;
   if (option === 'thumbs') {
     newState = fromJS({

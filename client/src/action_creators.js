@@ -36,10 +36,11 @@ export function vote(participantID) {
 }
 
 export function startVote(option) {
+  option = option || 'thumbs';
   return {
     meta: {remote: true},
     type: 'START_VOTE',
-    option: option || 'thumbs'
+    option: option
   };
 }
 
@@ -73,7 +74,7 @@ export function addQuestion(id, name, alreadyAsked) {
     alreadyAsked: alreadyAsked
   };
 }
-export function lowerStudentHand(id) {  
+export function lowerStudentHand(id) {
   return {
     meta: {remote: true},
     type: 'LOWER_STUDENT_HAND',

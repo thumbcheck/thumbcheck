@@ -6,6 +6,11 @@ export default React.createClass({
   showGraph: function() {
     return this.props.showgraph === "1" ? "last-graph-container" : "dont-show";
   },
+
+  multipleChoice3: function() {
+    this.props.startVote(3);
+  },
+
   render: function() {
     return (
       <div>
@@ -23,7 +28,7 @@ export default React.createClass({
         </button>
 
         <button type='button' className="btn orange request-btn white-text thumb-check-start"
-                onClick={this.props.startVote(3)}>
+                onClick={this.multipleChoice3}>
           Multiple choice
         </button>
 
