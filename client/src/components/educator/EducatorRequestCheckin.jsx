@@ -1,7 +1,11 @@
 import React from 'react';
 import BarGraph from './EducatorBarGraph';
 import QuestionButton from './QuestionButton';
+<<<<<<< 013274dfd8aad25e42a63e2e6006a630813083eb
 import SliderNativeBootstrap from './QuestionSlider';
+=======
+import BinaryThumbsGraph from '../results-graphs/BinaryThumbs';
+>>>>>>> Refactors educator graph into binarythumbs graph
 
 export default React.createClass({
   showGraph: function() {
@@ -53,6 +57,7 @@ export default React.createClass({
     }    
       
   },
+
   render: function() {
 
     console.log('question type', this.props.questionType);
@@ -90,18 +95,18 @@ export default React.createClass({
           Open Response
         </button>      
 
-        <div className={this.showGraph()}>
-          <h4>Results from last thumbs check</h4>
-          <BarGraph ref="resultsDisplay" lastOrCurrent="last-result-graph" {...this.props} />
-          <p><button onClick={this.props.toggleThumbsCheckResultsGraph}>SHARE RESULTS WITH PARTICIPANTS</button></p>
-          <div>
-            <span className="up-thumb-count">Thumbs up count: {this.props.upCount}</span>
-            <span className="down-thumb-count move-right">Thumbs down count: {this.props.downCount}</span>
-          </div>
-        </div>
-        <div>
-          <QuestionButton {...this.props} />
-        </div>
+
+      <div className={this.showGraph()}>
+        <h4>Results from last thumbs check</h4>
+        {/*<BarGraph ref="resultsDisplay" lastOrCurrent="last-result-graph" {...this.props} />*/}
+        <BinaryThumbsGraph ref='resultsDisplay' lastOrCurrent='last-result-graph' {...this.props} />
+        <p><button onClick={this.props.toggleThumbsCheckResultsGraph}>SHARE RESULTS WITH PARTICIPANTS</button></p>
+      <div>
+        <span className="up-thumb-count">Thumbs up count: {this.props.upCount}</span>
+        <span className="down-thumb-count move-right">Thumbs down count: {this.props.downCount}</span>
+      </div>
+      </div>
+        <QuestionButton {...this.props}/>
       </div>
     );
   }
