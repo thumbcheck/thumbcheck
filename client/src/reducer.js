@@ -155,6 +155,8 @@ export default function(state = fromJS({}), action) {
     return addQuestion(state, action.id, action.name, true);
   case 'TOGGLE_THUMBS_GRAPH':
     return toggleThumbsGraph(state);
+  case 'LOWER_STUDENT_HAND':      
+    return addQuestion(state, action.id, action.name, true);
   }
   return state;
 }
