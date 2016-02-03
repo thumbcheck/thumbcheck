@@ -39,8 +39,7 @@ export const Educator = React.createClass({
               <ResultsDisplay ref="resultsDisplay" {...this.props} /> :
               <EducatorRequestCheckin {...this.props} />
             }
-          </div>
-          <div className="questions-queue">{this.props.questions !== undefined ? this.showQuestions() : null}</div>
+          </div>          
        </div>
      </div>
    )

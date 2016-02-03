@@ -2,15 +2,24 @@ import React from 'react';
 import {toJS} from 'immutable';
 
 export default React.createClass({
-  showQuestions: function() {  	
+  removeQuestion: function(target) {
+  	console.log('removing', target);
+  	this.props.lowerStudentHand(id);
+  },
+
+  showQuestions: function() { 
+  	var that = this;
+  	function removeQuestion() {  		
+  		that.props.lowerStudentHand(this);
+  	}	
   	if (this.props.questions) {
-	  	let questions = this.props.questions.toJS();  
+	  	let questions = this.props.questions.toJS();  	  		  	
 	  	return questions.map(function(tuple, index) {
-	  		//glyphicon glyphicon-remove
-	    	return <li className="questions-list">{tuple[1]}<span className=" remove-icon" aria-hidden="true">X</span></li>
+	    	return <li className="questions-list">{tuple[1]}<span className="remove-icon remove-right" onClick={removeQuestion.bind((tuple[0]))} aria-hidden="true"><img className="remove-icon" src="/images/icons/remove.png"/></span></li>
 	  	});   
 	  } 
   },
+
   render: function() {
   	console.log('navvar probs', this.props);
     return ( 
@@ -32,7 +41,7 @@ export default React.createClass({
 			      <ul className="nav navbar-nav navbar-right">			        
 			        <li className="dropdown">
 			          <a href="#" className="dropdown-toggle white-text right-nav" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" ><img src="/images/raise_hand1.png" className="raise-hand-icon" /><span className="caret"></span></a>
-			          <ul className="dropdown-menu">
+			          <ul className="dropdown-menu drop-down-spacing">
 			            { this.showQuestions() }
 			          </ul>
 			        </li>

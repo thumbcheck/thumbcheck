@@ -71,15 +71,16 @@ function toggleTakingQuestions(state) {
   }
 }
 
-function addQuestion(state, id, name, alreadyAsked) {
+function addQuestion(state, id, name, alreadyAsked) {  
   const studentId = id;
   // if the student's hand is already up, remove it from question queue
-  if (alreadyAsked) {
-    let questions = state.get('questions');
-    questions = questions.filter(function(tuple) {
+  if (alreadyAsked) {    
+    let questions = state.get('questions');    
+    questions = questions.filter(function(tuple) {    
+      if (tuple[0] === id)
       return tuple[0] !== id
     });
-    let newState = fromJS({questions: questions});
+    let newState = fromJS({questions: questions});    
     return state.merge(newState);
 
   } else {
@@ -142,6 +143,8 @@ export default function(state = fromJS({}), action) {
     return chooseRole(state, action.choice);
   case 'SET_ERROR':
     return setErrorMessage(state, action.errMessage);
+  case 'LOWER_STUDENT_HAND':      
+    return addQuestion(state, action.id, action.name, true);
   }
   return state;
 }
