@@ -19,7 +19,6 @@ socket.on('remoteAction', (remoteAction) => {
   store.dispatch(remoteAction);
 });
 socket.on('syncState', (appState) => {
-  console.log('appState', appState);
   store.dispatch(appState);
 });
 

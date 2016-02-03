@@ -33,9 +33,7 @@ io.on('connection', (socket) => {
 
   socket.on('joinRoom', (roomname) => {
     socket.join(roomname);
-    console.log("Folks in room:", io.sockets.adapter.rooms[roomname].length);
     
-
     socket.room = roomname;
     retrieveState(roomname, (err, appState) => {
       if (err) throw new Error(err);
@@ -49,16 +47,12 @@ io.on('connection', (socket) => {
         type: 'SET_NUMUSERS',
         numUsers: numUsers
       };
-      // socket.emit('syncState', newAppState);
-      // socket.broadcast.to(socket.room).emit('syncState', newAppState);
       io.sockets.in(socket.room).emit('syncState', newAppState);
     };
     sendNumUsers(numUsers, socket);
   });
 
   socket.on('disconnect', () => {
-    console.log("WE DISCONNECTED:", socket);
-    console.log("WE DISCONNECTED:", socket.room);
     if (io.sockets.adapter.rooms[socket.room]) {
       let numUsers = io.sockets.adapter.rooms[socket.room].length;
       var sendNumUsers = (numUsers, socket) => {
@@ -67,13 +61,9 @@ io.on('connection', (socket) => {
           type: 'SET_NUMUSERS',
           numUsers: numUsers
         };
-        // socket.emit('syncState', newAppState);
-        // socket.broadcast.to(socket.room).emit('syncState', newAppState);
         io.sockets.in(socket.room).emit('syncState', newAppState);
       };
       sendNumUsers(numUsers, socket);
-      console.log("TARGET:", io.sockets.adapter.rooms[socket.room]);
-      console.log("post-disconnect, folks in room:", io.sockets.adapter.rooms[socket.room].length);
     }
   });
 

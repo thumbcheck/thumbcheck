@@ -123,14 +123,6 @@ function setErrorMessage(state, error) {
   return state.set('errMessage', error);
 }
 
-// function setNumUsers(state, numUsers) {
-//   console.log('REDUCER happened:', state, numUsers);
-//   const newState = fromJS({
-//     numUsers: numUsers
-//   });
-//   return state.set('numUsers', numUsers);
-// }
-
 export default function(state = fromJS({}), action) {
   switch (action.type) {
   case 'SET_STATE':

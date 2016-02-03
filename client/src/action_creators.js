@@ -106,13 +106,3 @@ export function toggleThumbsCheckResultsGraph() {
     type: 'TOGGLE_THUMBS_GRAPH'
   };
 }
-
-// export function setNumUsers(numUsers) {
-//   console.log("ACTION creators happend:", numUsers);
-//   return {
-//     meta: {remote: true},
-//     type: 'SET_NUMUSERS',
-//     numUsers: numUsers
-//   };
-// }
-
