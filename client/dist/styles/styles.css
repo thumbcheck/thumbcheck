@@ -14,10 +14,22 @@ body {
 	font-family: 'HelveticaNeue-Thin';
 }
 .blue {	
-	background-color: #0080FF 
+	background-color: #0080FF;
 }
 .orange {	
 	background-color: #FE5133;
+}
+.green {
+  background-color: #22b222;
+}
+.red {
+  background-color: #FF0000;
+}
+.grey {
+  background-color: #808080;
+}
+.light-grey {
+  background-color: #9c9c9c;
 }
 .blue-text {
 	color: #0080FF;
