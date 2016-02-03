@@ -86,7 +86,9 @@ body {
   left: 200px;
   top: 200px;
 }
-
+#selectorContainer {
+	height: 100px;	
+}
 
 /*  ************* student page styling  ************* */
 .student-content {
