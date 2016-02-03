@@ -1,16 +1,8 @@
 import React from 'react';
 import BarGraph from './EducatorBarGraph';
 import QuestionButton from './QuestionButton';
-<<<<<<< 013274dfd8aad25e42a63e2e6006a630813083eb
 import SliderNativeBootstrap from './QuestionSlider';
-=======
-import BinaryThumbsGraph from '../results-graphs/BinaryThumbs';
-<<<<<<< d2fbefd720204fe26f63cc2bbe702d5a0c8d2e7f
->>>>>>> Refactors educator graph into binarythumbs graph
-=======
-// import MultipleChoice3Graph from '../results-graphs/MultipleChoice3';
 import renderCorrectGraphType from '../../helpers/renderCorrectGraphType';
->>>>>>> Implements ability to render different graphs
 
 export default React.createClass({
   showGraph: function() {
@@ -103,7 +95,6 @@ export default React.createClass({
 
       <div className={this.showGraph()}>
         <h4>Results from last thumbs check</h4>
-        {/*<BarGraph ref="resultsDisplay" lastOrCurrent="last-result-graph" {...this.props} />*/}
         {renderCorrectGraphType(this.props)}
         <p><button onClick={this.props.toggleThumbsCheckResultsGraph}>SHARE RESULTS WITH PARTICIPANTS</button></p>
       <div>
