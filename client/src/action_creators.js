@@ -69,7 +69,7 @@ export function lowerStudentHand(id) {
     meta: {remote: true},
     type: 'LOWER_STUDENT_HAND',
     id: id
-  }
+  };
 }
 
 export function toggleHandRaise() {
