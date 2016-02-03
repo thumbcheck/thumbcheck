@@ -8,7 +8,7 @@ export default React.createClass({
     if(this.props.questionType === 'open') {
       return (
         <div>
-        {this.props.openResponseAnswers}
+        <p>{this.props.openResponseAnswers}</p>
         <button className="btn orange request-btn white-text end-thumb-check" onClick={this.props.stopVote}>
           END VOTE
         </button>
