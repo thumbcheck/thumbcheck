@@ -35,11 +35,12 @@ export function vote(participantID) {
   };
 }
 
-export function startVote() {
+export function startVote(option) {
   return {
     meta: {remote: true},
-    type: 'START_VOTE'
-  };
+    type: 'START_VOTE',
+    option: option
+  }
 }
 
 export function stopVote() {
@@ -48,6 +49,22 @@ export function stopVote() {
     type: 'STOP_VOTE',
   };
 }
+
+export function multipleChoiceAnswer(answer) {
+  return {
+    meta: {remote: true},
+    type: 'MULTIPLE_CHOICE_ANSWER',
+    answer: answer
+  };
+}
+
+export function chooseQuestionType(option) {
+  return {
+    type: 'CHOOSE_QUESTION_TYPE',
+    option: option
+  };
+}
+
 
 export function toggleTakingQuestions() {
   return {
@@ -64,7 +81,7 @@ export function addQuestion(id, name, alreadyAsked) {
     alreadyAsked: alreadyAsked
   };
 }
-export function lowerStudentHand(id) {  
+export function lowerStudentHand(id) {
   return {
     meta: {remote: true},
     type: 'LOWER_STUDENT_HAND',

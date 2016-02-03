@@ -32,15 +32,76 @@ function stopVote(state) {
   return state.merge(newState);
 }
 
-function startVote(state) {
-  const newState = fromJS({
-    voting: true,
-    showgraph: "1",
-    tally: {
-      thumbsUp : 0,
-      thumbsDown: 0,
-      haveVoted: []
-    }
+function startVote(state, option) {
+  console.log("options", option);
+  let newState;
+  if (option === 'thumbs') {
+    newState = fromJS({
+      voting: true,
+      showgraph: "1",
+      questionType: 'thumbs',
+      tally: {
+        thumbsUp : 0,
+        thumbsDown: 0,
+        haveVoted: []
+      }
+    });
+  } else if (option === 3) {
+    newState = fromJS({
+      voting: true,
+      showgraph: "1",
+      questionType: 'multipleChoice3',
+      tally: {
+        a: 0,
+        b: 0,
+        c: 0,
+        haveVoted: []
+      }
+    });
+  } else if (option == 4) {
+    newState = fromJS({
+      voting: true,
+      showgraph: "1",
+      questionType: 'multipleChoice4',
+      tally: {
+        a: 0,
+        b: 0,
+        c: 0,
+        d: 0,
+        haveVoted: []
+      }
+    });
+  } else if (option === 5) {
+    newState = fromJS({
+      voting: true,
+      showgraph: "1",
+      questionType: 'multipleChoice5',
+      tally: {
+        a: 0,
+        b: 0,
+        c: 0,
+        d: 0,
+        e: 0,
+        haveVoted: []
+      }
+    });
+  } else if (option === 'open') {
+    newState = fromJS({
+      voting: true,
+      showgraph: "1",
+      questionType: 'open',
+      tally: {
+        answers: [],
+        haveVoted: []
+      }
+    });
+  }
+  return state.merge(newState);
+}
+
+function chooseQuestionType(state, option) {
+  newState = fromJS({
+    questionType: open
   });
   return state.merge(newState);
 }
@@ -51,6 +112,14 @@ function toggleThumbsGraph(state) {
     shareThumbsCheckResults: shareResults
   };
   return state.merge(newState);
+}
+
+function multipleChoiceAnswer(state, answer) {
+  return state.updateIn(
+      ['tally', answer],
+      0,
+      answer => answer + 1
+  );
 }
 
 function toggleTakingQuestions(state) {
@@ -79,16 +148,16 @@ function toggleTakingQuestions(state) {
   }
 }
 
-function addQuestion(state, id, name, alreadyAsked) {  
+function addQuestion(state, id, name, alreadyAsked) {
   const studentId = id;
   // if the student's hand is already up, remove it from question queue
-  if (alreadyAsked) {    
-    let questions = state.get('questions');    
-    questions = questions.filter(function(tuple) {    
+  if (alreadyAsked) {
+    let questions = state.get('questions');
+    questions = questions.filter(function(tuple) {
       if (tuple[0] === id)
       return tuple[0] !== id
     });
-    let newState = fromJS({questions: questions});    
+    let newState = fromJS({questions: questions});
     return state.merge(newState);
 
   } else {
@@ -138,7 +207,11 @@ export default function(state = fromJS({}), action) {
   case 'STOP_VOTE':
     return stopVote(state);
   case 'START_VOTE':
-    return startVote(state);
+    return startVote(state, action.option);
+  case 'CHOOSE_QUESTION_TYPE':
+    return startVote(state, action.option);
+  case 'MULTIPLE_CHOICE_ANSWER':
+    return multipleChoiceAnswer(state, action.answer);
   case 'TAKING_QUESTIONS':
     return toggleTakingQuestions(state);
   case 'ADD_QUESTION':
@@ -151,11 +224,11 @@ export default function(state = fromJS({}), action) {
     return chooseRole(state, action.choice);
   case 'SET_ERROR':
     return setErrorMessage(state, action.errMessage);
-  case 'LOWER_STUDENT_HAND':      
+  case 'LOWER_STUDENT_HAND':
     return addQuestion(state, action.id, action.name, true);
   case 'TOGGLE_THUMBS_GRAPH':
     return toggleThumbsGraph(state);
-  case 'LOWER_STUDENT_HAND':      
+  case 'LOWER_STUDENT_HAND':
     return addQuestion(state, action.id, action.name, true);
   case 'SET_NUMUSERS':
     console.log("IN CASE:", action.numUsers);
