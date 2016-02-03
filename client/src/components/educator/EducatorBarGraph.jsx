@@ -5,7 +5,6 @@ const BarGraph = chartJS.Bar;
 export default React.createClass({
 
   render: function() {
-    console.log('mytally', this.props.tally)
     if(this.props.questionType === 'thumbs') {
     	let barChartData = {
   		  labels: ["Thumbs-up                            Thumbs-down"],

@@ -86,8 +86,11 @@ body {
   left: 200px;
   top: 200px;
 }
-#selectorContainer {
-	height: 100px;	
+.slider-container {
+	height: 50px;
+}
+.question-slider {
+	width: 180px;
 }
 
 /*  ************* student page styling  ************* */

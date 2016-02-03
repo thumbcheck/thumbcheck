@@ -1,6 +1,7 @@
 import React from 'react';
 import BarGraph from './EducatorBarGraph';
 import QuestionButton from './QuestionButton';
+import SliderNativeBootstrap from './QuestionSlider';
 
 export default React.createClass({
   showGraph: function() {
@@ -34,8 +35,26 @@ export default React.createClass({
     this.props.chooseQuestionType('open');
     console.log('in enducator checkin', this.props.questionType);
   },
-
+  changeSliderValue: function(e) {
+    const selection = e.target.value.toString(); 
+    let questionSelection = '';        
+    switch (selection) {
+      case '0':
+        questionSelection = 'thumbs';
+        break;
+      case '1': 
+        questionSelection = 'multipleChoice3';
+        break;
+      case '2':
+        questionSelection = 'open';
+        break;
+      default: 
+        questionSelection = 'thumbs';
+    }    
+      
+  },
   render: function() {
+
     console.log('question type', this.props.questionType);
     let options = [
       { value: 'thumbs', label: 'One' },
@@ -53,6 +72,18 @@ export default React.createClass({
           </select>
       </div>
       <div>
+    
+      <div>
+        <SliderNativeBootstrap
+          defaultValue={0}
+          handleChange= { this.changeSliderValue }
+          step={1}
+          max={2}
+          min={0}
+          disabled="no" />
+ 
+
+
         <button type='button' className="btn orange request-btn white-text thumb-check-start"
                 onClick={this.sendThumbscheck}>
           Thumbscheck
