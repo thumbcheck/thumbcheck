@@ -15,17 +15,37 @@ export default React.createClass({
     this.props.startVote('thumbs');
   },
 
+  triggerVote: function() {
+
+  },
+
+  chooseThumbs: function() {
+    console.log("SELECTOR CHANGED!!!!!!!!")
+    this.props.chooseQuestionType('thumbs');
+    console.log('in enducator checkin', this.props.questionType);
+  },
+
+  chooseMultiple: function() {
+    this.props.chooseQuestionType('multipleChoice3');
+    console.log('in enducator checkin', this.props.questionType);
+  },
+
+  chooseOpen: function() {
+    this.props.chooseQuestionType('open');
+    console.log('in enducator checkin', this.props.questionType);
+  },
+
   render: function() {
     console.log('question type', this.props.questionType);
     return (
       <div>
-      <div id="selectorContainer">        
-          <select id="testSelectorE" name="testSelector4">
-            <option value="0" >Thumbs Check</option>
-            <option value="1" selected>Multiple Choice</option>
-            <option value="2" >Open Response</option>
+      <div id="selectorContainer">
+          <select id="testSelectorE" name="testSelector4" onChange={this.chooseThumbs}>
+            <option value="thumbs" selected>Thumbs Check</option>
+            <option value="multipleChoice3" onChange={this.chooseMultiple}>Multiple Choice</option>
+            <option value="open" onChange={this.chooseOpen}>Open Response</option>>
           </select>
-      </div>  
+      </div>
 
         <button type='button' className="btn orange request-btn white-text thumb-check-start"
                 onClick={this.sendThumbscheck}>

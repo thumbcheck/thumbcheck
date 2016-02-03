@@ -55,7 +55,7 @@ function mapStateToProps(state) {
    name: state.get('name'),
    questions: state.get('questions'),
    shareThumbsCheckResults: state.get('shareThumbsCheckResults'),
-   handFirstRaised: state.get('handFirstRaised')
+   handFirstRaised: state.get('handFirstRaised'),
    questionType: state.get('questionType')
  };
 }

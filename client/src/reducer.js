@@ -99,6 +99,13 @@ function startVote(state, option) {
   return state.merge(newState);
 }
 
+function chooseQuestionType(state, option) {
+  newState = fromJS({
+    questionType: open
+  });
+  return state.merge(newState);
+}
+
 function toggleThumbsGraph(state) {
   const shareResults = !state.get('shareThumbsCheckResults');
   const newState = {
@@ -201,6 +208,8 @@ export default function(state = fromJS({}), action) {
     return stopVote(state);
   case 'START_VOTE':
     return startVote(state, action.option);
+  case 'CHOOSE_QUESTION_TYPE':
+    return startVote(state, action.option);
   case 'MULTIPLE_CHOICE_ANSWER':
     return multipleChoiceAnswer(state, action.answer);
   case 'TAKING_QUESTIONS':
@@ -219,7 +228,7 @@ export default function(state = fromJS({}), action) {
     return addQuestion(state, action.id, action.name, true);
   case 'TOGGLE_THUMBS_GRAPH':
     return toggleThumbsGraph(state);
-  case 'LOWER_STUDENT_HAND':      
+  case 'LOWER_STUDENT_HAND':
     return addQuestion(state, action.id, action.name, true);
   case 'SET_NUMUSERS':
     console.log("IN CASE:", action.numUsers);
