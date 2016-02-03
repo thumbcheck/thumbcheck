@@ -100,9 +100,10 @@ function startVote(state, option) {
 }
 
 function chooseQuestionType(state, option) {
-  newState = fromJS({
-    questionType: open
+  const newState = fromJS({
+    questionType: option
   });
+  console.log(option);
   return state.merge(newState);
 }
 
@@ -215,7 +216,7 @@ export default function(state = fromJS({}), action) {
   case 'START_VOTE':
     return startVote(state, action.option);
   case 'CHOOSE_QUESTION_TYPE':
-    return startVote(state, action.option);
+    return chooseQuestionType(state, action.option);
   case 'MULTIPLE_CHOICE_ANSWER':
     return multipleChoiceAnswer(state, action.answer);
   case 'OPEN_RESPONSE':
@@ -238,8 +239,7 @@ export default function(state = fromJS({}), action) {
     return toggleThumbsGraph(state);
   case 'LOWER_STUDENT_HAND':
     return addQuestion(state, action.id, action.name, true);
-  case 'SET_NUMUSERS':
-    console.log("IN CASE:", action.numUsers);
+  case 'SET_NUMUSERS':    
     return state.set('numUsers', action.numUsers);
   }
   return state;
