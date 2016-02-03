@@ -4,13 +4,15 @@ import url from 'url';
 import app from './server';
 import path from 'path';
 import randomWord from 'random-word';
+import generateRoomName from './helpers/generateRoomName';
 
-import {checkRoom} from './controllers/redisStateController'
+import {checkRoom} from './controllers/redisStateController';
 
 const router = express.Router();
 
 function createRoom () {
-  return randomWord();
+  // return randomWord();
+  return generateRoomName();
 }
 
 // base route directs to teacher landing page
