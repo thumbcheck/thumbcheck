@@ -45,6 +45,14 @@ function startVote(state) {
   return state.merge(newState);
 }
 
+function toggleThumbsGraph(state) {
+  const shareResults = !state.get('shareThumbsCheckResults');
+  const newState = {
+    shareThumbsCheckResults: shareResults
+  };
+  return state.merge(newState);
+}
+
 function toggleTakingQuestions(state) {
 
   // Take care of takingQuestions is undefined case
@@ -145,6 +153,8 @@ export default function(state = fromJS({}), action) {
     return setErrorMessage(state, action.errMessage);
   case 'LOWER_STUDENT_HAND':      
     return addQuestion(state, action.id, action.name, true);
+  case 'TOGGLE_THUMBS_GRAPH':
+    return toggleThumbsGraph(state);
   }
   return state;
 }

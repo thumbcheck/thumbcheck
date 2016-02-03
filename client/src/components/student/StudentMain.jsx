@@ -6,6 +6,7 @@ import io from 'socket.io-client';
 import StudentAnswering from './StudentAnswering';
 import * as actionCreators from '../../action_creators';
 import RaiseHand from './RaiseHand';
+import BarGraph from '../educator/EducatorBarGraph';
 import checkHasVoted from '../../helpers/checkHasVoted';
 import {toJS, fromJS} from 'immutable';
 
@@ -25,16 +26,18 @@ export const Student = React.createClass({
  },
  render: function() {
    console.log('on student main', this.props);
-   return (
-     <div className="student-container center-text">
-         <h4>Room name: {this.props.currentRoom}</h4>
-         <div className="student-content">
-           {this.renderProperElement()}  
+    return (
+      <div className="student-container center-text">
+        <h4>Room name: {this.props.currentRoom}</h4>
+        <div className="student-content">
+          {this.renderProperElement()}  
         </div>
         {(this.props.takingQuestions && this.props.takingQuestions._root.entries[0][1]) ?
-          <RaiseHand {...this.props} /> :
-          null
+        <RaiseHand {...this.props} /> :
+        null
         }
+        {this.props.shareThumbsCheckResults ? <BarGraph ref="resultsDisplay" lastOrCurrent="current-result-graph" {...this.props}/> :
+        null}
      </div>
    );
  }
@@ -43,13 +46,14 @@ export const Student = React.createClass({
 function mapStateToProps(state) {
  return {
    voting: state.get('voting'),
-   upvote: state.getIn(['tally', 'thumbsUp']),
-   downvote: state.getIn(['tally', 'thumbsDown']),
+   upCount: state.getIn(['tally', 'thumbsUp']),
+   downCount: state.getIn(['tally', 'thumbsDown']),
    haveVoted: state.getIn(['tally', 'haveVoted']),
    handRaised: state.get('handRaised'),
    id: state.get('id'),
    name: state.get('name'),
    questions: state.get('questions'),   
+   shareThumbsCheckResults: state.get('shareThumbsCheckResults')
  };
 }
 

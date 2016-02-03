@@ -69,7 +69,7 @@ export function lowerStudentHand(id) {
     meta: {remote: true},
     type: 'LOWER_STUDENT_HAND',
     id: id
-  }
+  };
 }
 
 export function toggleHandRaise() {
@@ -90,13 +90,20 @@ export function chooseRole(choice) {
   return {
     type: 'CHOOSE_ROLE',
     choice: choice
-  }
+  };
 }
 
 export function setError(errMessage) {
   return {
     type: 'SET_ERROR',
     errMessage: errMessage
-  }
+  };
+}
+
+export function toggleThumbsCheckResultsGraph() {
+  return {
+    meta: {remote: true},
+    type: 'TOGGLE_THUMBS_GRAPH'
+  };
 }
 
