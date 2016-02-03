@@ -107,3 +107,12 @@ export function toggleThumbsCheckResultsGraph() {
   };
 }
 
+// export function setNumUsers(numUsers) {
+//   console.log("ACTION creators happend:", numUsers);
+//   return {
+//     meta: {remote: true},
+//     type: 'SET_NUMUSERS',
+//     numUsers: numUsers
+//   };
+// }
+

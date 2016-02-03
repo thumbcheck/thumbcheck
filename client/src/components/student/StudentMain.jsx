@@ -26,11 +26,12 @@ export const Student = React.createClass({
  },
  render: function() {
    console.log('on student main', this.props);
-    return (
-      <div className="student-container center-text">
-        <h4>Room name: {this.props.currentRoom}</h4>
-        <div className="student-content">
-          {this.renderProperElement()}  
+   return (
+     <div className="student-container center-text">
+         <h4>Room name: <strong>{this.props.currentRoom}</strong></h4>
+         <h4><strong>{this.props.numUsers}</strong> device(s) currently in this room</h4>
+         <div className="student-content">
+           {this.renderProperElement()}  
         </div>
         {(this.props.takingQuestions && this.props.takingQuestions._root.entries[0][1]) ?
         <RaiseHand {...this.props} /> :

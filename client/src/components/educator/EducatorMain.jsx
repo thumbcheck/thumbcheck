@@ -32,8 +32,9 @@ export const Educator = React.createClass({
        <Navbar {...this.props} />          
         <div className="educator-container">
           <div className="center-text">
-            <h4>Share this URL with your students: {window.location.href.split('?')[0]}
-            <br />Or have them enter this room name: {this.props.currentRoom}
+            <h4>Share this URL: <strong>{window.location.href.split('?')[0]}</strong>
+              <br />Room Name: <strong>{this.props.currentRoom}</strong>
+              <div><strong>{this.props.numUsers}</strong> device(s) currently in this room</div>
             </h4>
             {this.props.voting ?
               <ResultsDisplay ref="resultsDisplay" {...this.props} /> :
