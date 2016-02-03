@@ -33,14 +33,41 @@ io.on('connection', (socket) => {
 
   socket.on('joinRoom', (roomname) => {
     socket.join(roomname);
+    
     socket.room = roomname;
     retrieveState(roomname, (err, appState) => {
       if (err) throw new Error(err);
       socket.emit('syncState', appState);
     });
+
+    let numUsers = io.sockets.adapter.rooms[roomname].length;
+    var sendNumUsers = (numUsers, socket) => {
+      let newAppState = {
+        meta: {remote: true},
+        type: 'SET_NUMUSERS',
+        numUsers: numUsers
+      };
+      io.sockets.in(socket.room).emit('syncState', newAppState);
+    };
+    sendNumUsers(numUsers, socket);
   });
 
-  socket.on('error', (err) =>{
+  socket.on('disconnect', () => {
+    if (io.sockets.adapter.rooms[socket.room]) {
+      let numUsers = io.sockets.adapter.rooms[socket.room].length;
+      var sendNumUsers = (numUsers, socket) => {
+        let newAppState = {
+          meta: {remote: true},
+          type: 'SET_NUMUSERS',
+          numUsers: numUsers
+        };
+        io.sockets.in(socket.room).emit('syncState', newAppState);
+      };
+      sendNumUsers(numUsers, socket);
+    }
+  });
+
+  socket.on('error', (err) => {
     if(err) throw new Error(err);
   });
 

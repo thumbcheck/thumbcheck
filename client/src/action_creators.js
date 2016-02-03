@@ -106,4 +106,3 @@ export function toggleThumbsCheckResultsGraph() {
     type: 'TOGGLE_THUMBS_GRAPH'
   };
 }
-

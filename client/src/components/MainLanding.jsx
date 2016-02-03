@@ -22,9 +22,13 @@ export const Main = React.createClass({
   render: function() {
     if (this.canWriteLocalStorage()) {
       if (this.props.userType === 'student') {
-        return <StudentContainer userType={this.props.userType} currentRoom={this.props.currentRoom} takingQuestions={this.props.takingQuestions} />
+        return (<StudentContainer 
+                  userType={this.props.userType} 
+                  currentRoom={this.props.currentRoom} 
+                  takingQuestions={this.props.takingQuestions} 
+                  numUsers={this.props.numUsers} />)
       } else if (this.props.userType === 'educator') {
-        return <EducatorContainer {...this.props}  />
+        return <EducatorContainer {...this.props} />
       } else {
         return (
           <div>
@@ -54,7 +58,8 @@ function mapStateToProps2(state) {
    choice: state.get('choice'),
    roomName: state.get('roomName'),
    showgraph: state.get('showgraph'),
-   errMessage: state.get('errMessage')
+   errMessage: state.get('errMessage'),
+   numUsers: state.get('numUsers')
  }
 }
 

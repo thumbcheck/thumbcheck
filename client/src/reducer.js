@@ -157,6 +157,9 @@ export default function(state = fromJS({}), action) {
     return toggleThumbsGraph(state);
   case 'LOWER_STUDENT_HAND':      
     return addQuestion(state, action.id, action.name, true);
+  case 'SET_NUMUSERS':
+    console.log("IN CASE:", action.numUsers);
+    return state.set('numUsers', action.numUsers);
   }
   return state;
 }
