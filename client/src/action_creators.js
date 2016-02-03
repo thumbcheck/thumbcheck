@@ -36,12 +36,11 @@ export function vote(participantID) {
 }
 
 export function startVote(option) {
-  option = option || 'thumbs';
   return {
     meta: {remote: true},
     type: 'START_VOTE',
     option: option
-  };
+  }
 }
 
 export function stopVote() {
@@ -52,6 +51,7 @@ export function stopVote() {
 }
 
 export function multipleChoiceAnswer(answer) {
+  console.log(answer);
   return {
     meta: {remote: true},
     type: 'MULTIPLE_CHOICE_ANSWER',

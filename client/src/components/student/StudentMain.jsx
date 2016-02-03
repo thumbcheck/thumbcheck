@@ -10,7 +10,7 @@ import BarGraph from '../educator/EducatorBarGraph';
 import checkHasVoted from '../../helpers/checkHasVoted';
 import {toJS, fromJS} from 'immutable';
 
-export const Student = React.createClass({  
+export const Student = React.createClass({
  renderProperElement: function() {
    if(!this.props.voting) {
      if(this.props.voting === false) {
@@ -31,7 +31,7 @@ export const Student = React.createClass({
          <h4>Room name: <strong>{this.props.currentRoom}</strong></h4>
          <h4><strong>{this.props.numUsers}</strong> device(s) currently in this room</h4>
          <div className="student-content">
-           {this.renderProperElement()}  
+           {this.renderProperElement()}
         </div>
         {(this.props.takingQuestions && this.props.takingQuestions._root.entries[0][1]) ?
         <RaiseHand {...this.props} /> :
@@ -53,10 +53,10 @@ function mapStateToProps(state) {
    handRaised: state.get('handRaised'),
    id: state.get('id'),
    name: state.get('name'),
-   questions: state.get('questions'),   
-   shareThumbsCheckResults: state.get('shareThumbsCheckResults'),
    questions: state.get('questions'),
+   shareThumbsCheckResults: state.get('shareThumbsCheckResults'),
    handFirstRaised: state.get('handFirstRaised')
+   questionType: state.get('questionType')
  };
 }
 

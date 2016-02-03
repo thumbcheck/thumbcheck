@@ -7,11 +7,16 @@ export default React.createClass({
     return this.props.showgraph === "1" ? "last-graph-container" : "dont-show";
   },
 
-  multipleChoice3: function() {
+  sendMultipleChoice3: function() {
     this.props.startVote(3);
   },
 
+  sendThumbscheck: function() {
+    this.props.startVote('thumbs');
+  },
+
   render: function() {
+    console.log('question type', this.props.questionType);
     return (
       <div>
       <div id="selectorContainer">        
@@ -23,12 +28,12 @@ export default React.createClass({
       </div>  
 
         <button type='button' className="btn orange request-btn white-text thumb-check-start"
-                onClick={this.props.startVote}>
+                onClick={this.sendThumbscheck}>
           START VOTE
         </button>
 
         <button type='button' className="btn orange request-btn white-text thumb-check-start"
-                onClick={this.multipleChoice3}>
+                onClick={this.sendMultipleChoice3}>
           Multiple choice
         </button>
 

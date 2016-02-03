@@ -53,6 +53,9 @@ function mapStateToProps2(state) {
    voting: state.get('voting'),
    upCount: state.getIn(['tally', 'thumbsUp']),
    downCount: state.getIn(['tally', 'thumbsDown']),
+   aCount: state.getIn(['tally', 'a']),
+   bCount: state.getIn(['tally', 'b']),
+   cCount: state.getIn(['tally', 'c']),
    takingQuestions: state.get('takingQuestions'),
    questions: state.get('questions'),
    choice: state.get('choice'),
@@ -60,7 +63,8 @@ function mapStateToProps2(state) {
    showgraph: state.get('showgraph'),
    errMessage: state.get('errMessage'),
    numUsers: state.get('numUsers'),
-   questionType: state.get('questionType')
+   questionType: state.get('questionType'),
+   tally: state.get('tally')
  }
 }
 
