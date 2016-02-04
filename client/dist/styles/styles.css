@@ -100,11 +100,15 @@ body {
 }
 .slider-container {
 	height: 50px;
+	margin-bottom: 5%;
 }
 .question-slider {
-	width: 180px;
+	width: 20%;
 }
-
+.inlineD {
+	display: inline-block;
+	margin: 0 2% 0 2%;
+}
 /*  ************* student page styling  ************* */
 .student-content {
 	margin: 5% 10% 0 10%;	
