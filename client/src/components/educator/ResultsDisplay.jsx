@@ -1,6 +1,7 @@
 import React from 'react';
 import BarGraph from './EducatorBarGraph';
 import QuestionButton from './QuestionButton';
+import renderCorrectGraphType from '../../helpers/renderCorrectGraphType';
 
 export default React.createClass({
 
@@ -19,6 +20,7 @@ export default React.createClass({
       return (
         <div className="results-container">
           <BarGraph ref="resultsDisplay" lastOrCurrent="current-result-graph" {...this.props} />
+          {renderCorrectGraphType(this.props)}
           <div>
             <span className="up-thumb-count">Thumbs up count: {this.props.upCount}</span>
             <span className="down-thumb-count move-right">Thumbs down count: {this.props.downCount}</span>
