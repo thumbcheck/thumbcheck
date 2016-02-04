@@ -14,9 +14,9 @@ import generateID from './helpers/generateID';
 import {Map} from 'immutable';
 
 import {combineReducers} from 'redux-immutable';
-import combinedReducer from './reducers/combinedReducer';
-import educatorReducer from './reducers/educatorReducer';
-import studentReducer from './reducers/studentReducer';
+import educatorActionsReducer from './reducers/educatorActionsReducer';
+import studenActionsReducer from './reducers/studenActionsReducer';
+import userSettingsReducer from './reducers/userSettingsReducer';
 
 // Socket Connection to server
 const socket = io();
@@ -28,9 +28,9 @@ socket.on('syncState', (appState) => {
 });
 
 const rootReducer = combineReducers({
-  combined: combinedReducer,
-  educator: educatorReducer,
-  student: studentReducer
+  educatorActions: educatorActionsReducer,
+  studentActions: studenActionsReducer,
+  userSettings: userSettingsReducer
 });
 // Create redux store
 const createStoreWithMiddleware = applyMiddleware(reduxStateEmitterMiddleware(socket))(createStore);
