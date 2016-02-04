@@ -97,13 +97,3 @@ export default React.createClass({
     );
   }
 });
-
-// <div>
-      //   <div id="selectorContainer">
-      //       <select id="testSelectorE" name="testSelector4" onSelect={this.chooseThumbs}>
-      //         <option value="thumbs" selected>Thumbs Check</option>
-      //         <option value="multipleChoice3">Multiple Choice</option>
-      //         <option value="open" >Open Response</option>>
-      //       </select>
-      //   </div>
-      // <div>
