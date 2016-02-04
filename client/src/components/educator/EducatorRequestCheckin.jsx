@@ -96,12 +96,15 @@ export default React.createClass({
       <div className={this.showGraph()}>
         <h4>Results from last thumbs check</h4>
         {renderCorrectGraphType(this.props)}
-        <p><button onClick={this.props.toggleThumbsCheckResultsGraph}>SHARE RESULTS WITH PARTICIPANTS</button></p>
       <div>
         <span className="up-thumb-count">Thumbs up count: {this.props.upCount}</span>
         <span className="down-thumb-count move-right">Thumbs down count: {this.props.downCount}</span>
       </div>
       </div>
+        {this.props.shareThumbsCheckResults || this.props.shareThumbsCheckResults === undefined ?
+          <p></p> :
+          <p><button type='button' className='btn grey white-text' onClick={this.props.toggleThumbsCheckResultsGraph}>Show Results to Participants</button></p>
+        }
         <QuestionButton {...this.props}/>
       </div>
     );

@@ -39,6 +39,7 @@ function startVote(state, option) {
       voting: true,
       showgraph: "1",
       questionType: 'thumbs',
+      shareThumbsCheckResults: false,
       tally: {
         thumbsUp : 0,
         thumbsDown: 0,
@@ -50,6 +51,7 @@ function startVote(state, option) {
       voting: true,
       showgraph: "1",
       questionType: 'multipleChoice3',
+      shareThumbsCheckResults: false,
       tally: {
         a: 0,
         b: 0,
@@ -62,6 +64,7 @@ function startVote(state, option) {
       voting: true,
       showgraph: "1",
       questionType: 'multipleChoice4',
+      shareThumbsCheckResults: false,
       tally: {
         a: 0,
         b: 0,
@@ -75,6 +78,7 @@ function startVote(state, option) {
       voting: true,
       showgraph: "1",
       questionType: 'multipleChoice5',
+      shareThumbsCheckResults: false,
       tally: {
         a: 0,
         b: 0,
@@ -89,6 +93,7 @@ function startVote(state, option) {
       voting: true,
       showgraph: "1",
       questionType: 'open',
+      shareThumbsCheckResults: false,
       tally: {
         answers: [],
         haveVoted: []
@@ -106,9 +111,8 @@ function chooseQuestionType(state, option) {
 }
 
 function toggleThumbsGraph(state) {
-  const shareResults = !state.get('shareThumbsCheckResults');
   const newState = {
-    shareThumbsCheckResults: shareResults
+    shareThumbsCheckResults: true
   };
   return state.merge(newState);
 }

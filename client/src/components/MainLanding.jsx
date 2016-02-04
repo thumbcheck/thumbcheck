@@ -67,7 +67,8 @@ function mapStateToProps2(state) {
    errMessage: state.get('errMessage'),
    numUsers: state.get('numUsers'),
    questionType: state.get('questionType'),
-   tally: state.get('tally')
+   tally: state.get('tally'),
+   shareThumbsCheckResults: state.get('shareThumbsCheckResults')
  }
 }
 
