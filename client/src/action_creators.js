@@ -69,6 +69,7 @@ export function openResponse(answer) {
 
 export function chooseQuestionType(option) {
   return {
+    meta: {remote: true},
     type: 'CHOOSE_QUESTION_TYPE',
     option: option
   };

@@ -9,6 +9,14 @@ export default React.createClass({
     return this.props.showgraph === "1" ? "last-graph-container" : "dont-show";
   },
 
+  sendCheckin: function() {
+    // if(this.props.questionType === 'multipleChoice'){
+    this.props.startVote(this.props.questionType);
+      // } else {
+    //   this.props.startVote(this.props.questionType);
+    // }
+  },
+
   sendCheckin3: function() {
     // if(this.props.questionType === 'multipleChoice'){
       this.props.startVote('multipleChoice3');
