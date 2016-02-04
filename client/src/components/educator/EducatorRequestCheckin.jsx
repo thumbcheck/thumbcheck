@@ -1,5 +1,4 @@
 import React from 'react';
-import BarGraph from './EducatorBarGraph';
 import QuestionButton from './QuestionButton';
 import SliderNativeBootstrap from './QuestionSlider';
 import renderCorrectGraphType from '../../helpers/renderCorrectGraphType';
@@ -103,8 +102,8 @@ export default React.createClass({
     }
   },
   render: function() {
-    return (
-
+    console.log(this.props.questionType);
+    return (      
       <div>
         <SliderNativeBootstrap          
           defaultValue = {this.mapStateToSliderNumber()}
@@ -117,12 +116,9 @@ export default React.createClass({
           { this.renderProperButton() }
 
       <div className={this.showGraph()}>
-        <h4>Results from last thumbs check</h4>
+        
         {renderCorrectGraphType(this.props)}
-      <div>
-        <span className="up-thumb-count">Thumbs up count: {this.props.upCount}</span>
-        <span className="down-thumb-count move-right">Thumbs down count: {this.props.downCount}</span>
-      </div>
+      
       </div>
         {this.props.shareThumbsCheckResults || this.props.shareThumbsCheckResults === undefined ?
           <p></p> :
