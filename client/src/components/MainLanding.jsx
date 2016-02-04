@@ -31,7 +31,9 @@ export const Main = React.createClass({
               <div className="jumbotron center-text">
                 <h1>Hello!</h1>
                 <p>Welcome to Thumbcheck</p>
-                <RoleChoice {...this.props} />
+                <RoleChoice chooseRole={this.props.chooseRole}
+                            setError={this.props.setError}
+                            choice={this.props.choice} />
                 </div>
           </div>
         );
