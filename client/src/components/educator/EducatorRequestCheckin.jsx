@@ -72,9 +72,10 @@ export default React.createClass({
   },
   render: function() {
     return (
+
       <div>
-        <SliderNativeBootstrap
-          defaultValue={0}
+        <SliderNativeBootstrap          
+          defaultValue = {0}
           handleChange={ this.changeSliderValue }
           step={1}
           max={2}
