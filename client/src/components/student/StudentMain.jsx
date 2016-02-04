@@ -22,12 +22,12 @@ export const Student = React.createClass({
    } else if (checkHasVoted(this.props.haveVoted, window.localStorage.getItem('participantID'))) {
      return <WaitAnswered />;
    } else {
-     return <StudentAnswering ref="answer"  upvote={this.props.upvote}
-                                            downvote={this.props.downvote}
-                                            vote={this.props.vote}
-                                            multipleChoiceAnswer={this.props.multipleChoiceAnswer}
-                                            openResponse={this.props.openResponse}
-                                            questionType={this.props.questionType} />;
+     return <StudentAnswering ref="answer" upvote={this.props.upvote}
+                                           downvote={this.props.downvote}
+                                           vote={this.props.vote}
+                                           multipleChoiceAnswer={this.props.multipleChoiceAnswer}
+                                           openResponse={this.props.openResponse}
+                                           questionType={this.props.questionType} />;
    }
  },
  render: function() {
@@ -40,17 +40,17 @@ export const Student = React.createClass({
            {this.renderProperElement()}
         </div>
         {(this.props.takingQuestions && this.props.takingQuestions._root.entries[0][1]) ?
-        <RaiseHand  handRaised={this.props.handRaised}
-                    id={this.props.id}
-                    addQuestion={this.props.addQuestion}
-                    name={this.props.name}
-                    toggleHandRaise={this.props.toggleHandRaise}
-                    questions={this.props.questions}
-                    addStudentIdentity={this.props.addStudentIdentity} /> :
-        null
-        }S
-        {this.props.shareThumbsCheckResults ? renderCorrectGraphType(this.props) :
-        null}
+          <RaiseHand handRaised={this.props.handRaised}
+                     id={this.props.id}
+                     addQuestion={this.props.addQuestion}
+                     name={this.props.name}
+                     toggleHandRaise={this.props.toggleHandRaise}
+                     questions={this.props.questions}
+                     addStudentIdentity={this.props.addStudentIdentity} /> :
+          null}
+        {this.props.shareThumbsCheckResults ?
+          renderCorrectGraphType(this.props) :
+          null}
      </div>
    );
  }
