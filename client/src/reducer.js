@@ -59,7 +59,7 @@ function startVote(state, option) {
         haveVoted: []
       }
     });
-  } else if (option == 'multipleChoice4') {
+  } else if (option === 'multipleChoice4') {
     newState = fromJS({
       voting: true,
       showgraph: "1",

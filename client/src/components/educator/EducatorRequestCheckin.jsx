@@ -9,13 +9,28 @@ export default React.createClass({
     return this.props.showgraph === "1" ? "last-graph-container" : "dont-show";
   },
 
-  sendCheckin: function(e) {
-    if(this.props.questionType === 'multipleChoice'){
-      console.log(e.target.value)
-      this.props.startVote(e.target.value);
-    } else {
-      this.props.startVote(this.props.questionType);
-    }
+  sendCheckin3: function() {
+    // if(this.props.questionType === 'multipleChoice'){
+      this.props.startVote('multipleChoice3');
+    // } else {
+    //   this.props.startVote(this.props.questionType);
+    // }
+  },
+
+  sendCheckin4: function() {
+    // if(this.props.questionType === 'multipleChoice'){
+      this.props.startVote('multipleChoice4');
+    // } else {
+    //   this.props.startVote(this.props.questionType);
+    // }
+  },
+
+  sendCheckin5: function() {
+    // if(this.props.questionType === 'multipleChoice'){
+      this.props.startVote('multipleChoice5');
+    // } else {
+    //   this.props.startVote(this.props.questionType);
+    // }
   },
 
   changeSliderValue: function(e) {
@@ -44,13 +59,13 @@ export default React.createClass({
        if (this.props.questionType && this.props.questionType[0].toLowerCase() === 'm') {
          return (
           <div>
-            <button value="multipleChoice3" type='button' className="btn orange request-btn white-text thumb-check-start" onClick={this.sendCheckin}>
+            <button value="multipleChoice3" type='button' className="btn orange request-btn white-text thumb-check-start" onClick={this.sendCheckin3}>
               A-B-C
             </button>
-            <button type='button' value="multipleChoice4" className="btn green request-btn white-text thumb-check-start" onClick={this.sendCheckin}>
+            <button type='button' value="multipleChoice4" className="btn green request-btn white-text thumb-check-start" onClick={this.sendCheckin4}>
               A-B-C-D
             </button>
-            <button type='button' value="multipleChoice5" className="btn blue request-btn white-text thumb-check-start" onClick={this.sendCheckin}>
+            <button type='button' value="multipleChoice5" className="btn blue request-btn white-text thumb-check-start" onClick={this.sendCheckin5}>
               A-B-C-D-E
             </button>
           </div>
