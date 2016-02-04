@@ -16,8 +16,8 @@ export default React.createClass({
       return (
         <div>
           <div className="bigger-text">
-          <p>Answers to Open Response</p>
-          <p>{this.renderOpen()}</p>
+            <p>Answers to Open Response</p>
+            <p>{this.renderOpen()}</p>
           </div>
         <button className="btn orange request-btn white-text end-thumb-check" onClick={this.props.stopVote}>
           END VOTE
