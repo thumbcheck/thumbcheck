@@ -14,9 +14,12 @@ export default React.createClass({
 	      onInput={this.props.handleChange}
 	      step={this.props.step} />
 
-	      <div className="orange-text"><span>Thumbs check</span> <span>Multiple Choice</span> <span>Free Response</span></div>
+	      <div className="orange-text">
+	      	<div className="inlineD">Thumbs <br /> check</div> 
+	      	<div className="inlineD">Multiple <br />Choice</div> 
+	      	<div className="inlineD">Free <br /> Response</div>
+	      </div>
       </div>
-
     );
   }
 })
