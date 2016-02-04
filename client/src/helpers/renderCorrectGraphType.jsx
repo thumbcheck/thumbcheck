@@ -3,7 +3,7 @@ import BinaryThumbsGraph from '../components/results-graphs/BinaryThumbs';
 import MultipleChoice3Graph from '../components/results-graphs/MultipleChoice3';
 import MultipleChoice4Graph from '../components/results-graphs/MultipleChoice4';
 import MultipleChoice5Graph from '../components/results-graphs/MultipleChoice5';
-
+import OpenResults from '../components/results-graphs/OpenResults';
 
 
 export default function(properties) {
@@ -15,6 +15,8 @@ export default function(properties) {
     return <MultipleChoice4Graph ref="resultsDisplay" lastOrCurrent="last-result-graph" {...properties} />;
   } else if(properties.questionType === 'multipleChoice5') {
     return <MultipleChoice5Graph ref="resultsDisplay" lastOrCurrent="last-result-graph" {...properties} />;
+  } else if(properties.questionType === 'open') {
+    return <OpenResults {...properties} />;
   } else {
     return null;
   }
