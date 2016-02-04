@@ -28,7 +28,8 @@ export const Educator = React.createClass({
  render: function() {
    return (
      <div>
-       <Navbar {...this.props} />
+       <Navbar lowerStudentHand={this.props.lowerStudentHand}
+               questions={this.props.questions} />          
         <div className="educator-container">
           <div className="center-text">
             <h4>Share this URL: <strong>{window.location.href.split('?')[0]}</strong>
