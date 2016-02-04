@@ -28,7 +28,7 @@ function downVote(state) {
 }
 
 function stopVote(state) {
-  let newState = fromJS({voting: false, questionType: 'thumbs'});
+  let newState = fromJS({voting: false});
   return state.merge(newState);
 }
 

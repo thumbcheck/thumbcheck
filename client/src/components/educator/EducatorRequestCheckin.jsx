@@ -41,7 +41,7 @@ export default React.createClass({
     if (this.props.questionType === undefined) {this.props.chooseQuestionType('thumbs');}
        let color = 'orange';
        let text = '';
-       if (this.props.questionType === 'multipleChoice') {
+       if (this.props.questionType && this.props.questionType[0].toLowerCase() === 'm') {
          return (
           <div>
             <button value="multipleChoice3" type='button' className="btn orange request-btn white-text thumb-check-start" onClick={this.sendCheckin}>
@@ -66,12 +66,25 @@ export default React.createClass({
                 {text}
               </button>
   },
+  mapStateToSliderNumber: function() {
+    let questionType = this.props.questionType;
+    if(questionType === undefined) {
+      return 0;
+    }
+    if (questionType[0].toLowerCase() === 'm') {
+      return 1;
+    } else if (questionType === 'open') {
+      return 2;
+    } else {
+      return 0;
+    }
+  },
   render: function() {
     return (
 
       <div>
         <SliderNativeBootstrap          
-          defaultValue = {0}
+          defaultValue = {this.mapStateToSliderNumber()}
           handleChange={ this.changeSliderValue }
           step={1}
           max={2}
