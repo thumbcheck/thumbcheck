@@ -32,6 +32,16 @@ export default React.createClass({
     this.props.vote(window.localStorage.getItem('participantID'));
   },
 
+  multipleChoiceD: function() {
+    this.props.multipleChoiceAnswer('d');
+    this.props.vote(window.localStorage.getItem('participantID'));
+  },
+
+  multipleChoiceE: function() {
+    this.props.multipleChoiceAnswer('e');
+    this.props.vote(window.localStorage.getItem('participantID'));
+  },
+
   handleOpenSubmit: function() {
     const inputValue = this.studentOpenResponse.value.toLowerCase();
     console.log(inputValue);
@@ -53,6 +63,25 @@ export default React.createClass({
           <a className="btn btn-warning btn-lg" role="button" onClick={this.multipleChoiceA} > A </a>
           <a className="btn btn-warning btn-lg" role="button" onClick={this.multipleChoiceB} > B </a>
           <a className="btn btn-warning btn-lg" role="button" onClick={this.multipleChoiceC} > C </a>
+        </div>
+      )
+    } else if (this.props.questionType === 'multipleChoice4') {
+      return (
+        <div>
+          <a className="btn btn-warning btn-lg" role="button" onClick={this.multipleChoiceA} > A </a>
+          <a className="btn btn-warning btn-lg" role="button" onClick={this.multipleChoiceB} > B </a>
+          <a className="btn btn-warning btn-lg" role="button" onClick={this.multipleChoiceC} > C </a>
+          <a className="btn btn-warning btn-lg" role="button" onClick={this.multipleChoiceC} > D </a>
+        </div>
+      )
+    } else if (this.props.questionType === 'multipleChoice5') {
+      return (
+        <div>
+          <a className="btn btn-warning btn-lg" role="button" onClick={this.multipleChoiceA} > A </a>
+          <a className="btn btn-warning btn-lg" role="button" onClick={this.multipleChoiceB} > B </a>
+          <a className="btn btn-warning btn-lg" role="button" onClick={this.multipleChoiceC} > C </a>
+          <a className="btn btn-warning btn-lg" role="button" onClick={this.multipleChoiceC} > D </a>
+          <a className="btn btn-warning btn-lg" role="button" onClick={this.multipleChoiceC} > E </a>
         </div>
       )
     } else if (this.props.questionType === 'open') {

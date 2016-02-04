@@ -1,6 +1,8 @@
 import React from 'react';
 import BinaryThumbsGraph from '../components/results-graphs/BinaryThumbs';
 import MultipleChoice3Graph from '../components/results-graphs/MultipleChoice3';
+import MultipleChoice4Graph from '../components/results-graphs/MultipleChoice4';
+import MultipleChoice5Graph from '../components/results-graphs/MultipleChoice5';
 
 
 
