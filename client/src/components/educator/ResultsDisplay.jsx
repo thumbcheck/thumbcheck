@@ -11,9 +11,10 @@ export default React.createClass({
         { renderCorrectGraphType(this.props) } 
 
         <button className="btn orange request-btn white-text end-thumb-check" onClick={this.props.stopVote}>
-        END VOTE
+          END VOTE
         </button>
-        <QuestionButton {...this.props}/>
+        <QuestionButton takingQuestions={this.props.takingQuestions}
+                        toggleTakingQuestions={this.props.toggleTakingQuestions} />
       </div>
     );    
   }

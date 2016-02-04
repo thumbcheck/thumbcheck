@@ -124,7 +124,8 @@ export default React.createClass({
           <p></p> :
           <p><button type='button' className='btn grey white-text' onClick={this.props.toggleThumbsCheckResultsGraph}>Show Results to Participants</button></p>
         }
-        <QuestionButton {...this.props}/>
+        <QuestionButton takingQuestions={this.props.takingQuestions}
+                        toggleTakingQuestions={this.props.toggleTakingQuestions} />
       </div>
     );
   }
