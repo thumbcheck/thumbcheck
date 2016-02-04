@@ -1,5 +1,6 @@
 import React from 'react';
 import {toJS} from 'immutable';
+import combined from '../reducers/combinedReducer'
 
 export default React.createClass({
   chooseTeacher: function () {
@@ -45,6 +46,8 @@ export default React.createClass({
   },
 
   render: function() {
+          console.log('rendering!!');
+
     return (
       <div>
         {!this.props.choice ?
