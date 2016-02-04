@@ -49,7 +49,7 @@ export const Main = React.createClass({
 
 function mapStateToProps2(state) {
   console.log(state.toJS(), 'state');
-  console.log(state.toJS().combined.choice, 'choice')
+  console.log(state.get('combined').get('choice'), 'choce')
  return {
    userType: state.get('userType'),
    currentRoom : state.get('currentRoom'),
@@ -64,7 +64,7 @@ function mapStateToProps2(state) {
    openResponseAnswers: state.getIn(['tally', 'answers']),
    takingQuestions: state.get('takingQuestions'),
    questions: state.get('questions'),
-   choice: state.toJS().combined.choice,
+   choice: state.get('combined').get('choice'),
    roomName: state.get('roomName'),
    showgraph: state.get('showgraph'),
    errMessage: state.get('errMessage'),
