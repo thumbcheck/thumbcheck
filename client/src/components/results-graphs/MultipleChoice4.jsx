@@ -6,7 +6,7 @@ export default React.createClass({
 
   render: function() {
     let barChartData = {
-      labels: ["A                               B                               C"],
+      labels: ["A                    B                    C                     D"],
       datasets: [{
         fillColor: "rgba(255,42,0,1)",
         strokeColor: "rgba(255,42,0)",
@@ -23,13 +23,13 @@ export default React.createClass({
         data: [this.props.cCount]
       },
       {
-        fillColor: "rgba(55,161,74,1)",
-        strokeColor: "rgba(55,161,74,1)",
-        data: [this.props.dCount]      
+        fillColor: "rgba(30,255,90,1)",
+        strokeColor: "rgba(30,255,90,1)",
+        data: [this.props.dCount]
       }
       ]
     };
-    
+
     return <BarGraph data={barChartData} className={this.props.lastOrCurrent} />
   }
 });
