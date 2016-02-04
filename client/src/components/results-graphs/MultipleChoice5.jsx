@@ -23,13 +23,13 @@ export default React.createClass({
         data: [this.props.cCount]
       },
       {
-        fillColor: "rgba(30,180,90,1)",
-        strokeColor: "rgba(30,180,90,1)",
+        fillColor: "rgba(161,55,142,1)",
+        strokeColor: "rgba(161,55,142,1)",
         data: [this.props.dCount]
       },
       {
-        fillColor: "rgba(0,25,180,1)",
-        strokeColor: "rgba(0,25,180,1)",
+        fillColor: "rgba(161,127,55,1)",
+        strokeColor: "rgba(161,127,55,1)",
         data: [this.props.eCount]
       }
       ]

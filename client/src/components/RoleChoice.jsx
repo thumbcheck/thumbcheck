@@ -38,10 +38,8 @@ export default React.createClass({
     $.ajax({
       type: 'POST',
       url: '/room',
-      //data: data
     })
     .success(function(data) {
-      console.log(data);
       window.location.assign(data);
     });
   },
