@@ -46,7 +46,7 @@ function startVote(state, option) {
         haveVoted: []
       }
     });
-  } else if (option === 3) {
+  } else if (option === 'multipleChoice3') {
     newState = fromJS({
       voting: true,
       showgraph: "1",
@@ -58,7 +58,7 @@ function startVote(state, option) {
         haveVoted: []
       }
     });
-  } else if (option == 4) {
+  } else if (option == 'multipleChoice4') {
     newState = fromJS({
       voting: true,
       showgraph: "1",
@@ -71,7 +71,7 @@ function startVote(state, option) {
         haveVoted: []
       }
     });
-  } else if (option === 5) {
+  } else if (option === 'multipleChoice5') {
     newState = fromJS({
       voting: true,
       showgraph: "1",
@@ -239,7 +239,7 @@ export default function(state = fromJS({}), action) {
     return toggleThumbsGraph(state);
   case 'LOWER_STUDENT_HAND':
     return addQuestion(state, action.id, action.name, true);
-  case 'SET_NUMUSERS':    
+  case 'SET_NUMUSERS':
     return state.set('numUsers', action.numUsers);
   }
   return state;
