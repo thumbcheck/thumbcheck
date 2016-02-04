@@ -8,8 +8,7 @@ export default React.createClass({
     	<div className="slider-container">
 	      <input id="mySlider" className="question-slider"
 	      type="range"
-	      defaultValue={this.props.defaultValue}
-	      //value= {0}	      
+	      defaultValue={this.props.defaultValue}	        
 	      min={this.props.min}
 	      max={this.props.max}
 	      onInput={this.props.handleChange}

@@ -28,12 +28,11 @@ function downVote(state) {
 }
 
 function stopVote(state) {
-  let newState = fromJS({voting: false});
+  let newState = fromJS({voting: false, questionType: 'thumbs'});
   return state.merge(newState);
 }
 
-function startVote(state, option) {
-  console.log("options", option);
+function startVote(state, option) {  
   let newState;
   if (option === 'thumbs') {
     newState = fromJS({
@@ -102,8 +101,7 @@ function startVote(state, option) {
 function chooseQuestionType(state, option) {
   const newState = fromJS({
     questionType: option
-  });
-  console.log(option);
+  }); 
   return state.merge(newState);
 }
 

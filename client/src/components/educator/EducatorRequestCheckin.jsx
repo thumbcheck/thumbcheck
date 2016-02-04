@@ -44,18 +44,15 @@ export default React.createClass({
        if (this.props.questionType === 'multipleChoice') {
          return (
           <div>
-          <button value="multipleChoice3" type='button' className="btn orange request-btn white-text thumb-check-start"
-                         onClick={this.sendCheckin}>
-                         A-B-C
-          </button>
-          <button type='button' value="multipleChoice4" className="btn green request-btn white-text thumb-check-start"
-                 onClick={this.sendCheckin}>
-                 A-B-C-D
-          </button>
-          <button type='button' value="multipleChoice5" className="btn blue request-btn white-text thumb-check-start"
-                 onClick={this.sendCheckin}>
-                 A-B-C-D-E
-          </button>
+            <button value="multipleChoice3" type='button' className="btn orange request-btn white-text thumb-check-start" onClick={this.sendCheckin}>
+              A-B-C
+            </button>
+            <button type='button' value="multipleChoice4" className="btn green request-btn white-text thumb-check-start" onClick={this.sendCheckin}>
+              A-B-C-D
+            </button>
+            <button type='button' value="multipleChoice5" className="btn blue request-btn white-text thumb-check-start" onClick={this.sendCheckin}>
+              A-B-C-D-E
+            </button>
           </div>
           )
        } else if (this.props.questionType === 'thumbs') {
@@ -65,10 +62,9 @@ export default React.createClass({
        }
        const classNames = "btn " + color + " request-btn white-text thumb-check-start";
 
-       return <button type='button' className={classNames}
-                   onClick={this.sendCheckin}>
-                   {text}
-           </button>
+       return <button type='button' className={classNames} onClick={this.sendCheckin}>
+                {text}
+              </button>
   },
   render: function() {
     return (
