@@ -71,7 +71,7 @@ export default React.createClass({
           <a className="btn btn-warning btn-lg" role="button" onClick={this.multipleChoiceA} > A </a>
           <a className="btn btn-warning btn-lg" role="button" onClick={this.multipleChoiceB} > B </a>
           <a className="btn btn-warning btn-lg" role="button" onClick={this.multipleChoiceC} > C </a>
-          <a className="btn btn-warning btn-lg" role="button" onClick={this.multipleChoiceC} > D </a>
+          <a className="btn btn-warning btn-lg" role="button" onClick={this.multipleChoiceD} > D </a>
         </div>
       )
     } else if (this.props.questionType === 'multipleChoice5') {
@@ -80,8 +80,8 @@ export default React.createClass({
           <a className="btn btn-warning btn-lg" role="button" onClick={this.multipleChoiceA} > A </a>
           <a className="btn btn-warning btn-lg" role="button" onClick={this.multipleChoiceB} > B </a>
           <a className="btn btn-warning btn-lg" role="button" onClick={this.multipleChoiceC} > C </a>
-          <a className="btn btn-warning btn-lg" role="button" onClick={this.multipleChoiceC} > D </a>
-          <a className="btn btn-warning btn-lg" role="button" onClick={this.multipleChoiceC} > E </a>
+          <a className="btn btn-warning btn-lg" role="button" onClick={this.multipleChoiceD} > D </a>
+          <a className="btn btn-warning btn-lg" role="button" onClick={this.multipleChoiceE} > E </a>
         </div>
       )
     } else if (this.props.questionType === 'open') {
