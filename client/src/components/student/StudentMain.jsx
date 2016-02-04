@@ -40,7 +40,13 @@ export const Student = React.createClass({
            {this.renderProperElement()}
         </div>
         {(this.props.takingQuestions && this.props.takingQuestions._root.entries[0][1]) ?
-        <RaiseHand {...this.props} /> :
+        <RaiseHand {handRaised=this.props.handRaised
+                    id=this.props.id
+                    addQuestion=this.props.addQuestion
+                    name=this.props.name
+                    toggleHandRaise=this.props.toggleHandRaise
+                    questions=this.props.questions
+                    addStudentIdentity=this.props.addStudentIdentity} /> :
         null
         }
         {this.props.shareThumbsCheckResults ? renderCorrectGraphType(this.props) :
