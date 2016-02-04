@@ -105,7 +105,7 @@ export default React.createClass({
     console.log(this.props.questionType);
     return (      
       <div>
-        <SliderNativeBootstrap          
+        <SliderNativeBootstrap
           defaultValue = {this.mapStateToSliderNumber()}
           handleChange={ this.changeSliderValue }
           step={1}
