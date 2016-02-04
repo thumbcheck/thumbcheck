@@ -6,7 +6,7 @@ export default React.createClass({
 
   render: function() {
     let barChartData = {
-      labels: ["A               B               C               D               E"],
+      labels: ["   A             B             C             D             E"],
       datasets: [{
         fillColor: "rgba(255,42,0,1)",
         strokeColor: "rgba(255,42,0)",
