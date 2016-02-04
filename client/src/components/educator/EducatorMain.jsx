@@ -11,25 +11,24 @@ import {toJS} from 'immutable';
 
 export const Educator = React.createClass({
  componentWillMount: function() {
-   return this.props.showgraph === "1" ? "1" : "0";  
+   return this.props.showgraph === "1" ? "1" : "0";
  },
  componentDidMount: function() {
     if(this.props.currentRoom !== '') {
       this.props.stopVote();
     }
  },
- showQuestions: function() {  
-  let questions = this.props.questions.toJS();  
+ showQuestions: function() {
+  let questions = this.props.questions.toJS();
   let allNames = []
   return questions.map(function(tuple, index) {
     return <div>{tuple[1]}</div>
-  });    
+  });
  },
- render: function() {    
-  console.log('on educator main', this.props);
+ render: function() {
    return (
      <div>
-       <Navbar {...this.props} />          
+       <Navbar {...this.props} />
         <div className="educator-container">
           <div className="center-text">
             <h4>Share this URL: <strong>{window.location.href.split('?')[0]}</strong>
@@ -40,21 +39,9 @@ export const Educator = React.createClass({
               <ResultsDisplay ref="resultsDisplay" {...this.props} /> :
               <EducatorRequestCheckin {...this.props} />
             }
-          </div>          
+          </div>
        </div>
      </div>
    )
  }
-});        
-
-// functigion mapStateToProps(state) {
-//  return {
-//    voting: state.get('voting'),
-//    upCount: state.getIn(['tally', 'thumbsUp']),
-//    downCount: state.getIn(['tally', 'thumbsDown'])
-//  };
-// }
-
-// const EducatorContainer = Educator;
-// export const EducatorContainer;
-// export const EducatorContainer = connect(mapStateToProps,actionCreators)(Educator);
+});
