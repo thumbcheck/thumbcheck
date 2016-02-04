@@ -56,25 +56,3 @@ export const Student = React.createClass({
  }
 });
 
-function mapStateToProps(state) {
- return {
-   voting: state.get('voting'),
-   upCount: state.getIn(['tally', 'thumbsUp']),
-   downCount: state.getIn(['tally', 'thumbsDown']),
-   aCount: state.getIn(['tally', 'a']),
-   bCount: state.getIn(['tally', 'b']),
-   cCount: state.getIn(['tally', 'c']),
-   dCount: state.getIn(['tally', 'd']),
-   eCount: state.getIn(['tally', 'e']),
-   haveVoted: state.getIn(['tally', 'haveVoted']),
-   handRaised: state.get('handRaised'),
-   id: state.get('id'),
-   name: state.get('name'),
-   questions: state.get('questions'),
-   shareThumbsCheckResults: state.get('shareThumbsCheckResults'),
-   handFirstRaised: state.get('handFirstRaised'),
-   questionType: state.get('questionType')
- };
-}
-
-export const StudentContainer = connect(mapStateToProps,actionCreators)(Student);
