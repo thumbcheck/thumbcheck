@@ -80,7 +80,6 @@ export default React.createClass({
     }
   },
   render: function() {
-    console.log("this.props.shareThumbsCheckResults", this.props.shareThumbsCheckResults);
     return (
 
       <div>

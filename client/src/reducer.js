@@ -111,8 +111,6 @@ function chooseQuestionType(state, option) {
 }
 
 function toggleThumbsGraph(state) {
-  // const shareResults = !state.get('shareThumbsCheckResults');
-  // console.log("state.get('shareThumbsCheckResults')", state.get('shareThumbsCheckResults'))
   const newState = {
     shareThumbsCheckResults: true
   };
