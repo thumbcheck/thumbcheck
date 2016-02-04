@@ -17,9 +17,6 @@ export default React.createClass({
     }
   },
 
-  triggerVote: function() {
-  },
-
   changeSliderValue: function(e) {
     const selection = e.target.value.toString(); 
     let questionSelection = '';        
@@ -40,23 +37,21 @@ export default React.createClass({
   },
   renderProperButton: function() {    
     if (this.props.questionType === undefined) {this.props.chooseQuestionType('thumbs');}
-
+    let color = 'orange';
+    let text = '';
     if (this.props.questionType === 'thumbs') {
-      return <button type='button' className="btn orange request-btn white-text thumb-check-start"
-                onClick={this.sendCheckin}>
-                Thumbscheck          
-        </button>  
+      color = 'orange', text = 'Thumbscheck'; 
     } else if (this.props.questionType === 'multipleChoice3') {
-      return <button type='button' className="btn green request-btn white-text thumb-check-start"
-                onClick={this.sendCheckin}>
-                Multiple Choice          
-        </button> 
+      color = 'green', text="Multiple Choice";
     } else {
-      return <button type='button' className="btn blue request-btn white-text thumb-check-start"
-                onClick={this.sendCheckin}>
-                Open Response          
-        </button> 
+      color='blue', text="Open Response"; 
     }
+    const classNames = "btn " + color + " request-btn white-text thumb-check-start"
+    
+    return <button type='button' className={classNames}
+                onClick={this.sendCheckin}>
+                {text}          
+        </button> 
   },
   render: function() {    
     return (      

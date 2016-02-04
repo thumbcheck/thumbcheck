@@ -39,7 +39,7 @@ export default React.createClass({
 			      
 			      <ul className="nav navbar-nav navbar-right">			        
 			        <li className="dropdown">
-			          <a href="#" className="dropdown-toggle white-text right-nav" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" ><img src="/images/raise_hand1.png" className="raise-hand-icon" /><span className="caret"></span></a>
+			          <a href="#" className="dropdown-toggle white-text right-nav" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><img data-placement="bottom" title="See raised hands" src="/images/raise_hand1.png" className="raise-hand-icon" /><span className="caret"></span></a>
 			          <ul className="dropdown-menu drop-down-spacing">
 			            { this.showQuestions() }
 			          </ul>
