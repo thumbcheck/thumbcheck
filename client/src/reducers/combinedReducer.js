@@ -35,11 +35,12 @@ function addStudentIdentity(state, id, name) {
 }
 
 function chooseRole(state, choice) {
-  console.log('i feel like this is not working', choice)
-  // let stateset = state.set('choice', choice);
-  let stateset = fromJS({choice: choice});  
-  console.log(stateset.toJS());
-  return state.merge(stateset);
+  // console.log('i feel like this is not working', choice)
+  // // let stateset = state.set('choice', choice);
+  // let stateset = fromJS({choice: choice});  
+  // console.log(stateset.toJS());
+  // return state.merge(stateset);
+  return state.set('choice', choice);
 }
 
 function setErrorMessage(state, error) {
