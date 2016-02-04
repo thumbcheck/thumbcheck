@@ -38,19 +38,19 @@ export const Student = React.createClass({
          <h4><strong>{this.props.numUsers}</strong> device(s) currently in this room</h4>
          <div className="student-content">
            {this.renderProperElement()}
-        </div>
-        {(this.props.takingQuestions && this.props.takingQuestions._root.entries[0][1]) ?
-          <RaiseHand handRaised={this.props.handRaised}
-                     id={this.props.id}
-                     addQuestion={this.props.addQuestion}
-                     name={this.props.name}
-                     toggleHandRaise={this.props.toggleHandRaise}
-                     questions={this.props.questions}
-                     addStudentIdentity={this.props.addStudentIdentity} /> :
-          null}
-        {this.props.shareThumbsCheckResults ?
-          renderCorrectGraphType(this.props) :
-          null}
+         </div>
+         {(this.props.takingQuestions && this.props.takingQuestions.toJS().allowQuestions) ?
+           <RaiseHand handRaised={this.props.handRaised}
+                      id={this.props.id}
+                      addQuestion={this.props.addQuestion}
+                      name={this.props.name}
+                      toggleHandRaise={this.props.toggleHandRaise}
+                      questions={this.props.questions}
+                      addStudentIdentity={this.props.addStudentIdentity} /> :
+           null}
+         {this.props.shareThumbsCheckResults ?
+           renderCorrectGraphType(this.props) :
+           null}
      </div>
    );
  }
