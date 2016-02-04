@@ -20,6 +20,7 @@ export const Main = React.createClass({
   },
  /*** NEED TO REFACTOR LOCAL STORAGE ITEMS ***/
   render: function() {
+    console.log('ami I rendering?')
     if (this.canWriteLocalStorage()) {
       if (this.props.userType === 'student') {
         return (<StudentContainer
@@ -47,6 +48,8 @@ export const Main = React.createClass({
 });
 
 function mapStateToProps2(state) {
+  console.log(state.toJS(), 'state');
+  console.log(state.toJS().combined.choice, 'choice')
  return {
    userType: state.get('userType'),
    currentRoom : state.get('currentRoom'),
@@ -61,7 +64,7 @@ function mapStateToProps2(state) {
    openResponseAnswers: state.getIn(['tally', 'answers']),
    takingQuestions: state.get('takingQuestions'),
    questions: state.get('questions'),
-   choice: state.get('choice'),
+   choice: state.toJS().combined.choice,
    roomName: state.get('roomName'),
    showgraph: state.get('showgraph'),
    errMessage: state.get('errMessage'),

@@ -53,9 +53,11 @@ socket.emit('joinRoom', setLocalStorage(true, store ));
 
 
 // Sets up Routing
-const routes = <Route component={App}>
-  <Route path = '/' component={MainLandingContainer} />
-</Route>;
+const routes = (
+  <Route component={App}>
+    <Route path = '/' component={MainLandingContainer} />
+  </Route>
+);
 
 
 // Renders App to DOM

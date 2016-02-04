@@ -5,6 +5,7 @@ import combined from '../reducers/combinedReducer'
 export default React.createClass({
   chooseTeacher: function () {
     this.props.chooseRole('teacher');
+    this.forceUpdate();
   },
 
   chooseStudent: function () {
