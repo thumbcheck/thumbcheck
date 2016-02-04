@@ -37,13 +37,13 @@ export const Educator = React.createClass({
               <div><strong>{this.props.numUsers}</strong> device(s) currently in this room</div>
             </h4>
             {this.props.voting ?
-              <ResultsDisplay ref="resultsDisplay"  openResponseAnswers={this.props.openResponseAnswers}
-                                                    questionType={this.props.questionType}
-                                                    stopVote={this.props.stopVote}
-                                                    upCount={this.props.upCount}
-                                                    downCount={this.props.downCount}
-                                                    takingQuestions={this.props.takingQuestions}
-                                                    toggleTakingQuestions={this.props.toggleTakingQuestions} /> :
+              <ResultsDisplay ref="resultsDisplay" openResponseAnswers={this.props.openResponseAnswers}
+                                                   questionType={this.props.questionType}
+                                                   stopVote={this.props.stopVote}
+                                                   upCount={this.props.upCount}
+                                                   downCount={this.props.downCount}
+                                                   takingQuestions={this.props.takingQuestions}
+                                                   toggleTakingQuestions={this.props.toggleTakingQueestions} /> :
               <EducatorRequestCheckin {...this.props} />
             }
           </div>
