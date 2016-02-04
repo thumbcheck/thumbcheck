@@ -13,11 +13,6 @@ import setLocalStorage from './setLocalStorage';
 import generateID from './helpers/generateID';
 import {Map} from 'immutable';
 
-import {combineReducers} from 'redux-immutable';
-import educatorActionsReducer from './reducers/educatorActionsReducer';
-import studenActionsReducer from './reducers/studenActionsReducer';
-import userSettingsReducer from './reducers/userSettingsReducer';
-
 // Socket Connection to server
 const socket = io();
 socket.on('remoteAction', (remoteAction) => {
@@ -27,14 +22,9 @@ socket.on('syncState', (appState) => {
   store.dispatch(appState);
 });
 
-const rootReducer = combineReducers({
-  educatorActions: educatorActionsReducer,
-  studentActions: studenActionsReducer,
-  userSettings: userSettingsReducer
-});
 // Create redux store
 const createStoreWithMiddleware = applyMiddleware(reduxStateEmitterMiddleware(socket))(createStore);
-const store = createStoreWithMiddleware(rootReducer, Map());
+const store = createStoreWithMiddleware(reducer);
 // store.dispatch(setParticipantID(generateID()));
 generateID();
 

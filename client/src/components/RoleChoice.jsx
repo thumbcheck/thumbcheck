@@ -1,6 +1,5 @@
 import React from 'react';
 import {toJS} from 'immutable';
-import combined from '../reducers/combinedReducer'
 
 export default React.createClass({
   chooseTeacher: function () {
