@@ -24,6 +24,16 @@ export default React.createClass({
       }]
     };
     
-    return <BarGraph data={barChartData} className={this.props.lastOrCurrent} />
+    return (
+      <div>    
+        <h4>Results from last question</h4>
+        <BarGraph data={barChartData} className={this.props.lastOrCurrent} />
+        <div>
+          <span className="up-thumb-count">Selected A: {this.props.aCount}</span>          
+          <span className="down-thumb-count move-right">Selected B: {this.props.bCount}</span>
+          <span className="down-thumb-count move-right">Selected C: {this.props.cCount}</span>
+        </div>   
+      </div>  
+      )
   }
 });
