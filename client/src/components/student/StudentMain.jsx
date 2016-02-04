@@ -54,6 +54,8 @@ function mapStateToProps(state) {
    aCount: state.getIn(['tally', 'a']),
    bCount: state.getIn(['tally', 'b']),
    cCount: state.getIn(['tally', 'c']),
+   dCount: state.getIn(['tally', 'd']),
+   eCount: state.getIn(['tally', 'e']),
    haveVoted: state.getIn(['tally', 'haveVoted']),
    handRaised: state.get('handRaised'),
    id: state.get('id'),
