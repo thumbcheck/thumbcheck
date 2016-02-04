@@ -43,7 +43,7 @@ export const Educator = React.createClass({
                                                    upCount={this.props.upCount}
                                                    downCount={this.props.downCount}
                                                    takingQuestions={this.props.takingQuestions}
-                                                   toggleTakingQuestions={this.props.toggleTakingQueestions} /> :
+                                                   toggleTakingQuestions={this.props.toggleTakingQuestions} /> :
               <EducatorRequestCheckin {...this.props} />
             }
           </div>
