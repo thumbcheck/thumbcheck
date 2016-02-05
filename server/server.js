@@ -2,6 +2,8 @@ import express from 'express';
 import socket from 'socket.io';
 import bodyParser from 'body-parser';
 import path from 'path';
+
+import database from './models/database.js';
 import router from './router';
 import sockets from './sockets';
 

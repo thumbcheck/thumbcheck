@@ -5,8 +5,11 @@ npm-debug.log
 compiled
 client/dist/bundle.js
 dump.rdb
+sql_notes.sql
+logfile
 
 # Elastic Beanstalk Files
 .elasticbeanstalk/*
 !.elasticbeanstalk/*.cfg.yml
 !.elasticbeanstalk/*.global.yml
+
