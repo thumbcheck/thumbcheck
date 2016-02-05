@@ -3,10 +3,13 @@ import {connect} from 'react-redux';
 import {toJS} from 'immutable';
 import PresentationList from './PresentationList';
 import {Educator} from '../educator/EducatorMain';
+import EditPresentation from './EditPresentation';
 export default React.createClass({
   render: function() {
-    if (true || this.props.preplannedPresentation) {
+    if (this.props.preplannedPresentation) {
       return <Educator {...this.props} />
+    } else if (true || this.props.editingPresentation) {
+      return <EditPresentation {...this.props} />
     } else {
       return (
         <div>
