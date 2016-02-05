@@ -7,9 +7,10 @@ client/dist/bundle.js
 dump.rdb
 sql_notes.sql
 logfile
+npm-shrinkwrap.json
+
 
 # Elastic Beanstalk Files
 .elasticbeanstalk/*
 !.elasticbeanstalk/*.cfg.yml
 !.elasticbeanstalk/*.global.yml
-
