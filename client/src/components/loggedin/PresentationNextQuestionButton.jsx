@@ -9,7 +9,7 @@ export default React.createClass({
         <button type = 'button'
                 className = "btn grey white-text"
                 onClick = {this.props.nextQuestion}>
-                Next
+                Next Question
         </button>
       </div>
     );

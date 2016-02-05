@@ -2,6 +2,7 @@ import React from 'react';
 import QuestionButton from './QuestionButton';
 import SliderNativeBootstrap from './QuestionSlider';
 import renderCorrectGraphType from '../../helpers/renderCorrectGraphType';
+import PresentationNextQuestionButton from '../loggedin/PresentationNextQuestionButton';
 
 export default React.createClass({
   showGraph: function() {
@@ -101,6 +102,13 @@ export default React.createClass({
       return 0;
     }
   },
+  renderNextQuestionButton: function() {
+    if(this.props.preplannedPresentation) {
+      return <PresentationNextQuestionButton />
+    } else {
+      return null;
+    }
+  },
   render: function() {
     console.log(this.props.questionType);
     return (      
@@ -115,17 +123,18 @@ export default React.createClass({
 
           { this.renderProperButton() }
 
-      <div className={this.showGraph()}>
+        <div className={this.showGraph()}>
+          
+          {renderCorrectGraphType(this.props)}
         
-        {renderCorrectGraphType(this.props)}
-      
-      </div>
+        </div>
         {this.props.shareThumbsCheckResults || this.props.shareThumbsCheckResults === undefined ?
           <p></p> :
           <p><button type='button' className='btn grey white-text' onClick={this.props.toggleThumbsCheckResultsGraph}>Show Results to Participants</button></p>
         }
         <QuestionButton takingQuestions={this.props.takingQuestions}
                         toggleTakingQuestions={this.props.toggleTakingQuestions} />
+        {this.renderNextQuestionButton()}
       </div>
     );
   }

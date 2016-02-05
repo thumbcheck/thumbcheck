@@ -4,7 +4,7 @@ import * as StudentActions from './reducer-functions/studentActions';
 import * as EducatorActions from './reducer-functions/educatorActions';
 import * as UserSettings from './reducer-functions/userSettings';
 
-export default function(state = fromJS({}), action) {
+export default function(state = fromJS(/*temp*/{preplannedPresentation: true}), action) {
   switch (action.type) {
   case 'SET_STATE':
     return UserSettings.setState(state, action.state);

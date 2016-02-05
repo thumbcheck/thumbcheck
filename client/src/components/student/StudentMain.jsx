@@ -27,7 +27,8 @@ export const Student = React.createClass({
                                            vote={this.props.vote}
                                            multipleChoiceAnswer={this.props.multipleChoiceAnswer}
                                            openResponse={this.props.openResponse}
-                                           questionType={this.props.questionType} />;
+                                           questionType={this.props.questionType}
+                                           preplannedPresentation= {this.props.preplannedPresentation} />;
    }
  },
  render: function() {
