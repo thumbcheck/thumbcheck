@@ -9,7 +9,6 @@ sql_notes.sql
 logfile
 npm-shrinkwrap.json
 
-
 # Elastic Beanstalk Files
 .elasticbeanstalk/*
 !.elasticbeanstalk/*.cfg.yml
