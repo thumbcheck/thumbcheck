@@ -1,8 +1,11 @@
 import Sequelize from 'sequelize';
+import {sequelize} from './database.js';
 
-const User = sequelize.define('user', {
+console.log(sequelize);
+
+const User = sequelize.define('users', {
   username: {
-    type: Sequelize.STRING 
+    type: Sequelize.STRING
   },
   password: {
     type: Sequelize.STRING
@@ -16,3 +19,8 @@ const User = sequelize.define('user', {
 }, {
   freezeTableName: true // Model tableName will be the same as the model name
 });
+
+//syncs up sequelize with the database
+User.sync()
+
+export default User;

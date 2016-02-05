@@ -63,7 +63,7 @@
     "redis": "^2.4.2",
     "redux": "^3.0.6",
     "redux-immutable": "^3.0.3",
-    "sequelize": "^3.12.2",
+    "sequelize": "^3.19.2",
     "sequelize-cli": "^2.1.0",
     "socket.io": "^1.4.4",
     "socket.io-client": "^1.4.4",
