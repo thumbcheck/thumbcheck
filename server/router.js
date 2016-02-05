@@ -6,7 +6,7 @@ import path from 'path';
 import randomWord from 'random-word';
 import generateRoomName from './helpers/generateRoomName';
 import passport from 'passport';
-
+import userController from './controllers/userController';
 import {checkRoom} from './controllers/redisStateController';
 
 const router = express.Router();
@@ -51,6 +51,14 @@ router.route('/login')
     return passport.authenticate('local-login', {successRedirect: '/success', failureRedirect: '/fail'})(req,res, next);
   });
 
+router.route('/api/users')
+  .post((req,res) => {
+    console.log('/Route: /api/users', req.body);
+    userController.createUser(req.body, (result) => {
+      res.send(201, result);
+    });
+  })
+
 router.route('/signup')
   .get((req,res,next) => {
     return passport.authenticate('local-success', {successRedirect: '/success', failureRedirect: '/fail'})(req,res, next);
@@ -72,7 +80,7 @@ router.route('/:roomname')
 // route middleware to make sure a user is logged in
 function isLoggedIn(req, res, next) {
 
-    // if user is authenticated in the session, carry on 
+    // if user is authenticated in the session, carry on
     if (req.isAuthenticated())
         return next();
 
