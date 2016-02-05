@@ -6,7 +6,11 @@ export default React.createClass({
     let currentPresentation = {title: 'GeorgeWashington'};
 
     if (currentPresentation.title) {
-      return <div>{currentPresentation.title}</div>;
+      return (
+        <div>
+          <h2>Presentation Title</h2>{currentPresentation.title}
+        </div>
+      )
     } else {
       return (<div>Add Your Title Here!</div>);
     }
@@ -26,7 +30,9 @@ export default React.createClass({
     return (
       <div>
         {this.renderTitle()}
+        <h2>Presentation Question List</h2>
         {this.showPresentationQuestions()}
+        <button>Add A New Question</button>
       </div>
     );
   }
