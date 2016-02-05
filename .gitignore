@@ -10,3 +10,5 @@ dump.rdb
 .elasticbeanstalk/*
 !.elasticbeanstalk/*.cfg.yml
 !.elasticbeanstalk/*.global.yml
+
+sql_notes.sql
