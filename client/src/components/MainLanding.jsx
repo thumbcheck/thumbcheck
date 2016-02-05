@@ -6,6 +6,7 @@ import Navbar from './educator/NavBarEducator';
 import * as actionCreators from '../action_creators';
 import PrivateBrowsingPage from './PrivateBrowsingPage';
 import RoleChoice from './RoleChoice';
+import EducatorLoggedInMain from './loggedin/EducatorLoggedInMain';
 import mapStateToProps from '../helpers/mapStateToProps';
 
 export const Main = React.createClass({
@@ -23,6 +24,8 @@ export const Main = React.createClass({
     if (this.canWriteLocalStorage()) {
       if (this.props.userType === 'student') {
         return (<Student {...this.props} />)
+      } else if(this.props.userType === 'educator') {
+        return <EducatorLoggedInMain {...this.props} />
       } else if (this.props.userType === 'educator') {
         return <Educator {...this.props} />
       } else {
