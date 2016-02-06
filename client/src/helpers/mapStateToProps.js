@@ -30,7 +30,7 @@ export default function mapStateToProps(state) {
     educatorLoggedIn : state.get('educatorLoggedIn'),
     editingOrCreatingPresentation: state.get('editingOrCreatingPresentation'),
     // super temp
-    currentPresentation: state.get('currentPresentation')
+    currentPresentation: state.get('currentPresentation'),
 
     toggleTypeMultipleChoice: state.get('toggleTypeMultipleChoice'),
     typeMultipleChoice: state.get('typeMultipleChoice'),

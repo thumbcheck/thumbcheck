@@ -151,6 +151,8 @@ export function moveToNextQuestion() {
   return {
     meta: {remote: true},
     type: 'MOVE_NEXT_QUESTION'
+  };
+}
 
 export function toggleTypeMultipleChoice() {
   return {
