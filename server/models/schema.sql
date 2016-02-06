@@ -87,11 +87,11 @@ CREATE TABLE sessions (
 -- ---
 
 
-CREATE TABLE sessions_questions (
+CREATE TABLE session_questions (
   id serial PRIMARY KEY,
   session_id integer REFERENCES sessions(id),
   question_id integer REFERENCES questions(id),
-  results_thumbs_up INTEGER NULL DEFAULT NULL,
+  result_thumbs_up INTEGER NULL DEFAULT NULL,
   result_thumbs_down INTEGER NULL DEFAULT NULL,
   result_a INTEGER NULL DEFAULT NULL,
   result_b INTEGER NULL DEFAULT NULL,

@@ -1,8 +1,9 @@
 import Sequelize from 'sequelize';
 import {sequelize} from './database.js';
 import Session from './sessions.js';
+import Question from './questions.js';
 
-const Sessions_question = sequelize.define('sessions_question', {
+const Sessions_question = sequelize.define('session_questions', {
   session_id: {
     // foreign key to session
     type: Sequelize.STRING 
@@ -46,8 +47,9 @@ const Sessions_question = sequelize.define('sessions_question', {
   freezeTableName: true // Model tableName will be the same as the model name
 });
 
-// Sessions_question.belongsTo(Session);
+Sessions_question.belongsTo(Session);
+Sessions_question.belongsTo(Question);
 
-Sessions_question.sync();
+// Sessions_question.sync();
 
 export default Sessions_question;

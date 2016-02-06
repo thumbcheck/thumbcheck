@@ -21,7 +21,7 @@ const Presentation = sequelize.define('presentations', {
 
 Presentation.belongsTo(User);
 
-//Presentation.sync()
+// Presentation.sync()
 
 export default Presentation;
 

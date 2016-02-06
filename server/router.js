@@ -148,7 +148,7 @@ router.route('/:roomname')
 // get all the sessions for a specific presentation
 router.route('/api/sessions/:presentation_id')  
   .get((req, res) => {
-    sessionsController.getSessions((req.body.presentation_id), (result) => {
+    sessionsController.getSessions((req.params.presentation_id), (result) => {
       res.send(200, result);
     })
   })

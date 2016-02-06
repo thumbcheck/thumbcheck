@@ -47,6 +47,6 @@ const Question = sequelize.define('questions', {
 Question.belongsTo(Presentation);
 //Question.belongsTo(Sessions_question);
 
-Question.sync()
+// Question.sync()
 
 export default Question;

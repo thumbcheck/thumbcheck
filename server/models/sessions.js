@@ -1,9 +1,9 @@
 import Sequelize from 'sequelize';
 import {sequelize} from './database.js';
 import Presentation from './presentations.js';
-import Sessions_question from './sessions_question';
+// import Sessions_question from './sessions_question';
 
-const Session = sequelize.define('session', {
+const Session = sequelize.define('sessions', {
   presentation_id: {
     type: Sequelize.INTEGER
   },
@@ -20,5 +20,4 @@ const Session = sequelize.define('session', {
 // Session.belongsTo(Presentation);
 
 Session.sync();
-
 export default Session;
