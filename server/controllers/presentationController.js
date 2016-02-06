@@ -13,8 +13,6 @@ function createPresentation (params, callback) {
 
 //get all presentations of a given user
 function getAllPresentations (params, callback) {
-  //let temp = parseInt(params)
-  //console.log("PARAMSSSS", typeof temp);
   return Presentation.findAll({
     attributes: { exclude: ['user_id'] },
     where: {
@@ -28,11 +26,9 @@ function getAllPresentations (params, callback) {
 
 //get presentation by id
 function getPresentation (params, callback) {
-  //let temp = parseInt(params)
   return Presentation.findAll({
     attributes: { exclude: ['user_id'] },
     where: {
-      //owner_id: params.owner_id,
       id: params
     }
   })
