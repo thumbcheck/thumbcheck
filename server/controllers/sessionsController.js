@@ -2,7 +2,14 @@ import Session from '../models/sessions.js';
 
 // GET request for sessions
 function getSessions(params, callback) {
-
+	return Session.findAll({
+		where: {
+			presentation_id: params
+		}
+	})
+	.then((response) => {
+		callback(response);
+	})
 } 
 
 // taking POST request to create a new session

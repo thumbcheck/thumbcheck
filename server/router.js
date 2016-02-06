@@ -131,14 +131,24 @@ router.route('/:roomname')
     });
   });
 
-
-// session and session_questions routes
+// ----- PRESENTATION SESSIONS  ------ //
+router.route('/api/sessions/:pid')
+  // get all the sessions for a specific presentation
+  .get((req, res) => {
+    sessionsController.getSessions((req.body.pid), (result) => {
+      res.send(200, result);
+    })
+  })
+  // create a new session
 router.route('/api/sessions')
   .post((req, res) => {
-    sessionsController.createSession(req.body, (result) => {
+    sessionsController.createSession((req.body), (result) => {
       res.send(201, result);
     })
   })
+// ----- SESSION_QUESTIONS  ------ //
+// get all questions for a specific session
+
 
 // route middleware to make sure a user is logged in
 function isLoggedIn(req, res, next) {

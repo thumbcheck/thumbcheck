@@ -1,6 +1,7 @@
 import Sequelize from 'sequelize';
 import {sequelize} from './database.js';
 import Presentation from './presentations.js';
+import Sessions_question from './sessions_question';
 
 const Session = sequelize.define('session', {
   presentation_id: {
@@ -14,7 +15,7 @@ const Session = sequelize.define('session', {
   freezeTableName: true // Model tableName will be the same as the model name
 });
 
-// Session.belongsTo(Sessions_question);
+Session.belongsTo(Presentation);
 
 Session.sync();
 
