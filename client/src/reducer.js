@@ -9,7 +9,7 @@ const initialState = {
   currentPresentation: {  
     title: 'George Washington',
         questions: [{title: 'Favorite Color?', questionChoices: [{letter: 'a', content:'green'},{letter: 'b', content:'blue'},{letter: 'c', content:'red'}] },
-        {title: 'Favorite Food', questionChoices: [{letter: 'a', content:'green'},{letter: 'b', content:'blue'},{letter: 'c', content:'red'}]}],
+        {title: 'Favorite Food', questionChoices: [{letter: 'a', content:'pasta'},{letter: 'b', content:'pizza'},{letter: 'c', content:'jamba'}]}],
         currentQuestionIndex: 0,
         currentQuestion: {title: 'Favorite Color?', questionChoices: [{letter: 'a', content:'green'},{letter: 'b', content:'blue'},{letter: 'c', content:'red'}] }
   },
