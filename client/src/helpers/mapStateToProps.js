@@ -28,6 +28,8 @@ export default function mapStateToProps(state) {
     // temp
     preplannedPresentation: state.get('preplannedPresentation'),
     educatorLoggedIn : state.get('educatorLoggedIn'),
-    editingOrCreatingPresentation: state.get('editingOrCreatingPresentation')
+    editingOrCreatingPresentation: state.get('editingOrCreatingPresentation'),
+    // super temp
+    currentPresentation: state.get('currentPresentation')
   };
 }

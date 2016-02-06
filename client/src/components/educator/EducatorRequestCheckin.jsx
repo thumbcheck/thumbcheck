@@ -104,7 +104,7 @@ export default React.createClass({
   },
   renderNextQuestionButton: function() {
     if(this.props.preplannedPresentation) {
-      return <PresentationNextQuestionButton />
+      return <PresentationNextQuestionButton {...this.props}/>
     } else {
       return null;
     }

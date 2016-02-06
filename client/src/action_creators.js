@@ -146,3 +146,10 @@ export function startPreplannedPresentation() {
     type: 'PREPLANNED_PRESENTATION'
   };
 }
+
+export function moveToNextQuestion() {
+  return {
+    meta: {remote: true},
+    type: 'MOVE_NEXT_QUESTION'
+  };
+}
