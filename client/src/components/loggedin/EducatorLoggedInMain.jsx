@@ -6,26 +6,21 @@ import {Educator} from '../educator/EducatorMain';
 import EditPresentation from './EditPresentation';
 import Navbar from '../educator/NavBarEducator';
 import CreateEditQuestions from './CreateEditQuestions';
+
 export default React.createClass({
   render: function() {
-    if (this.props.preplannedPresentation) {
+    if (false && this.props.preplannedPresentation) {
       return <Educator {...this.props} />
-    } else if (this.props.editingOrCreatingPresentation) {
+    } else if (false && this.props.editingPresentation) {
       return (
         <div>
           <Navbar lowerStudentHand={this.props.lowerStudentHand}
           questions={this.props.questions} /> 
           <EditPresentation {...this.props} />
         </div>
-      );
-    } else if (this.props.editingQuestion) {
-      return (
-        <div>
-          <Navbar lowerStudentHand={this.props.lowerStudentHand}
-          questions={this.props.questions} />  
-          <CreateEditQuestions {...this.props} />
-        </div>
-      );
+      )
+    } else if (true || this.props.editingQuestion) {
+     return <CreateEditQuestions {...this.props} />
     } else {
       return (
         <div>

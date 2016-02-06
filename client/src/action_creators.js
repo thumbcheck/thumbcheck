@@ -153,3 +153,27 @@ export function moveToNextQuestion() {
     type: 'MOVE_NEXT_QUESTION'
   };
 }
+
+export function toggleTypeMultipleChoice() {
+  return {
+    type: 'TOGGLE_TYPE_MULTIPLE_CHOICE'
+  };
+}
+
+export function toggle3choices() {
+  return {
+    type: 'TOGGLE_3_CHOICES'
+  };
+}
+
+export function toggle4choices() {
+  return {
+    type: 'TOGGLE_4_CHOICES'
+  };
+}
+
+export function toggle5choices() {
+  return {
+    type: 'TOGGLE_5_CHOICES'
+  };
+}

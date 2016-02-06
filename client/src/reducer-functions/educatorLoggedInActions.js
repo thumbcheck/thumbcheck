@@ -30,3 +30,27 @@ export function moveToNextQuestion(state) {
     return state.merge(newState);  
   }
 }
+
+export function toggleTypeMultipleChoice(state) {
+  let typeMultiple = !state.get('typeMultipleChoice');
+  let newState = fromJS({typeMultipleChoice: typeMultiple});
+  return state.merge(newState);
+}
+
+export function toggle3choices(state) {
+  let a3state = !state.get('a3choice');
+  let newState = fromJS({a3choice: a3state});
+  return state.merge(newState);
+}
+
+export function toggle4choices(state) {
+  let a4state = !state.get('a4choice');
+  let newState = fromJS({a4choice: a4state});
+  return state.merge(newState);
+}
+
+export function toggle5choices(state) {
+  let a5state = !state.get('a5choice');
+  let newState = fromJS({a5choice: a5state});
+  return state.merge(newState);
+}
