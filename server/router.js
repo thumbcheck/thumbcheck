@@ -132,10 +132,10 @@ router.route('/:roomname')
   });
 
 // ----- PRESENTATION SESSIONS  ------ //
-router.route('/api/sessions/:pid')
-  // get all the sessions for a specific presentation
+// get all the sessions for a specific presentation
+router.route('/api/sessions/:presentation_id')  
   .get((req, res) => {
-    sessionsController.getSessions((req.body.pid), (result) => {
+    sessionsController.getSessions((req.body.presentation_id), (result) => {
       res.send(200, result);
     })
   })
@@ -148,7 +148,19 @@ router.route('/api/sessions')
   })
 // ----- SESSION_QUESTIONS  ------ //
 // get all questions for a specific session
-
+router.route('/api/sessionsQuestions/:session_id')  
+  .get((req, res) => {
+    sessionsController.getSessions((req.body.session_id), (result) => {
+      res.send(200, result);
+    })
+  })
+  // create a new question for a specific session
+router.route('/api/sessionsQuestions')
+  .post((req, res) => {
+    sessionsController.createSession((req.body), (result) => {
+      res.send(201, result);
+    })
+  })
 
 // route middleware to make sure a user is logged in
 function isLoggedIn(req, res, next) {

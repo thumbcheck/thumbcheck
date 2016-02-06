@@ -12,10 +12,12 @@ const Session = sequelize.define('session', {
     type: Sequelize.STRING
   }  
 }, {
+	timestamps: true,
+  underscored: true,
   freezeTableName: true // Model tableName will be the same as the model name
 });
 
-Session.belongsTo(Presentation);
+// Session.belongsTo(Presentation);
 
 Session.sync();
 
