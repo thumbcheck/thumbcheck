@@ -61,6 +61,20 @@ router.route('/api/users')
       res.send(201, result);
     });
   })
+  .get((req,res) => {
+    //console.log('/Route: /api/users', req.body);
+    userController.getAllUsers((result) => {
+      res.send(201, result);
+    });
+  })
+
+router.route('/api/users/:username')
+  .get((req,res) => {
+    //console.log('/Route: /api/users', req.body);
+    userController.getUser(req.params.username, (result) => {
+      res.send(201, result);
+    });
+  })
 
 router.route('/api/questions')
   .post((req,res) => {
@@ -74,6 +88,12 @@ router.route('/api/presentations')
   .post((req,res) => {
     console.log('/Route: /api/presentations', req.body);
     presentationController.createPresentation(req.body, (result) => {
+      res.send(201, result);
+    });
+  })
+  .get((req,res) => {
+    //console.log('/Route: /api/users', req.body);
+    presentationController.getAllPresentations(req.params.username, (result) => {
       res.send(201, result);
     });
   })

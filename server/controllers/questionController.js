@@ -10,9 +10,21 @@ function createQuestion (params, callback) {
   .then(function(response){
     callback(response);
   });
+}
+
+function getQuestion (params, callback) {
+  return Question.findAll({
+    where: {
+      id: params
+    }
+  })
+  .then((response) => {
+    callback(response);
+  });
 
 }
 
 export default {
-  createQuestion: createQuestion
+  createQuestion: createQuestion,
+  getQuestion: getQuestion
 }

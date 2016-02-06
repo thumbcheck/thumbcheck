@@ -7,7 +7,7 @@ import Session from './sessions.js';
 
 const Presentation = sequelize.define('presentations', {
   title: {
-    title: Sequelize.STRING
+    type: Sequelize.STRING
   },
   owner_id: {
     // foreign key from presentations
@@ -19,7 +19,7 @@ const Presentation = sequelize.define('presentations', {
   freezeTableName: true // Model tableName will be the same as the model name
 });
 
-//Presentation.belongsTo(User);
+Presentation.belongsTo(User);
 //Presentation.belongsTo(Sessions);
 
 Presentation.sync()

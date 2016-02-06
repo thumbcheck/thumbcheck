@@ -1,5 +1,5 @@
 import Sequelize from 'sequelize';
-import Presentation from './presentation.js';
+import Presentation from './presentations.js';
 import {sequelize} from './database.js';
 
 const Question = sequelize.define('questions', {
