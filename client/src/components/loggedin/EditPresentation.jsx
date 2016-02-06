@@ -33,6 +33,7 @@ export default React.createClass({
         <h2>Presentation Question List</h2>
         {this.showPresentationQuestions()}
         <button>Add A New Question</button>
+        <button onClick={this.props.createOrEditPresentation}>Finish</button>
       </div>
     );
   }

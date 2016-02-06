@@ -133,3 +133,15 @@ export function toggleThumbsCheckResultsGraph() {
     type: 'TOGGLE_THUMBS_GRAPH'
   };
 }
+
+export function createOrEditPresentation() {
+  return {
+    type: 'CREATE_OR_EDIT_PRESENTATION'
+  };
+}
+
+export function startPreplannedPresentation() {
+  return {
+    type: 'PREPLANNED_PRESENTATION'
+  };
+}

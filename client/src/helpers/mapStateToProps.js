@@ -26,6 +26,8 @@ export default function mapStateToProps(state) {
     tally: state.get('tally'),
     shareThumbsCheckResults: state.get('shareThumbsCheckResults'),
     // temp
-    preplannedPresentation: state.get('preplannedPresentation')
+    preplannedPresentation: state.get('preplannedPresentation'),
+    educatorLoggedIn : state.get('educatorLoggedIn'),
+    editingOrCreatingPresentation: state.get('editingOrCreatingPresentation')
   };
 }
