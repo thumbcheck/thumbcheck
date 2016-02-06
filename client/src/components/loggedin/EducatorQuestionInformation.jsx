@@ -12,7 +12,8 @@ export default React.createClass({
   render: function() {
     return (
       <div>
-        <h1>{this.props.currentPresentation.getIn(['currentQuestion', 'title'])}</h1>
+        <h1>Presentation: {this.props.currentPresentation.get('title')}</h1>
+        <h2>Question: {this.props.currentPresentation.getIn(['currentQuestion', 'title'])}</h2>
         {this.showQuestionChoices()}
       </div>
     );

@@ -5,7 +5,18 @@ import * as EducatorActions from './reducer-functions/educatorActions';
 import * as UserSettings from './reducer-functions/userSettings';
 import * as EducatorLoggedInActions from './reducer-functions/educatorLoggedInActions';
 
-export default function(state = fromJS(/*temp*/{educatorLoggedIn: true}), action) {
+const initialState = {
+  currentPresentation: {  
+    title: 'George Washington',
+        questions: [{title: 'Favorite Color?', questionChoices: [{letter: 'a', content:'green'},{letter: 'b', content:'blue'},{letter: 'c', content:'red'}] },
+        {title: 'Favorite Food', questionChoices: [{letter: 'a', content:'pasta'},{letter: 'b', content:'pizza'},{letter: 'c', content:'jamba'}]}],
+        currentQuestionIndex: 0,
+        currentQuestion: {title: 'Favorite Color?', questionChoices: [{letter: 'a', content:'green'},{letter: 'b', content:'blue'},{letter: 'c', content:'red'}] }
+  },
+  educatorLoggedIn: true
+};
+
+export default function(state = fromJS(/*temp*/initialState), action) {
   switch (action.type) {
   case 'SET_STATE':
     return UserSettings.setState(state, action.state);
@@ -51,6 +62,8 @@ export default function(state = fromJS(/*temp*/{educatorLoggedIn: true}), action
     return EducatorLoggedInActions.editOrCreatePresentation(state);
   case 'PREPLANNED_PRESENTATION':
     return EducatorLoggedInActions.startPreplannedPresentation(state);
+  case 'MOVE_NEXT_QUESTION':
+    return EducatorLoggedInActions.moveToNextQuestion(state);
   }
   return state;
 }

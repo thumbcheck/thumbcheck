@@ -142,6 +142,14 @@ export function createOrEditPresentation() {
 
 export function startPreplannedPresentation() {
   return {
+    meta: {remote:true},
     type: 'PREPLANNED_PRESENTATION'
+  };
+}
+
+export function moveToNextQuestion() {
+  return {
+    meta: {remote: true},
+    type: 'MOVE_NEXT_QUESTION'
   };
 }
