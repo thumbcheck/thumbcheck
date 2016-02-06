@@ -9,7 +9,6 @@ export default React.createClass({
       // last argument is whether there's already a question from that student submitted
       if (this.props.handRaised === true) this.props.addQuestion(this.props.id, this.props.name, true);      
       else this.props.addQuestion(this.props.id, this.props.name, false);      
-    } else {                  
     }
     this.props.toggleHandRaise();
   },
