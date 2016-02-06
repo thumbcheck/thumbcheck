@@ -54,8 +54,8 @@ export default function(state = fromJS(/*temp*/initialState), action) {
     return EducatorActions.addQuestion(state, action.id, action.name, true);
   case 'TOGGLE_THUMBS_GRAPH':
     return EducatorActions.toggleThumbsGraph(state);
-  case 'LOWER_STUDENT_HAND':
-    return addQuestion(state, action.id, action.name, true);
+  // case 'LOWER_STUDENT_HAND':
+  //   return addQuestion(state, action.id, action.name, true);
   case 'SET_NUMUSERS':
     return state.set('numUsers', action.numUsers);
   case 'CREATE_OR_EDIT_PRESENTATION':
