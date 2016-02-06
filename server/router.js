@@ -83,14 +83,6 @@ router.route('/api/questions')
     });
   })
 
-// //get all the questions of a given presentation
-// router.route('/api/questions/presentations/:pid')
-// .get((req,res) => {
-//     questionController.getAllQuestions(req.params.pid, (result) => {
-//       res.send(201, result);
-//     });
-//   });
-
 //get a particular question by question ID
 router.route('/api/questions/:qid')
   .get((req,res) => {
@@ -134,7 +126,10 @@ router.route('/api/presentations/:pid')
     });
   });
 
-//get presentation by presentation id
+//delete a particular presentation by presentation ID
+//also deletes all related questions
+//response will be '1' if the record was found and deleted
+//response will be '0' if no record was found/deleted
 router.route('/api/presentations/:pid')
   .delete((req,res) => {
     presentationController.deletePresentation(req.params.pid, (result) => {

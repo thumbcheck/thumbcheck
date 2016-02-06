@@ -18,19 +18,6 @@ function createQuestion (params, callback) {
   });
 }
 
-//get all Questions of a given presentation
-// function getAllQuestions (params, callback) {
-//   return Question.findAll({
-//     attributes: { exclude: ['user_id'] },
-//     where: {
-//       presentation_id: params
-//     }
-//   })
-//   .then((response) => {
-//     callback(response);
-//   });
-// }
-
 //get Question by id
 function getQuestion (params, callback) {
   return Question.findAll({
@@ -60,7 +47,6 @@ function deleteQuestion (params, callback) {
 
 export default {
   createQuestion: createQuestion,
-  // getAllQuestions: getAllQuestions,
   getQuestion: getQuestion,
   deleteQuestion: deleteQuestion
 }

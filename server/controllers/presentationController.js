@@ -57,8 +57,6 @@ function deletePresentation (params, callback) {
   })
   .then((response) => {
     let presentation: response;
-    //let presentation_id = response[0].dataValues.id;
-    //let presentation = response[0].dataValues;
     return Presentation.destroy({
       attributes: { exclude: ['user_id'] },
       where: {
@@ -66,7 +64,7 @@ function deletePresentation (params, callback) {
       }
     })
     .then((response) => {
-      callback({presentation: presentation, questions: response});
+      callback(response);
     });
   });
 }
