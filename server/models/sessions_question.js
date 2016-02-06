@@ -46,4 +46,8 @@ const Sessions_question = sequelize.define('sessions_question', {
   freezeTableName: true // Model tableName will be the same as the model name
 });
 
+// Sessions_question.belongsTo(Session);
+
+Sessions_question.sync();
+
 export default Sessions_question;

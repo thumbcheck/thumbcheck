@@ -1,9 +1,9 @@
 import Sequelize from 'sequelize';
 import {sequelize} from './database.js';
 import Presentation from './presentations.js';
-import Sessions_question from './Sessions_question'
+import Sessions_question from './sessions_question';
 
-const Session = sequelize.define('sessions', {
+const Session = sequelize.define('session', {
   presentation_id: {
     type: Sequelize.INTEGER
   },
@@ -12,12 +12,10 @@ const Session = sequelize.define('sessions', {
     type: Sequelize.STRING
   }  
 }, {
-	timestamps: true,
-  underscored: true,
   freezeTableName: true // Model tableName will be the same as the model name
 });
 
-// Session.belongsTo(Sessions_question);
+Session.belongsTo(Presentation);
 
 Session.sync();
 

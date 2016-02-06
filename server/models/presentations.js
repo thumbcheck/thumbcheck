@@ -20,8 +20,8 @@ const Presentation = sequelize.define('presentations', {
 });
 
 Presentation.belongsTo(User);
-//Presentation.belongsTo(Sessions);
 
 Presentation.sync()
 
 export default Presentation;
+
