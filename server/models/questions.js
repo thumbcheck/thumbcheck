@@ -2,9 +2,9 @@ import Sequelize from 'sequelize';
 import Presentation from './presentation.js';
 import {sequelize} from './database.js';
 
-const Question = sequelize.define('question', {
+const Question = sequelize.define('questions', {
   prompt: {
-    type: Sequelize.STRING 
+    type: Sequelize.STRING
   },
 	presentation_id: {
 		// foreign key from presentations
@@ -20,6 +20,9 @@ const Question = sequelize.define('question', {
   freezeTableName: true // Model tableName will be the same as the model name
 });
 
-// Question.belongsTo(Presentation);
-// Question.belongsTo(Sessions_question);
-    
+//Question.belongsTo(Presentation);
+//Question.belongsTo(Sessions_question);
+
+Question.sync()
+
+export default Question;

@@ -20,4 +20,3 @@ export const sequelize = new Sequelize('thumbscheck', 'postgres', null, {
    idle: 10000
  }
 });
-

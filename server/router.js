@@ -8,6 +8,8 @@ import generateRoomName from './helpers/generateRoomName';
 import passport from 'passport';
 import userController from './controllers/userController';
 import sessionsController from './controllers/sessionsController';
+import questionController from './controllers/questionController';
+import presentationController from './controllers/presentationController';
 import {checkRoom} from './controllers/redisStateController';
 
 const router = express.Router();
@@ -54,8 +56,24 @@ router.route('/login')
 
 router.route('/api/users')
   .post((req,res) => {
-    console.log('/Route: /api/users', req.body);
+    //console.log('/Route: /api/users', req.body);
     userController.createUser(req.body, (result) => {
+      res.send(201, result);
+    });
+  })
+
+router.route('/api/questions')
+  .post((req,res) => {
+    console.log('/Route: /api/questions', req.body);
+    questionController.createQuestion(req.body, (result) => {
+      res.send(201, result);
+    });
+  })
+
+router.route('/api/presentations')
+  .post((req,res) => {
+    console.log('/Route: /api/presentations', req.body);
+    presentationController.createPresentation(req.body, (result) => {
       res.send(201, result);
     });
   })
@@ -77,7 +95,7 @@ router.route('/:roomname')
       res.send(boolean);
     });
   });
-// session and session_questions routes  
+// session and session_questions routes
 router.route('/api/sessions')
   .post((req, res) => {
     sessionsController.createSession(req.body, (result) => {
