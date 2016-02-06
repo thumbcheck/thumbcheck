@@ -3,13 +3,15 @@ import User from './users.js';
 import {sequelize} from './database.js';
 import Session from './sessions.js';
 
-const Presentation = sequelize.define('presentation', {
+//import User from './users.js';
+
+const Presentation = sequelize.define('presentations', {
   title: {
-    type: Sequelize.STRING 
+    type: Sequelize.STRING
   },
   owner_id: {
-    // foreign key from users
-    type: Sequelize.STRING
+    // foreign key from presentations
+    type: Sequelize.INTEGER
   }
 }, {
 	timestamps: true,
@@ -17,6 +19,9 @@ const Presentation = sequelize.define('presentation', {
   freezeTableName: true // Model tableName will be the same as the model name
 });
 
-// Presentation.belongsTo(User);
-// Presentation.belongsTo(Session);
-    
+Presentation.belongsTo(User);
+//Presentation.belongsTo(Sessions);
+
+Presentation.sync()
+
+export default Presentation;

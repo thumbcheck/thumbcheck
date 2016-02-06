@@ -10,7 +10,7 @@ drop database thumbscheck;
 CREATE DATABASE thumbscheck;
 
 \c thumbscheck
-    
+
 CREATE TABLE users (
   id serial PRIMARY KEY,
   username VARCHAR(30) not null,
@@ -23,7 +23,7 @@ CREATE TABLE users (
 
 -- ---
 -- Table 'presentations'
--- 
+--
 -- ---
 
 CREATE TABLE presentations (
@@ -36,7 +36,7 @@ CREATE TABLE presentations (
 
 -- ---
 -- Table 'questions'
--- 
+--
 -- ---
 
 CREATE TABLE questions (
@@ -50,10 +50,10 @@ CREATE TABLE questions (
 
 -- ---
 -- Table 'question_types'
--- 
+--
 -- ---
 
-    
+
 CREATE TABLE question_types (
   id serial PRIMARY KEY,
   type VARCHAR(40) not null,
@@ -63,10 +63,10 @@ CREATE TABLE question_types (
 
 -- ---
 -- Table 'sessions'
--- 
+--
 -- ---
 
-    
+
 CREATE TABLE sessions (
   id serial PRIMARY KEY,
   presentation_id integer REFERENCES presentations(id),
@@ -77,10 +77,10 @@ CREATE TABLE sessions (
 
 -- ---
 -- Table 'sessions_questions'
--- 
+--
 -- ---
 
-    
+
 CREATE TABLE sessions_questions (
   id serial PRIMARY KEY,
   session_id integer REFERENCES sessions(id),
@@ -99,7 +99,7 @@ CREATE TABLE sessions_questions (
 );
 
 -- ---
--- Foreign Keys 
+-- Foreign Keys
 -- ---
 
 -- ALTER TABLE presentations ADD FOREIGN KEY (owner_id) REFERENCES user (id);
