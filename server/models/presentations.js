@@ -1,7 +1,7 @@
 import Sequelize from 'sequelize';
 import User from './users.js';
 import {sequelize} from './database.js';
-import Sessions from './sessions.js';
+import Session from './sessions.js';
 
 const Presentation = sequelize.define('presentation', {
   title: {
@@ -12,9 +12,11 @@ const Presentation = sequelize.define('presentation', {
     type: Sequelize.STRING
   }
 }, {
+	timestamps: true,
+  underscored: true,
   freezeTableName: true // Model tableName will be the same as the model name
 });
 
 // Presentation.belongsTo(User);
-// Presentation.belongsTo(Sessions);
+// Presentation.belongsTo(Session);
     

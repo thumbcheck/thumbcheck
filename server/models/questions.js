@@ -15,6 +15,8 @@ const Question = sequelize.define('question', {
   	type: Sequelize.INTEGER
   }
 }, {
+  timestamps: true,
+  underscored: true,
   freezeTableName: true // Model tableName will be the same as the model name
 });
 
