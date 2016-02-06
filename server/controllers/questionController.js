@@ -47,10 +47,6 @@ function deleteQuestion (params, callback) {
 
 export default {
   createQuestion: createQuestion,
-<<<<<<< 03403579c70ab041a45200d08fab4e9390f570e8
-=======
-  // getAllQuestions: getAllQuestions,
->>>>>>> Write delete route and controllers for questions
   getQuestion: getQuestion,
   deleteQuestion: deleteQuestion
 }
