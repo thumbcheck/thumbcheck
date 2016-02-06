@@ -84,6 +84,7 @@ router.route('/api/questions')
     });
   })
 
+//post new presentations
 router.route('/api/presentations')
   .post((req,res) => {
     console.log('/Route: /api/presentations', req.body);
@@ -91,12 +92,25 @@ router.route('/api/presentations')
       res.send(201, result);
     });
   })
+
+//get all the presentation of a given user
+router.route('/api/presentations/users/:userid')
   .get((req,res) => {
     //console.log('/Route: /api/users', req.body);
-    presentationController.getAllPresentations(req.params.username, (result) => {
+      presentationController.getAllPresentations(req.params.userid, (result) => {
+        res.send(201, result);
+      });
+    });
+
+//get presentation by presentation id
+router.route('/api/presentations/pid/:pid')
+  .get((req,res) => {
+    //console.log('/Route: /api/users', req.body);
+    presentationController.getPresentation(req.params.pid, (result) => {
       res.send(201, result);
     });
-  })
+  });
+
 
 router.route('/signup')
   .get((req,res,next) => {
@@ -109,12 +123,15 @@ router.route('/:roomname')
     res.sendFile(path.join(__dirname, "/../client/dist/index.html"));
   });
 
+
 router.route('/:roomname')
   .post((req, res) => {
     checkRoom(req.params.roomname, (boolean) => {
       res.send(boolean);
     });
   });
+
+
 // session and session_questions routes
 router.route('/api/sessions')
   .post((req, res) => {
@@ -134,4 +151,4 @@ function isLoggedIn(req, res, next) {
     res.redirect('/');
 }
 
-  export default router;
+export default router;

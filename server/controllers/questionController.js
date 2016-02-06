@@ -12,19 +12,38 @@ function createQuestion (params, callback) {
   });
 }
 
-function getQuestion (params, callback) {
+//get all Questions of a given presentation
+function getAllQuestions (params, callback) {
+  //let temp = parseInt(params)
+  //console.log("PARAMSSSS", typeof temp);
   return Question.findAll({
+    attributes: { exclude: ['user_id'] },
     where: {
+      owner_id: params
+    }
+  })
+  .then((response) => {
+    callback(response);
+  });
+}
+
+//get Question by id
+function getQuestion (params, callback) {
+  //let temp = parseInt(params)
+  return Question.findAll({
+    attributes: { exclude: ['user_id'] },
+    where: {
+      //owner_id: params.owner_id,
       id: params
     }
   })
   .then((response) => {
     callback(response);
   });
-
 }
 
 export default {
   createQuestion: createQuestion,
-  getQuestion: getQuestion
+  getAllQuestions: getAllQuestions,
+  getQuestion: getQuestion,
 }

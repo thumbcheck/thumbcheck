@@ -1,9 +1,5 @@
 import Presentation from '../models/presentations.js';
 
-function getPresentation(params, callback) {
-
-}
-
 function createPresentation (params, callback) {
   //return callback(params);
   return Presentation.create({
@@ -15,8 +11,12 @@ function createPresentation (params, callback) {
   });
 }
 
+//get all presentations of a given user
 function getAllPresentations (params, callback) {
-  return User.findAll({
+  //let temp = parseInt(params)
+  //console.log("PARAMSSSS", typeof temp);
+  return Presentation.findAll({
+    attributes: { exclude: ['user_id'] },
     where: {
       owner_id: params
     }
@@ -26,11 +26,14 @@ function getAllPresentations (params, callback) {
   });
 }
 
+//get presentation by id
 function getPresentation (params, callback) {
-  return User.findAll({
+  //let temp = parseInt(params)
+  return Presentation.findAll({
+    attributes: { exclude: ['user_id'] },
     where: {
-      owner_id: params.owner_id,
-      id: params.id
+      //owner_id: params.owner_id,
+      id: params
     }
   })
   .then((response) => {
@@ -40,5 +43,6 @@ function getPresentation (params, callback) {
 
 export default {
   createPresentation: createPresentation,
-  getPresentation: getPresentation
+  getAllPresentations: getAllPresentations,
+  getPresentation: getPresentation,
 }

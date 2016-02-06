@@ -20,7 +20,7 @@ const Question = sequelize.define('questions', {
   freezeTableName: true // Model tableName will be the same as the model name
 });
 
-//Question.belongsTo(Presentation);
+Question.belongsTo(Presentation);
 //Question.belongsTo(Sessions_question);
 
 Question.sync()
