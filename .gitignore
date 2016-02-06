@@ -8,6 +8,7 @@ dump.rdb
 sql_notes.sql
 logfile
 npm-shrinkwrap.json
+server/models/database.js
 
 # Elastic Beanstalk Files
 .elasticbeanstalk/*

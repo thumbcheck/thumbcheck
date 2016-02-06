@@ -3,7 +3,7 @@
 
  *  to create the database and the tables.*/
 -- ***** CHANGE THIS TO THE PATH TO THIS FILE IN *YOUR* FILE SYSTEM *****
- -- command to file to run in psql: \i /Users/honree/ambivalent-acacia/server/models/schema.sql
+ -- command to file to run in psql: \i /Users/krisalbert/Documents/HackReactor/ambivalent-acacia/server/models/schema.sql
 
 drop database thumbscheck;
 
@@ -44,6 +44,12 @@ CREATE TABLE questions (
   prompt VARCHAR(200) not null,
   presentation_id integer REFERENCES presentations(id),
   question_type integer not null,
+  answer VARCHAR(200) null default null,
+  choice_a VARCHAR(200) null default null,
+  choice_b VARCHAR(200) null default null,
+  choice_c VARCHAR(200) null default null,
+  choice_d VARCHAR(200) null default null,
+  choice_e VARCHAR(200) null default null,
   updated_at TIMESTAMP,
   created_at TIMESTAMP
 );

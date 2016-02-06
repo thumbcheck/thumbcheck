@@ -13,6 +13,30 @@ const Question = sequelize.define('questions', {
   question_type: {
   	// from question_types table
   	type: Sequelize.INTEGER
+  },
+  answer: {
+    // from question_types table
+    type: Sequelize.STRING
+  },
+  choice_a: {
+    // from question_types table
+    type: Sequelize.STRING
+  },
+  choice_b: {
+    // from question_types table
+    type: Sequelize.STRING
+  },
+  choice_c: {
+    // from question_types table
+    type: Sequelize.STRING
+  },
+  choice_d: {
+    // from question_types table
+    type: Sequelize.STRING
+  },
+  choice_e: {
+    // from question_types table
+    type: Sequelize.STRING
   }
 }, {
   timestamps: true,
