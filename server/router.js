@@ -117,7 +117,7 @@ router.route('/api/presentations/users/:userid')
     });
 
 //get presentation by presentation id
-router.route('/api/presentations/pid/:pid')
+router.route('/api/presentations/:pid')
   .get((req,res) => {
     presentationController.getPresentation(req.params.pid, (result) => {
       res.send(201, result);

@@ -5,7 +5,13 @@ function createQuestion (params, callback) {
   return Question.create({
     prompt: params.prompt,
     presentation_id: params.presentation_id,
-    question_type: params.question_type
+    question_type: params.question_type,
+    answer: params.answer,
+    choice_a: params.choice_a,
+    choice_b: params.choice_b,
+    choice_c: params.choice_c,
+    choice_d: params.choice_d,
+    choice_e: params.choice_e
   })
   .then(function(response){
     callback(response);

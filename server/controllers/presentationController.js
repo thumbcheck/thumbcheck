@@ -1,4 +1,5 @@
 import Presentation from '../models/presentations.js';
+import Question from '../models/questions.js';
 
 function createPresentation (params, callback) {
   //return callback(params);
@@ -33,7 +34,17 @@ function getPresentation (params, callback) {
     }
   })
   .then((response) => {
-    callback(response);
+    let presentation_id = response[0].dataValues.id;
+    let presentation = response[0].dataValues;
+    return Question.findAll({
+      attributes: { exclude: ['user_id'] },
+      where: {
+        presentation_id: params
+      }
+    })
+    .then((response) => {
+      callback({presentation: presentation, questions: response});
+    });
   });
 }
 
