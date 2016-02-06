@@ -142,6 +142,7 @@ export function createOrEditPresentation() {
 
 export function startPreplannedPresentation() {
   return {
+    meta: {remote:true},
     type: 'PREPLANNED_PRESENTATION'
   };
 }

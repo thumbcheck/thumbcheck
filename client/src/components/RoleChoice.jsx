@@ -4,7 +4,6 @@ import {toJS} from 'immutable';
 export default React.createClass({
   chooseTeacher: function () {
     this.props.chooseRole('teacher');
-    this.forceUpdate();
   },
 
   chooseStudent: function () {

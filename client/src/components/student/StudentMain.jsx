@@ -14,11 +14,12 @@ import {toJS, fromJS} from 'immutable';
 export const Student = React.createClass({
  renderProperElement: function() {
    if(!this.props.voting) {
-     if(this.props.voting === false) {
-       return <Wait/>;
-     } else {
-       return null;
-     }
+    return <Wait />
+     // if(this.props.voting === false) {
+     //   return <Wait/>;
+     // } else {
+     //   return <Wait />;
+     // }
    } else if (checkHasVoted(this.props.haveVoted, window.localStorage.getItem('participantID'))) {
      return <WaitAnswered />;
    } else {
