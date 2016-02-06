@@ -63,14 +63,14 @@ router.route('/api/users')
   })
   .get((req,res) => {
     userController.getAllUsers((result) => {
-      res.send(201, result);
+      res.send(302, result);
     });
   })
 
 router.route('/api/users/:username')
   .get((req,res) => {
     userController.getUser(req.params.username, (result) => {
-      res.send(201, result);
+      res.send(302, result);
     });
   })
 
@@ -95,15 +95,17 @@ router.route('/api/questions')
 router.route('/api/questions/:qid')
   .get((req,res) => {
     questionController.getQuestion(req.params.qid, (result) => {
-      res.send(201, result);
+      res.send(302, result);
     });
   });
 
 //delete a particular question by question ID
+//response will be '1' if the record was found and deleted
+//response will be '0' if no record was found/deleted
 router.route('/api/questions/:qid')
   .delete((req,res) => {
     questionController.deleteQuestion(req.params.qid, (result) => {
-      res.send(201, result);
+      res.send(200, result);
     });
   });
 
@@ -120,7 +122,7 @@ router.route('/api/presentations')
 router.route('/api/presentations/users/:userid')
   .get((req,res) => {
       presentationController.getAllPresentations(req.params.userid, (result) => {
-        res.send(201, result);
+        res.send(302, result);
       });
     });
 
@@ -128,7 +130,7 @@ router.route('/api/presentations/users/:userid')
 router.route('/api/presentations/:pid')
   .get((req,res) => {
     presentationController.getPresentation(req.params.pid, (result) => {
-      res.send(201, result);
+      res.send(302, result);
     });
   });
 

@@ -53,6 +53,7 @@ function deleteQuestion (params, callback) {
     }
   })
   .then((response) => {
+    console.log('response from delete', response);
     callback(response);
   });
 }
