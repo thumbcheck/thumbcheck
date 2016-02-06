@@ -29,7 +29,7 @@ CREATE TABLE users (
 CREATE TABLE presentations (
   id serial PRIMARY KEY,
   title VARCHAR(100) not null,
-  owner_id integer REFERENCES users(id),
+  educator_id integer REFERENCES users(id),
   updated_at TIMESTAMP,
   created_at TIMESTAMP
 );

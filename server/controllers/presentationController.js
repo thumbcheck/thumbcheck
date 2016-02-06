@@ -5,7 +5,7 @@ function createPresentation (params, callback) {
   //return callback(params);
   return Presentation.create({
     title: params.title,
-    owner_id: params.owner_id
+    educator_id: params.educator_id
   })
   .then(function(response){
     callback(response);
@@ -48,8 +48,30 @@ function getPresentation (params, callback) {
   });
 }
 
+function deletePresentation (params, callback) {
+  return Question.destroy({
+    attributes: { exclude: ['user_id'] },
+    where: {
+      presentation_id: params
+    }
+  })
+  .then((response) => {
+    let presentation: response;
+    return Presentation.destroy({
+      attributes: { exclude: ['user_id'] },
+      where: {
+        id: params
+      }
+    })
+    .then((response) => {
+      callback(response);
+    });
+  });
+}
+
 export default {
   createPresentation: createPresentation,
   getAllPresentations: getAllPresentations,
   getPresentation: getPresentation,
+  deletePresentation: deletePresentation
 }
