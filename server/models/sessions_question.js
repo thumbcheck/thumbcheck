@@ -2,7 +2,6 @@ import Sequelize from 'sequelize';
 import {sequelize} from './database.js';
 import Session from './sessions.js';
 import Question from './questions.js';
-console.log('session here', Session);
 
 const Sessions_question = sequelize.define('session_questions', {
   session_id: {
