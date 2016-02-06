@@ -11,7 +11,9 @@ client.connect();
 //export const sequelize = new Sequelize('postgres://localhost:5432/thumbscheck', 'krisalbert');
 
 // Connect sequelize
+<<<<<<< c5bb1f098b226b320b9a6474602ad1f4fbee73a8
 export const sequelize = new Sequelize('thumbscheck', 'postgres', null, {
+<<<<<<< a57a5468df865c657e39ec3ac41a65c1894a7e84
   host: 'localhost',
   dialect: 'postgres',
   pool: {
@@ -20,3 +22,24 @@ export const sequelize = new Sequelize('thumbscheck', 'postgres', null, {
     idle: 10000
   }
 });
+=======
+=======
+
+//export default db;
+//export sequelize;
+
+export const sequelize = new Sequelize('thumbscheck', 'honree', null, {
+>>>>>>> Troubleshoot all of the db bugs; now running
+ host: 'localhost',
+ dialect: 'postgres',
+ pool: {
+   max: 5,
+   min: 0,
+   idle: 10000
+ }
+});
+<<<<<<< c5bb1f098b226b320b9a6474602ad1f4fbee73a8
+
+=======
+>>>>>>> Troubleshoot all of the db bugs; now running
+>>>>>>> Troubleshoot all of the db bugs; now running

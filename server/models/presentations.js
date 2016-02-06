@@ -25,3 +25,4 @@ Presentation.belongsTo(User);
 Presentation.sync()
 
 export default Presentation;
+

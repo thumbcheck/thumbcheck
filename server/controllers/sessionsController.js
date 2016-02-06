@@ -17,7 +17,6 @@ function createSession(params, callback) {
 	})
 }
 
-
 export default {
 	getSessions: getSessions,
 	createSession: createSession
