@@ -7,28 +7,41 @@ export default React.createClass({
   checkMultChoice: function(selected) {
     /*if (selected === "Multiple Choice") {
       return (
-        A: <input type="text" name="Aanswer"><br>
-        B: <input type="text" name="Banswer"><br>
-        C: <input type="text" name="Canswer"><br>
-        D: <input type="text" name="Danswer"><br>
-        E: <input type="text" name="Eanswer"><br>
+        // A: <input type="text" name="Aanswer"><br>
+        // B: <input type="text" name="Banswer"><br>
+        // C: <input type="text" name="Canswer"><br>
+        // D: <input type="text" name="Danswer"><br>
+        // E: <input type="text" name="Eanswer"><br>
+        <div></div>
       );
     }*/
   },
   render: function() {
     return (
-      <div>
-      <form>
-        Question: <input type="text" name="question"/ >
-        Type : <select>
-                <option value="Thumbcheck" >Thumbcheck</option>
-                <option value="Multiple Choice">Multiple Choice</option>
-                <option value="Open Response">Open Response</option>
-                {this.checkMultChoice()}
-               </select>
+
+      // <form>
+      //   Question: <input type="text" name="question"><br>
+      //   Type : <select>
+      //           <option value="Thumbcheck" selected>Thumbcheck</option>
+      //           <option value="Multiple Choice">Multiple Choice</option>
+      //           <option value="Open Response">Open Response</option>
+      //           {checkMultChoice(value)}
+      //          </select><br>
         
-        <input type="submit" value="Save to Presentation" />
-      </form>
+      //   <input type="submit" value="Save to Presentation">
+      // </form>
+      <div>
+        <div>
+          <span>Question: </span>
+          <input type="text" name="question" />
+        </div>
+        <span>Response Type: </span>
+        <select>
+          <option value="Thumbcheck" selected>Thumbcheck</option>
+          <option value="Multiple Choice">Multiple Choice</option>
+          <option value="Open Response">Open Response</option>
+        </select>
+
       </div>
     );
   }
