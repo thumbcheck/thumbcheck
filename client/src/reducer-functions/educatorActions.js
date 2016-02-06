@@ -122,7 +122,6 @@ export function addQuestion(state, id, name, alreadyAsked) {
   if (alreadyAsked) {
     let questions = state.get('questions');
     questions = questions.filter(function(tuple) {
-      if (tuple[0] === id)
       return tuple[0] !== id;
     });
     let newState = fromJS({questions: questions});
