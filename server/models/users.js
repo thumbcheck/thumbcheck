@@ -13,8 +13,10 @@ const User = sequelize.define('users', {
   },
   email: {
     type: Sequelize.STRING
-  }
+  }  
 }, {
+  timestamps: true,
+  underscored: true,
   freezeTableName: true // Model tableName will be the same as the model name
 });
 

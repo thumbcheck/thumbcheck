@@ -13,10 +13,12 @@ CREATE DATABASE thumbscheck;
     
 CREATE TABLE users (
   id serial PRIMARY KEY,
-  username VARCHAR(20) not null,
-  password VARCHAR(20) not null,
+  username VARCHAR(30) not null,
+  password VARCHAR(30) not null,
   name VARCHAR(40) not null,
-  email VARCHAR(40) not null
+  email VARCHAR(40) not null,
+  updated_at TIMESTAMP,
+  created_at TIMESTAMP
 );
 
 -- ---
@@ -27,7 +29,9 @@ CREATE TABLE users (
 CREATE TABLE presentations (
   id serial PRIMARY KEY,
   title VARCHAR(100) not null,
-  owner_id integer REFERENCES users(id)
+  owner_id integer REFERENCES users(id),
+  updated_at TIMESTAMP,
+  created_at TIMESTAMP
 );
 
 -- ---
@@ -39,7 +43,9 @@ CREATE TABLE questions (
   id serial PRIMARY KEY,
   prompt VARCHAR(200) not null,
   presentation_id integer REFERENCES presentations(id),
-  question_type integer not null
+  question_type integer not null,
+  updated_at TIMESTAMP,
+  created_at TIMESTAMP
 );
 
 -- ---
@@ -50,7 +56,9 @@ CREATE TABLE questions (
     
 CREATE TABLE question_types (
   id serial PRIMARY KEY,
-  type VARCHAR(40) not null
+  type VARCHAR(40) not null,
+  updated_at TIMESTAMP,
+  created_at TIMESTAMP
 );
 
 -- ---
@@ -63,7 +71,8 @@ CREATE TABLE sessions (
   id serial PRIMARY KEY,
   presentation_id integer REFERENCES presentations(id),
   identifier VARCHAR(200) not null,
-  created_at timestamp
+  updated_at TIMESTAMP,
+  created_at TIMESTAMP
 );
 
 -- ---
@@ -84,7 +93,9 @@ CREATE TABLE sessions_questions (
   result_d INTEGER NULL DEFAULT NULL,
   result_e INTEGER NULL DEFAULT NULL,
   result_open_response VARCHAR(1000) NULL DEFAULT NULL,
-  question_type_snapshot INTEGER NULL DEFAULT NULL
+  question_type_snapshot INTEGER NULL DEFAULT NULL,
+  updated_at TIMESTAMP,
+  created_at TIMESTAMP
 );
 
 -- ---
