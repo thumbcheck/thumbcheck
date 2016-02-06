@@ -5,7 +5,7 @@ import React from 'react';
 
 export default React.createClass({
   checkMultChoice: function(selected) {
-    if (selected === "Multiple Choice") {
+    /*if (selected === "Multiple Choice") {
       return (
         A: <input type="text" name="Aanswer"><br>
         B: <input type="text" name="Banswer"><br>
@@ -13,21 +13,23 @@ export default React.createClass({
         D: <input type="text" name="Danswer"><br>
         E: <input type="text" name="Eanswer"><br>
       );
-    }
+    }*/
   },
   render: function() {
     return (
+      <div>
       <form>
-        Question: <input type="text" name="question"><br>
+        Question: <input type="text" name="question"/ >
         Type : <select>
-                <option value="Thumbcheck" selected>Thumbcheck</option>
+                <option value="Thumbcheck" >Thumbcheck</option>
                 <option value="Multiple Choice">Multiple Choice</option>
                 <option value="Open Response">Open Response</option>
-                {checkMultChoice(value)}
-               </select><br>
+                {this.checkMultChoice()}
+               </select>
         
-        <input type="submit" value="Save to Presentation">
+        <input type="submit" value="Save to Presentation" />
       </form>
+      </div>
     );
   }
 });

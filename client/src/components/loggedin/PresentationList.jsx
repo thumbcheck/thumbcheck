@@ -7,7 +7,7 @@ export default React.createClass({
     // var presentationArray = this.props.presentationData;
     var presentationArray = [{title: 'George Washington'},{title: 'Crack Reactor'}];
     return presentationArray.map((presentationTitle) => {
-      return <PresentationListItem title={presentationTitle.title} />;
+      return <PresentationListItem title={presentationTitle.title} {...this.props} />;
     });
   },
   render: function() {
@@ -19,7 +19,7 @@ export default React.createClass({
         {this.displayPresentations()}
         <button type = 'button'
                 className = "btn grey white-text"
-                onClick = {this.props.createPresentation}>
+                onClick = {this.props.createOrEditPresentation}>
                 Create Presentation
         </button>
         <div className='presentations-container'></div>

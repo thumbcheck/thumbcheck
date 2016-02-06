@@ -4,6 +4,8 @@ export default React.createClass({
     return (
       <div>
         {this.props.title}
+        <button onClick={this.props.createOrEditPresentation}>Edit</button>
+        <button onClick={this.props.startPreplannedPresentation}>Play</button>
       </div>
     );
   }

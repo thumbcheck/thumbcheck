@@ -3,8 +3,9 @@ import underscore from 'underscore';
 import * as StudentActions from './reducer-functions/studentActions';
 import * as EducatorActions from './reducer-functions/educatorActions';
 import * as UserSettings from './reducer-functions/userSettings';
+import * as EducatorLoggedInActions from './reducer-functions/educatorLoggedInActions';
 
-export default function(state = fromJS(/*temp*/{preplannedPresentation: true}), action) {
+export default function(state = fromJS(/*temp*/{educatorLoggedIn: true}), action) {
   switch (action.type) {
   case 'SET_STATE':
     return UserSettings.setState(state, action.state);
@@ -46,6 +47,10 @@ export default function(state = fromJS(/*temp*/{preplannedPresentation: true}), 
     return addQuestion(state, action.id, action.name, true);
   case 'SET_NUMUSERS':
     return state.set('numUsers', action.numUsers);
+  case 'CREATE_OR_EDIT_PRESENTATION':
+    return EducatorLoggedInActions.editOrCreatePresentation(state);
+  case 'PREPLANNED_PRESENTATION':
+    return EducatorLoggedInActions.startPreplannedPresentation(state);
   }
   return state;
 }
