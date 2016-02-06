@@ -1,3 +1,5 @@
+import * as ApiFunctions from './helpers/apiFunctions.js';
+
 export function setState(state) {
   return {
     type: 'SET_STATE',
@@ -40,7 +42,7 @@ export function startVote(option) {
     meta: {remote: true},
     type: 'START_VOTE',
     option: option
-  }
+  };
 }
 
 export function stopVote() {
@@ -175,5 +177,70 @@ export function toggle4choices() {
 export function toggle5choices() {
   return {
     type: 'TOGGLE_5_CHOICES'
+  };
+}
+
+export function getAllPresentations(educatorID) {
+  return function(dispatch) {
+    return ApiFunctions.getUserPresentations(educatorID)
+          .then((response) => {
+            let action = {
+              type: 'SET_ALL_PRESENTATION_DATA',
+              data: response
+            };
+            dispatch(action);
+          })
+          .catch((error) => {
+            throw new Error(error);
+          });
+
+  };
+}
+
+export function getPresentationData(presentationID) {
+  return function(dispatch) {
+    return ApiFunctions.getPresentation(presentationID)
+          .then((response) => {
+            let action = {
+              type: 'SET_PRESENTATION_DATA',
+              data: response
+            };
+            dispatch(action);
+          })
+          .catch((error) => {
+            throw new Error(error);
+          });
+
+  };
+}
+
+export function addQuestion(questionData) {
+  return function(dispatch) {
+    return ApiFunctions.addPresentationQuestion(questionData)
+          .then((response) => {
+            let action = {
+              type: 'POST_QUESTION_DATA',
+            };
+            dispatch(action);
+          })
+          .catch((error) => {
+            throw new Error(error);
+          });
+
+  };
+}
+
+export function addPresentation(presentationData) {
+  return function(dispatch) {
+    return ApiFunctions.addPresentation(presentationData)
+          .then((response) => {
+            let action = {
+              type: 'POST_PRESENTATION_DATA',
+            };
+            dispatch(action);
+          })
+          .catch((error) => {
+            throw new Error(error);
+          });
   };
 }

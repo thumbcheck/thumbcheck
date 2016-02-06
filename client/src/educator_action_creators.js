@@ -1,3 +1,5 @@
+import * as ApiFunctions from './helpers/apiFunctions.js';
+
 export function setState(state) {
   return {
     type: 'SET_STATE',
@@ -21,7 +23,7 @@ export function startVote(option) {
     meta: {remote: true},
     type: 'START_VOTE',
     option: option
-  }
+  };
 }
 export function stopVote() {
   return {

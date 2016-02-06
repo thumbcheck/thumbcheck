@@ -11,6 +11,7 @@ import reduxStateEmitterMiddleware from './reduxStateEmitterMiddleware';
 import {MainLandingContainer} from './components/MainLanding';
 import setLocalStorage from './setLocalStorage';
 import generateID from './helpers/generateID';
+import thunk from 'redux-thunk';
 import {Map} from 'immutable';
 
 // Socket Connection to server
@@ -23,7 +24,7 @@ socket.on('syncState', (appState) => {
 });
 
 // Create redux store
-const createStoreWithMiddleware = applyMiddleware(reduxStateEmitterMiddleware(socket))(createStore);
+const createStoreWithMiddleware = applyMiddleware(thunk, reduxStateEmitterMiddleware(socket))(createStore);
 const store = createStoreWithMiddleware(reducer);
 // store.dispatch(setParticipantID(generateID()));
 generateID();
