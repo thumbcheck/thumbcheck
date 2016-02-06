@@ -11,7 +11,7 @@ client.connect();
 //export const sequelize = new Sequelize('postgres://localhost:5432/thumbscheck', 'krisalbert');
 
 // Connect sequelize
-export const sequelize = new Sequelize('thumbscheck', 'honree', null, {
+export const sequelize = new Sequelize('thumbscheck', 'postgres', null, {
  host: 'localhost',
  dialect: 'postgres',
  pool: {
