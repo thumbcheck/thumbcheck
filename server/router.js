@@ -134,6 +134,13 @@ router.route('/api/presentations/:pid')
     });
   });
 
+//get presentation by presentation id
+router.route('/api/presentations/:pid')
+  .delete((req,res) => {
+    presentationController.deletePresentation(req.params.pid, (result) => {
+      res.send(200, result);
+    });
+  });
 
 router.route('/signup')
   .get((req,res,next) => {

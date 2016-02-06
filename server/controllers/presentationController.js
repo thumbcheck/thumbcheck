@@ -48,8 +48,32 @@ function getPresentation (params, callback) {
   });
 }
 
+function deletePresentation (params, callback) {
+  return Question.destroy({
+    attributes: { exclude: ['user_id'] },
+    where: {
+      presentation_id: params
+    }
+  })
+  .then((response) => {
+    let presentation: response;
+    //let presentation_id = response[0].dataValues.id;
+    //let presentation = response[0].dataValues;
+    return Presentation.destroy({
+      attributes: { exclude: ['user_id'] },
+      where: {
+        id: params
+      }
+    })
+    .then((response) => {
+      callback({presentation: presentation, questions: response});
+    });
+  });
+}
+
 export default {
   createPresentation: createPresentation,
   getAllPresentations: getAllPresentations,
   getPresentation: getPresentation,
+  deletePresentation: deletePresentation
 }
