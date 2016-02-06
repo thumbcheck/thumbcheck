@@ -6,11 +6,12 @@ export default React.createClass({
   toggleHandRaise: function() {        
     // if props.id is defined, send in a question    
     if (this.props.id) {
+      console.log("this.props.id is DEFINED:", this.props.id);
       // last argument is whether there's already a question from that student submitted
       if (this.props.handRaised === true) this.props.addQuestion(this.props.id, this.props.name, true);      
       else this.props.addQuestion(this.props.id, this.props.name, false);      
-    } else {                  
     }
+    console.log("this.props.id is DEFINED:", this.props.id);
     this.props.toggleHandRaise();
   },
   handleChange: function(event) {    
