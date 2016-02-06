@@ -64,6 +64,15 @@ export default function(state = fromJS(/*temp*/initialState), action) {
     return EducatorLoggedInActions.startPreplannedPresentation(state);
   case 'MOVE_NEXT_QUESTION':
     return EducatorLoggedInActions.moveToNextQuestion(state);
+  case 'TOGGLE_TYPE_MULTIPLE_CHOICE':
+    return EducatorLoggedInActions.toggleTypeMultipleChoice(state);
+  case 'TOGGLE_3_CHOICES':
+    return EducatorLoggedInActions.toggle3choices(state);
+  case 'TOGGLE_4_CHOICES':
+    return EducatorLoggedInActions.toggle4choices(state);
+  case 'TOGGLE_5_CHOICES':
+    return EducatorLoggedInActions.toggle5choices(state);
   }
+
   return state;
 }
