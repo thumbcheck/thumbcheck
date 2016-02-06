@@ -11,7 +11,7 @@ import reduxStateEmitterMiddleware from './reduxStateEmitterMiddleware';
 import {MainLandingContainer} from './components/MainLanding';
 import setLocalStorage from './setLocalStorage';
 import generateID from './helpers/generateID';
-import thunk from './redux-thunk';
+import thunk from 'redux-thunk';
 import {Map} from 'immutable';
 
 // Socket Connection to server
