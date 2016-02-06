@@ -1,7 +1,8 @@
 /*  Execute this file from the command line by typing:
  *    mysql -u root < server/schema.sql
- *  to create the database and the tables.*/
 
+ *  to create the database and the tables.*/
+-- ***** CHANGE THIS TO THE PATH TO THIS FILE IN *YOUR* FILE SYSTEM *****
  -- command to file to run in psql: \i /Users/honree/ambivalent-acacia/server/models/schema.sql
 
 drop database thumbscheck;

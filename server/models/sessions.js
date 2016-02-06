@@ -1,21 +1,21 @@
 import Sequelize from 'sequelize';
-import Presentation from './presentation.js';
+import {sequelize} from './database.js';
+import Presentation from './presentations.js';
 
 const Session = sequelize.define('session', {
   presentation_id: {
-    type: Sequelize.NUMBER
+    type: Sequelize.INTEGER
   },
-	identifer: {
+	identifier: {
 		// foreign key from presentations
     type: Sequelize.STRING
-  },
-  date: {
-  	// from question_types table
-  	type: Sequelize.DATE,
-    defaultValue: Date.now()
-  }
+  }  
 }, {
   freezeTableName: true // Model tableName will be the same as the model name
 });
 
-Session.belongsTo(Sessions_question);
+// Session.belongsTo(Sessions_question);
+
+Session.sync();
+
+export default Session;
