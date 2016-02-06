@@ -1,7 +1,5 @@
 import User from '../models/users.js';
 
-
-
 function createUser (params, callback) {
     return User.create({
       username: params.username,
@@ -9,7 +7,7 @@ function createUser (params, callback) {
       name: params.name,
       email: params.email
     })
-    .then(function(response){
+    .then((response) => {
       callback(response);
     });
 

@@ -17,7 +17,7 @@ client.connect();
 //export default db;
 //export sequelize;
 
-export const sequelize = new Sequelize('thumbscheck', 'krisalbert', null, {
+export const sequelize = new Sequelize('thumbscheck', 'honree', null, {
  host: 'localhost',
  dialect: 'postgres',
 
@@ -28,4 +28,3 @@ export const sequelize = new Sequelize('thumbscheck', 'krisalbert', null, {
  }
 });
 
-console.log('db connection', sequelize);

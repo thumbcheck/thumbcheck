@@ -7,6 +7,7 @@ import randomWord from 'random-word';
 import generateRoomName from './helpers/generateRoomName';
 import passport from 'passport';
 import userController from './controllers/userController';
+import sessionsController from './controllers/sessionsController';
 import {checkRoom} from './controllers/redisStateController';
 
 const router = express.Router();
@@ -76,6 +77,13 @@ router.route('/:roomname')
       res.send(boolean);
     });
   });
+// session and session_questions routes  
+router.route('/api/sessions')
+  .post((req, res) => {
+    sessionsController.createSession(req.body, (result) => {
+      res.send(201, result);
+    })
+  })
 
 // route middleware to make sure a user is logged in
 function isLoggedIn(req, res, next) {

@@ -1,5 +1,6 @@
 import Sequelize from 'sequelize';
-import Session from './session.js';
+import {sequelize} from './database.js';
+import Session from './sessions.js';
 
 const Sessions_question = sequelize.define('sessions_question', {
   session_id: {
