@@ -62,7 +62,6 @@ router.route('/api/users')
     });
   })
   .get((req,res) => {
-    //console.log('/Route: /api/users', req.body);
     userController.getAllUsers((result) => {
       res.send(201, result);
     });
@@ -70,12 +69,12 @@ router.route('/api/users')
 
 router.route('/api/users/:username')
   .get((req,res) => {
-    //console.log('/Route: /api/users', req.body);
     userController.getUser(req.params.username, (result) => {
       res.send(201, result);
     });
   })
 
+//post new questions
 router.route('/api/questions')
   .post((req,res) => {
     console.log('/Route: /api/questions', req.body);
@@ -83,6 +82,22 @@ router.route('/api/questions')
       res.send(201, result);
     });
   })
+
+//get all the questions of a given presentation
+router.route('/api/questions/presentations/:pid')
+.get((req,res) => {
+    questionController.getAllQuestions(req.params.pid, (result) => {
+      res.send(201, result);
+    });
+  });
+
+//get a particular question by question ID
+router.route('/api/questions/qid/:qid')
+  .get((req,res) => {
+    questionController.getQuestion(req.params.qid, (result) => {
+      res.send(201, result);
+    });
+  });
 
 //post new presentations
 router.route('/api/presentations')
@@ -96,7 +111,6 @@ router.route('/api/presentations')
 //get all the presentation of a given user
 router.route('/api/presentations/users/:userid')
   .get((req,res) => {
-    //console.log('/Route: /api/users', req.body);
       presentationController.getAllPresentations(req.params.userid, (result) => {
         res.send(201, result);
       });
@@ -105,7 +119,6 @@ router.route('/api/presentations/users/:userid')
 //get presentation by presentation id
 router.route('/api/presentations/pid/:pid')
   .get((req,res) => {
-    //console.log('/Route: /api/users', req.body);
     presentationController.getPresentation(req.params.pid, (result) => {
       res.send(201, result);
     });

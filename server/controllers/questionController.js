@@ -14,12 +14,10 @@ function createQuestion (params, callback) {
 
 //get all Questions of a given presentation
 function getAllQuestions (params, callback) {
-  //let temp = parseInt(params)
-  //console.log("PARAMSSSS", typeof temp);
   return Question.findAll({
     attributes: { exclude: ['user_id'] },
     where: {
-      owner_id: params
+      presentation_id: params
     }
   })
   .then((response) => {
@@ -29,11 +27,9 @@ function getAllQuestions (params, callback) {
 
 //get Question by id
 function getQuestion (params, callback) {
-  //let temp = parseInt(params)
   return Question.findAll({
     attributes: { exclude: ['user_id'] },
     where: {
-      //owner_id: params.owner_id,
       id: params
     }
   })
