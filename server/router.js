@@ -56,7 +56,6 @@ router.route('/login')
 
 router.route('/api/users')
   .post((req,res) => {
-    //console.log('/Route: /api/users', req.body);
     userController.createUser(req.body, (result) => {
       res.send(201, result);
     });
@@ -77,7 +76,6 @@ router.route('/api/users/:username')
 //post new questions
 router.route('/api/questions')
   .post((req,res) => {
-    console.log('/Route: /api/questions', req.body);
     questionController.createQuestion(req.body, (result) => {
       res.send(201, result);
     });
@@ -96,7 +94,6 @@ router.route('/api/questions/:qid')
 //returns a '0' if no record was updated
 router.route('/api/questions/:qid')
   .put((req,res) => {
-    console.log('/Route: /api/questions', req.body);
     questionController.updateQuestion(req.body, req.params.qid, (result) => {
       res.send(200, result);
     });
@@ -149,7 +146,6 @@ router.route('/api/presentations/:pid')
 //returns a '0' if no record was updated
 router.route('/api/presentations/:pid')
   .put((req,res) => {
-    console.log('/Route: /api/presentations', req.body);
     presentationController.updatePresentation(req.body, req.params.pid, (result) => {
       res.send(200, result);
     });
