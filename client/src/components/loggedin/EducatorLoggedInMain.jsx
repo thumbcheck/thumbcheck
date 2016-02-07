@@ -9,9 +9,9 @@ import CreateEditQuestions from './CreateEditQuestions';
 
 export default React.createClass({
   render: function() {
-    if (false && this.props.preplannedPresentation) {
+    if (this.props.preplannedPresentation) {
       return <Educator {...this.props} />
-    } else if (false && this.props.editingPresentation) {
+    } else if (this.props.editingOrCreatingPresentation) {
       return (
         <div>
           <Navbar lowerStudentHand={this.props.lowerStudentHand}
@@ -19,7 +19,7 @@ export default React.createClass({
           <EditPresentation {...this.props} />
         </div>
       )
-    } else if (true || this.props.editingQuestion) {
+    } else if (this.props.editingQuestion) {
      return <CreateEditQuestions {...this.props} />
     } else {
       return (

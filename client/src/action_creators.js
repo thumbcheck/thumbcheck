@@ -182,44 +182,44 @@ export function toggle5choices() {
 
 export function getAllPresentations(educatorID) {
   return function(dispatch) {
-    return ApiFunctions.getUserPresentations(educatorID)
-          .then((response) => {
-            let action = {
-              type: 'SET_ALL_PRESENTATION_DATA',
-              data: response
-            };
-            dispatch(action);
-          })
-          .catch((error) => {
-            throw new Error(error);
-          });
-
+    let apiCall = ApiFunctions.getUserPresentations(educatorID);
+    apiCall
+      .success((response) => {
+        let action = {
+          type: 'SET_ALL_PRESENTATION_DATA',
+          data: response
+        };
+        dispatch(action);
+      })
+      .error((jqXHR, textStatus, errorThrown) => {
+        console.log('Error: ', qXHR, textStatus, errorThrown);
+      });
   };
 }
 
 export function getPresentationData(presentationID) {
   return function(dispatch) {
-    return ApiFunctions.getPresentation(presentationID)
-          .then((response) => {
-            let action = {
-              type: 'SET_PRESENTATION_DATA',
-              data: response
-            };
-            dispatch(action);
-          })
-          .catch((error) => {
-            throw new Error(error);
-          });
-
+    let apiCall = ApiFunctions.getPresentation(presentationID);
+    apiCall
+      .success((response) => {
+        let action = {
+          type: 'SET_PRESENTATION_DATA',
+          data: response
+        };
+        dispatch(action);
+      })
+      .error((jqXHR, textStatus, errorThrown) => {
+        console.log('Error: ', qXHR, textStatus, errorThrown);
+      });
   };
 }
 
-export function addQuestion(questionData) {
+export function addPresentationQuestion(questionData) {
   return function(dispatch) {
-    return ApiFunctions.addPresentationQuestion(questionData)
-          .then((response) => {
-            let action = {
-              type: 'POST_QUESTION_DATA',
+    return ApiFunctions.addPresentationQuestion(questionData, callback)
+    .then((response) => {
+      let action = {
+        type: 'POST_QUESTION_DATA',
             };
             dispatch(action);
           })
@@ -232,15 +232,16 @@ export function addQuestion(questionData) {
 
 export function addPresentation(presentationData) {
   return function(dispatch) {
-    return ApiFunctions.addPresentation(presentationData)
-          .then((response) => {
-            let action = {
-              type: 'POST_PRESENTATION_DATA',
-            };
-            dispatch(action);
-          })
-          .catch((error) => {
-            throw new Error(error);
-          });
+    let apiCall = ApiFunctions.addPresentation(presentationData);
+    apiCall
+      .success((response) => {
+        let action = {
+          type: 'POST_PRESENTATION_DATA',
+        };
+        dispatch(action);
+      })
+      .error((jqXHR, textStatus, errorThrown) => {
+      console.log('Error: ', qXHR, textStatus, errorThrown);
+      });
   };
 }
