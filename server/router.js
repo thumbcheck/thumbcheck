@@ -94,10 +94,10 @@ router.route('/api/questions/:qid')
 //update/edit a question
 //returns a '1' if the record was found and updated
 //returns a '0' if no record was updated
-router.route('/api/presentations/:pid')
+router.route('/api/questions/:qid')
   .put((req,res) => {
-    console.log('/Route: /api/presentations', req.body);
-    questionController.updateQuestion(req.body, req.params.pid, (result) => {
+    console.log('/Route: /api/questions', req.body);
+    questionController.updateQuestion(req.body, req.params.qid, (result) => {
       res.send(200, result);
     });
   });
