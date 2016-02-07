@@ -34,7 +34,14 @@ export default React.createClass({
     this.props.addQuestion(studentId, this.enteredName); 
     this.enteredName =  '';    
   },
-  render: function() {        
+  checkHandRaised: function(){
+    // if hand raised is true and his name is defined, but name is not in questions queue, toggle it back to false
+    if (this.props.handRaised && !this.nameInQueue() && this.props.id) {
+      this.toggleHandRaise();      
+    }
+  },
+  render: function() { 
+    this.checkHandRaised();
     return (
       <div>
         <button type='button btn-info' type='button'

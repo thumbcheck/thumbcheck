@@ -11,7 +11,7 @@ export default React.createClass({
   	function removeQuestion() {
   		that.props.lowerStudentHand(this);
   	}
-  	if (this.props.questions) {
+  	if (this.props.questions && this.props.questions.length > 0) {
 	  	let questions = this.props.questions.toJS();
 	  	return questions.map(function(tuple, index) {
 	    	return <li className="questions-list">{tuple[1]}<span className="remove-icon remove-right" onClick={removeQuestion.bind((tuple[0]))} aria-hidden="true"><img className="remove-icon" src="/images/icons/remove.png"/></span></li>
