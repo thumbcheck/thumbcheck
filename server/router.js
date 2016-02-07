@@ -27,7 +27,7 @@ router.route('/')
 
 router.route('/room')
   .post((req, res) => {
-    const roomName = createRoom();
+    const roomName = createRoom();    
     res.send(roomName+'?type=host');
   });
 
