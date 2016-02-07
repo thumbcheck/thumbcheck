@@ -9,15 +9,9 @@
 
 // GET presentation list for an educator
 export function getUserPresentations(educatorID) {
-  $.ajax({
+  return $.ajax({
       type: 'GET',
       url: '/api/presentations/users/' + educatorID,
-    })
-    .success(function(data) {
-      console.log(data);
-    })
-    .error(function(jqXHR, textStatus, errorThrown) {
-      console.log('Error: ', qXHR, textStatus, errorThrown);
     });
 }
 

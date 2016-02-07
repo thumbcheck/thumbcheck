@@ -41,6 +41,7 @@ export default function mapStateToProps(state) {
     a4choice: state.get('a4choice'),
     toggle5choices: state.get('toggle5choices'),
     a5choice: state.get('a5choice'),
-    educatorID: state.get('educatorID')
+    educatorID: state.get('educatorID'),
+    allEducatorPresentations: state.get('allEducatorPresentations')
   };
 }
