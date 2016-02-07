@@ -91,6 +91,17 @@ router.route('/api/questions/:qid')
     });
   });
 
+//update/edit a question
+//returns a '1' if the record was found and updated
+//returns a '0' if no record was updated
+router.route('/api/presentations/:pid')
+  .put((req,res) => {
+    console.log('/Route: /api/presentations', req.body);
+    questionController.updateQuestion(req.body, req.params.pid, (result) => {
+      res.send(200, result);
+    });
+  });
+
 //delete a particular question by question ID
 //response will be '1' if the record was found and deleted
 //response will be '0' if no record was found/deleted
@@ -112,7 +123,6 @@ router.route('/api/questions/:qid')
 //post new presentations
 router.route('/api/presentations')
   .post((req,res) => {
-    console.log('/Route: /api/presentations', req.body);
     presentationController.createPresentation(req.body, (result) => {
       res.send(201, result);
     });
@@ -131,6 +141,17 @@ router.route('/api/presentations/:pid')
   .get((req,res) => {
     presentationController.getPresentation(req.params.pid, (result) => {
       res.send(302, result);
+    });
+  });
+
+//update/edit a presentation
+//returns a '1' if the record was found and updated
+//returns a '0' if no record was updated
+router.route('/api/presentations/:pid')
+  .put((req,res) => {
+    console.log('/Route: /api/presentations', req.body);
+    presentationController.updatePresentation(req.body, req.params.pid, (result) => {
+      res.send(200, result);
     });
   });
 

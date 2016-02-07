@@ -9,7 +9,7 @@ const Presentation = sequelize.define('presentations', {
   title: {
     type: Sequelize.STRING
   },
-  owner_id: {
+  educator_id: {
     // foreign key from presentations
     type: Sequelize.INTEGER
   }
