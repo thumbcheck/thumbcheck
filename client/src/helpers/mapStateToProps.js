@@ -23,6 +23,7 @@ export default function mapStateToProps(state) {
     errMessage: state.get('errMessage'),
     numUsers: state.get('numUsers'),
     questionType: state.get('questionType'),
+    prevQuestionType: state.get('prevQuestionType'),
     tally: state.get('tally'),
     shareThumbsCheckResults: state.get('shareThumbsCheckResults'),
     // temp
