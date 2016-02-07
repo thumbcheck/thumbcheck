@@ -40,6 +40,7 @@ export default function mapStateToProps(state) {
     toggle4choices: state.get('toggle4choices'),
     a4choice: state.get('a4choice'),
     toggle5choices: state.get('toggle5choices'),
-    a5choice: state.get('a5choice')
+    a5choice: state.get('a5choice'),
+    educatorID: state.get('educatorID')
   };
 }

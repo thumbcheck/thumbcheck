@@ -1,26 +1,21 @@
 import React from 'react';
 import QuestionListItem from './QuestionListItem';
+import AddPresentationNameForm from './AddPresentationNameForm';
+import {toJS} from 'immutable';
 export default React.createClass({
   renderTitle: function() {
-    // let currentPresentation = this.props.currentPresentation;
-    let currentPresentation = {title: 'GeorgeWashington'};
-
-    if (currentPresentation.title) {
-      return (
-        <div>
-          <h2>Presentation Title</h2>{currentPresentation.title}
-        </div>
-      )
-    } else {
-      return (<div>Add Your Title Here!</div>);
-    }
+    let currentPresentationTitle = this.props.currentPresentation.toJS().presentation.title || null;
+    return (
+      <div>
+        <h2>Presentation Title: {currentPresentationTitle} </h2>
+      </div>
+    )
   },
   showPresentationQuestions: function() {
-    // let currentPresentationQuestionData = this.props.currentPresentationQuestionData;
-    let currentPresentationQuestionData = [{title: 'When was he born?'}, {title: 'Favorite Color?'}];
+    let currentPresentationQuestionData = this.props.currentPresentation.toJS().questions;
     if(currentPresentationQuestionData) {
       return currentPresentationQuestionData.map(function(questionData) {
-        return <QuestionListItem title={questionData.title} />
+        return <QuestionListItem title={questionData.prompt} />
       });
     } else {
       return null;
@@ -29,7 +24,7 @@ export default React.createClass({
   render: function() {
     return (
       <div>
-        {this.renderTitle()}
+        {this.props.currentPresentation.toJS().presentation.title ? this.renderTitle() : <AddPresentationNameForm {...this.props} />}
         <h2>Presentation Question List</h2>
         {this.showPresentationQuestions()}
         <button>Add A New Question</button>

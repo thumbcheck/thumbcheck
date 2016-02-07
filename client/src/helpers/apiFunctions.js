@@ -52,17 +52,11 @@ export function addPresentationQuestion(questionData) {
 
 // POST a new presentation for a user (**Needs to include educator id in data**)
 export function addPresentation(presentationData) {
-  $.ajax({
-      type: 'POST',
-      url: '/api/presentations',
-      data: presentationData
-    })
-    .success(function(data) {
-      console.log(data);
-    })
-    .error(function(jqXHR, textStatus, errorThrown) {
-      console.log('Error: ', qXHR, textStatus, errorThrown);
-    });
+  return $.ajax({
+    type: 'POST',
+    url: '/api/presentations',
+    data: presentationData,
+  });
 }
 
 // PUT a question in a given presentation (**Needs to include presentation id and educator id in data**)

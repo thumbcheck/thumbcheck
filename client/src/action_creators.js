@@ -182,7 +182,7 @@ export function toggle5choices() {
 
 export function getAllPresentations(educatorID) {
   return function(dispatch) {
-    return ApiFunctions.getUserPresentations(educatorID)
+    let apiCall = ApiFunctions.getUserPresentations(educatorID)
           .then((response) => {
             let action = {
               type: 'SET_ALL_PRESENTATION_DATA',
@@ -199,7 +199,18 @@ export function getAllPresentations(educatorID) {
 
 export function getPresentationData(presentationID) {
   return function(dispatch) {
-    return ApiFunctions.getPresentation(presentationID)
+    return ApiFunctions.getPresentation(presentationID);
+    apiCall
+      .success((response) => {
+        let action = {
+          type: 'SET_PRESENTATION_DATA',
+          data: response
+        };
+        dispatch(action);
+      })
+      .error(function(jqXHR, textStatus, errorThrown) {
+        console.log('Error: ', qXHR, textStatus, errorThrown);
+      });
           .then((response) => {
             let action = {
               type: 'SET_PRESENTATION_DATA',
@@ -214,12 +225,12 @@ export function getPresentationData(presentationID) {
   };
 }
 
-export function addQuestion(questionData) {
+export function addPresentationQuestion(questionData) {
   return function(dispatch) {
-    return ApiFunctions.addPresentationQuestion(questionData)
-          .then((response) => {
-            let action = {
-              type: 'POST_QUESTION_DATA',
+    return ApiFunctions.addPresentationQuestion(questionData, callback)
+    .then((response) => {
+      let action = {
+        type: 'POST_QUESTION_DATA',
             };
             dispatch(action);
           })
@@ -232,15 +243,16 @@ export function addQuestion(questionData) {
 
 export function addPresentation(presentationData) {
   return function(dispatch) {
-    return ApiFunctions.addPresentation(presentationData)
-          .then((response) => {
-            let action = {
-              type: 'POST_PRESENTATION_DATA',
-            };
-            dispatch(action);
-          })
-          .catch((error) => {
-            throw new Error(error);
-          });
+    let apiCall = ApiFunctions.addPresentation(presentationData);
+    apiCall
+      .success((response) => {
+        let action = {
+          type: 'POST_PRESENTATION_DATA',
+        };
+        dispatch(action);
+      })
+      .error(function(jqXHR, textStatus, errorThrown) {
+      console.log('Error: ', qXHR, textStatus, errorThrown);
+      });
   };
 }

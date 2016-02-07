@@ -4,18 +4,23 @@ import * as StudentActions from './reducer-functions/studentActions';
 import * as EducatorActions from './reducer-functions/educatorActions';
 import * as UserSettings from './reducer-functions/userSettings';
 import * as EducatorLoggedInActions from './reducer-functions/educatorLoggedInActions';
+import * as EducatorAPIActions from './reducer-functions/educatorAPIActions';
 
 const initialState = {
   prevQuestionType: false,
   // don't delete above; not placeholder data
-  currentPresentation: {  
-    title: 'George Washington',
-        questions: [{title: 'Favorite Color?', questionChoices: [{letter: 'a', content:'green'},{letter: 'b', content:'blue'},{letter: 'c', content:'red'}] },
-        {title: 'Favorite Food', questionChoices: [{letter: 'a', content:'pasta'},{letter: 'b', content:'pizza'},{letter: 'c', content:'jamba'}]}],
-        currentQuestionIndex: 0,
-        currentQuestion: {title: 'Favorite Color?', questionChoices: [{letter: 'a', content:'green'},{letter: 'b', content:'blue'},{letter: 'c', content:'red'}] }
+  currentPresentation: { 
+    presentation: {
+      title: "George",
+      educator_id: 1
+    },
+    questions: [{prompt: 'Favorite Color?', questionChoices: [{letter: 'a', content:'green'},{letter: 'b', content:'blue'},{letter: 'c', content:'red'}] },
+        {prompt: 'Favorite Food', questionChoices: [{letter: 'a', content:'pasta'},{letter: 'b', content:'pizza'},{letter: 'c', content:'jamba'}]}],
+    currentQuestionIndex: 0,
+    currentQuestion: {prompt: 'Favorite Color?', questionChoices: [{letter: 'a', content:'green'},{letter: 'b', content:'blue'},{letter: 'c', content:'red'}] }
   },
-  educatorLoggedIn: true
+  educatorLoggedIn: true,
+  educatorID: 1
 };
 
 export default function(state = fromJS(/*temp*/initialState), action) {
@@ -74,6 +79,8 @@ export default function(state = fromJS(/*temp*/initialState), action) {
     return EducatorLoggedInActions.toggle4choices(state);
   case 'TOGGLE_5_CHOICES':
     return EducatorLoggedInActions.toggle5choices(state);
+  case 'POST_PRESENTATION_DATA':
+    return EducatorAPIActions.addPresentation(state);
   }
 
   return state;

@@ -3,6 +3,7 @@ import {Map, fromJS, toJS, List} from 'immutable';
 export function editOrCreatePresentation(state) {
   let toggle = !state.get('editingOrCreatingPresentation');
   let newState = fromJS({editingOrCreatingPresentation: toggle});
+  console.log(newState.toJS());
   return state.merge(newState);
 }
 
