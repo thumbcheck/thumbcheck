@@ -124,6 +124,7 @@ export default React.createClass({
           { this.renderProperButton() }
 
         <div className={this.showGraph()}>
+          <div>Results from last check-in</div>
           {renderCorrectGraphType(this.props)}
         </div>
 

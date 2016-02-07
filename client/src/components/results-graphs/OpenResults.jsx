@@ -16,8 +16,7 @@ export default React.createClass({
 
  render: function() {
    return (
-     <div>
-       <h4>Results from last question</h4>
+     <div>       
        { this.renderOpenResults() }
        <div>Number of students who responded: { this.renderOpenResults('yes') }</div>
      </div>

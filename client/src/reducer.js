@@ -6,6 +6,8 @@ import * as UserSettings from './reducer-functions/userSettings';
 import * as EducatorLoggedInActions from './reducer-functions/educatorLoggedInActions';
 
 const initialState = {
+  prevQuestionType: false,
+  // don't delete above; not placeholder data
   currentPresentation: {  
     title: 'George Washington',
         questions: [{title: 'Favorite Color?', questionChoices: [{letter: 'a', content:'green'},{letter: 'b', content:'blue'},{letter: 'c', content:'red'}] },

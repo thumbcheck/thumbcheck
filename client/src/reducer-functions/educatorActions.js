@@ -2,12 +2,7 @@ import {Map, fromJS, toJS, List} from 'immutable';
 import underscore from 'underscore';
 
 export function stopVote(state) {
-  let newState = fromJS({voting: false});
-  return state.merge(newState);
-}
-
-export function stopVote(state) {
-  let newState = fromJS({voting: false});
+  let newState = fromJS({voting: false, prevQuestionType: state.get('questionType')});
   return state.merge(newState);
 }
 
@@ -19,6 +14,7 @@ export function startVote(state, option) {
       voting: true,
       showgraph: "1",
       questionType: 'thumbs',
+      prevQuestionType: false,
       shareThumbsCheckResults: false,
       tally: {
         thumbsUp : 0,
@@ -31,6 +27,7 @@ export function startVote(state, option) {
       voting: true,
       showgraph: "1",
       questionType: 'multipleChoice3',
+      prevQuestionType: false,
       shareThumbsCheckResults: false,
       tally: {
         a: 0,
@@ -44,6 +41,7 @@ export function startVote(state, option) {
       voting: true,
       showgraph: "1",
       questionType: 'multipleChoice4',
+      prevQuestionType: false,
       shareThumbsCheckResults: false,
       tally: {
         a: 0,
@@ -58,6 +56,7 @@ export function startVote(state, option) {
       voting: true,
       showgraph: "1",
       questionType: 'multipleChoice5',
+      prevQuestionType: false,
       shareThumbsCheckResults: false,
       tally: {
         a: 0,
@@ -73,6 +72,7 @@ export function startVote(state, option) {
       voting: true,
       showgraph: "1",
       questionType: 'open',
+      prevQuestionType: false,
       shareThumbsCheckResults: false,
       tally: {
         answers: [],

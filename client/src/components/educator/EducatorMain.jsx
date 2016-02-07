@@ -25,7 +25,8 @@ export const Educator = React.createClass({
     return <div>{tuple[1]}</div>
   });
  },
- render: function() {
+ render: function() {   
+   console.log('on educator main', this.props); 
    return (
      <div>
        <Navbar lowerStudentHand={this.props.lowerStudentHand}
