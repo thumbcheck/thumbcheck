@@ -15,8 +15,12 @@ import {checkRoom} from './controllers/redisStateController';
 const router = express.Router();
 
 function createRoom () {
-  // return randomWord();
-  return generateRoomName();
+  checkRoom(generateRoomName(), (result, room) => {
+    if (result) {return room;}
+    // if it's not a novel room, call it again
+    else {createRoom();}  
+    return;  
+  })
 }
 
 // base route directs to teacher landing page

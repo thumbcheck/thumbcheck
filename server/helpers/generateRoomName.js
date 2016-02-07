@@ -36,6 +36,6 @@ export default function() {
   let adjective = adjectives[Math.floor(Math.random() * adjectives.length)];
   let noun = nouns[Math.floor(Math.random() * nouns.length)];
   let num = Math.floor(Math.random() * 100);
-
+  // check redis 
   return `${adjective}${noun}${num}`;
 }
