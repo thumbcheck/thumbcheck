@@ -109,14 +109,6 @@ router.route('/api/questions/:qid')
     });
   });
 
-//delete a particular question by question ID
-router.route('/api/questions/:qid')
-  .delete((req,res) => {
-    questionController.deleteQuestion(req.params.qid, (result) => {
-      res.send(201, result);
-    });
-  });
-
 //post new presentations
 router.route('/api/presentations')
   .post((req,res) => {

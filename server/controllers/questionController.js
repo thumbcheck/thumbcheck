@@ -1,7 +1,6 @@
 import Question from '../models/questions.js';
 
 function createQuestion (params, callback) {
-  //return callback(params);
   return Question.create({
     prompt: params.prompt,
     presentation_id: params.presentation_id,
@@ -49,9 +48,8 @@ function updateQuestion (params, id, callback) {
       choice_c: params.choice_c || response[0].dataValues.choice_c,
       choice_d: params.choice_d || response[0].dataValues.choice_d,
       choice_e: params.choice_e || response[0].dataValues.choice_e
-    }
+    };
     let selector = { where: { id: id } };
-    console.log('in updateQuestion', values);
     return Question.update(values, selector)
     .then((response) => {
       callback(response);
