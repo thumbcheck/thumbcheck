@@ -62,9 +62,9 @@ export function checkRoom(room, callback) {
     if (err) throw new Error(err);
 
     if (reply === null) {
-      callback(false);
+      callback(false, room);
     } else {
-      callback(true);
+      callback(true, room);
     }
     client.quit();
   });
