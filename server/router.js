@@ -75,7 +75,7 @@ router.route('/api/users/:username')
     console.log(req.body, req.body.username, req.body.password);
     //res.send(200, {username: req.body.username, password: req.body.password});
     userController.getUser(req.body, (result) => {
-      console.log(result);
+      //console.log('result from database in server', result);
       res.send(200, result);
     });
   })

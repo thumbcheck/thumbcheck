@@ -76,7 +76,7 @@ export default React.createClass({
   },
 
   render: function() {
-          console.log('role choice rendering!!', this.props);
+          console.log('new rendering!!');
 
     return (
       <div>

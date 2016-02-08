@@ -29,8 +29,9 @@ function getUser (params, callback) {
     }
   })
   .then((response) => {
-    console.log(response);
-    response ? callback(1) : callback(0);
+    console.log('response from database', response[0]);
+    let username = response[0] || 'not authorized';
+    response.length ? callback(1) : callback(0);
   });
 
 }
