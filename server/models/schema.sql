@@ -43,7 +43,7 @@ CREATE TABLE questions (
   id serial PRIMARY KEY,
   prompt VARCHAR(200) not null,
   presentation_id integer REFERENCES presentations(id),
-  question_type integer not null,
+  question_type VARCHAR(20) not null,
   answer VARCHAR(200) null default null,
   choice_a VARCHAR(200) null default null,
   choice_b VARCHAR(200) null default null,
