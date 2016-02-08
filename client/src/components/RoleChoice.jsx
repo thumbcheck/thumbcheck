@@ -1,5 +1,6 @@
 import React from 'react';
 import {toJS} from 'immutable';
+import LoginPage from './loggedin/LoginPage';
 
 export default React.createClass({
   chooseTeacher: function () {
@@ -44,22 +45,42 @@ export default React.createClass({
     });
   },
 
-  render: function() {          
-    console.log('props on kaknding', this.props);
+  renderProperElement: function () {
+    if(this.props.choice === 'teacher') {
+      return (
+        <div>
+          <p><a className="btn btn-primary btn-md" onClick={this.handleCreateRoom} role="button">Create a lecture room</a></p>
+          <LoginPage {...this.props} />
+          <p>Don't have an account yet? <a className="btn btn-primary btn-md" role="button" onClick={this.chooseSignup} >Sign Up</a></p>
+          <a className="btn btn-warning btn-md" role="button" onClick={this.chooseStudent} >Student</a>
+        </div>
+      )
+    } else if(this.props.choice === 'signup') {
+      return (
+        <div>
+          <SignupPage {...this.props} />
+          <p>Already have an account? <a className="btn btn-primary btn-md" role="button" onClick={this.chooseTeacher} >Log In</a></p>
+          <a className="btn btn-warning btn-md" role="button" onClick={this.chooseStudent} >Student</a>
+        </div>
+      )
+    } else {
+      return (
+        <div>
+          <p>Join existing room <input ref={(ref) => this.studentInput = ref} /> <a className="btn btn-primary btn-md" role="button" onClick={this.handleStudentSubmit} >Join</a></p>
+          <p>{this.props.errMessage}</p>
+          <a className="btn btn-warning btn-md" role="button" onClick={this.chooseTeacher} >I&#39;m an Educator</a>
+        </div>
+      )
+    }
+
+  },
+
+  render: function() {
+          console.log('role choice rendering!!', this.props);
+
     return (
       <div>
-        {!this.props.choice ?
-          <div>            
-            <p>Join existing room <input ref={(ref) => this.studentInput = ref} /> <a className="btn btn-primary btn-md" role="button" onClick={this.handleStudentSubmit} >Join</a></p>
-            <p>{this.props.errMessage}</p>
-            <a className="btn btn-warning btn-md" role="button" onClick={this.chooseTeacher} >I&#39;m an Educator</a>            
-          </div>
-          :
-            <div>
-              <p><a className="btn btn-primary btn-md" onClick={this.handleCreateRoom} role="button">Create a lecture room</a></p>
-              <a className="btn btn-warning btn-md" role="button" onClick={this.chooseStudent} >I&#39;m a Student</a>
-            </div>
-        }
+        {this.renderProperElement()}
       </div>
     )
   }
