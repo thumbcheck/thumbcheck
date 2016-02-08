@@ -24,11 +24,13 @@ function getAllUsers (callback) {
 function getUser (params, callback) {
   return User.findAll({
     where: {
-      username: params
+      username: params.username,
+      password: params.password
     }
   })
   .then((response) => {
-    callback(response);
+    console.log(response);
+    response ? callback(1) : callback(0);
   });
 
 }
