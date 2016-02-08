@@ -71,8 +71,12 @@ export default function(state = fromJS(/*temp*/initialState), action) {
     return EducatorLoggedInActions.startPreplannedPresentation(state);
   case 'MOVE_NEXT_QUESTION':
     return EducatorLoggedInActions.moveToNextQuestion(state);
-  case 'TOGGLE_TYPE_MULTIPLE_CHOICE':
-    return EducatorLoggedInActions.toggleTypeMultipleChoice(state);
+  case 'SELECT_TYPE_THUMB_CHECK':
+    return EducatorLoggedInActions.selectTypeThumbCheck(state);
+  case 'SELECT_TYPE_OPEN_RESPONSE':
+    return EducatorLoggedInActions.selectTypeOpenResponse(state);  
+  case 'SELECT_TYPE_MULTIPLE_CHOICE':
+    return EducatorLoggedInActions.selectTypeMultipleChoice(state);
   case 'TOGGLE_3_CHOICES':
     return EducatorLoggedInActions.toggle3choices(state);
   case 'TOGGLE_4_CHOICES':
@@ -83,6 +87,8 @@ export default function(state = fromJS(/*temp*/initialState), action) {
     return EducatorAPIActions.addPresentation(state);
   case 'SET_ALL_PRESENTATION_DATA':
     return EducatorAPIActions.setAllPresentations(state,action.data);
+  case 'CREATE_QUESTION':
+    return EducatorLoggedInActions.createQuestion(state);
   }
 
   return state;

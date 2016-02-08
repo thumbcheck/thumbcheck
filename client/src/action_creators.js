@@ -156,9 +156,22 @@ export function moveToNextQuestion() {
   };
 }
 
-export function toggleTypeMultipleChoice() {
+export function selectTypeThumbCheck() {
   return {
-    type: 'TOGGLE_TYPE_MULTIPLE_CHOICE'
+    type: 'SELECT_TYPE_THUMB_CHECK'
+  };
+}
+
+export function selectTypeMultipleChoice() {
+  return {
+    type: 'SELECT_TYPE_MULTIPLE_CHOICE'
+  };
+}
+
+
+export function selectTypeOpenResponse() {
+  return {
+    type: 'SELECT_TYPE_OPEN_RESPONSE'
   };
 }
 
@@ -177,6 +190,12 @@ export function toggle4choices() {
 export function toggle5choices() {
   return {
     type: 'TOGGLE_5_CHOICES'
+  };
+}
+
+export function createQuestion() {
+  return {
+    type: 'CREATE_QUESTION'
   };
 }
 
