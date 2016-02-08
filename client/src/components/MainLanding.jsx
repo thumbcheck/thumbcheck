@@ -24,8 +24,8 @@ export const Main = React.createClass({
     if (this.canWriteLocalStorage()) {
       if (this.props.userType === 'student') {
         return (<Student {...this.props} />)
-      // } else if(this.props.userType === 'educator' && this.props.educatorLoggedIn) {
-      //   return <EducatorLoggedInMain {...this.props} />
+      } else if(this.props.userType === 'educator' && this.props.educatorLoggedIn) {
+        return <EducatorLoggedInMain {...this.props} />
       } else if (this.props.userType === 'educator') {
         return <Educator {...this.props} />
       } else {

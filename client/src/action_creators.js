@@ -192,7 +192,7 @@ export function getAllPresentations(educatorID) {
         dispatch(action);
       })
       .error((jqXHR, textStatus, errorThrown) => {
-        console.log('Error: ', qXHR, textStatus, errorThrown);
+        console.log('Error: ', jqXHR, textStatus, errorThrown);
       });
   };
 }
@@ -209,7 +209,7 @@ export function getPresentationData(presentationID) {
         dispatch(action);
       })
       .error((jqXHR, textStatus, errorThrown) => {
-        console.log('Error: ', qXHR, textStatus, errorThrown);
+        console.log('Error: ', jqXHR, textStatus, errorThrown);
       });
   };
 }
@@ -241,7 +241,7 @@ export function addPresentation(presentationData) {
         dispatch(action);
       })
       .error((jqXHR, textStatus, errorThrown) => {
-      console.log('Error: ', qXHR, textStatus, errorThrown);
+      console.log('Error: ', jqXHR, textStatus, errorThrown);
       });
   };
 }
