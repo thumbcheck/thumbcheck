@@ -125,7 +125,7 @@ router.route('/api/presentations')
 router.route('/api/presentations/users/:userid')
   .get((req,res) => {
       presentationController.getAllPresentations(req.params.userid, (result) => {
-        res.send(302, result);
+        res.send(200, result);
       });
     });
 
