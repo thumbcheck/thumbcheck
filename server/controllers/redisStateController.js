@@ -61,7 +61,7 @@ export function checkRoom(room, callback) {
   client.get(room, (err, reply) => {
     if (err) throw new Error(err);
 
-    if (reply === null) {
+    if (reply === null) {      
       callback(false, room);
     } else {
       callback(true, room);

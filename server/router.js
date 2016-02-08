@@ -14,12 +14,11 @@ import {checkRoom} from './controllers/redisStateController';
 
 const router = express.Router();
 
-function createRoom () {
+function createRoom (cb) {
   checkRoom(generateRoomName(), (result, room) => {
-    if (result) {return room;}
+    if (!result) { cb(room);}
     // if it's not a novel room, call it again
-    else {createRoom();}  
-    return;  
+    else { return createRoom(cb); }
   })
 }
 
@@ -31,8 +30,9 @@ router.route('/')
 
 router.route('/room')
   .post((req, res) => {
-    const roomName = createRoom();    
-    res.send(roomName+'?type=host');
+    createRoom((roomName) => {      
+      res.send(roomName+'?type=host');
+    });  
   });
 
 //*** THESE ARE PLACEHOLDER TEST ITEMS ***//
