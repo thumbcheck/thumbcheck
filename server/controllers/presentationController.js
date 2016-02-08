@@ -16,7 +16,7 @@ function getAllPresentations (params, callback) {
   return Presentation.findAll({
     attributes: { exclude: ['user_id'] },
     where: {
-      owner_id: params
+      educator_id: params
     }
   })
   .then((response) => {

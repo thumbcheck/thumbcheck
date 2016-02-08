@@ -36,17 +36,17 @@ export default React.createClass({
     // questionData.presentationID= this.props.currentPresentation.get('id');
     questionData.presentationID = 1;
     let questionType;
-    if (this.props.chooseThumbCheck) {
+    if (this.props.createQuestionTypeThumbCheck) {
       questionType = 'Thumbs Check';
-    } else if (this.props.chooseOpenResponse) {
-      questionType = 'Open Respose;'
+    } else if (this.props.createQuestionTypeOpenResponse) {
+      questionType = 'Open Respose;';
     } else {
       questionType = 'Multiple Choice'; 
     }
 
     questionData.questionType = questionType;
 
-    questionData.questionAnswer = {};
+    questionData.questionAnswer = {a: null};
     if (this.props.createQuestionTypeMultipleChoice) {
       questionData.questionAnswer.a = this.multipleChoiceAValue;
       questionData.questionAnswer.b = this.multipleChoiceBValue;

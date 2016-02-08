@@ -1,6 +1,7 @@
 import React from 'react';
 export default React.createClass({
   render: function() {
+    console.log('in heerere', this.props.title);
     return (
       <div>
         {this.props.title}

@@ -1,8 +1,8 @@
 import Question from '../models/questions.js';
 
 function createQuestion (params, callback) {
-  console.log('in controller!');
-  return Question.create({
+  console.log('in controller!', params);
+  return Question.create({ 
     prompt: params.prompt,
     presentation_id: params.presentationID,
     question_type: params.questionType,

@@ -234,6 +234,7 @@ export function getPresentationData(presentationID) {
 }
 
 export function addPresentationQuestion(questionData) {
+  console.log('in action creators', questionData);
   return function(dispatch) {
     let apiCall = ApiFunctions.addPresentationQuestion(questionData);
       apiCall
@@ -245,7 +246,7 @@ export function addPresentationQuestion(questionData) {
           console.log('success!! posting to database');
         })
         .error(function(jqXHR, textStatus, errorThrown) {
-          console.log('Error: ', qXHR, textStatus, errorThrown);
+          console.log('Error: ', jqXHR, textStatus, errorThrown);
         });
   };
 }
