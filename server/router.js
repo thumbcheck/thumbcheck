@@ -30,9 +30,9 @@ router.route('/')
 
 router.route('/room')
   .post((req, res) => {
-    createRoom((roomName) => {      
+    createRoom((roomName) => {
       res.send(roomName+'?type=host');
-    });  
+    });
   });
 
 //*** THESE ARE PLACEHOLDER TEST ITEMS ***//
@@ -66,14 +66,14 @@ router.route('/api/users')
   })
   .get((req,res) => {
     userController.getAllUsers((result) => {
-      res.send(302, result);
+      res.send(200, result);
     });
   })
 
 router.route('/api/users/:username')
   .get((req,res) => {
     userController.getUser(req.params.username, (result) => {
-      res.send(302, result);
+      res.send(200, result);
     });
   })
 
@@ -89,7 +89,7 @@ router.route('/api/questions')
 router.route('/api/questions/:qid')
   .get((req,res) => {
     questionController.getQuestion(req.params.qid, (result) => {
-      res.send(302, result);
+      res.send(200, result);
     });
   });
 
@@ -125,7 +125,7 @@ router.route('/api/presentations')
 router.route('/api/presentations/users/:userid')
   .get((req,res) => {
       presentationController.getAllPresentations(req.params.userid, (result) => {
-        res.send(302, result);
+        res.send(200, result);
       });
     });
 
@@ -133,7 +133,7 @@ router.route('/api/presentations/users/:userid')
 router.route('/api/presentations/:pid')
   .get((req,res) => {
     presentationController.getPresentation(req.params.pid, (result) => {
-      res.send(302, result);
+      res.send(200, result);
     });
   });
 
