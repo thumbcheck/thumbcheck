@@ -235,17 +235,18 @@ export function getPresentationData(presentationID) {
 
 export function addPresentationQuestion(questionData) {
   return function(dispatch) {
-    return ApiFunctions.addPresentationQuestion(questionData, callback)
-    .then((response) => {
-      let action = {
-        type: 'POST_QUESTION_DATA',
-            };
-            dispatch(action);
-          })
-          .catch((error) => {
-            throw new Error(error);
-          });
-
+    let apiCall = ApiFunctions.addPresentationQuestion(questionData);
+      apiCall
+        .success(function(data) {
+          let action = {
+            type: 'ADD_PRESENTATION_QUESTION' 
+          };
+          // dispatch(action);
+          console.log('success!! posting to database');
+        })
+        .error(function(jqXHR, textStatus, errorThrown) {
+          console.log('Error: ', qXHR, textStatus, errorThrown);
+        });
   };
 }
 

@@ -33,9 +33,21 @@ export default React.createClass({
   handleQuestionSubmission: function() {
     let questionData= {};
     questionData.prompt = this.questionPrompt;
+    // questionData.presentationID= this.props.currentPresentation.get('id');
+    questionData.presentationID = 1;
+    let questionType;
+    if (this.props.chooseThumbCheck) {
+      questionType = 'Thumbs Check';
+    } else if (this.props.chooseOpenResponse) {
+      questionType = 'Open Respose;'
+    } else {
+      questionType = 'Multiple Choice'; 
+    }
 
+    questionData.questionType = questionType;
+
+    questionData.questionAnswer = {};
     if (this.props.createQuestionTypeMultipleChoice) {
-      questionData.questionAnswer = {};
       questionData.questionAnswer.a = this.multipleChoiceAValue;
       questionData.questionAnswer.b = this.multipleChoiceBValue;
       questionData.questionAnswer.c = this.multipleChoiceCValue;
@@ -50,6 +62,8 @@ export default React.createClass({
     }
 
     console.log('questionData', questionData);
+    this.props.addPresentationQuestion(questionData);
+    this.props.createQuestion();
   },
   handleMultipleChoiceAChange: function(e) {
     this.multipleChoiceAValue = e.target.value;

@@ -12,7 +12,7 @@ const initialState = {
   currentPresentation: { 
     presentation: {
       title: "George",
-      educator_id: 1
+      educatorID: 1
     },
     questions: [{prompt: 'Favorite Color?', questionChoices: [{letter: 'a', content:'green'},{letter: 'b', content:'blue'},{letter: 'c', content:'red'}] },
         {prompt: 'Favorite Food', questionChoices: [{letter: 'a', content:'pasta'},{letter: 'b', content:'pizza'},{letter: 'c', content:'jamba'}]}],
