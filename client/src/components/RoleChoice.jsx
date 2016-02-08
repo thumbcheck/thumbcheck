@@ -44,21 +44,20 @@ export default React.createClass({
     });
   },
 
-  render: function() {
-          console.log('rendering!!');
-
+  render: function() {          
+    console.log('props on kaknding', this.props);
     return (
       <div>
         {!this.props.choice ?
-          <div>
-            <p>{this.props.errMessage}</p>
+          <div>            
             <p>Join existing room <input ref={(ref) => this.studentInput = ref} /> <a className="btn btn-primary btn-md" role="button" onClick={this.handleStudentSubmit} >Join</a></p>
-            <a className="btn btn-warning btn-md" role="button" onClick={this.chooseTeacher} >Teacher</a>
+            <p>{this.props.errMessage}</p>
+            <a className="btn btn-warning btn-md" role="button" onClick={this.chooseTeacher} >I&#39;m an Educator</a>            
           </div>
           :
             <div>
-              <p><a className="btn btn-primary btn-md" onClick={this.handleCreateRoom} role="button">Generate Random Room Name</a></p>
-              <a className="btn btn-warning btn-md" role="button" onClick={this.chooseStudent} >Student</a>
+              <p><a className="btn btn-primary btn-md" onClick={this.handleCreateRoom} role="button">Create a lecture room</a></p>
+              <a className="btn btn-warning btn-md" role="button" onClick={this.chooseStudent} >I&#39;m a Student</a>
             </div>
         }
       </div>
