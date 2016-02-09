@@ -5,6 +5,7 @@ export default React.createClass({
   handleLogin: function () {
     const username = this.usernameInput.value.toLowerCase();
     const password= this.passwordInput.value.toLowerCase();
+    const that = this;
 
     console.log(username, password);
     if (!username || !password) {
@@ -21,9 +22,11 @@ export default React.createClass({
       })
       .success(function(data) {
         if(data === 1) {
-          //set to log in
+          console.log('User Found. Trigger Login')
+          that.props.educatorLogin(username);
+          //window.location.assign(username+'?type=host');
         } else {
-          this.props.setError('Invalid username or password. Please try again.');
+          that.props.setError('Invalid username or password. Please try again.');
         }
       });
     }

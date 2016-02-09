@@ -8,10 +8,13 @@ export default React.createClass({
     const username = this.usernameInput.value.toLowerCase();
     const password = this.passwordInput.value.toLowerCase();
 
+    let that = this;
     console.log(username, password);
+
+
     if (!name || !email || !username || !password) {
       console.log('All fields must be filled in.')
-      //this.props.setError('All fields must be filled in.');
+      this.props.setError('All fields must be filled in.');
     } else {
       $.ajax({
         type: 'POST',
@@ -25,7 +28,12 @@ export default React.createClass({
         }
       })
       .success(function(data) {
-          console.log('data from db & server', data);
+        console.log('data from db & server', data);
+        if(data.status =='taken'){
+          that.props.setError('Username already taken. Please choose a new one.');
+        } else {
+          that.props.educatorLogin(username);
+        }
       });
     }
 

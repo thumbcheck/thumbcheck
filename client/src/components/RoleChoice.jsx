@@ -20,6 +20,7 @@ export default React.createClass({
     e.preventDefault();
     const inputValue = this.studentInput.value.toLowerCase();
     const that = this;
+
     if (inputValue === 'room') {
       this.props.setError('Room not found. Please enter a valid.');
     } else if (!inputValue) {
@@ -57,7 +58,7 @@ export default React.createClass({
           <p><a className="btn btn-primary btn-md" onClick={this.handleCreateRoom} role="button">Create a lecture room</a></p>
           <LoginPage {...this.props} />
           <p>Don't have an account yet? <a className="btn btn-primary btn-md" role="button" onClick={this.chooseSignup} >Sign Up</a></p>
-          <a className="btn btn-warning btn-md" role="button" onClick={this.chooseStudent} >Student</a>
+          <a className="btn btn-warning btn-md" role="button" onClick={this.chooseStudent} >I&#39;m a Student</a>
         </div>
       )
     } else if(this.props.choice === 'signup') {
@@ -65,7 +66,7 @@ export default React.createClass({
         <div>
           <SignupPage {...this.props} />
           <p>Already have an account? <a className="btn btn-primary btn-md" role="button" onClick={this.chooseTeacher} >Log In</a></p>
-          <a className="btn btn-warning btn-md" role="button" onClick={this.chooseStudent} >Student</a>
+          <a className="btn btn-warning btn-md" role="button" onClick={this.chooseStudent} >I&#39;m a Student</a>
         </div>
       )
     } else {

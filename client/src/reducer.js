@@ -9,7 +9,7 @@ import * as EducatorAPIActions from './reducer-functions/educatorAPIActions';
 const initialState = {
   prevQuestionType: false,
   // don't delete above; not placeholder data
-  currentPresentation: { 
+  currentPresentation: {
     presentation: {
       title: "George",
       educatorID: 1
@@ -19,7 +19,7 @@ const initialState = {
     currentQuestionIndex: 0,
     currentQuestion: {prompt: 'Favorite Color?', questionChoices: [{letter: 'a', content:'green'},{letter: 'b', content:'blue'},{letter: 'c', content:'red'}] }
   },
-  educatorLoggedIn: true,
+  //educatorLoggedIn: true,
   educatorID: 1
 };
 
@@ -65,6 +65,8 @@ export default function(state = fromJS(/*temp*/initialState), action) {
   //   return addQuestion(state, action.id, action.name, true);
   case 'SET_NUMUSERS':
     return state.set('numUsers', action.numUsers);
+  case 'EDUCATOR_LOGIN':
+    return EducatorLoggedInActions.educatorLogin(state, action.currentRoom);
   case 'CREATE_OR_EDIT_PRESENTATION':
     return EducatorLoggedInActions.editOrCreatePresentation(state);
   case 'PREPLANNED_PRESENTATION':
@@ -74,7 +76,7 @@ export default function(state = fromJS(/*temp*/initialState), action) {
   case 'SELECT_TYPE_THUMB_CHECK':
     return EducatorLoggedInActions.selectTypeThumbCheck(state);
   case 'SELECT_TYPE_OPEN_RESPONSE':
-    return EducatorLoggedInActions.selectTypeOpenResponse(state);  
+    return EducatorLoggedInActions.selectTypeOpenResponse(state);
   case 'SELECT_TYPE_MULTIPLE_CHOICE':
     return EducatorLoggedInActions.selectTypeMultipleChoice(state);
   case 'TOGGLE_3_CHOICES':
