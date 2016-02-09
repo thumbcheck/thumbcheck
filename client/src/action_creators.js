@@ -227,7 +227,7 @@ export function deleteQuestion(questionId) {
 
 export function educatorLogin(currentRoom) {
   return {
-    meta: {remote: true},
+    //meta: {remote: true},
     type: 'EDUCATOR_LOGIN',
     currentRoom: currentRoom
   };
