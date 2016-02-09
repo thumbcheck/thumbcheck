@@ -132,7 +132,7 @@ export default React.createClass({
       {/** Render question information if in preplanned presentation*/}
         {this.props.preplannedPresentation ? <EducatorQuestionInformation {...this.props} /> : null}
         
-        {this.props.shareThumbsCheckResults || this.props.shareThumbsCheckResults === undefined ?
+        {this.props.shareThumbsCheckResults || this.props.shareThumbsCheckResults === undefined || this.props.sharingAllThumbsCheckResults ?
           <p></p> :
           <p><button type='button' className='btn grey white-text' onClick={this.props.toggleThumbsCheckResultsGraph}>Show Results to Participants</button></p>
         }
