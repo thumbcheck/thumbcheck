@@ -33,15 +33,16 @@ export default function mapStateToProps(state) {
     // super temp
     currentPresentation: state.get('currentPresentation'),
 
-    toggleTypeMultipleChoice: state.get('toggleTypeMultipleChoice'),
-    typeMultipleChoice: state.get('typeMultipleChoice'),
-    toggle3choices: state.get('toggle3choices'),
+    createQuestionTypeThumbCheck: state.get('createQuestionTypeThumbCheck'),
+    createQuestionTypeOpenResponse: state.get('createQuestionTypeOpenResponse'),
+    createQuestionTypeMultipleChoice: state.get('createQuestionTypeMultipleChoice'),
+
     a3choice: state.get('a3choice'),
-    toggle4choices: state.get('toggle4choices'),
     a4choice: state.get('a4choice'),
-    toggle5choices: state.get('toggle5choices'),
     a5choice: state.get('a5choice'),
     educatorID: state.get('educatorID'),
-    allEducatorPresentations: state.get('allEducatorPresentations')
+    allEducatorPresentations: state.get('allEducatorPresentations'),
+    creatingQuestion: state.get('creatingQuestion'),
+    currentPresentationID: state.get('currentPresentationID')
   };
 }

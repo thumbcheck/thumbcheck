@@ -12,7 +12,7 @@ const initialState = {
   currentPresentation: { 
     presentation: {
       title: "George",
-      educator_id: 1
+      educatorID: 1
     },
     questions: [{prompt: 'Favorite Color?', questionChoices: [{letter: 'a', content:'green'},{letter: 'b', content:'blue'},{letter: 'c', content:'red'}] },
         {prompt: 'Favorite Food', questionChoices: [{letter: 'a', content:'pasta'},{letter: 'b', content:'pizza'},{letter: 'c', content:'jamba'}]}],
@@ -71,8 +71,12 @@ export default function(state = fromJS(/*temp*/initialState), action) {
     return EducatorLoggedInActions.startPreplannedPresentation(state);
   case 'MOVE_NEXT_QUESTION':
     return EducatorLoggedInActions.moveToNextQuestion(state);
-  case 'TOGGLE_TYPE_MULTIPLE_CHOICE':
-    return EducatorLoggedInActions.toggleTypeMultipleChoice(state);
+  case 'SELECT_TYPE_THUMB_CHECK':
+    return EducatorLoggedInActions.selectTypeThumbCheck(state);
+  case 'SELECT_TYPE_OPEN_RESPONSE':
+    return EducatorLoggedInActions.selectTypeOpenResponse(state);  
+  case 'SELECT_TYPE_MULTIPLE_CHOICE':
+    return EducatorLoggedInActions.selectTypeMultipleChoice(state);
   case 'TOGGLE_3_CHOICES':
     return EducatorLoggedInActions.toggle3choices(state);
   case 'TOGGLE_4_CHOICES':
@@ -83,6 +87,12 @@ export default function(state = fromJS(/*temp*/initialState), action) {
     return EducatorAPIActions.addPresentation(state);
   case 'SET_ALL_PRESENTATION_DATA':
     return EducatorAPIActions.setAllPresentations(state,action.data);
+  case 'SET_PRESENTATION_DATA':
+    return EducatorAPIActions.setPresentation(state,action.data);
+  case 'CREATE_QUESTION':
+    return EducatorLoggedInActions.createQuestion(state);
+  case 'SET_CURRENT_PRESENTATION_ID':
+    return EducatorLoggedInActions.setCurrentPresentationID(state, action.presentationID);
   }
 
   return state;

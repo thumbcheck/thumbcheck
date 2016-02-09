@@ -1,16 +1,17 @@
 import Question from '../models/questions.js';
 
 function createQuestion (params, callback) {
-  return Question.create({
+  console.log('in controller!', params);
+  return Question.create({ 
     prompt: params.prompt,
-    presentation_id: params.presentation_id,
-    question_type: params.question_type,
+    presentation_id: params.presentationID,
+    question_type: params.questionType,
     answer: params.answer,
-    choice_a: params.choice_a,
-    choice_b: params.choice_b,
-    choice_c: params.choice_c,
-    choice_d: params.choice_d,
-    choice_e: params.choice_e
+    choice_a: params.questionAnswer.a || null,
+    choice_b: params.questionAnswer.b || null,
+    choice_c: params.questionAnswer.c || null,
+    choice_d: params.questionAnswer.d || null,
+    choice_e: params.questionAnswer.e || null
   })
   .then(function(response){
     callback(response);

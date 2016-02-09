@@ -17,30 +17,19 @@ export function getUserPresentations(educatorID) {
 
 // GET questions for a given presentation
 export function getPresentation(presentationID) {
-  $.ajax({
+  return $.ajax({
       type: 'GET',
       url: '/api/presentations/' + presentationID,
-    })
-    .success(function(data) {
-      console.log(data);
-    })
-    .error(function(jqXHR, textStatus, errorThrown) {
-      console.log('Error: ', qXHR, textStatus, errorThrown);
     });
 }
 
 // POST a new question for a given presentation (**Needs to include presentation id and educator id in data**)
 export function addPresentationQuestion(questionData) {
-  $.ajax({
+  console.log('in ajax call!');
+  return $.ajax({
       type: 'POST',
       url: '/api/questions',
       data: questionData
-    })
-    .success(function(data) {
-      console.log(data);
-    })
-    .error(function(jqXHR, textStatus, errorThrown) {
-      console.log('Error: ', qXHR, textStatus, errorThrown);
     });
 }
 

@@ -3,7 +3,6 @@ import {Map, fromJS, toJS, List} from 'immutable';
 export function editOrCreatePresentation(state) {
   let toggle = !state.get('editingOrCreatingPresentation');
   let newState = fromJS({editingOrCreatingPresentation: toggle});
-  console.log(newState.toJS());
   return state.merge(newState);
 }
 
@@ -32,26 +31,72 @@ export function moveToNextQuestion(state) {
   }
 }
 
-export function toggleTypeMultipleChoice(state) {
-  let typeMultiple = !state.get('typeMultipleChoice');
-  let newState = fromJS({typeMultipleChoice: typeMultiple});
+export function selectTypeThumbCheck(state) {
+  let newState = fromJS({
+    createQuestionTypeMultipleChoice: false, 
+    createQuestionTypeThumbCheck: true, 
+    createQuestionTypeOpenResponse: false, 
+    a3choice: false,
+    a4choice: false,
+    a5choice: false
+  });
+  return state.merge(newState);
+}
+
+export function selectTypeMultipleChoice(state) {
+  let newState = fromJS({
+    createQuestionTypeMultipleChoice: true, 
+    createQuestionTypeThumbCheck: false, 
+    createQuestionTypeOpenResponse: false, 
+  });
+  return state.merge(newState);
+}
+
+export function selectTypeOpenResponse(state) {
+  let newState = fromJS({
+    createQuestionTypeMultipleChoice: false, 
+    createQuestionTypeThumbCheck: false, 
+    createQuestionTypeOpenResponse: true, 
+    a3choice: false,
+    a4choice: false,
+    a5choice: false
+  });
   return state.merge(newState);
 }
 
 export function toggle3choices(state) {
   let a3state = !state.get('a3choice');
-  let newState = fromJS({a3choice: a3state});
+  let a4state = false;
+  let a5state = false;
+  let newState = fromJS({a3choice: a3state, a4choice: a4state, a5choice: a5state});
   return state.merge(newState);
 }
 
 export function toggle4choices(state) {
+  let a3state = false;
   let a4state = !state.get('a4choice');
-  let newState = fromJS({a4choice: a4state});
+  let a5state = false;
+  let newState = fromJS({a3choice: a3state, a4choice: a4state, a5choice: a5state});
   return state.merge(newState);
 }
 
 export function toggle5choices(state) {
+  let a3state = false;
+  let a4state = false;
   let a5state = !state.get('a5choice');
-  let newState = fromJS({a5choice: a5state});
+  let newState = fromJS({a3choice: a3state, a4choice: a4state, a5choice: a5state});
+  return state.merge(newState);
+}
+
+export function createQuestion(state) {
+  let toggle = !state.get('creatingQuestion');
+  let newState = fromJS({creatingQuestion: toggle});
+  console.log(newState.toJS());
+  return state.merge(newState);
+}
+
+export function setCurrentPresentationID(state, presentationID) {
+  let newState = {currentPresentationID: presentationID};
+  console.log('setting questions', newState);
   return state.merge(newState);
 }

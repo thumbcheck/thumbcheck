@@ -156,9 +156,22 @@ export function moveToNextQuestion() {
   };
 }
 
-export function toggleTypeMultipleChoice() {
+export function selectTypeThumbCheck() {
   return {
-    type: 'TOGGLE_TYPE_MULTIPLE_CHOICE'
+    type: 'SELECT_TYPE_THUMB_CHECK'
+  };
+}
+
+export function selectTypeMultipleChoice() {
+  return {
+    type: 'SELECT_TYPE_MULTIPLE_CHOICE'
+  };
+}
+
+
+export function selectTypeOpenResponse() {
+  return {
+    type: 'SELECT_TYPE_OPEN_RESPONSE'
   };
 }
 
@@ -177,6 +190,19 @@ export function toggle4choices() {
 export function toggle5choices() {
   return {
     type: 'TOGGLE_5_CHOICES'
+  };
+}
+
+export function createQuestion() {
+  return {
+    type: 'CREATE_QUESTION'
+  };
+}
+
+export function  setCurrentPresentationID(presentationID) {
+  return {
+    type: 'SET_CURRENT_PRESENTATION_ID',
+    presentationID: presentationID
   };
 }
 
@@ -207,6 +233,7 @@ export function getPresentationData(presentationID) {
           data: response
         };
         dispatch(action);
+        console.log(response, 'response from db preseintation!');
       })
       .error((jqXHR, textStatus, errorThrown) => {
         console.log('Error: ', jqXHR, textStatus, errorThrown);
@@ -215,18 +242,20 @@ export function getPresentationData(presentationID) {
 }
 
 export function addPresentationQuestion(questionData) {
+  console.log('in action creators', questionData);
   return function(dispatch) {
-    return ApiFunctions.addPresentationQuestion(questionData, callback)
-    .then((response) => {
-      let action = {
-        type: 'POST_QUESTION_DATA',
-            };
-            dispatch(action);
-          })
-          .catch((error) => {
-            throw new Error(error);
-          });
-
+    let apiCall = ApiFunctions.addPresentationQuestion(questionData);
+      apiCall
+        .success(function(data) {
+          let action = {
+            type: 'ADD_PRESENTATION_QUESTION' 
+          };
+          // dispatch(action);
+          console.log('success!! posting to database');
+        })
+        .error(function(jqXHR, textStatus, errorThrown) {
+          console.log('Error: ', jqXHR, textStatus, errorThrown);
+        });
   };
 }
 
