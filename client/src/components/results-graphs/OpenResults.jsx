@@ -10,7 +10,7 @@ export default React.createClass({
    this.props.openResponseAnswers ? answers = this.props.openResponseAnswers.toJS() : []
 
    return answers.map(function(answer, index) {
-     return <div className="bigger-text">{ answer } </div>
+     return <div className="bigger-text" key={index}>{ answer } </div>
    });
  },
 
