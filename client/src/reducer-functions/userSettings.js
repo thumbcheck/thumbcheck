@@ -10,7 +10,11 @@ export function chooseRole(state, choice) {
 }
 
 export function setErrorMessage(state, error) {
-  return state.set('errMessage', error);
+  let newState = fromJS({
+  	errMessage: error
+  })
+  console.log('new', newState);
+  return state.merge(newState);
 }
 
 export function addStudentIdentity(state, id, name) {

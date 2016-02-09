@@ -3,16 +3,9 @@
   font-family: 'HelveticaNeue-Thin'; /*a name to be used later*/
   src: url('../images/HelveticaNeue-Thin.otf'); /*URL to font*/
 }
-/*html {
-  background: url(/images/cliche_learning1.jpg) no-repeat center center fixed;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-}*/
-body {
-	font-family: 'HelveticaNeue-Thin';
-}
+html,body { height: 100%; margin: 0px; padding: 0px; font-family: 'HelveticaNeue-Thin';}
+#app {height: 100%;}
+
 .blue {
 	background-color: #0080FF;
 }
@@ -42,6 +35,31 @@ body {
 }
 .center-text {
 	text-align: center;
+}
+/* ****** LANDING PAGE ************ */
+.main-landing-parent-container {
+	padding-top: 7%;
+	height: 100%;
+  background: url(/images/cliche_learning1.png) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;  
+	font-family: 'HelveticaNeue-Thin';
+}
+.main-landing-container {
+	margin: 0 19% 0 19%;	
+	border-radius: 10px;
+	background-color: rgba(0, 0, 0, 0.7);
+}
+.main-landing-content {
+	color: white;
+	padding: 3.5% 1% 3.5% 1%;		
+	background-color: rgba(0, 0, 0, 0);
+}
+.jumbo-text {
+	font-family: 'HelveticaNeue-Thin';
+	margin-bottom: 0.5em;	
 }
 
 /*  ********** educator page styling  ************* */
