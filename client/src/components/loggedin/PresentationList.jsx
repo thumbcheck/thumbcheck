@@ -13,9 +13,12 @@ export default React.createClass({
     let presentationArray = this.props.allEducatorPresentations;
     return presentationArray.map((presentation) => {
       presentation = presentation.toJS();
-      console.log(presentation.id, 'logging presentations')
       return <PresentationListItem title={presentation.title} presentationID={presentation.id} {...this.props} />;
     });
+  },
+  createPresentation: function() {
+    this.props.clearCurrentPresentation();
+    this.props.createOrEditPresentation();
   },
   render: function() {
     return (
@@ -26,7 +29,7 @@ export default React.createClass({
         {this.props.allEducatorPresentations ? this.displayPresentations() : null}
         <button type = 'button'
                 className = "btn grey white-text"
-                onClick = {this.props.createOrEditPresentation}>
+                onClick = {this.createPresentation}>
                 Create Presentation
         </button>
         <div className='presentations-container'></div>

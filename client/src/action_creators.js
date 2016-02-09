@@ -213,6 +213,11 @@ export function  setCurrentPresentationID(presentationID) {
   };
 }
 
+export function clearCurrentPresentation() {
+  return {
+    type: 'CLEAR_CURRENT_PRESENTATION_DATA'
+  };
+}
 export function getAllPresentations(educatorID) {
   return function(dispatch) {
     let apiCall = ApiFunctions.getUserPresentations(educatorID);
@@ -240,7 +245,6 @@ export function getPresentationData(presentationID) {
           data: response
         };
         dispatch(action);
-        console.log(response, 'response from db preseintation!');
       })
       .error((jqXHR, textStatus, errorThrown) => {
         console.log('Error: ', jqXHR, textStatus, errorThrown);
@@ -249,7 +253,6 @@ export function getPresentationData(presentationID) {
 }
 
 export function addPresentationQuestion(questionData) {
-  console.log('in action creators', questionData);
   return function(dispatch) {
     let apiCall = ApiFunctions.addPresentationQuestion(questionData);
       apiCall
@@ -258,7 +261,6 @@ export function addPresentationQuestion(questionData) {
             type: 'ADD_PRESENTATION_QUESTION'
           };
           // dispatch(action);
-          console.log('success!! posting to database');
         })
         .error(function(jqXHR, textStatus, errorThrown) {
           console.log('Error: ', jqXHR, textStatus, errorThrown);
@@ -272,7 +274,8 @@ export function addPresentation(presentationData) {
     apiCall
       .success((response) => {
         let action = {
-          type: 'POST_PRESENTATION_DATA',
+          type: 'SET_NEW_PRESENTATION',
+          response: response
         };
         dispatch(action);
       })
@@ -281,3 +284,4 @@ export function addPresentation(presentationData) {
       });
   };
 }
+
