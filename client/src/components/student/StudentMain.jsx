@@ -44,7 +44,7 @@ export const Student = React.createClass({
                       questions={this.props.questions}
                       addStudentIdentity={this.props.addStudentIdentity} /> :
            null}
-         {this.props.shareThumbsCheckResults ?
+         {this.props.shareThumbsCheckResults || this.props.sharingAllThumbsCheckResults ?
            renderCorrectGraphType(this.props) :
            null}
      </div>

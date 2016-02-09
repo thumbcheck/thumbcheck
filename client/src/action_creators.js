@@ -136,6 +136,13 @@ export function toggleThumbsCheckResultsGraph() {
   };
 }
 
+export function toggleSharingAllThumbsCheckResults() {
+  return {
+    meta: {remote: true},
+    type: 'TOGGLE_SHARING_ALL_RESULTS'
+  };
+}
+
 export function createOrEditPresentation() {
   return {
     type: 'CREATE_OR_EDIT_PRESENTATION'

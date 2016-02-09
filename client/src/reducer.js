@@ -8,6 +8,7 @@ import * as EducatorAPIActions from './reducer-functions/educatorAPIActions';
 
 const initialState = {
   prevQuestionType: false,
+  sharingAllThumbsCheckResults: false,
   // don't delete above; not placeholder data
   // currentPresentation: {
   //   presentation: {
@@ -20,7 +21,7 @@ const initialState = {
   //   currentQuestion: {prompt: 'Favorite Color?', questionChoices: [{letter: 'a', content:'green'},{letter: 'b', content:'blue'},{letter: 'c', content:'red'}] }
   // },
   //educatorLoggedIn: true,
-  educatorID: 1
+  // educatorID: 1
 };
 
 export default function(state = fromJS(/*temp*/initialState), action) {
@@ -61,6 +62,8 @@ export default function(state = fromJS(/*temp*/initialState), action) {
     return EducatorActions.addQuestion(state, action.id, action.name, true);
   case 'TOGGLE_THUMBS_GRAPH':
     return EducatorActions.toggleThumbsGraph(state);
+  case 'TOGGLE_SHARING_ALL_RESULTS':
+    return EducatorActions.ToggleSharingAllThumbsCheckResults(state);  
   // case 'LOWER_STUDENT_HAND':
   //   return addQuestion(state, action.id, action.name, true);
   case 'SET_NUMUSERS':

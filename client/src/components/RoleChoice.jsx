@@ -57,7 +57,7 @@ export default React.createClass({
         <div>
           <p><a className="btn btn-primary btn-md" onClick={this.handleCreateRoom} role="button">Create a lecture room</a></p>
           <LoginPage {...this.props} />
-          <p>Don't have an account yet? <a className="btn btn-primary btn-md" role="button" onClick={this.chooseSignup} >Sign Up</a></p>
+          <p>Don&#39;t have an account yet? <a className="btn btn-primary btn-md" role="button" onClick={this.chooseSignup} >Sign Up</a></p>
           <a className="btn btn-warning btn-md" role="button" onClick={this.chooseStudent} >I&#39;m a Student</a>
         </div>
       )
@@ -78,12 +78,9 @@ export default React.createClass({
         </div>
       )
     }
-
   },
 
-  render: function() {
-          console.log('new rendering!!');
-
+  render: function() {          
     return (
       <div>
         {this.renderProperElement()}

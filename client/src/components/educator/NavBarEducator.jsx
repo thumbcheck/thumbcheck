@@ -34,6 +34,7 @@ export default React.createClass({
   	return null;  		
   },
   render: function() {  	
+  	console.log('nav props', this.props);
     return ( 
     	<nav className="navbar navbar-default">
 			  <div className="container-fluid blue">
@@ -59,6 +60,17 @@ export default React.createClass({
 			          </a>
 			          <ul className="dropdown-menu drop-down-spacing">
 			            { this.showQuestions() }
+			          </ul>
+			        </li>
+			        <li className="dropdown">
+			          <a href="#" className="dropdown-toggle white-text right-nav wheel-icon" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+			          	<img data-placement="bottom" className="raise-hand-icon" src="/images/icons/settings_wheel.png" />			          	
+			          	
+			          </a>
+			          <ul className="dropdown-menu drop-down-spacing settings-spacing">	
+			          	<li className="questions-list" onClick={this.props.toggleTakingQuestions}>Allow Student Questions</li>
+			          	<li role="separator" className="divider"></li>
+			          	<li className="questions-list" onClick={ this.props.toggleSharingAllThumbsCheckResults }>Share Check-in Results</li>		            
 			          </ul>
 			        </li>
 			      </ul>

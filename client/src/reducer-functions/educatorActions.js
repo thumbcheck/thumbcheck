@@ -143,4 +143,12 @@ export function toggleThumbsGraph(state) {
   return state.merge(newState);
 }
 
+export function ToggleSharingAllThumbsCheckResults(state) {
+  let toggle = !state.get('sharingAllThumbsCheckResults');
+  const newState = {
+    sharingAllThumbsCheckResults: toggle
+  };
+  return state.merge(newState);
+}
+
 

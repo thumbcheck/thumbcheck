@@ -72,13 +72,25 @@ html,body { height: 100%; margin: 0px; padding: 0px; font-family: 'HelveticaNeue
 }
 .raise-hand-icon {
 	width: 35px;
+	padding-right: 5px;
+}
+.wheel-icon{
+	margin-right: 12px;
+	top: 2px;
+}
+.settings-spacing {
+	margin-right: 10px;
 }
 .right-nav {
 	padding-top: 8px !important;
 	padding-bottom: 8px !important;
+	padding-right: 5px !important;
 }
 .questions-list {
 	padding-left: 8px;
+}
+.caret {
+	margin-left: 0px;
 }
 .remove-right {
 	float: right;
