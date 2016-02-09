@@ -77,6 +77,7 @@ router.route('/api/users/:username')
     //res.send(200, {username: req.body.username, password: req.body.password});
     userController.getUser(req.body, (result) => {
       //console.log('result from database in server', result);
+      res.cookie('remember', 'randomhashshouldgohere', { maxAge: 60000 })
       res.send(200, result);
     });
   })
@@ -92,7 +93,7 @@ router.route('/api/questions')
 //get a particular question by question ID
 router.route('/api/questions/:qid')
   .get((req,res) => {
-    questionController.getQuestion(req.params.qid, (result) => {      
+    questionController.getQuestion(req.params.qid, (result) => {
       res.send(200, result);
     });
   });
