@@ -36,7 +36,7 @@ export default React.createClass({
   render: function() {  	
   	console.log('nav props', this.props);
     return ( 
-    	<nav className="navbar navbar-default">
+    	<nav className="navbar navbar-default navbar-custom">
 			  <div className="container-fluid blue">
 			    <div className="navbar-header">
 			      <button type="button" className="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">

@@ -64,6 +64,10 @@ html,body { height: 100%; margin: 0px; padding: 0px; font-family: 'HelveticaNeue
 
 /*  ********** educator page styling  ************* */
 /*  ------- navbar styling  ----- */
+.navbar-custom {
+	box-shadow: 0 1px 10px rgba(31, 50, 63, 0.75);
+	border: none;
+}
 .brand-image {
 	width: 40px;
 }
