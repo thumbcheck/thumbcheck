@@ -94,3 +94,9 @@ export function createQuestion(state) {
   console.log(newState.toJS());
   return state.merge(newState);
 }
+
+export function setCurrentPresentationID(state, presentationID) {
+  let newState = {currentPresentationID: presentationID};
+  console.log('setting questions', newState);
+  return state.merge(newState);
+}

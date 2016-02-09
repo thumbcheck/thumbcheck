@@ -13,7 +13,8 @@ export default React.createClass({
     )
   },
   showPresentationQuestions: function() {
-    let currentPresentationQuestionData = this.props.currentPresentation.toJS().questions;
+    let currentPresentationQuestionData = this.props.currentPresentation.toJS().questionChoice;
+    console.log(currentPresentationQuestionData, 'currentpresentationdata')
     if(currentPresentationQuestionData) {
       return currentPresentationQuestionData.map(function(questionData) {
         return <QuestionListItem title={questionData.prompt} />
@@ -22,7 +23,12 @@ export default React.createClass({
       return null;
     }
   },
+  componentDidMount: function() {
+    let presentationID = this.props.currentPresentationID;
+    this.props.getPresentationData(presentationID);
+  },
   render: function() {
+    console.log('editpresentationprops', this.props)
     if (this.props.creatingQuestion) {
       console.log(this.props)
       return <CreateEditQuestions {...this.props} />
@@ -31,7 +37,7 @@ export default React.createClass({
         <div>
           {this.props.currentPresentation.toJS().presentation.title ? this.renderTitle() : <AddPresentationNameForm {...this.props} />}
           <h2>Presentation Question List</h2>
-          {this.showPresentationQuestions()}
+          {this.props.currentPresentation ? this.showPresentationQuestions() : null}
           <button onClick={this.props.createQuestion}>Add A New Question</button>
           <button onClick={this.props.createOrEditPresentation}>Finish</button>
         </div>

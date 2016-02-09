@@ -17,15 +17,9 @@ export function getUserPresentations(educatorID) {
 
 // GET questions for a given presentation
 export function getPresentation(presentationID) {
-  $.ajax({
+  return $.ajax({
       type: 'GET',
       url: '/api/presentations/' + presentationID,
-    })
-    .success(function(data) {
-      console.log(data);
-    })
-    .error(function(jqXHR, textStatus, errorThrown) {
-      console.log('Error: ', qXHR, textStatus, errorThrown);
     });
 }
 

@@ -3,7 +3,7 @@
 
  *  to create the database and the tables.*/
 -- ***** CHANGE THIS TO THE PATH TO THIS FILE IN *YOUR* FILE SYSTEM *****
- -- command to file to run in psql: \i /Users/krisalbert/Documents/HackReactor/ambivalent-acacia/server/models/schema.sql
+ -- command to file to run in psql: \i /Users/msandusky/desktop/thesis/ambivalent-acacia/server/models/schema.sql
 
 drop database thumbscheck;
 

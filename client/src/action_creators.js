@@ -199,6 +199,13 @@ export function createQuestion() {
   };
 }
 
+export function  setCurrentPresentationID(presentationID) {
+  return {
+    type: 'SET_CURRENT_PRESENTATION_ID',
+    presentationID: presentationID
+  };
+}
+
 export function getAllPresentations(educatorID) {
   return function(dispatch) {
     let apiCall = ApiFunctions.getUserPresentations(educatorID);
@@ -226,6 +233,7 @@ export function getPresentationData(presentationID) {
           data: response
         };
         dispatch(action);
+        console.log(response, 'response from db preseintation!');
       })
       .error((jqXHR, textStatus, errorThrown) => {
         console.log('Error: ', jqXHR, textStatus, errorThrown);

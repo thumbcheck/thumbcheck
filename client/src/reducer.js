@@ -87,8 +87,12 @@ export default function(state = fromJS(/*temp*/initialState), action) {
     return EducatorAPIActions.addPresentation(state);
   case 'SET_ALL_PRESENTATION_DATA':
     return EducatorAPIActions.setAllPresentations(state,action.data);
+  case 'SET_PRESENTATION_DATA':
+    return EducatorAPIActions.setPresentation(state,action.data);
   case 'CREATE_QUESTION':
     return EducatorLoggedInActions.createQuestion(state);
+  case 'SET_CURRENT_PRESENTATION_ID':
+    return EducatorLoggedInActions.setCurrentPresentationID(state, action.presentationID);
   }
 
   return state;
