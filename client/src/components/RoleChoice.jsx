@@ -1,6 +1,7 @@
 import React from 'react';
 import {toJS} from 'immutable';
 import LoginPage from './loggedin/LoginPage';
+import SignupPage from './loggedin/SignupPage';
 
 export default React.createClass({
   chooseTeacher: function () {
@@ -9,6 +10,10 @@ export default React.createClass({
 
   chooseStudent: function () {
     this.props.chooseRole('');
+  },
+
+  chooseSignup: function () {
+    this.props.chooseRole('signup');
   },
 
   handleStudentSubmit: function (e) {

@@ -8,7 +8,7 @@ function createUser (params, callback) {
     email: params.email
   })
   .then((response) => {
-    callback(response);
+    callback('User created');
   });
 
 }

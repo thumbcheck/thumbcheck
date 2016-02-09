@@ -60,6 +60,7 @@ router.route('/login')
 
 router.route('/api/users')
   .post((req,res) => {
+    console.log('in api users post', req.body);
     userController.createUser(req.body, (result) => {
       res.send(201, result);
     });
