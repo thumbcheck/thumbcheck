@@ -41,9 +41,12 @@ export function setPresentation(state, data) {
   });
   let currentPresentation = {
     presentation: data.presentation,
-    questionChoice: questions
+    questionChoice: questions,
+    currentQuestion: questions[0],
+    currentQuestionIndex: 0
   };
   let newState = {currentPresentation: currentPresentation};
+  newState = fromJS(newState);
   return state.merge(newState);
 }
 

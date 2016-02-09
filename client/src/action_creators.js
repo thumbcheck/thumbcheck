@@ -225,7 +225,8 @@ export function educatorLogin(currentRoom) {
   };
 }
 
-export function  setCurrentPresentationID(presentationID) {
+export function setCurrentPresentationID(presentationID) {
+  console.log('in here action creator');
   return {
     type: 'SET_CURRENT_PRESENTATION_ID',
     presentationID: presentationID
