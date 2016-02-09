@@ -1,5 +1,15 @@
 import {Map, fromJS, toJS, List} from 'immutable';
 
+export function educatorLogin(state, currentRoom) {
+  console.log('in educatorLogin!!!!!!!!!!!');
+  let newState = fromJS({
+    educatorLoggedIn: true,
+    userType: 'educator',
+    currentRoom: currentRoom
+  });
+  return state.merge(newState);
+}
+
 export function editOrCreatePresentation(state) {
   let toggle = !state.get('editingOrCreatingPresentation');
   let newState = fromJS({editingOrCreatingPresentation: toggle});
@@ -27,15 +37,15 @@ export function moveToNextQuestion(state) {
       ['currentPresentation', 'currentQuestion'],
       currentQuestion => questionList.get(questionIndex + 1)
     );
-    return state.merge(newState);  
+    return state.merge(newState);
   }
 }
 
 export function selectTypeThumbCheck(state) {
   let newState = fromJS({
-    createQuestionTypeMultipleChoice: false, 
-    createQuestionTypeThumbCheck: true, 
-    createQuestionTypeOpenResponse: false, 
+    createQuestionTypeMultipleChoice: false,
+    createQuestionTypeThumbCheck: true,
+    createQuestionTypeOpenResponse: false,
     a3choice: false,
     a4choice: false,
     a5choice: false
@@ -45,18 +55,18 @@ export function selectTypeThumbCheck(state) {
 
 export function selectTypeMultipleChoice(state) {
   let newState = fromJS({
-    createQuestionTypeMultipleChoice: true, 
-    createQuestionTypeThumbCheck: false, 
-    createQuestionTypeOpenResponse: false, 
+    createQuestionTypeMultipleChoice: true,
+    createQuestionTypeThumbCheck: false,
+    createQuestionTypeOpenResponse: false,
   });
   return state.merge(newState);
 }
 
 export function selectTypeOpenResponse(state) {
   let newState = fromJS({
-    createQuestionTypeMultipleChoice: false, 
-    createQuestionTypeThumbCheck: false, 
-    createQuestionTypeOpenResponse: true, 
+    createQuestionTypeMultipleChoice: false,
+    createQuestionTypeThumbCheck: false,
+    createQuestionTypeOpenResponse: true,
     a3choice: false,
     a4choice: false,
     a5choice: false

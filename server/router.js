@@ -60,6 +60,7 @@ router.route('/login')
 
 router.route('/api/users')
   .post((req,res) => {
+    console.log('in api users post', req.body);
     userController.createUser(req.body, (result) => {
       res.send(201, result);
     });
@@ -71,8 +72,11 @@ router.route('/api/users')
   })
 
 router.route('/api/users/:username')
-  .get((req,res) => {
-    userController.getUser(req.params.username, (result) => {
+  .post((req,res) => {
+    console.log(req.body, req.body.username, req.body.password);
+    //res.send(200, {username: req.body.username, password: req.body.password});
+    userController.getUser(req.body, (result) => {
+      //console.log('result from database in server', result);
       res.send(200, result);
     });
   })

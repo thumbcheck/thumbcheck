@@ -2,7 +2,7 @@ import pg from 'pg';
 import Sequelize from 'sequelize';
 
 // point to production or local host
-export const db = process.env.DATABASE_URL || 'msandusky://localhost:5432/thumbscheck';
+export const db = process.env.DATABASE_URL || 'postgres://localhost:5432/thumbscheck';
 // create a new db connection and connect to it
 const client = new pg.Client(db);
 client.connect();
@@ -12,7 +12,7 @@ client.connect();
 
 // Connect sequelize
 
-export const sequelize = new Sequelize('thumbscheck', 'msandusky', null, {
+export const sequelize = new Sequelize('thumbscheck', 'postgres', null, {
   host: 'localhost',
   dialect: 'postgres',
   pool: {

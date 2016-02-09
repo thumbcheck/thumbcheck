@@ -199,6 +199,13 @@ export function createQuestion() {
   };
 }
 
+export function educatorLogin(currentRoom) {
+  return {
+    type: 'EDUCATOR_LOGIN',
+    currentRoom: currentRoom
+  };
+}
+
 export function  setCurrentPresentationID(presentationID) {
   return {
     type: 'SET_CURRENT_PRESENTATION_ID',
@@ -248,7 +255,7 @@ export function addPresentationQuestion(questionData) {
       apiCall
         .success(function(data) {
           let action = {
-            type: 'ADD_PRESENTATION_QUESTION' 
+            type: 'ADD_PRESENTATION_QUESTION'
           };
           // dispatch(action);
           console.log('success!! posting to database');
