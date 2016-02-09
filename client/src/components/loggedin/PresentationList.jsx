@@ -13,7 +13,6 @@ export default React.createClass({
     let presentationArray = this.props.allEducatorPresentations;
     return presentationArray.map((presentation) => {
       presentation = presentation.toJS();
-      console.log(presentation.id, 'logging presentations')
       return <PresentationListItem title={presentation.title} presentationID={presentation.id} {...this.props} />;
     });
   },

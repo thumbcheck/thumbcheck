@@ -6,6 +6,7 @@ import CreateEditQuestions from './CreateEditQuestions';
 export default React.createClass({
   renderTitle: function() {
     let currentPresentationTitle = this.props.currentPresentation.toJS().presentation.title || null;
+    console.log('currentPresentationTitle in renderTitle', currentPresentationTitle)
     return (
       <div>
         <h2>Presentation Title: {currentPresentationTitle} </h2>

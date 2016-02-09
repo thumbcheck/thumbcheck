@@ -5,14 +5,12 @@ export function addPresentation(state) {
 }
 
 export function setAllPresentations(state, data) {
-  console.log('settingpresentaion', data);
   let presentations = fromJS(data);
   let newState = {allEducatorPresentations: presentations};
   return state.merge(newState);
 }
 
 export function setPresentation(state, data) {
-  console.log('settingpresentaion', data);
   let questions = [];
   data.questions.forEach((question) => {
     let questionObject = {};
@@ -45,6 +43,20 @@ export function setPresentation(state, data) {
     questionChoice: questions
   };
   let newState = {currentPresentation: currentPresentation};
-  console.log(newState, 'newstateasdfa')
+  return state.merge(newState);
+}
+
+export function setNewPresentation(state,data) {
+  let currentPresentation = {
+    presentation: {
+      title: data.title,
+    },
+    questionChoice: []
+  };
+  let newState = {
+    currentPresentation: currentPresentation,
+    currentPresentationID: data.id
+  };
+  console.log(newState, 'api set new presntaiton');
   return state.merge(newState);
 }

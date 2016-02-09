@@ -245,7 +245,6 @@ export function getPresentationData(presentationID) {
           data: response
         };
         dispatch(action);
-        console.log(response, 'response from db preseintation!');
       })
       .error((jqXHR, textStatus, errorThrown) => {
         console.log('Error: ', jqXHR, textStatus, errorThrown);
@@ -262,7 +261,6 @@ export function addPresentationQuestion(questionData) {
             type: 'ADD_PRESENTATION_QUESTION'
           };
           // dispatch(action);
-          console.log('success!! posting to database');
         })
         .error(function(jqXHR, textStatus, errorThrown) {
           console.log('Error: ', jqXHR, textStatus, errorThrown);
@@ -271,17 +269,15 @@ export function addPresentationQuestion(questionData) {
 }
 
 export function addPresentation(presentationData) {
-  console.log('in action creator')
   return function(dispatch) {
     let apiCall = ApiFunctions.addPresentation(presentationData);
     apiCall
       .success((response) => {
         let action = {
-          type: 'SET_PRESENTATION_DATA',
+          type: 'SET_NEW_PRESENTATION',
           response: response
         };
         dispatch(action);
-        // console.log(response, 'action creator2')
       })
       .error((jqXHR, textStatus, errorThrown) => {
       console.log('Error: ', jqXHR, textStatus, errorThrown);
