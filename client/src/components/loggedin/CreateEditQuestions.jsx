@@ -33,8 +33,7 @@ export default React.createClass({
   handleQuestionSubmission: function() {
     let questionData= {};
     questionData.prompt = this.questionPrompt;
-    // questionData.presentationID= this.props.currentPresentation.get('id');
-    questionData.presentationID = 1;
+    questionData.presentationID = this.props.currentPresentationID;
     let questionType;
     if (this.props.createQuestionTypeThumbCheck) {
       questionType = 'Thumbs Check';
