@@ -4,7 +4,9 @@ import ResultsDisplay from '../educator/ResultsDisplay';
 
 export default React.createClass({
   sendCheckin: function() {
-    this.props.currentPresentation.getIn(['currentQuestion', 'questionType']);
+    let questionType = this.props.currentPresentation.getIn(['currentQuestion', 'questionType']);
+    questionType = (questionType === 'Thumbs Check') ? 'thumbs' : 'open';
+    this.props.startVote(questionType);
   },
 
   sendCheckin3: function() {
@@ -69,7 +71,9 @@ export default React.createClass({
             </button>
   },
   componentDidMount: function() {
-    this.props.getPresentationData(this.props.currentPresentationID);
+    if (!this.props.currentPresentation) {
+      this.props.getPresentationData(this.props.currentPresentationID);
+    }
   },
   render: function() {
     return (
