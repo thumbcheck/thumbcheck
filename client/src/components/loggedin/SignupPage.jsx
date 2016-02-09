@@ -26,7 +26,6 @@ export default React.createClass({
       })
       .success(function(data) {
           console.log('data from db & server', data);
-        }
       });
     }
 
