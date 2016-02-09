@@ -21,7 +21,7 @@ const initialState = {
   //   currentQuestion: {prompt: 'Favorite Color?', questionChoices: [{letter: 'a', content:'green'},{letter: 'b', content:'blue'},{letter: 'c', content:'red'}] }
   // },
   //educatorLoggedIn: true,
-  // educatorID: 1
+  educatorID: 1
 };
 
 export default function(state = fromJS(/*temp*/initialState), action) {
@@ -95,7 +95,7 @@ export default function(state = fromJS(/*temp*/initialState), action) {
   case 'SET_PRESENTATION_DATA':
     return EducatorAPIActions.setPresentation(state,action.data);
   case 'CREATE_QUESTION':    
-    return EducatorLoggedInActions.createQuestion(state, action.edit, action.dataForQuestion);
+    return EducatorLoggedInActions.createQuestion(state, action.edit, action.dataForQuestion, action.cancel);
   case 'DELETE_QUESTION':
     return EducatorAPIActions.deleteQuestion(state);
   case 'SET_CURRENT_PRESENTATION_ID':
