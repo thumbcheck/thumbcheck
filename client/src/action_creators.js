@@ -226,8 +226,8 @@ export function educatorLogin(currentRoom) {
 }
 
 export function setCurrentPresentationID(presentationID) {
-  console.log('in here action creator');
   return {
+    meta: {remote: true},
     type: 'SET_CURRENT_PRESENTATION_ID',
     presentationID: presentationID
   };
@@ -261,6 +261,7 @@ export function getPresentationData(presentationID) {
     apiCall
       .success((response) => {
         let action = {
+          meta: {remote: true},
           type: 'SET_PRESENTATION_DATA',
           data: response
         };
