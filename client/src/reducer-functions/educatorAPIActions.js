@@ -4,7 +4,8 @@ export function addPresentation(state) {
   return state;
 }
 
-export function setAllPresentations(state, data) {
+
+export function setAllPresentations(state, data) {  
   let presentations = fromJS(data);
   let newState = {allEducatorPresentations: presentations};
   return state.merge(newState);

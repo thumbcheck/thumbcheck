@@ -98,11 +98,16 @@ export function toggle5choices(state) {
   return state.merge(newState);
 }
 
-export function createQuestion(state) {
-  let toggle = !state.get('creatingQuestion');
-  let newState = fromJS({creatingQuestion: toggle});
-  console.log(newState.toJS());
-  return state.merge(newState);
+export function createQuestion(state, edit, questionData) {  
+  let toggle = !state.get('creatingQuestion');    
+  if (edit) { 
+    const newState = fromJS({creatingQuestion: toggle, editingQuestionIdInfo: questionData}); 
+    return state.merge(newState);
+  }  
+  else {
+    const newState = fromJS({creatingQuestion: toggle, editingQuestionIdInfo: null});
+    return state.merge(newState);
+  }    
 }
 
 export function setCurrentPresentationID(state, presentationID) {

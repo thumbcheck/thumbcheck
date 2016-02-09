@@ -5,8 +5,7 @@ export default React.createClass({
     console.log(this.props, 'loggging current presentation id')
     this.props.createOrEditPresentation();
   },
-  render: function() {
-    console.log('in heerere', this.props.title);
+  render: function() {    
     return (
       <div>
         {this.props.title}

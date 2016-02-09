@@ -1,4 +1,5 @@
 import React from 'react';
+import {toJS} from 'immutable';
 
 // When user selects multiple choice, we could determine the number of responses based
 // on the number that they fill in...
@@ -6,8 +7,7 @@ import React from 'react';
 export default React.createClass({
   chooseThumbCheck: function () {
 // fill this in
-    this.props.selectTypeThumbCheck();
-    alert('selected thumbscheck', this.props.createQuestionTypeThumbCheck);
+    this.props.selectTypeThumbCheck();    
   },
   chooseMultipleChoice: function() {
     console.log("this is GREAT!!!");
@@ -15,8 +15,7 @@ export default React.createClass({
   },
   chooseOpenResponse: function() {
 // fill this in
-    this.props.selectTypeOpenResponse();
-    alert('selected open response', this.props.createQuestionTypeOpenResponse);
+    this.props.selectTypeOpenResponse();    
   },
   choose3choices: function() {
     this.props.toggle3choices();
@@ -28,7 +27,7 @@ export default React.createClass({
     this.props.toggle5choices();
   },
   handleQuestionPromptChange: function(e) {
-    this.questionPrompt = e.target.value;
+    this.questionPrompt = e.target.value;    
   },
   handleQuestionSubmission: function() {
     let questionData= {};
@@ -59,9 +58,13 @@ export default React.createClass({
         questionData.questionAnswer.e = this.multipleChoiceEValue;
       }
     }
-
+    // if it's an edited quesiton, pass along the ID for PUT
+    let editingId = false;
+    if (this.props.editingQuestionIdInfo[0] !== ".") {
+      editingId = this.props.editingQuestionIdInfo.toJS().id;
+    }        
     console.log('questionData', questionData);
-    this.props.addPresentationQuestion(questionData);
+    this.props.addPresentationQuestion(questionData, editingId);
     this.props.createQuestion();
   },
   handleMultipleChoiceAChange: function(e) {
@@ -79,12 +82,25 @@ export default React.createClass({
   handleMultipleChoiceEChange: function(e) {
     this.multipleChoiceEValue = e.target.value;
   },
+  componentWillMount: function() {
+    // if it's a question being edited add the question info  
+    if (!this.questionPrompt) {   
+      if (this.props.editingQuestionIdInfo[0] !== ".") {      
+        console.log('editing this question', this.props.editingQuestionIdInfo.toJS());
+        let questionInfo = this.props.editingQuestionIdInfo.toJS();
+        this.questionPrompt = questionInfo.prompt;    
+      } else {
+        this.questionPrompt = '';
+      }   
+    }
+  },
   render: function() {
+    console.log('create edit question page', this.props);
     return (
       <div>
         <div>
           <span>Question: </span>
-          <input type="text" name="question" onChange={this.handleQuestionPromptChange} />
+          <input defaultValue={this.questionPrompt} type="text" name="question" onChange={this.handleQuestionPromptChange} />
         </div>
         <div>
           <span>Response Type: </span>
