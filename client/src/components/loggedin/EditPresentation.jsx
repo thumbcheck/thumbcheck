@@ -14,7 +14,6 @@ export default React.createClass({
   },
   showPresentationQuestions: function() {
     let currentPresentationQuestionData = this.props.currentPresentation.toJS().questionChoice;
-    console.log(currentPresentationQuestionData, 'currentpresentationdata')
     if(currentPresentationQuestionData) {
       return currentPresentationQuestionData.map(function(questionData) {
         return <QuestionListItem title={questionData.prompt} />
@@ -25,7 +24,18 @@ export default React.createClass({
   },
   componentDidMount: function() {
     let presentationID = this.props.currentPresentationID;
+    console.log('mounting props')
     this.props.getPresentationData(presentationID);
+  },
+  renderQuestionView: function() {
+    return (
+      <div>
+        <h2>Presentation Question List</h2> 
+        {this.showPresentationQuestions()}
+        <button onClick={this.props.createQuestion}>Add A New Question</button>
+        <button onClick={this.props.createOrEditPresentation}>Finish</button>   
+      </div>
+    )
   },
   render: function() {
     console.log('editpresentationprops', this.props)
@@ -35,11 +45,8 @@ export default React.createClass({
     } else {
       return (
         <div>
-          {this.props.currentPresentation.toJS().presentation.title ? this.renderTitle() : <AddPresentationNameForm {...this.props} />}
-          <h2>Presentation Question List</h2>
-          {this.props.currentPresentation ? this.showPresentationQuestions() : null}
-          <button onClick={this.props.createQuestion}>Add A New Question</button>
-          <button onClick={this.props.createOrEditPresentation}>Finish</button>
+          {this.props.currentPresentation ? this.renderTitle() : <AddPresentationNameForm {...this.props} />}
+          {this.props.currentPresentation ? this.renderQuestionView() : null}
         </div>
       )
     }

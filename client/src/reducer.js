@@ -95,6 +95,9 @@ export default function(state = fromJS(/*temp*/initialState), action) {
     return EducatorLoggedInActions.createQuestion(state);
   case 'SET_CURRENT_PRESENTATION_ID':
     return EducatorLoggedInActions.setCurrentPresentationID(state, action.presentationID);
+  case 'CLEAR_CURRENT_PRESENTATION_DATA':
+    return EducatorLoggedInActions.clearCurrentPresentationData(state);
+
   }
 
   return state;

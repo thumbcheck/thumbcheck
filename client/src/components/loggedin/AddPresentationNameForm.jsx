@@ -2,14 +2,11 @@ import React from 'react';
 import {toJS} from 'immutable';
 
 export default React.createClass({
-  addNewPresentation: function() {
+  createNewPresentationTitle: function() {
     let presentationTitle = this.presentationTitle;
-    if(this.props.currentPresentation.toJS().presentation.id) {
-      // make a PUT request with id
-    } else {
-      // make a POST request
-      this.props.addPresentation({title:presentationTitle, owner_id: this.props.educatorID});
-    }
+    console.log('in add presentaiton name form2');
+    console.log(this.props.educatorID, 'in addprsentation name form');
+    this.props.addPresentation({title:presentationTitle, educator_id: this.props.educatorID});
   },
   handlePresentationTitleChange: function(e) {
     this.presentationTitle = e.target.value;
@@ -20,7 +17,7 @@ export default React.createClass({
         <form>
           <h3>Add your title here!</h3>
           <input type="text" name="presentationTitle" placeholder='' onChange={this.handlePresentationTitleChange} />
-          <button onClick={this.addNewPresentation}>Add Presentation Title</button>
+          <button onClick={this.createNewPresentationTitle}>Add Presentation Title</button>
         </form>
       </div>
     )

@@ -17,6 +17,10 @@ export default React.createClass({
       return <PresentationListItem title={presentation.title} presentationID={presentation.id} {...this.props} />;
     });
   },
+  createPresentation: function() {
+    this.props.clearCurrentPresentation();
+    this.props.createOrEditPresentation();
+  },
   render: function() {
     return (
       <div>
@@ -26,7 +30,7 @@ export default React.createClass({
         {this.props.allEducatorPresentations ? this.displayPresentations() : null}
         <button type = 'button'
                 className = "btn grey white-text"
-                onClick = {this.props.createOrEditPresentation}>
+                onClick = {this.createPresentation}>
                 Create Presentation
         </button>
         <div className='presentations-container'></div>

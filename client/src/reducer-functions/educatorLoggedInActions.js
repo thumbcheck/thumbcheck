@@ -110,3 +110,11 @@ export function setCurrentPresentationID(state, presentationID) {
   console.log('setting questions', newState);
   return state.merge(newState);
 }
+
+export function clearCurrentPresentationData(state) {
+  let newState = {
+    currentPresentation: null,
+    currentPresentationID: null
+  };
+  return state.merge(newState);
+}
