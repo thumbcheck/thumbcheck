@@ -257,10 +257,17 @@ export function addPresentationQuestion(questionData) {
     let apiCall = ApiFunctions.addPresentationQuestion(questionData);
       apiCall
         .success(function(data) {
-          let action = {
-            type: 'ADD_PRESENTATION_QUESTION'
-          };
-          // dispatch(action);
+          ApiFunctions.getPresentation(data['presentation_id'])
+          .success((response) => {
+            let action = {
+              type: 'SET_PRESENTATION_DATA',
+              data: response
+            };
+            dispatch(action);
+          })
+          .error((jqXHR, textStatus, errorThrown) => {
+            console.log('Error: ', jqXHR, textStatus, errorThrown);
+          });
         })
         .error(function(jqXHR, textStatus, errorThrown) {
           console.log('Error: ', jqXHR, textStatus, errorThrown);

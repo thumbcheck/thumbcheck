@@ -12,13 +12,14 @@ const initialState = {
   currentPresentation: {
     presentation: {
       title: "George",
-      educatorID: 1
+      educatorID: 4
     },
     questions: [{prompt: 'Favorite Color?', questionChoices: [{letter: 'a', content:'green'},{letter: 'b', content:'blue'},{letter: 'c', content:'red'}] },
         {prompt: 'Favorite Food', questionChoices: [{letter: 'a', content:'pasta'},{letter: 'b', content:'pizza'},{letter: 'c', content:'jamba'}]}],
     currentQuestionIndex: 0,
     currentQuestion: {prompt: 'Favorite Color?', questionChoices: [{letter: 'a', content:'green'},{letter: 'b', content:'blue'},{letter: 'c', content:'red'}] }
   },
+
   //educatorLoggedIn: true,
   educatorID: 1
 };
