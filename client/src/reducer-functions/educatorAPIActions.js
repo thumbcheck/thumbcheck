@@ -12,11 +12,13 @@ export function setAllPresentations(state, data) {
 }
 
 export function setPresentation(state, data) {
+  console.log(data, 'logging data');
   let questions = [];
   data.questions.forEach((question) => {
     let questionObject = {};
     questionObject.prompt = question.prompt;
     questionObject.id = question.id;
+    questionObject.questionType = question.question_type;
 
     if(question['question_type'] === "Multiple Choice") {
       questionObject.questionChoices = [];
@@ -36,15 +38,18 @@ export function setPresentation(state, data) {
         questionObject.questionChoices.push(['e', question['choice_e']]);
       }
     }
-
     questions.push(questionObject);
   });
+
   let currentPresentation = {
-    presentation: data.presentation,
-    questionChoice: questions
-  };
+      presentation: data.presentation,
+      questionChoice: questions,
+      currentQuestion: questions[0],
+      currentQuestionIndex: 0,
+    };
   let newState = {currentPresentation: currentPresentation};
-  return state.merge(newState);
+  newState = fromJS(newState);
+  return state.merge(newState);    
 }
 
 export function setNewPresentation(state,data) {
@@ -58,6 +63,5 @@ export function setNewPresentation(state,data) {
     currentPresentation: currentPresentation,
     currentPresentationID: data.id
   };
-  console.log(newState, 'api set new presntaiton');
   return state.merge(newState);
 }

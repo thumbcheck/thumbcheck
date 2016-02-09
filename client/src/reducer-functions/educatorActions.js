@@ -9,6 +9,7 @@ export function stopVote(state) {
 //*** NEED TO FIGURE OUT 'MultipleChoice' vs 'multipleChoice3' etc ***//
 export function startVote(state, option) {  
   let newState;
+  console.log('option', option)
   if (option === 'thumbs') {
     newState = fromJS({
       voting: true,

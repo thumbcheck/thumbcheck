@@ -113,15 +113,16 @@ export default React.createClass({
   render: function() {
     return (      
       <div>
-        <SliderNativeBootstrap
+        {!this.props.preplannedPresentation ? <SliderNativeBootstrap
           defaultValue = {this.mapStateToSliderNumber()}
           handleChange={ this.changeSliderValue }
           step={1}
           max={2}
           min={0}
           disabled="no" />
+          : null}
 
-          { this.renderProperButton() }
+        {!this.props.preplannedPresentation ? this.renderProperButton() : null}
 
         <div className={this.showGraph()}>
           <div>Results from last check-in</div>
@@ -129,7 +130,7 @@ export default React.createClass({
         </div>
 
       {/** Render question information if in preplanned presentation*/}
-        {this.props.preplannedPresentation? <EducatorQuestionInformation {...this.props} /> : null}
+        {this.props.preplannedPresentation ? <EducatorQuestionInformation {...this.props} /> : null}
         
         {this.props.shareThumbsCheckResults || this.props.shareThumbsCheckResults === undefined ?
           <p></p> :
