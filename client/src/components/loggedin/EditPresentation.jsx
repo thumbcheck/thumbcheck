@@ -29,7 +29,7 @@ export default React.createClass({
     console.log('mounting props')
     this.props.getPresentationData(presentationID);
   },
-  renderQuestionView: function() {
+  renderQuestionView: function() { 
     return (
       <div>
         <h2>Presentation Question List</h2> 
