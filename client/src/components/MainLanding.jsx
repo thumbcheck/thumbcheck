@@ -30,16 +30,17 @@ export const Main = React.createClass({
         return <Educator {...this.props} />
       } else {
         return (
-          <div>
-              <div className="jumbotron center-text">
-                <h1>Hello!</h1>
-                <p>Welcome to Thumbcheck</p>
-                <RoleChoice chooseRole={this.props.chooseRole} 
-                            setError={this.props.setError}
-                            errMessage={this.props.errMessage}
-                            choice={this.props.choice} />
-                </div>
-          </div>
+          <div className="main-landing-parent-container">
+            <div className="main-landing-container center-text">
+                <div className="jumbotron center-text main-landing-content">
+                  <h1 className="jumbo-text">Welcome to Thumbscheck</h1>                
+                  <RoleChoice chooseRole={this.props.chooseRole} 
+                              setError={this.props.setError}
+                              errMessage={this.props.errMessage}
+                              choice={this.props.choice} />
+                  </div>
+            </div>
+          </div>  
         );
       }
     } else {
