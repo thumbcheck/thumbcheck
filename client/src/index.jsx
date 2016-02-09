@@ -32,7 +32,7 @@ generateID();
 store.subscribe(() => {
   let currentState = store.getState().toJS();
   console.log('newstate', currentState)
-  if(currentState.connected || currentState.educatorLoggedIn) {
+  if(currentState.connected) {
     socket.emit('state', store.getState().toJS());
   }
 });
