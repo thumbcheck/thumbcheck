@@ -122,7 +122,7 @@ export default React.createClass({
           disabled="no" />
           : null}
 
-          { this.renderProperButton() }
+        {!this.props.preplannedPresentation ? this.renderProperButton() : null}
 
         <div className={this.showGraph()}>
           <div>Results from last check-in</div>

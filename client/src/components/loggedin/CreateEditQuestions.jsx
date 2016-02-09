@@ -37,7 +37,7 @@ export default React.createClass({
     if (this.props.createQuestionTypeThumbCheck) {
       questionType = 'Thumbs Check';
     } else if (this.props.createQuestionTypeOpenResponse) {
-      questionType = 'Open Respose;';
+      questionType = 'Open Response';
     } else {
       questionType = 'Multiple Choice'; 
     }

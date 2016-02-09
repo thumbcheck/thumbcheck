@@ -41,6 +41,7 @@ export const Educator = React.createClass({
               <ResultsDisplay ref="resultsDisplay" {...this.props} /> :
               <EducatorRequestCheckin {...this.props} />
             }
+            
           </div>
        </div>
      </div>
