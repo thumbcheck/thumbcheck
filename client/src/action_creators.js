@@ -209,12 +209,12 @@ export function createQuestion(edit, dataForQuestion) {
 }
 
 export function deleteQuestion(questionId) {
-  return function(dispatch) {    
+  return function(dispatch) {
     let apiCall = ApiFunctions.deletePresentationQuestion(questionId);
       apiCall
         .success((response) => {
           let action = {
-            type: '',// do later if we want to refresh questions            
+            type: '',// do later if we want to refresh questions
             data: response
           };
           dispatch() // what goes here???
@@ -227,6 +227,7 @@ export function deleteQuestion(questionId) {
 
 export function educatorLogin(currentRoom) {
   return {
+    meta: {remote: true},
     type: 'EDUCATOR_LOGIN',
     currentRoom: currentRoom
   };
@@ -282,11 +283,11 @@ export function getPresentationData(presentationID) {
 
 export function addPresentationQuestion(questionData, editingQuestionId) {
   return function(dispatch) {
-    if (editingQuestionId) {      
+    if (editingQuestionId) {
       var apiCall = ApiFunctions.editPresentationQuestion(questionData, editingQuestionId);
     } else {
       var apiCall = ApiFunctions.addPresentationQuestion(questionData);
-    }      
+    }
       apiCall
         .success(function(data) {
           ApiFunctions.getPresentation(data['presentation_id'])

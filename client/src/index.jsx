@@ -30,8 +30,9 @@ const store = createStoreWithMiddleware(reducer);
 generateID();
 
 store.subscribe(() => {
-  let currentState = store.getState().toJS();  
-  if(currentState.connected) {
+  let currentState = store.getState().toJS();
+  console.log('newstate', currentState)
+  if(currentState.connected || currentState.educatorLoggedIn) {
     socket.emit('state', store.getState().toJS());
   }
 });

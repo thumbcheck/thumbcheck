@@ -24,7 +24,7 @@ export default React.createClass({
         if(data === 1) {
           console.log('User Found. Trigger Login')
           that.props.educatorLogin(username);
-          //window.location.assign(username+'?type=host');
+          window.location.assign(username+'?type=host');
         } else {
           that.props.setError('Invalid username or password. Please try again.');
         }
