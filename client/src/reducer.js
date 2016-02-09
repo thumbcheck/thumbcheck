@@ -92,8 +92,10 @@ export default function(state = fromJS(/*temp*/initialState), action) {
     return EducatorAPIActions.setAllPresentations(state,action.data);
   case 'SET_PRESENTATION_DATA':
     return EducatorAPIActions.setPresentation(state,action.data);
-  case 'CREATE_QUESTION':
-    return EducatorLoggedInActions.createQuestion(state);
+  case 'CREATE_QUESTION':    
+    return EducatorLoggedInActions.createQuestion(state, action.edit, action.dataForQuestion);
+  case 'DELETE_QUESTION':
+    return EducatorAPIActions.deleteQuestion(state);
   case 'SET_CURRENT_PRESENTATION_ID':
     return EducatorLoggedInActions.setCurrentPresentationID(state, action.presentationID);
   case 'CLEAR_CURRENT_PRESENTATION_DATA':

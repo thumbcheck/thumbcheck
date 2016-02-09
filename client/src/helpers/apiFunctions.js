@@ -32,6 +32,14 @@ export function addPresentationQuestion(questionData) {
       data: questionData
     });
 }
+export function editPresentationQuestion(questionData, editingQuestionId) {
+  console.log('sending off PUT', editingQuestionId);
+  return $.ajax({
+      type: 'PUT',
+      url: '/api/questions/' + editingQuestionId,
+      data: questionData
+    });
+}
 
 // POST a new presentation for a user (**Needs to include educator id in data**)
 export function addPresentation(presentationData) {
@@ -43,18 +51,12 @@ export function addPresentation(presentationData) {
 }
 
 // PUT a question in a given presentation (**Needs to include presentation id and educator id in data**)
-export function editPresentationQuestion(questionData) {
+
+export function getIndividualQuestion(questionId) {
   $.ajax({
-      type: 'PUT',
-      url: /**NEED TO ADD**/'',
-      data: questionData
-    })
-    .success(function(data) {
-      console.log(data);
-    })
-    .error(function(jqXHR, textStatus, errorThrown) {
-      console.log('Error: ', qXHR, textStatus, errorThrown);
-    });
+    type: 'GET',
+    url: '/api/questions/' + questionId    
+  })    
 }
 
 // PUT an existing presentation (**Needs to include educator id in data**)
@@ -74,16 +76,10 @@ export function editPresentation(presentationData) {
 
 // DELETE a question in a given presentation
 export function deletePresentationQuestion(questionID) {
-  $.ajax({
+  return $.ajax({
       type: 'DELETE',
-      url: /**NEED TO ADD**/'',
-    })
-    .success(function(data) {
-      console.log(data);
-    })
-    .error(function(jqXHR, textStatus, errorThrown) {
-      console.log('Error: ', qXHR, textStatus, errorThrown);
-    });
+      url: '/api/questions/' + questionID
+    })    
 }
 
 // DELETE an existing presentation  

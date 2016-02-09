@@ -43,6 +43,9 @@ export default function mapStateToProps(state) {
     educatorID: state.get('educatorID'),
     allEducatorPresentations: state.get('allEducatorPresentations'),
     creatingQuestion: state.get('creatingQuestion'),
-    currentPresentationID: state.get('currentPresentationID')
+    currentPresentationID: state.get('currentPresentationID'),
+    deleteQuestion: state.get('deleteQuestion'),
+    editingQuestionIdInfo: state.get('editingQuestionIdInfo'),
+    getIndividualQuestion: state.get('getIndividualQuestion')
   };
 }

@@ -193,9 +193,28 @@ export function toggle5choices() {
   };
 }
 
-export function createQuestion() {
+export function createQuestion(edit, dataForQuestion) {
   return {
-    type: 'CREATE_QUESTION'
+    type: 'CREATE_QUESTION',
+    edit: edit,
+    dataForQuestion: dataForQuestion
+  };
+}
+
+export function deleteQuestion(questionId) {
+  return function(dispatch) {    
+    let apiCall = ApiFunctions.deletePresentationQuestion(questionId);
+      apiCall
+        .success((response) => {
+          let action = {
+            type: '',// do later if we want to refresh questions            
+            data: response
+          };
+          dispatch() // what goes here???
+        })
+        .error((jqXHR, textStatus, errorThrown) => {
+        console.log('Error: ', jqXHR, textStatus, errorThrown);
+      });
   };
 }
 
@@ -252,9 +271,13 @@ export function getPresentationData(presentationID) {
   };
 }
 
-export function addPresentationQuestion(questionData) {
+export function addPresentationQuestion(questionData, editingQuestionId) {
   return function(dispatch) {
-    let apiCall = ApiFunctions.addPresentationQuestion(questionData);
+    if (editingQuestionId) {      
+      var apiCall = ApiFunctions.editPresentationQuestion(questionData, editingQuestionId);
+    } else {
+      var apiCall = ApiFunctions.addPresentationQuestion(questionData);
+    }      
       apiCall
         .success(function(data) {
           ApiFunctions.getPresentation(data['presentation_id'])

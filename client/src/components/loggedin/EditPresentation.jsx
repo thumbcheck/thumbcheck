@@ -12,12 +12,13 @@ export default React.createClass({
         <h2>Presentation Title: {currentPresentationTitle} </h2>
       </div>
     )
-  },
-  showPresentationQuestions: function() {
-    let currentPresentationQuestionData = this.props.currentPresentation.toJS().questionChoice;
-    if(currentPresentationQuestionData) {
+  },  
+  showPresentationQuestions: function() {    
+    let deleteQuestion = this.props.deleteQuestion, createQuestion=this.props.createQuestion;
+    let currentPresentationQuestionData = this.props.currentPresentation.toJS().questionChoice;    
+    if(currentPresentationQuestionData) {      
       return currentPresentationQuestionData.map(function(questionData) {
-        return <QuestionListItem title={questionData.prompt} />
+        return <QuestionListItem title={questionData.prompt} id={questionData.id} deleteQuestion={deleteQuestion} createQuestion={createQuestion} dataForQuestion={questionData}/>
       });
     } else {
       return null;
