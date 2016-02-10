@@ -215,20 +215,26 @@ export function endPreplannedPresentation() {
     type: 'END_PREPLANNED_PRESENTATION',
   };
 }
-export function deleteQuestion(questionId) {
+export function deleteQuestion(questionId, presentationID) {
   return function(dispatch) {
     let apiCall = ApiFunctions.deletePresentationQuestion(questionId);
       apiCall
         .success((response) => {
-          let action = {
-            type: '',// do later if we want to refresh questions
-            data: response
-          };
-          // dispatch() // what goes here???
+          ApiFunctions.getPresentation(presentationID)
+          .success((response) => {
+            let action = {
+              type: 'SET_PRESENTATION_DATA',
+              data: response
+            };
+            dispatch(action);
+          })
+          .error((jqXHR, textStatus, errorThrown) => {
+            console.log('Error: ', jqXHR, textStatus, errorThrown);
+          });  
         })
         .error((jqXHR, textStatus, errorThrown) => {
-        console.log('Error: ', jqXHR, textStatus, errorThrown);
-      });
+          console.log('Error: ', jqXHR, textStatus, errorThrown);
+        });
   };
 }
 

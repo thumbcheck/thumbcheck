@@ -2,14 +2,13 @@ import React from 'react';
 export default React.createClass({
   deleteQuestion: function() {
   	const id = this.props.id;
-  	this.props.deleteQuestion(id);
+  	this.props.deleteQuestion(id, this.props.currentPresentationID);
   },
   editQuestion: function(){
   	// call the create question page with this question's info
   	this.props.createQuestion(true, this.props.dataForQuestion);
   },
   render: function() {
-  	// console.log('question page', this.props);
     return (
       <div>
         {this.props.title}
