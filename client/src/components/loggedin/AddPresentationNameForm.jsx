@@ -15,8 +15,8 @@ export default React.createClass({
       <div>
         <h3>Presentation Title:</h3>
         <input type="text" name="presentationTitle" placeholder='' onChange={this.handlePresentationTitleChange} />
-        <button className="btn" onClick={this.createNewPresentationTitle}>Submit</button>
-        <button className="btn" onClick={ this.props.createOrEditPresentation }>Cancel</button>
+        <button className="btn grey white-text" onClick={this.createNewPresentationTitle}>Submit</button>
+        <button className="btn light-grey white-text" onClick={ this.props.createOrEditPresentation }>Cancel</button>
       </div>
     )
   }
