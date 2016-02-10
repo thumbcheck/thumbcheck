@@ -251,6 +251,7 @@ export function logout(roomname) {
   return function(dispatch){
     let apiCall = ApiFunctions.logout(roomname, (response) => {
       let action = {
+        meta: {remote: true},
         type: 'SET_INITIAL_STATE'
       };
       dispatch(action);

@@ -39,17 +39,15 @@ export default React.createClass({
   },
 
   renderLogout: function() {
-    console.log('is Educator Logged in in Navbar?', this.props)
-    if(this.props.educatorLoggedIn){
+    console.log('is Educator Logged in in Navbar?', this.props)    
       return (
         <div>
           <li role="separator" className="divider"></li>
-          <li className="questions-list" onClick={ this.logoutUser }>Logout</li>
+          <li className="questions-list" onClick={ this.logoutUser }>      
+          	{ this.props.educatorLoggedIn ? "Logout" : "Leave Room" }
+          </li>
         </div>
-      )
-    } else {
-      return null;
-    }
+      )            
   },
 
   render: function() {
