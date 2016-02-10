@@ -187,5 +187,16 @@ html,body { height: 100%; margin: 0px; padding: 0px; font-family: 'HelveticaNeue
 	width: 200px;
 	margin-left: 5%;
 }
+.raise-hand-container {	
+	position: absolute;
+	top: 6%;
+	right: 8%;
+}
+.student-hand-icon {
+	width: 35%
+}
+.raise-hand-button {
+	font-size: 1.3em;
+}
 
 
