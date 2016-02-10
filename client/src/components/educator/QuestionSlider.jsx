@@ -15,7 +15,7 @@ export default React.createClass({
 	      step={this.props.step} />
 
 	      <div className="orange-text">
-	      	<div className="inlineD">Thumbs <br /> check</div> 
+	      	<div className="inlineD">Thumb <br /> Check</div> 
 	      	<div className="inlineD">Multiple <br />Choice</div> 
 	      	<div className="inlineD">Free <br /> Response</div>
 	      </div>
