@@ -224,7 +224,7 @@ export function deleteQuestion(questionId) {
             type: '',// do later if we want to refresh questions
             data: response
           };
-          dispatch() // what goes here???
+          // dispatch() // what goes here???
         })
         .error((jqXHR, textStatus, errorThrown) => {
         console.log('Error: ', jqXHR, textStatus, errorThrown);
