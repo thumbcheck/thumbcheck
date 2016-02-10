@@ -9,6 +9,8 @@ import CreateEditQuestions from './CreateEditQuestions';
 
 export default React.createClass({
   render: function() {
+    console.log('EDUCATOR ID', this.props.educatorID);
+
     if (this.props.preplannedPresentation) {
       return <Educator {...this.props} />
     } else if (this.props.editingOrCreatingPresentation) {
@@ -17,7 +19,7 @@ export default React.createClass({
           <Navbar lowerStudentHand={this.props.lowerStudentHand}
                questions={this.props.questions} toggleTakingQuestions={this.props.toggleTakingQuestions}
                sharingAllThumbsCheckResults={this.props.sharingAllThumbsCheckResults} takingQuestions={this.props.takingQuestions}
-               toggleSharingAllThumbsCheckResults={this.props.toggleSharingAllThumbsCheckResults} logout={this.props.logout}/> 
+               toggleSharingAllThumbsCheckResults={this.props.toggleSharingAllThumbsCheckResults} logout={this.props.logout}/>
           <EditPresentation {...this.props} />
         </div>
       )
@@ -29,7 +31,7 @@ export default React.createClass({
           <Navbar lowerStudentHand={this.props.lowerStudentHand}
                questions={this.props.questions} toggleTakingQuestions={this.props.toggleTakingQuestions}
                sharingAllThumbsCheckResults={this.props.sharingAllThumbsCheckResults} takingQuestions={this.props.takingQuestions}
-               toggleSharingAllThumbsCheckResults={this.props.toggleSharingAllThumbsCheckResults} logout={this.props.logout}/>  
+               toggleSharingAllThumbsCheckResults={this.props.toggleSharingAllThumbsCheckResults} logout={this.props.logout}/>
           <h1>Welcome! You have reached the exclusive members page!</h1>
           <PresentationList {...this.props}/>
         </div>
@@ -37,4 +39,4 @@ export default React.createClass({
     }
   }
 });
- 
+

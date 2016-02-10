@@ -11,8 +11,10 @@ import sessionsController from './controllers/sessionsController';
 import questionController from './controllers/questionController';
 import presentationController from './controllers/presentationController';
 import {checkRoom} from './controllers/redisStateController';
+import jwt from 'jwt-simple';
 
 const router = express.Router();
+const tokenSecret = 'shhhh baby es ok';
 
 function createRoom (cb) {
   checkRoom(generateRoomName(), (result, room) => {
@@ -51,23 +53,38 @@ router.route('/room')
 //   });
 
 router.route('/login')
-  .get((req,res) => {
-    res.sendFile(path.join(__dirname, "../client/dist/testLoginForm.html"));
-  })
   .post((req,res,next) => {
-    return passport.authenticate('local-login', {successRedirect: '/success', failureRedirect: '/fail'})(req,res, next);
+    console.log(req.body, req.body.username, req.body.password);
+    //res.send(200, {username: req.body.username, password: req.body.password});
+    userController.getUser(req.body, (result) => {
+      //console.log('result from database in server', result);
+      const token = jwt.encode({ username: req.body.username, educator_id: result.educator_id }, tokenSecret);
+      if (result.found) {
+        res.cookie('remember', token, { maxAge: 7200000 })
+      }
+      console.log('RESULT FROM DATABSE!!!!!!!!',result)
+      res.send(200, result);
+    });
   });
 
-router.route('/logout')  
-  .post((req,res) => { 
-    res.clearCookie('remember');    
+router.route('/logout')
+  .post((req,res) => {
+    res.clearCookie('remember');
     res.send(200, 'logged out');
-  })  
+  })
 
+
+//creates new users
 router.route('/api/users')
   .post((req,res) => {
     console.log('in api users post', req.body);
     userController.createUser(req.body, (result) => {
+      const token = jwt.encode({ username: req.body.username, educator_id: result.educator_id }, tokenSecret);
+      //console.log('TOKEN', token);
+      console.log('IN USER CREATION', result.status);
+      if (result.status === 'Account created') {
+        res.cookie('remember', token, { maxAge: 7200000 })
+      }
       res.send(201, result);
     });
   })
@@ -77,16 +94,31 @@ router.route('/api/users')
     });
   })
 
-router.route('/api/users/:username')
+//calling this route decodes the cookie of the user
+//returns the username and educator_id
+router.route('/api/userid')
   .post((req,res) => {
-    console.log(req.body, req.body.username, req.body.password);
-    //res.send(200, {username: req.body.username, password: req.body.password});
-    userController.getUser(req.body, (result) => {
-      //console.log('result from database in server', result);
-      res.cookie('remember', 'randomhashshouldgohere', { maxAge: 6000000 })
-      res.send(200, result);
-    });
+    const decoded = jwt.decode(req.body.cookies, tokenSecret);
+    console.log('DECODED IN SERVER', decoded, decoded.educator_id);
+    res.send(200, {'educator_id': decoded.educator_id, 'username': decoded.username});
   })
+
+
+// router.route('/api/users/:username')
+//   .post((req,res) => {
+//     console.log(req.body, req.body.username, req.body.password);
+//     //res.send(200, {username: req.body.username, password: req.body.password});
+//     userController.getUser(req.body, (result) => {
+//       //console.log('result from database in server', result);
+//       const token = jwt.encode({ username: req.body.username, educator_id: result.educator_id }, tokenSecret);
+//       console.log('TOKEN', token);
+//       if (result.found) {
+//         res.cookie('remember', token, { maxAge: 7200000 })
+//       }
+//       console.log('RESULT FROM DATABSE!!!!!!!!',result)
+//       res.send(200, result);
+//     });
+//   })
 
 //post new questions
 router.route('/api/questions')

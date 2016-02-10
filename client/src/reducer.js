@@ -22,7 +22,8 @@ const initialState = {
   // },
   //educatorLoggedIn: true,
   // ***** ALSO DELETE THIS IS IN userSettings 'setInitialState' ****
-  educatorID: 1
+  //educatorID: 1
+  //educatorID: 0
 };
 
 export default function(state = fromJS(/*temp*/initialState), action) {
@@ -66,7 +67,7 @@ export default function(state = fromJS(/*temp*/initialState), action) {
   case 'TOGGLE_THUMBS_GRAPH':
     return EducatorActions.toggleThumbsGraph(state);
   case 'TOGGLE_SHARING_ALL_RESULTS':
-    return EducatorActions.ToggleSharingAllThumbsCheckResults(state);  
+    return EducatorActions.ToggleSharingAllThumbsCheckResults(state);
   // case 'LOWER_STUDENT_HAND':
   //   return addQuestion(state, action.id, action.name, true);
   case 'SET_NUMUSERS':
@@ -75,6 +76,8 @@ export default function(state = fromJS(/*temp*/initialState), action) {
     return EducatorLoggedInActions.educatorLogin(state, action.currentRoom);
   case 'LOG_OUT':
     return EducatorLoggedInActions.logout(state)
+  case 'SET_EDUCATOR_ID':
+    return EducatorLoggedInActions.setEducatorID(state, action.educatorID);
   case 'CREATE_OR_EDIT_PRESENTATION':
     return EducatorLoggedInActions.editOrCreatePresentation(state);
   case 'PREPLANNED_PRESENTATION':
@@ -99,7 +102,7 @@ export default function(state = fromJS(/*temp*/initialState), action) {
     return EducatorAPIActions.setAllPresentations(state,action.data);
   case 'SET_PRESENTATION_DATA':
     return EducatorAPIActions.setPresentation(state,action.data);
-  case 'CREATE_QUESTION':    
+  case 'CREATE_QUESTION':
     return EducatorLoggedInActions.createQuestion(state, action.edit, action.dataForQuestion, action.cancel);
   case 'DELETE_QUESTION':
     return EducatorAPIActions.deleteQuestion(state);

@@ -23,7 +23,8 @@ function createUser (params, callback) {
         email: params.email
       })
       .then((response) => {
-        callback({'status': 'Account created'});
+        console.log('RESPONSE IN USER CREATION', response);
+        callback({'status': 'Account created', 'educator_id':response.dataValues.id});
       });
     }
   });
@@ -47,7 +48,9 @@ function getUser (params, callback) {
   .then((response) => {
     console.log('response from database', response[0]);
     let username = response[0] || 'not authorized';
-    response.length ? callback(1) : callback(0);
+    response.length ?
+      callback({'found': 1, 'educator_id':response[0].dataValues.id})
+      : callback({found: 0});
   });
 
 }

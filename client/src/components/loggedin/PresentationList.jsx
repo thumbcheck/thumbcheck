@@ -4,15 +4,37 @@ import PresentationListItem from './PresentationListItem';
 // must create this.props.createPresentation and deal with editing a presentation
 
 export default React.createClass({
+  getCookie: function(name) {
+    var regexp = new RegExp("(?:^" + name + "|;\s*"+ name + ")=(.*?)(?:;|$)", "g");
+    var result = regexp.exec(document.cookie);
+    return (result === null) ? null : result[1];
+  },
+
   componentDidMount: function() {
-    this.props.getAllPresentations(this.props.educatorID);
+    let isLoggedIn = this.getCookie('remember');
+    const that = this;
+    $.ajax({
+      type: 'POST',
+      url: '/api/userid/',
+      dataType: "json",
+      data: {
+        cookies: isLoggedIn
+      }
+    })
+    .success(function(data) {
+      //console.log('in component did mount success', data);
+      that.props.getAllPresentations(data.educator_id);
+      that.props.setEducatorID(data.educator_id);
+    });
+    //let isLoggedIn = this.decodeCookie(this.getCookie('remember'));
+    //this.props.getAllPresentations(isLoggedIn.educator_id);
   },
   displayPresentations: function() {
     // var presentationArray = this.props.presentationData;
     // var presentationArray = [{title: 'George Washington'},{title: 'Crack Reactor'}];
     let presentationArray = this.props.allEducatorPresentations;
     return presentationArray.map((presentation) => {
-      presentation = presentation.toJS();      
+      presentation = presentation.toJS();
       return <PresentationListItem title={presentation.title} presentationID={presentation.id} {...this.props} />;
     });
   },

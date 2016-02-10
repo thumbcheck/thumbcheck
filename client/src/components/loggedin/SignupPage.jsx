@@ -15,6 +15,8 @@ export default React.createClass({
     if (!name || !email || !username || !password) {
       console.log('All fields must be filled in.')
       this.props.setError('All fields must be filled in.');
+    } else if (username === 'room' || username=== 'login') {
+      this.props.setError('Username already taken. Please choose a new one.');
     } else {
       $.ajax({
         type: 'POST',
@@ -33,6 +35,7 @@ export default React.createClass({
           that.props.setError('Username already taken. Please choose a new one.');
         } else {
           that.props.educatorLogin(username);
+          window.location.assign(username+'?type=host');
         }
       });
     }

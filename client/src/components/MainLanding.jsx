@@ -25,10 +25,11 @@ export const Main = React.createClass({
     var result = regexp.exec(document.cookie);
     return (result === null) ? null : result[1];
   },
+
  /*** NEED TO REFACTOR LOCAL STORAGE ITEMS ***/
   render: function() {
     let isLoggedIn = this.getCookie('remember');
-    console.log('cookies', isLoggedIn);
+
     if (this.canWriteLocalStorage()) {
       if (this.props.userType === 'student') {
         return (<Student {...this.props} />)

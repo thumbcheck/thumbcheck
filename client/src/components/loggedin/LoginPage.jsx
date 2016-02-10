@@ -13,7 +13,7 @@ export default React.createClass({
     } else {
       $.ajax({
         type: 'POST',
-        url: '/api/users/'+username,
+        url: '/login',
         dataType: "json",
         data: {
           username: username,
@@ -21,7 +21,7 @@ export default React.createClass({
         }
       })
       .success(function(data) {
-        if(data === 1) {
+        if(data.found === 1) {
           console.log('User Found. Trigger Login')
           that.props.educatorLogin(username);
           window.location.assign(username+'?type=host');
