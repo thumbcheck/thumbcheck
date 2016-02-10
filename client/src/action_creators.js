@@ -307,7 +307,7 @@ export function getPresentationData(presentationID) {
   };
 }
 
-export function addPresentationQuestion(questionData, editingQuestionId) {
+export function addPresentationQuestion(questionData, editingQuestionId, editingQuestionPresentationId) {
   return function(dispatch) {
     if (editingQuestionId) {
       var apiCall = ApiFunctions.editPresentationQuestion(questionData, editingQuestionId);
@@ -315,8 +315,10 @@ export function addPresentationQuestion(questionData, editingQuestionId) {
       var apiCall = ApiFunctions.addPresentationQuestion(questionData);
     }
       apiCall
-        .success(function(data) {
-          ApiFunctions.getPresentation(data['presentation_id'])
+        .success((data) => {
+          console.log('response from GET or PUT', data);
+          let queryInput = editingQuestionPresentationId || data['presentation_id'];
+          ApiFunctions.getPresentation(queryInput)
           .success((response) => {
             let action = {
               type: 'SET_PRESENTATION_DATA',

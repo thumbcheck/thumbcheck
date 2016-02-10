@@ -58,12 +58,13 @@ export default React.createClass({
           questionData.questionAnswer.e = this.multipleChoiceEValue;
         }
       }
-      // if it's an edited quesiton, pass along the ID for PUT
       let editingId = false;
+      let editingQuestionPresentationID;
       if (this.props.editingQuestionIdInfo[0] !== ".") {
         editingId = this.props.editingQuestionIdInfo.toJS().id;
+        editingQuestionPresentationID = this.props.currentPresentationID;
       }        
-      this.props.addPresentationQuestion(questionData, editingId);
+      this.props.addPresentationQuestion(questionData, editingId, editingQuestionPresentationID);
       this.props.createQuestion();
     }
   },
@@ -86,7 +87,6 @@ export default React.createClass({
     // if it's a question being edited add the question info  
     if (!this.questionPrompt) {   
       if (this.props.editingQuestionIdInfo[0] !== ".") {      
-        console.log('editing this question', this.props.editingQuestionIdInfo.toJS());
         let questionInfo = this.props.editingQuestionIdInfo.toJS();
         this.questionPrompt = questionInfo.prompt;    
       } else {
@@ -98,7 +98,6 @@ export default React.createClass({
     this.props.createQuestion(null, null, true);
   },
   render: function() {
-    console.log('create edit question page', this.props);
     return (
       <div>
         <div>
