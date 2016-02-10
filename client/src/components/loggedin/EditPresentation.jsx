@@ -15,10 +15,17 @@ export default React.createClass({
   showPresentationQuestions: function() {    
     let deleteQuestion = this.props.deleteQuestion; 
     let createQuestion=this.props.createQuestion;
+    let currentPresentationID = this.props.currentPresentationID;
     let currentPresentationQuestionData = this.props.currentPresentation.toJS().questionChoice;    
     if(currentPresentationQuestionData) {      
       return currentPresentationQuestionData.map(function(questionData) {
-        return <QuestionListItem key={questionData.id} title={questionData.prompt} id={questionData.id} deleteQuestion={deleteQuestion} createQuestion={createQuestion} dataForQuestion={questionData}/>
+        return <QuestionListItem key={questionData.id}
+                                 title={questionData.prompt} 
+                                 id={questionData.id} 
+                                 deleteQuestion={deleteQuestion} 
+                                 createQuestion={createQuestion} 
+                                 dataForQuestion={questionData}
+                                 currentPresentationID={currentPresentationID}/>
       });
     } else {
       return null;
