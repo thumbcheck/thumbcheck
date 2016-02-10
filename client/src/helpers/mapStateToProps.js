@@ -47,6 +47,7 @@ export default function mapStateToProps(state) {
     currentPresentationID: state.get('currentPresentationID'),
     deleteQuestion: state.get('deleteQuestion'),
     editingQuestionIdInfo: state.get('editingQuestionIdInfo'),
-    getIndividualQuestion: state.get('getIndividualQuestion')
+    getIndividualQuestion: state.get('getIndividualQuestion'),
+    justVoted: state.get('justVoted')
   };
 }
