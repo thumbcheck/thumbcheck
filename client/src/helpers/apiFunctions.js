@@ -25,7 +25,6 @@ export function getPresentation(presentationID) {
 
 // POST a new question for a given presentation (**Needs to include presentation id and educator id in data**)
 export function addPresentationQuestion(questionData) {
-  console.log('in ajax call!');
   return $.ajax({
       type: 'POST',
       url: '/api/questions',
@@ -33,7 +32,6 @@ export function addPresentationQuestion(questionData) {
     });
 }
 export function editPresentationQuestion(questionData, editingQuestionId) {
-  console.log('sending off PUT', editingQuestionId);
   return $.ajax({
       type: 'PUT',
       url: '/api/questions/' + editingQuestionId,
@@ -56,7 +54,7 @@ export function getIndividualQuestion(questionId) {
   $.ajax({
     type: 'GET',
     url: '/api/questions/' + questionId    
-  })    
+  });    
 }
 
 // PUT an existing presentation (**Needs to include educator id in data**)
@@ -79,7 +77,7 @@ export function deletePresentationQuestion(questionID) {
   return $.ajax({
       type: 'DELETE',
       url: '/api/questions/' + questionID
-    })    
+    });    
 }
 
 // DELETE an existing presentation  
@@ -97,7 +95,6 @@ export function deletePresentation(presentationID) {
     });
 }
 export function logout(roomname, callback) {
-  console.log('roomname', roomname);
   $.ajax({
     type: 'POST',
     url: '/logout',
