@@ -4,6 +4,7 @@
  *  to create the database and the tables.*/
 -- ***** CHANGE THIS TO THE PATH TO THIS FILE IN *YOUR* FILE SYSTEM *****
  -- command to file to run in psql: \i /Users/msandusky/desktop/thesis/ambivalent-acacia/server/models/schema.sql
+-- \i /Users/krisalbert/Documents/HackReactor/ambivalent-acacia/server/models/schema.sql
 
 drop database thumbscheck;
 
@@ -14,7 +15,7 @@ CREATE DATABASE thumbscheck;
 CREATE TABLE users (
   id serial PRIMARY KEY,
   username VARCHAR(30) not null,
-  password VARCHAR(30) not null,
+  password VARCHAR(100) not null,
   name VARCHAR(40) not null,
   email VARCHAR(40) not null,
   updated_at TIMESTAMP,

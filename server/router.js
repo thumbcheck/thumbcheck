@@ -55,6 +55,10 @@ router.route('/room')
 router.route('/login')
   .post((req,res,next) => {
     //res.send(200, {username: req.body.username, password: req.body.password});
+    // bcrypt.hash(req.body.password, null, null, function(err, hash) {
+    //   console.log('MY HASH', hash);
+    //   req.body.password = hash;
+    // });
     userController.getUser(req.body, (result) => {
       //console.log('result from database in server', result);
       const token = jwt.encode({ username: req.body.username, educator_id: result.educator_id }, tokenSecret);
@@ -66,18 +70,19 @@ router.route('/login')
     });
   });
 
-router.route('/logout')  
-  .post((req,res) => { 
+router.route('/logout')
+  .post((req,res) => {
     deleteRoom(req.body.roomname, () => {
-    res.clearCookie('remember');    
-    res.send(200, 'logged out');      
+    res.clearCookie('remember');
+    res.send(200, 'logged out');
     });
-  }); 
+  });
 
 
 //creates new users
 router.route('/api/users')
   .post((req,res) => {
+
     console.log('in api users post', req.body);
     userController.createUser(req.body, (result) => {
       const token = jwt.encode({ username: req.body.username, educator_id: result.educator_id }, tokenSecret);
