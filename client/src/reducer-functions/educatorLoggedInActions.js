@@ -4,7 +4,7 @@ export function educatorLogin(state, currentRoom) {
   let newState = fromJS({
     educatorLoggedIn: true,
     //userType: 'educator',
-    currentRoom: currentRoom
+    //currentRoom: currentRoom
   });
   return state.merge(newState);
 }
@@ -114,7 +114,7 @@ export function createQuestion(state, edit, questionData, cancel) {
   let toggle = !state.get('creatingQuestion');
   if (edit) {
     const newState = fromJS({
-      creatingQuestion: toggle, 
+      creatingQuestion: toggle,
       editingQuestionIdInfo: questionData,
       createQuestionTypeMultipleChoice: false,
       createQuestionTypeThumbCheck: false,
