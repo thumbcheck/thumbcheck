@@ -98,6 +98,8 @@ export default function(state = fromJS(/*temp*/initialState), action) {
     return EducatorLoggedInActions.toggle5choices(state);
   case 'POST_PRESENTATION_DATA':
     return EducatorAPIActions.addPresentation(state);
+  case 'DELETE_PRESENTATION':
+    return EducatorAPIActions.deletePresentation(state, action.presentationId);
   case 'SET_ALL_PRESENTATION_DATA':
     return EducatorAPIActions.setAllPresentations(state,action.data);
   case 'SET_PRESENTATION_DATA':

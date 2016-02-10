@@ -9,14 +9,17 @@ export default React.createClass({
     console.log('in preplanned presentation', this.props.presentationID);
     this.props.startPreplannedPresentation();
   },
+  deletePresentation: function() {    
+    this.props.deletePresentation(this.props.presentationID, this.props.educatorID);
+
+  },
   render: function() {
     return (
       <tr>
         <td>{this.props.title}</td>
-        <td className="pull-right move-right">
-          <button onClick={this.viewPresentation}>Edit</button>
-          <button onClick={this.startPreplannedPresentation}>Play</button>
-        </td>          
+        <td onClick={this.startPreplannedPresentation}>Play</td>        
+        <td className=" move-right" onClick={this.viewPresentation}>Edit</td>            
+        <td className="remove-icon move-right" onClick={ this.deletePresentation } aria-hidden="true"><img className="remove-icon" src="/images/icons/remove.png"/></td>                                       
       </tr>
     );
   }

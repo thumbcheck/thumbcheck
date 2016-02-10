@@ -47,6 +47,13 @@ export function addPresentation(presentationData) {
     data: presentationData,
   });
 }
+// delete a given presentation
+export function deletePresentation(presentationId) {
+  return $.ajax({
+    type: 'DELETE',
+    url: '/api/presentations/' + presentationId    
+  });
+}
 
 // PUT a question in a given presentation (**Needs to include presentation id and educator id in data**)
 
@@ -80,20 +87,6 @@ export function deletePresentationQuestion(questionID) {
     });    
 }
 
-// DELETE an existing presentation  
-export function deletePresentation(presentationID) {
-  $.ajax({
-      type: 'DELETE',
-      url: /**NEED TO ADD**/'',
-      data: presentationData
-    })
-    .success(function(data) {
-      console.log(data);
-    })
-    .error(function(jqXHR, textStatus, errorThrown) {
-      console.log('Error: ', qXHR, textStatus, errorThrown);
-    });
-}
 export function logout(roomname, callback) {
   $.ajax({
     type: 'POST',
