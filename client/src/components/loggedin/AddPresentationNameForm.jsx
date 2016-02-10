@@ -13,10 +13,10 @@ export default React.createClass({
     console.log('add pres page', this.props);
     return (
       <div>
-        <h3>Add your title here!</h3>
+        <h3>Presentation Title:</h3>
         <input type="text" name="presentationTitle" placeholder='' onChange={this.handlePresentationTitleChange} />
-        <button onClick={this.createNewPresentationTitle}>Add Presentation Title</button>
-        <button onClick={ this.props.createOrEditPresentation }>Cancel</button>
+        <button className="btn" onClick={this.createNewPresentationTitle}>Submit</button>
+        <button className="btn" onClick={ this.props.createOrEditPresentation }>Cancel</button>
       </div>
     )
   }

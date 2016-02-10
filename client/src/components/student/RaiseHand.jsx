@@ -40,7 +40,7 @@ export default React.createClass({
     this.checkHandRaised();
     return (
       <div>
-        <button type='button btn-info' type='button'
+        <button type='button btn-info'
                 onClick={this.toggleHandRaise} >
                 {this.nameInQueue() ? 'Lower Hand' : 'Raise Hand'}
         </button>

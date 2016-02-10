@@ -46,8 +46,6 @@ export default React.createClass({
     console.log('main page', this.props);
     return (
       <div>
-        <h4>Room name: <strong>{this.props.currentRoom}</strong></h4>
-        <h4>Share this URL: <strong>{window.location.href.split('?')[0]}</strong></h4>
         <h2>Presentations:</h2>
         <div className="table-responsive">
           <table className="table-hover content-table">
@@ -62,6 +60,8 @@ export default React.createClass({
                 Create Presentation
         </button>
         <div className='presentations-container'></div>
+        <h5>Your Room: <strong>{this.props.currentRoom}</strong></h5>
+        <h5>Room URL: <strong>{window.location.href.split('?')[0]}</strong></h5>
       </div>
     );
   }

@@ -31,7 +31,6 @@ export default React.createClass({
         <div>
           <Navbar {...this.props} />
           <div className="preplanned-container">
-            <h1>Welcome! You have reached the exclusive members page!</h1>
             <PresentationList {...this.props}/>
           </div>
         </div>
