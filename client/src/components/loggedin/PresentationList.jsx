@@ -33,6 +33,9 @@ export default React.createClass({
     return presentationArray.map((presentation) => {
       presentation = presentation.toJS();
       return <PresentationListItem key={presentation.id} title={presentation.title} presentationID={presentation.id} {...this.props} />;
+      return (        
+          <PresentationListItem key={presentation.id} title={presentation.title} presentationID={presentation.id} {...this.props} />        
+      )  
     });
   },
   createPresentation: function() {
@@ -46,7 +49,13 @@ export default React.createClass({
         <h4>Room name: <strong>{this.props.currentRoom}</strong></h4>
         <h4>Share this URL: <strong>{window.location.href.split('?')[0]}</strong></h4>
         <h2>Presentations:</h2>
-        {this.props.allEducatorPresentations ? this.displayPresentations() : null}
+        <div className="table-responsive">
+          <table className="table-hover content-table">
+            <tbody>
+              {this.props.allEducatorPresentations ? this.displayPresentations() : null}
+            </tbody>    
+          </table>
+        </div>        
         <button type = 'button'
                 className = "btn grey white-text"
                 onClick = {this.createPresentation}>
