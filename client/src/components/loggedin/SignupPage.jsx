@@ -15,7 +15,7 @@ export default React.createClass({
     if (!name || !email || !username || !password) {
       console.log('All fields must be filled in.')
       this.props.setError('All fields must be filled in.');
-    } else if (username === 'room' || username=== 'login') {
+    } else if (username === 'room' || username=== 'login' || username=== 'logout') {
       this.props.setError('Username already taken. Please choose a new one.');
     } else {
       $.ajax({
