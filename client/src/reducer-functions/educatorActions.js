@@ -9,11 +9,10 @@ export function stopVote(state) {
 //*** NEED TO FIGURE OUT 'MultipleChoice' vs 'multipleChoice3' etc ***//
 export function startVote(state, option) {  
   let newState;
-  console.log('option', option)
   if (option === 'thumbs') {
     newState = fromJS({
       voting: true,
-      showgraph: "1",
+      showgraph: true,
       questionType: 'thumbs',
       prevQuestionType: false,
       shareThumbsCheckResults: false,
@@ -26,7 +25,7 @@ export function startVote(state, option) {
   } else if (option === 'multipleChoice3') {
     newState = fromJS({
       voting: true,
-      showgraph: "1",
+      showgraph: true,
       questionType: 'multipleChoice3',
       prevQuestionType: false,
       shareThumbsCheckResults: false,
@@ -40,7 +39,7 @@ export function startVote(state, option) {
   } else if (option === 'multipleChoice4') {
     newState = fromJS({
       voting: true,
-      showgraph: "1",
+      showgraph: true,
       questionType: 'multipleChoice4',
       prevQuestionType: false,
       shareThumbsCheckResults: false,
@@ -55,7 +54,7 @@ export function startVote(state, option) {
   } else if (option === 'multipleChoice5') {
     newState = fromJS({
       voting: true,
-      showgraph: "1",
+      showgraph: true,
       questionType: 'multipleChoice5',
       prevQuestionType: false,
       shareThumbsCheckResults: false,
@@ -71,7 +70,7 @@ export function startVote(state, option) {
   } else if (option === 'open') {
     newState = fromJS({
       voting: true,
-      showgraph: "1",
+      showgraph: true,
       questionType: 'open',
       prevQuestionType: false,
       shareThumbsCheckResults: false,
@@ -81,6 +80,7 @@ export function startVote(state, option) {
       }
     });
   }
+  console.log(newState, 'newSTATE')
   return state.merge(newState);
 }
 

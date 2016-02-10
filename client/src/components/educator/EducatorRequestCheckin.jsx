@@ -9,7 +9,7 @@ import EndPreplannedPresentationButton from '../loggedin/EndPreplannedPresentati
 
 export default React.createClass({
   showGraph: function() {
-    return this.props.showgraph === "1" ? "last-graph-container" : "dont-show";
+    return this.props.showgraph === true ? "last-graph-container" : "dont-show";
   },
 
   sendCheckin: function() {
@@ -139,7 +139,7 @@ export default React.createClass({
         </div>
 
         
-        {this.props.shareThumbsCheckResults || this.props.shareThumbsCheckResults === undefined || this.props.sharingAllThumbsCheckResults ?
+        {!this.props.showgraph || this.props.shareThumbsCheckResults || this.props.sharingAllThumbsCheckResults ?
           <p></p> :
           <p><button type='button' className='btn grey white-text' onClick={this.props.toggleThumbsCheckResultsGraph}>Show Results to Participants</button></p>
         }
