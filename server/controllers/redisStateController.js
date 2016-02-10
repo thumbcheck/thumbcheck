@@ -69,3 +69,13 @@ export function checkRoom(room, callback) {
     client.quit();
   });
 }
+
+export function deleteRoom(room, callback) {
+  const client = redis.createClient();
+  client.del(room, (err, reply) => {
+    if (err) throw new Error(err);
+
+    console.log(reply);
+    client.quit();
+  });
+}
