@@ -240,15 +240,15 @@ export function educatorLogin(currentRoom) {
   };
 }
 
-export function logout() {
+export function logout(roomname) { 
   return function(dispatch){
-    let apiCall = ApiFunctions.logout((response) => {
+    let apiCall = ApiFunctions.logout(roomname, (response) => {
       let action = {
         type: 'SET_INITIAL_STATE'
       };
       dispatch(action);
-    })
-  }
+    });             
+  };
 }
 
 export function setEducatorID(educatorID) {

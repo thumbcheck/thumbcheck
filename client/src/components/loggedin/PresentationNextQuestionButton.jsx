@@ -23,7 +23,7 @@ export default React.createClass({
   render: function() {
     return (
       <div>
-        {this.renderButton()}
+        {this.props.currentPresentation ? this.renderButton() : null}
       </div>
     );
   }

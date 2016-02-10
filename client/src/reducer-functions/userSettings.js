@@ -8,9 +8,9 @@ export function setInitialState(state) {
   // 
   let intialState = {
     prevQuestionType: false,
-    sharingAllThumbsCheckResults: false,
-    educatorID: 1
-  }
+    sharingAllThumbsCheckResults: false
+  };
+  window.location.assign('/');
   return fromJS(intialState);
 }
 
@@ -21,7 +21,7 @@ export function chooseRole(state, choice) {
 export function setErrorMessage(state, error) {
   let newState = fromJS({
   	errMessage: error
-  })
+  });
   console.log('new', newState);
   return state.merge(newState);
 }

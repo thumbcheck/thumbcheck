@@ -96,13 +96,15 @@ export function deletePresentation(presentationID) {
       console.log('Error: ', qXHR, textStatus, errorThrown);
     });
 }
-export function logout(cb) {
+export function logout(roomname, callback) {
+  console.log('roomname', roomname);
   $.ajax({
     type: 'POST',
-    url: '/logout'    
+    url: '/logout',
+    data: roomname    
   })
   .success((response) => {
-    cb(response)
+    callback(response);
   })
   .error(function(jqXHR, textStatus, errorThrown) {
     console.log('Error: ', qXHR, textStatus, errorThrown);

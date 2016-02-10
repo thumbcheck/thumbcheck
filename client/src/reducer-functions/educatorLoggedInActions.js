@@ -27,10 +27,10 @@ export function startPreplannedPresentation(state) {
   return state.merge(newState);
 }
 
-export function moveToNextQuestion(state, option) {
+export function moveToNextQuestion(state) {
   let questionList = state.getIn(['currentPresentation','questionChoice']);
   let questionIndex = state.getIn(['currentPresentation', 'currentQuestionIndex']);
-  if (questionIndex === (questionList.size - 1) || option === 'end') {
+  if (questionIndex === (questionList.size - 1)) {
     let newState = {
       preplannedPresentation: false,
       currentPresentation: null,

@@ -10,8 +10,8 @@ import userController from './controllers/userController';
 import sessionsController from './controllers/sessionsController';
 import questionController from './controllers/questionController';
 import presentationController from './controllers/presentationController';
-import {checkRoom} from './controllers/redisStateController';
 import jwt from 'jwt-simple';
+import {checkRoom, deleteRoom} from './controllers/redisStateController';
 
 const router = express.Router();
 const tokenSecret = 'shhhh baby es ok';
@@ -67,11 +67,13 @@ router.route('/login')
     });
   });
 
-router.route('/logout')
-  .post((req,res) => {
-    res.clearCookie('remember');
-    res.send(200, 'logged out');
-  })
+router.route('/logout')  
+  .post((req,res) => { 
+    deleteRoom(req.body.roomname, () => {
+    res.clearCookie('remember');    
+    res.send(200, 'logged out');      
+    });
+  }); 
 
 
 //creates new users
@@ -92,7 +94,7 @@ router.route('/api/users')
     userController.getAllUsers((result) => {
       res.send(200, result);
     });
-  })
+  });
 
 //calling this route decodes the cookie of the user
 //returns the username and educator_id
