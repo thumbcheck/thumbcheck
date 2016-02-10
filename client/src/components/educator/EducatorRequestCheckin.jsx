@@ -82,7 +82,7 @@ export default React.createClass({
           </div>
           )
        } else if (this.props.questionType === 'thumbs') {
-         color = 'orange', text = 'Thumbscheck';
+         color = 'orange', text = 'Thumbcheck';
        } else {
          color='blue', text="Open Response";
        }

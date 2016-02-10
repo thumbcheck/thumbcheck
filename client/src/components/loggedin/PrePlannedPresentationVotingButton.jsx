@@ -24,7 +24,7 @@ export default React.createClass({
     let color = 'orange';
     let text = '';
     if (questionType === 'Thumbs Check') {
-      color = 'orange', text = 'Thumbscheck';
+      color = 'orange', text = 'Thumbcheck';
     } else if (questionType === 'Open Response') {
       color='blue', text="Open Response";
     } else {
