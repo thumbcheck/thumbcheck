@@ -50,7 +50,7 @@ export default React.createClass({
       )            
   },
 
-  render: function() {
+  render: function() {  	
   	console.log('nav props', this.props);
     return (
     	<nav className="navbar navbar-default navbar-custom">
@@ -85,9 +85,20 @@ export default React.createClass({
 
 			          </a>
 			          <ul className="dropdown-menu drop-down-spacing settings-spacing">
-			          	<li className="questions-list" onClick={this.props.toggleTakingQuestions}>Allow Student Questions</li>
+			          	<li className="questions-list" onClick={this.props.toggleTakingQuestions}>
+			          		{this.props.takingQuestions ?
+			          			this.props.takingQuestions.toJS().allowQuestions ?
+			          				<span className="orange-text">Stop Allowing Questions</span> : "Allow Student Questions"
+			          			: "Allow Student Questions"
+			          		}
+			          	</li>
 			          	<li role="separator" className="divider"></li>
-			          	<li className="questions-list" onClick={ this.props.toggleSharingAllThumbsCheckResults }>Share Check-in Results</li>
+			          	<li className="questions-list" onClick={ this.props.toggleSharingAllThumbsCheckResults }>
+			          	{ this.props.sharingAllThumbsCheckResults ?
+			          		<span className="orange-text">Stop Sharing Results</span> : "Share Check-in Results"
+			          	} 			          	
+			          	</li>
+			          	<li role="separator" className="divider"></li>
 			          	{this.renderLogout()}
 			          </ul>
 			        </li>
