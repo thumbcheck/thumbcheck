@@ -8,16 +8,16 @@ import Navbar from '../educator/NavBarEducator';
 import CreateEditQuestions from './CreateEditQuestions';
 
 export default React.createClass({
-  render: function() {
-    console.log('EDUCATOR ID', this.props.educatorID);
-
+  renderProperElement: function() {
     if (this.props.preplannedPresentation) {
       return <Educator {...this.props} />
     } else if (this.props.editingOrCreatingPresentation) {
       return (
         <div>
           <Navbar {...this.props} /> 
-          <EditPresentation {...this.props} />
+          <div className="preplanned-container">
+            <EditPresentation {...this.props} />
+          </div>
         </div>
       )
     } else if (this.props.editingQuestion) {
@@ -26,11 +26,22 @@ export default React.createClass({
       return (
         <div>
           <Navbar {...this.props} />  
-          <h1>Welcome! You have reached the exclusive members page!</h1>
-          <PresentationList {...this.props}/>
+          <div className="preplanned-container">
+            <h1>Welcome! You have reached the exclusive members page!</h1>
+            <PresentationList {...this.props}/>
+          </div>  
         </div>
       );
     }
+
+  },
+  render: function() {
+    console.log('EDUCATOR ID', this.props.educatorID);
+    return (
+      <div className="">
+        { this.renderProperElement() }
+      </div>
+    )
   }
 });
 

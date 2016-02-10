@@ -115,20 +115,15 @@ html,body { height: 100%; margin: 0px; padding: 0px; font-family: 'HelveticaNeue
 	text-align: center;
 	width: 16px;
 	height: 16px;
-  position: absolute;    /* This breaks the div from the normal HTML document. */
+  position: absolute;   
   top: 36px;
   right: 30px;
   padding: 0 1px 2px 1px;
-  background-color: red; /* you could use a background image if you'd like as well */
+  background-color: red; 
   color: white;
   font-weight: bold;
   font-size: 0.8em;
   line-height: 16.5px;
-
-
-  /* The following is CSS3, but isn't crucial for this technique to work. */
-  /* Keep in mind that if a browser doesn't support CSS3, it's fine! They just won't have rounded borders and won't have a box shadow effect. */
-  /* You can always use a background image to produce the same effect if you want to, and you can use both together so browsers without CSS3 still have the rounded/shadow look. */
   border-radius: 50%;
   box-shadow: 1px 1px 1px grey;
 }
@@ -168,6 +163,14 @@ html,body { height: 100%; margin: 0px; padding: 0px; font-family: 'HelveticaNeue
 	display: inline-block;
 	margin: 0 2% 0 2%;
 }
+/* ****** EDUCATOR LOGGED IN STYLING ****** */
+.preplanned-container {
+	padding: 2% 0 0 15%;
+}
+.content-table {
+	min-width: 300px;
+}
+
 /*  ************* student page styling  ************* */
 .student-content {
 	margin: 5% 10% 0 10%;

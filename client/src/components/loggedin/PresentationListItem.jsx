@@ -11,11 +11,13 @@ export default React.createClass({
   },
   render: function() {
     return (
-      <div>
-        {this.props.title}
-        <button onClick={this.viewPresentation}>Edit</button>
-        <button onClick={this.startPreplannedPresentation}>Play</button>
-      </div>
+      <tr>
+        <td>{this.props.title}</td>
+        <td className="pull-right move-right">
+          <button onClick={this.viewPresentation}>Edit</button>
+          <button onClick={this.startPreplannedPresentation}>Play</button>
+        </td>          
+      </tr>
     );
   }
 });
