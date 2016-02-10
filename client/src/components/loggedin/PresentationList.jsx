@@ -22,7 +22,6 @@ export default React.createClass({
       }
     })
     .success(function(data) {
-      //console.log('in component did mount success', data);
       that.props.getAllPresentations(data.educator_id);
       that.props.setEducatorID(data.educator_id);
     });
@@ -30,12 +29,10 @@ export default React.createClass({
     //this.props.getAllPresentations(isLoggedIn.educator_id);
   },
   displayPresentations: function() {
-    // var presentationArray = this.props.presentationData;
-    // var presentationArray = [{title: 'George Washington'},{title: 'Crack Reactor'}];
     let presentationArray = this.props.allEducatorPresentations;
     return presentationArray.map((presentation) => {
       presentation = presentation.toJS();
-      return <PresentationListItem title={presentation.title} presentationID={presentation.id} {...this.props} />;
+      return <PresentationListItem key={presentation.id} title={presentation.title} presentationID={presentation.id} {...this.props} />;
     });
   },
   createPresentation: function() {
