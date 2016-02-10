@@ -29,41 +29,43 @@ export default React.createClass({
     this.questionPrompt = e.target.value;    
   },
   handleQuestionSubmission: function() {
-    let questionData= {};
-    questionData.prompt = this.questionPrompt;
-    questionData.presentationID = this.props.currentPresentationID;
-    let questionType;
-    if (this.props.createQuestionTypeThumbCheck) {
-      questionType = 'Thumbs Check';
-    } else if (this.props.createQuestionTypeOpenResponse) {
-      questionType = 'Open Response';
-    } else {
-      questionType = 'Multiple Choice'; 
-    }
-
-    questionData.questionType = questionType;
-
-    questionData.questionAnswer = {a: null};
-    if (this.props.createQuestionTypeMultipleChoice) {
-      questionData.questionAnswer.a = this.multipleChoiceAValue;
-      questionData.questionAnswer.b = this.multipleChoiceBValue;
-      questionData.questionAnswer.c = this.multipleChoiceCValue;
-
-      if(this.props.a4choice || this.props.a5choice) {
-        questionData.questionAnswer.d = this.multipleChoiceDValue;
+    if (this.questionPrompt !== '') {
+      let questionData= {};
+      questionData.prompt = this.questionPrompt;
+      questionData.presentationID = this.props.currentPresentationID;
+      let questionType;
+      if (this.props.createQuestionTypeThumbCheck) {
+        questionType = 'Thumbs Check';
+      } else if (this.props.createQuestionTypeOpenResponse) {
+        questionType = 'Open Response';
+      } else {
+        questionType = 'Multiple Choice'; 
       }
 
-      if(this.props.a5choice) {
-        questionData.questionAnswer.e = this.multipleChoiceEValue;
+      questionData.questionType = questionType;
+
+      questionData.questionAnswer = {a: null};
+      if (this.props.createQuestionTypeMultipleChoice) {
+        questionData.questionAnswer.a = this.multipleChoiceAValue;
+        questionData.questionAnswer.b = this.multipleChoiceBValue;
+        questionData.questionAnswer.c = this.multipleChoiceCValue;
+
+        if(this.props.a4choice || this.props.a5choice) {
+          questionData.questionAnswer.d = this.multipleChoiceDValue;
+        }
+
+        if(this.props.a5choice) {
+          questionData.questionAnswer.e = this.multipleChoiceEValue;
+        }
       }
+      // if it's an edited quesiton, pass along the ID for PUT
+      let editingId = false;
+      if (this.props.editingQuestionIdInfo[0] !== ".") {
+        editingId = this.props.editingQuestionIdInfo.toJS().id;
+      }        
+      this.props.addPresentationQuestion(questionData, editingId);
+      this.props.createQuestion();
     }
-    // if it's an edited quesiton, pass along the ID for PUT
-    let editingId = false;
-    if (this.props.editingQuestionIdInfo[0] !== ".") {
-      editingId = this.props.editingQuestionIdInfo.toJS().id;
-    }        
-    this.props.addPresentationQuestion(questionData, editingId);
-    this.props.createQuestion();
   },
   handleMultipleChoiceAChange: function(e) {
     this.multipleChoiceAValue = e.target.value;
