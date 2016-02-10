@@ -21,11 +21,14 @@ const initialState = {
   //   currentQuestion: {prompt: 'Favorite Color?', questionChoices: [{letter: 'a', content:'green'},{letter: 'b', content:'blue'},{letter: 'c', content:'red'}] }
   // },
   //educatorLoggedIn: true,
+  // ***** ALSO DELETE THIS IS IN userSettings 'setInitialState' ****
   educatorID: 1
 };
 
 export default function(state = fromJS(/*temp*/initialState), action) {
   switch (action.type) {
+  case 'SET_INITIAL_STATE':
+    return UserSettings.setInitialState(state)
   case 'SET_STATE':
     return UserSettings.setState(state, action.state);
   case 'SET_PARTICIPANT_ID':
@@ -70,6 +73,8 @@ export default function(state = fromJS(/*temp*/initialState), action) {
     return state.set('numUsers', action.numUsers);
   case 'EDUCATOR_LOGIN':
     return EducatorLoggedInActions.educatorLogin(state, action.currentRoom);
+  case 'LOG_OUT':
+    return EducatorLoggedInActions.logout(state)
   case 'CREATE_OR_EDIT_PRESENTATION':
     return EducatorLoggedInActions.editOrCreatePresentation(state);
   case 'PREPLANNED_PRESENTATION':

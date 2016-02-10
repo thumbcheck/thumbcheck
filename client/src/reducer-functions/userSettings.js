@@ -4,6 +4,15 @@ import underscore from 'underscore';
 export function setState(state, newState) {
   return state.merge(newState);
 }
+export function setInitialState(state) {
+  // 
+  let intialState = {
+    prevQuestionType: false,
+    sharingAllThumbsCheckResults: false,
+    educatorID: 1
+  }
+  return fromJS(intialState);
+}
 
 export function chooseRole(state, choice) {
   return state.set('choice', choice);

@@ -71,6 +71,9 @@ export default React.createClass({
 			          	<li className="questions-list" onClick={this.props.toggleTakingQuestions}>Allow Student Questions</li>
 			          	<li role="separator" className="divider"></li>
 			          	<li className="questions-list" onClick={ this.props.toggleSharingAllThumbsCheckResults }>Share Check-in Results</li>		            
+			          	<li role="separator" className="divider"></li>
+			          	<li role="separator" className="divider"></li>
+			          	<li className="questions-list" onClick={ this.props.logout }>Logout</li>		            
 			          </ul>
 			        </li>
 			      </ul>
