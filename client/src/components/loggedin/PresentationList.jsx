@@ -21,6 +21,7 @@ export default React.createClass({
     this.props.createOrEditPresentation();
   },
   render: function() {
+    console.log('main page', this.props);
     return (
       <div>
         <h4>Room name: <strong>{this.props.currentRoom}</strong></h4>

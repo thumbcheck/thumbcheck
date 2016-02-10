@@ -77,7 +77,7 @@ router.route('/api/users/:username')
     //res.send(200, {username: req.body.username, password: req.body.password});
     userController.getUser(req.body, (result) => {
       //console.log('result from database in server', result);
-      res.cookie('remember', 'randomhashshouldgohere', { maxAge: 60000 })
+      res.cookie('remember', 'randomhashshouldgohere', { maxAge: 6000000 })
       res.send(200, result);
     });
   })

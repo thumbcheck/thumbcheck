@@ -94,6 +94,9 @@ export default React.createClass({
       }   
     }
   },
+  cancelQuestion: function() {
+    this.props.createQuestion(null, null, true);
+  },
   render: function() {
     console.log('create edit question page', this.props);
     return (
@@ -181,6 +184,9 @@ export default React.createClass({
          null}
         <button onClick={this.handleQuestionSubmission}>
           Save
+        </button>
+        <button onClick={ this.cancelQuestion }>
+          Cancel
         </button>
 
       </div>

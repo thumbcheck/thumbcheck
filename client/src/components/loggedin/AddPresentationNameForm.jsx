@@ -10,11 +10,13 @@ export default React.createClass({
     this.presentationTitle = e.target.value;
   },
   render: function() {
+    console.log('add pres page', this.props);
     return (
       <div>
         <h3>Add your title here!</h3>
         <input type="text" name="presentationTitle" placeholder='' onChange={this.handlePresentationTitleChange} />
         <button onClick={this.createNewPresentationTitle}>Add Presentation Title</button>
+        <button onClick={ this.props.createOrEditPresentation }>Cancel</button>
       </div>
     )
   }

@@ -200,11 +200,12 @@ export function toggle5choices() {
   };
 }
 
-export function createQuestion(edit, dataForQuestion) {
+export function createQuestion(edit, dataForQuestion, cancel) {  
   return {
     type: 'CREATE_QUESTION',
     edit: edit,
-    dataForQuestion: dataForQuestion
+    dataForQuestion: dataForQuestion,
+    cancel: cancel
   };
 }
 

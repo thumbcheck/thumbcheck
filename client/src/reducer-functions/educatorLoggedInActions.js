@@ -102,13 +102,12 @@ export function toggle5choices(state) {
   return state.merge(newState);
 }
 
-export function createQuestion(state, edit, questionData) {
+export function createQuestion(state, edit, questionData, cancel) {
   let toggle = !state.get('creatingQuestion');
   if (edit) {
     const newState = fromJS({creatingQuestion: toggle, editingQuestionIdInfo: questionData});
     return state.merge(newState);
-  }
-  else {
+  } else {
     const newState = fromJS({creatingQuestion: toggle, editingQuestionIdInfo: null});
     return state.merge(newState);
   }
