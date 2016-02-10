@@ -200,7 +200,7 @@ export function toggle5choices() {
   };
 }
 
-export function createQuestion(edit, dataForQuestion, cancel) {  
+export function createQuestion(edit, dataForQuestion, cancel) {
   return {
     type: 'CREATE_QUESTION',
     edit: edit,
@@ -240,15 +240,22 @@ export function educatorLogin(currentRoom) {
   };
 }
 
-export function logout() {  
+export function logout() {
   return function(dispatch){
     let apiCall = ApiFunctions.logout((response) => {
       let action = {
-        type: 'SET_INITIAL_STATE'          
+        type: 'SET_INITIAL_STATE'
       };
       dispatch(action);
-    })             
+    })
   }
+
+export function setEducatorID(educatorID) {
+  return {
+    //meta: {remote: true},
+    type: 'SET_EDUCATOR_ID',
+    educatorID: educatorID
+  };
 }
 
 export function setCurrentPresentationID(presentationID) {

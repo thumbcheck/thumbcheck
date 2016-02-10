@@ -11,8 +11,10 @@ import sessionsController from './controllers/sessionsController';
 import questionController from './controllers/questionController';
 import presentationController from './controllers/presentationController';
 import {checkRoom} from './controllers/redisStateController';
+import jwt from 'jwt-simple';
 
 const router = express.Router();
+const tokenSecret = 'shhhh baby es ok';
 
 function createRoom (cb) {
   checkRoom(generateRoomName(), (result, room) => {
@@ -58,11 +60,11 @@ router.route('/login')
     return passport.authenticate('local-login', {successRedirect: '/success', failureRedirect: '/fail'})(req,res, next);
   });
 
-router.route('/logout')  
-  .post((req,res) => { 
-    res.clearCookie('remember');    
+router.route('/logout')
+  .post((req,res) => {
+    res.clearCookie('remember');
     res.send(200, 'logged out');
-  })  
+  })
 
 router.route('/api/users')
   .post((req,res) => {
@@ -77,13 +79,33 @@ router.route('/api/users')
     });
   })
 
+router.route('/api/userid')
+  .post((req,res) => {
+
+    const decoded = jwt.decode(req.body.cookies, tokenSecret);
+    console.log('DECODED IN SERVER', decoded, decoded.educator_id);
+    res.send(200, {'educator_id': decoded.educator_id});
+    //const tokenSecret = 'shhhh baby es ok';
+    //return jwt.decode(cookie, tokenSecret);
+    //console.log('in api users post', req.body);
+    //userController.createUser(req.body, (result) => {
+      //res.send(201, result);
+    //});
+  })
+
+
 router.route('/api/users/:username')
   .post((req,res) => {
     console.log(req.body, req.body.username, req.body.password);
     //res.send(200, {username: req.body.username, password: req.body.password});
     userController.getUser(req.body, (result) => {
       //console.log('result from database in server', result);
-      res.cookie('remember', 'randomhashshouldgohere', { maxAge: 6000000 })
+      const token = jwt.encode({ username: req.body.username, educator_id: result.educator_id }, tokenSecret);
+      console.log('TOKEN', token);
+      if (result.found) {
+        res.cookie('remember', token, { maxAge: 7200000 })
+      }
+      console.log('RESULT FROM DATABSE!!!!!!!!',result)
       res.send(200, result);
     });
   })

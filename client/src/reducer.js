@@ -22,7 +22,8 @@ const initialState = {
   // },
   //educatorLoggedIn: true,
   // ***** ALSO DELETE THIS IS IN userSettings 'setInitialState' ****
-  educatorID: 1
+  //educatorID: 1
+  //educatorID: 0
 };
 
 export default function(state = fromJS(/*temp*/initialState), action) {
@@ -66,15 +67,20 @@ export default function(state = fromJS(/*temp*/initialState), action) {
   case 'TOGGLE_THUMBS_GRAPH':
     return EducatorActions.toggleThumbsGraph(state);
   case 'TOGGLE_SHARING_ALL_RESULTS':
-    return EducatorActions.ToggleSharingAllThumbsCheckResults(state);  
+    return EducatorActions.ToggleSharingAllThumbsCheckResults(state);
   // case 'LOWER_STUDENT_HAND':
   //   return addQuestion(state, action.id, action.name, true);
   case 'SET_NUMUSERS':
     return state.set('numUsers', action.numUsers);
   case 'EDUCATOR_LOGIN':
     return EducatorLoggedInActions.educatorLogin(state, action.currentRoom);
+<<<<<<< 64b39b4335b4dfd7dea6e084c0e09f6e655395b5
   case 'LOG_OUT':
     return EducatorLoggedInActions.logout(state)
+=======
+  case 'SET_EDUCATOR_ID':
+    return EducatorLoggedInActions.setEducatorID(state, action.educatorID);
+>>>>>>> Cookies are bening encoded, educatorID is being read in the front end
   case 'CREATE_OR_EDIT_PRESENTATION':
     return EducatorLoggedInActions.editOrCreatePresentation(state);
   case 'PREPLANNED_PRESENTATION':
@@ -99,8 +105,13 @@ export default function(state = fromJS(/*temp*/initialState), action) {
     return EducatorAPIActions.setAllPresentations(state,action.data);
   case 'SET_PRESENTATION_DATA':
     return EducatorAPIActions.setPresentation(state,action.data);
-  case 'CREATE_QUESTION':    
+<<<<<<< 64b39b4335b4dfd7dea6e084c0e09f6e655395b5
+  case 'CREATE_QUESTION':
     return EducatorLoggedInActions.createQuestion(state, action.edit, action.dataForQuestion, action.cancel);
+=======
+  case 'CREATE_QUESTION':
+    return EducatorLoggedInActions.createQuestion(state, action.edit, action.dataForQuestion);
+>>>>>>> Cookies are bening encoded, educatorID is being read in the front end
   case 'DELETE_QUESTION':
     return EducatorAPIActions.deleteQuestion(state);
   case 'SET_CURRENT_PRESENTATION_ID':

@@ -8,6 +8,9 @@ import PrivateBrowsingPage from './PrivateBrowsingPage';
 import RoleChoice from './RoleChoice';
 import EducatorLoggedInMain from './loggedin/EducatorLoggedInMain';
 import mapStateToProps from '../helpers/mapStateToProps';
+import jwt from 'jwt-simple';
+
+
 
 export const Main = React.createClass({
   canWriteLocalStorage: function() {
@@ -25,15 +28,22 @@ export const Main = React.createClass({
     var result = regexp.exec(document.cookie);
     return (result === null) ? null : result[1];
   },
+
+  decodeCookie: function(cookie) {
+    const tokenSecret = 'shhhh baby es ok';
+    return jwt.decode(cookie, tokenSecret);
+  },
  /*** NEED TO REFACTOR LOCAL STORAGE ITEMS ***/
   render: function() {
     let isLoggedIn = this.getCookie('remember');
+    isLoggedIn ? console.log('cookie Decoded', this.decodeCookie(isLoggedIn)) : null
     console.log('cookies', isLoggedIn);
+
     if (this.canWriteLocalStorage()) {
       if (this.props.userType === 'student') {
         return (<Student {...this.props} />)
       } else if(this.props.userType === 'educator' && isLoggedIn) {
-        return <EducatorLoggedInMain {...this.props} />
+        return <EducatorLoggedInMain educatorID={this.decodeCookie(this.getCookie('remember'))} {...this.props} />
       } else if (this.props.userType === 'educator') {
         return <Educator {...this.props} />
       } else {
