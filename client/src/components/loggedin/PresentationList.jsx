@@ -2,7 +2,6 @@ import React from 'react';
 import {toJS} from 'immutable';
 import PresentationListItem from './PresentationListItem';
 // must create this.props.createPresentation and deal with editing a presentation
-import jwt from 'jwt-simple';
 
 export default React.createClass({
   getCookie: function(name) {
@@ -11,35 +10,24 @@ export default React.createClass({
     return (result === null) ? null : result[1];
   },
 
-  decodeCookie: function(cookie) {
-    const tokenSecret = 'shhhh baby es ok';
-    return jwt.decode(cookie, tokenSecret);
-  },
-
   componentDidMount: function() {
-    // let isLoggedIn = this.getCookie('remember');
-    // $.ajax({
-    //   type: 'POST',
-    //   url: '/api/userid/',
-    //   dataType: "json",
-    //   data: {
-    //     cookies: isLoggedIn
-    //   }
-    // })
-    // .success(function(data) {
-    //   // if(data.found === 1) {
-    //   //   console.log('User Found. Trigger Login')
-    //   //   that.props.educatorLogin(username);
-    //   //   window.location.assign(username+'?type=host');
-    //   // } else {
-    //   //   that.props.setError('Invalid username or password. Please try again.');
-    //   // }
-    //   console.log('in component did mount success', data, data.educator_id);
-    //   this.props.getAllPresentations(data.educator_id);
-    //   this.props.setEducatorID(data.educator_id);
-    // });
-    let isLoggedIn = this.decodeCookie(this.getCookie('remember'));
-    this.props.getAllPresentations(isLoggedIn.educator_id);
+    let isLoggedIn = this.getCookie('remember');
+    const that = this;
+    $.ajax({
+      type: 'POST',
+      url: '/api/userid/',
+      dataType: "json",
+      data: {
+        cookies: isLoggedIn
+      }
+    })
+    .success(function(data) {
+      //console.log('in component did mount success', data);
+      that.props.getAllPresentations(data.educator_id);
+      that.props.setEducatorID(data.educator_id);
+    });
+    //let isLoggedIn = this.decodeCookie(this.getCookie('remember'));
+    //this.props.getAllPresentations(isLoggedIn.educator_id);
   },
   displayPresentations: function() {
     // var presentationArray = this.props.presentationData;

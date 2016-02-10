@@ -21,7 +21,7 @@ export default React.createClass({
     const inputValue = this.studentInput.value.toLowerCase();
     const that = this;
 
-    if (inputValue === 'room') {
+    if (inputValue === 'room' || inputValue === 'login' ) {
       this.props.setError('Room not found. Please enter a valid.');
     } else if (!inputValue) {
       this.props.setError('Please enter a room name.');
@@ -80,7 +80,7 @@ export default React.createClass({
     }
   },
 
-  render: function() {          
+  render: function() {
     return (
       <div>
         {this.renderProperElement()}

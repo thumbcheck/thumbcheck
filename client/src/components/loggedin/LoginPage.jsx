@@ -13,7 +13,7 @@ export default React.createClass({
     } else {
       $.ajax({
         type: 'POST',
-        url: '/api/users/'+username,
+        url: '/login',
         dataType: "json",
         data: {
           username: username,
