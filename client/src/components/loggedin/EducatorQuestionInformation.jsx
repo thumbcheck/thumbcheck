@@ -25,8 +25,8 @@ export default React.createClass({
     let questionChoices = this.props.currentPresentation.getIn(['currentQuestion','questionChoices']);
     if (questionChoices) {
       questionChoices = questionChoices.toJS();
-      return questionChoices.map((choice) => {
-        return <div>{choice[0]}: {choice[1]}</div>
+      return questionChoices.map((choice, index) => {
+        return <div key={index}>{choice[0]}: {choice[1]}</div>
       });      
     }
   },
