@@ -47,7 +47,7 @@ passport.use('local-login', new LocalStrategy({
     return done(null, {
       email: email,
       password: password
-    });    
+    });
   } else {
     return done(null, false);
   }
@@ -63,7 +63,7 @@ passport.use('local-signup', new LocalStrategy({
     return done(null, {
       email: email,
       password: password
-    });    
+    });
   } else {
     return done(null, false);
   }

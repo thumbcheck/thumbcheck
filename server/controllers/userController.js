@@ -1,14 +1,17 @@
 import User from '../models/users.js';
+import bcrypt from 'bcrypt-nodejs';
 
 function createUser (params, callback) {
-  let username = params.username;
   let password = params.password;
-  let name = params.name;
-  let email = params.email;
+
+  bcrypt.hash(params.password, null, null, function(err, hash) {
+      console.log('MY HASH', hash);
+      password = hash;
+  });
 
   return User.findAll({
     where: {
-      username: username
+      username: params.username
     }
   })
   .then((response) => {
@@ -18,7 +21,7 @@ function createUser (params, callback) {
     } else {
       return User.create({
         username: params.username,
-        password: params.password,
+        password: password,
         name: params.name,
         email: params.email
       })
@@ -42,17 +45,22 @@ function getUser (params, callback) {
   return User.findAll({
     where: {
       username: params.username,
-      password: params.password
     }
   })
   .then((response) => {
-    console.log('response from database', response[0]);
-    let username = response[0] || 'not authorized';
-    response.length ?
-      callback({'found': 1, 'educator_id':response[0].dataValues.id})
-      : callback({found: 0});
+    if(response.length){
+      const educator_id = response[0].dataValues.id;
+      bcrypt.compare(params.password, response[0].dataValues.password, function(err, response) {
+        if(response){
+          callback({'found': 1, 'educator_id':educator_id});
+        } else {
+          callback({found: 0});
+        }
+      });
+    } else {
+      callback({found: 0});
+    }
   });
-
 }
 
 export default {
