@@ -33,6 +33,10 @@ export default React.createClass({
   	}
   	return null;  		
   },
+  logoutUser: function() {
+
+    this.props.logout({roomname: this.props.currentRoom});
+  },
   render: function() {  	
   	console.log('nav props', this.props);
     return ( 
@@ -73,7 +77,7 @@ export default React.createClass({
 			          	<li className="questions-list" onClick={ this.props.toggleSharingAllThumbsCheckResults }>Share Check-in Results</li>		            
 			          	<li role="separator" className="divider"></li>
 			          	<li role="separator" className="divider"></li>
-			          	<li className="questions-list" onClick={ this.props.logout }>Logout</li>		            
+			          	<li className="questions-list" onClick={ this.logoutUser }>Logout</li>		            
 			          </ul>
 			        </li>
 			      </ul>

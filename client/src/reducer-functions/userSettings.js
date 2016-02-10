@@ -10,7 +10,8 @@ export function setInitialState(state) {
     prevQuestionType: false,
     sharingAllThumbsCheckResults: false,
     educatorID: 1
-  }
+  };
+  window.location.assign('/');
   return fromJS(intialState);
 }
 

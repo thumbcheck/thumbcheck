@@ -16,10 +16,7 @@ export default React.createClass({
     } else if (this.props.editingOrCreatingPresentation) {
       return (
         <div>
-          <Navbar lowerStudentHand={this.props.lowerStudentHand}
-               questions={this.props.questions} toggleTakingQuestions={this.props.toggleTakingQuestions}
-               sharingAllThumbsCheckResults={this.props.sharingAllThumbsCheckResults} takingQuestions={this.props.takingQuestions}
-               toggleSharingAllThumbsCheckResults={this.props.toggleSharingAllThumbsCheckResults} logout={this.props.logout}/>
+          <Navbar {...this.props} /> 
           <EditPresentation {...this.props} />
         </div>
       )
@@ -28,10 +25,7 @@ export default React.createClass({
     } else {
       return (
         <div>
-          <Navbar lowerStudentHand={this.props.lowerStudentHand}
-               questions={this.props.questions} toggleTakingQuestions={this.props.toggleTakingQuestions}
-               sharingAllThumbsCheckResults={this.props.sharingAllThumbsCheckResults} takingQuestions={this.props.takingQuestions}
-               toggleSharingAllThumbsCheckResults={this.props.toggleSharingAllThumbsCheckResults} logout={this.props.logout}/>
+          <Navbar {...this.props} />  
           <h1>Welcome! You have reached the exclusive members page!</h1>
           <PresentationList {...this.props}/>
         </div>
