@@ -159,7 +159,7 @@ export function startPreplannedPresentation() {
 export function moveToNextQuestion() {
   return {
     meta: {remote: true},
-    type: 'MOVE_NEXT_QUESTION'
+    type: 'MOVE_NEXT_QUESTION',
   };
 }
 
@@ -209,6 +209,12 @@ export function createQuestion(edit, dataForQuestion, cancel) {
   };
 }
 
+export function endPreplannedPresentation() {
+  return {
+    meta: {remote: true},
+    type: 'END_PREPLANNED_PRESENTATION',
+  };
+}
 export function deleteQuestion(questionId) {
   return function(dispatch) {
     let apiCall = ApiFunctions.deletePresentationQuestion(questionId);

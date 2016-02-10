@@ -5,6 +5,7 @@ import renderCorrectGraphType from '../../helpers/renderCorrectGraphType';
 import PresentationNextQuestionButton from '../loggedin/PresentationNextQuestionButton';
 import EducatorQuestionInformation from '../loggedin/EducatorQuestionInformation';
 import PreplannedPresentationVotingButton from '../loggedin/PreplannedPresentationVotingButton';
+import EndPreplannedPresentationButton from '../loggedin/EndPreplannedPresentationButton';
 
 export default React.createClass({
   showGraph: function() {
@@ -106,7 +107,12 @@ export default React.createClass({
   },
   renderNextQuestionButton: function() {
     if(this.props.preplannedPresentation) {
-      return <PresentationNextQuestionButton {...this.props}/>
+      return (
+        <div>
+          <PresentationNextQuestionButton {...this.props}/>
+          <EndPreplannedPresentationButton {...this.props}/>
+        </div>
+      )
     } else {
       return null;
     }
@@ -140,6 +146,7 @@ export default React.createClass({
         <QuestionButton takingQuestions={this.props.takingQuestions}
                         toggleTakingQuestions={this.props.toggleTakingQuestions} />
         {this.renderNextQuestionButton()}
+
       </div>
     );
   }
