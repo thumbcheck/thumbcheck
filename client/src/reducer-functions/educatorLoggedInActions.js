@@ -28,6 +28,7 @@ export function startPreplannedPresentation(state) {
 }
 
 export function moveToNextQuestion(state) {
+  let previousQuestion = state.getIn(['currentPresentation', 'currentQuestion']);
   let questionList = state.getIn(['currentPresentation','questionChoice']);
   let questionIndex = state.getIn(['currentPresentation', 'currentQuestionIndex']);
   if (questionIndex === (questionList.size - 1)) {
@@ -36,7 +37,8 @@ export function moveToNextQuestion(state) {
       currentPresentation: null,
       currentPresentationID: null,
       shareThumbsCheckResults: false,
-      sharingAllThumbsCheckResults: false
+      sharingAllThumbsCheckResults: false,
+      previousQuestion: null
     };
     return state.merge(newState);
   } else {
@@ -49,6 +51,11 @@ export function moveToNextQuestion(state) {
       ['currentPresentation', 'currentQuestion'],
       currentQuestion => questionList.get(questionIndex + 1)
     );
+    newState = newState.mergeIn(
+      ['currentPresentation','previousQuestion'],
+      previousQuestion
+    );
+    newState = newState.merge({justVoted: false});
     return state.merge(newState);
   }
 }

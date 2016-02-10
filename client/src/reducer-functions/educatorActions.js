@@ -2,7 +2,7 @@ import {Map, fromJS, toJS, List} from 'immutable';
 import underscore from 'underscore';
 
 export function stopVote(state) {
-  let newState = fromJS({voting: false, prevQuestionType: state.get('questionType')});
+  let newState = fromJS({voting: false, prevQuestionType: state.get('questionType'), justVoted: true});
   return state.merge(newState);
 }
 
