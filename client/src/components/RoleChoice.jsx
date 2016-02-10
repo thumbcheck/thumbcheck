@@ -51,6 +51,12 @@ export default React.createClass({
     });
   },
 
+  handleEnter: function (e){
+    if (e.keyCode == 13){
+      this.handleStudentSubmit(e);
+    }
+  },
+
   renderProperElement: function () {
     if(this.props.choice === 'teacher') {
       return (
@@ -72,7 +78,7 @@ export default React.createClass({
     } else {
       return (
         <div>
-          <p>Join existing room <input ref={(ref) => this.studentInput = ref} /> <a className="btn btn-primary btn-md" role="button" onClick={this.handleStudentSubmit} >Join</a></p>
+          <p>Join existing room <input ref={(ref) => this.studentInput = ref} onKeyDown ={this.handleEnter} /> <a className="btn btn-primary btn-md" role="button" onClick={this.handleStudentSubmit} >Join</a></p>
           <p>{this.props.errMessage}</p>
           <a className="btn btn-warning btn-md" role="button" onClick={this.chooseTeacher} >I&#39;m an Educator</a>
         </div>
