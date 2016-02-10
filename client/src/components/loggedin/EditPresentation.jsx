@@ -26,8 +26,9 @@ export default React.createClass({
   },
   componentDidMount: function() {
     let presentationID = this.props.currentPresentationID;
-    console.log('mounting props')
-    this.props.getPresentationData(presentationID);
+    if(presentationID !== null || presentationID !== undefined) {
+      this.props.getPresentationData(presentationID);
+    }
   },
   renderQuestionView: function() { 
     return (
