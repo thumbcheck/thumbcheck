@@ -44,10 +44,11 @@ export default React.createClass({
   renderQuestionView: function() { 
     return (
       <div>
-        <h2>Presentation Question List</h2> 
         {this.showPresentationQuestions()}
-        <button onClick={this.props.createQuestion}>Add A New Question</button>
-        <button onClick={this.props.createOrEditPresentation}>Finish</button>   
+        <button className="btn grey white-text" onClick={this.props.createQuestion}>Add Question</button>
+        <div>
+          <button className="btn blue white-text" onClick={this.props.createOrEditPresentation}>Submit</button>
+        </div>
       </div>
     )
   },
