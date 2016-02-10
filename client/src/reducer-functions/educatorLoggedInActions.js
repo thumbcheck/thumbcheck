@@ -3,7 +3,7 @@ import {Map, fromJS, toJS, List} from 'immutable';
 export function educatorLogin(state, currentRoom) {
   let newState = fromJS({
     educatorLoggedIn: true,
-    userType: 'educator',
+    //userType: 'educator',
     currentRoom: currentRoom
   });
   return state.merge(newState);

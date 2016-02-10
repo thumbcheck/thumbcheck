@@ -6,47 +6,9 @@ import {Educator} from '../educator/EducatorMain';
 import EditPresentation from './EditPresentation';
 import Navbar from '../educator/NavBarEducator';
 import CreateEditQuestions from './CreateEditQuestions';
-import jwt from 'jwt-simple';
 
 export default React.createClass({
-  getCookie: function(name) {
-    var regexp = new RegExp("(?:^" + name + "|;\s*"+ name + ")=(.*?)(?:;|$)", "g");
-    var result = regexp.exec(document.cookie);
-    return (result === null) ? null : result[1];
-  },
-
-  decodeCookie: function(cookie) {
-    const tokenSecret = 'shhhh baby es ok';
-    return jwt.decode(cookie, tokenSecret);
-  },
-
-  componentDidMount: function() {
-    let isLoggedIn = this.decodeCookie(this.getCookie('remember'));
-    console.log('componentDidMount', isLoggedIn.educator_id);
-    this.props.setEducatorID(isLoggedIn.educator_id);
-    // $.ajax({
-    //   type: 'POST',
-    //   url: '/api/userid/',
-    //   dataType: "json",
-    //   data: {
-    //     cookies: isLoggedIn
-    //   }
-    // })
-    // .success(function(data) {
-    //   // if(data.found === 1) {
-    //   //   console.log('User Found. Trigger Login')
-    //   //   that.props.educatorLogin(username);
-    //   //   window.location.assign(username+'?type=host');
-    //   // } else {
-    //   //   that.props.setError('Invalid username or password. Please try again.');
-    //   // }
-    //   this.props.setEducatorID(data.educator_id);
-    // });
-
-  },
-
   render: function() {
-    //this.getEducatorID();
     console.log('EDUCATOR ID', this.props.educatorID);
 
     if (this.props.preplannedPresentation) {
