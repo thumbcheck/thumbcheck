@@ -215,6 +215,7 @@ export function endPreplannedPresentation() {
     type: 'END_PREPLANNED_PRESENTATION',
   };
 }
+
 export function deleteQuestion(questionId, presentationID) {
   return function(dispatch) {
     let apiCall = ApiFunctions.deletePresentationQuestion(questionId);

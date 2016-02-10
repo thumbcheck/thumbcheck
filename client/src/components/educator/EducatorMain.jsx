@@ -10,9 +10,6 @@ import _ from 'underscore';
 import {toJS} from 'immutable';
 
 export const Educator = React.createClass({
- componentWillMount: function() {
-   return this.props.showgraph === "1" ? "1" : "0";
- },
  componentDidMount: function() {
     if(this.props.currentRoom !== '') {
       this.props.stopVote();

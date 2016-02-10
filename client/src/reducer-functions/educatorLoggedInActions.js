@@ -159,7 +159,8 @@ export function endPreplannedPresentation(state) {
     currentPresentation: null,
     currentPresentationID: null,
     shareThumbsCheckResults: false,
-    sharingAllThumbsCheckResults: false
+    sharingAllThumbsCheckResults: false,
+    showgraph: false
   };
   return state.merge(newState);
 }
