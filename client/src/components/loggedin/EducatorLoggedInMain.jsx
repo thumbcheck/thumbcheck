@@ -8,13 +8,17 @@ import Navbar from '../educator/NavBarEducator';
 import CreateEditQuestions from './CreateEditQuestions';
 
 export default React.createClass({
+  componentDidMount: function() {
+    this.props.educatorLogin();
+  },
+
   renderProperElement: function() {
     if (this.props.preplannedPresentation) {
       return <Educator {...this.props} />
     } else if (this.props.editingOrCreatingPresentation) {
       return (
         <div>
-          <Navbar {...this.props} /> 
+          <Navbar {...this.props} />
           <div className="preplanned-container">
             <EditPresentation {...this.props} />
           </div>
@@ -25,11 +29,11 @@ export default React.createClass({
     } else {
       return (
         <div>
-          <Navbar {...this.props} />  
+          <Navbar {...this.props} />
           <div className="preplanned-container">
             <h1>Welcome! You have reached the exclusive members page!</h1>
             <PresentationList {...this.props}/>
-          </div>  
+          </div>
         </div>
       );
     }
