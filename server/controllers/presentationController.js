@@ -35,8 +35,6 @@ function getPresentation (params, callback) {
   .then((response) => {
     let presentation_id = response[0].dataValues.id;
     let presentation = response[0].dataValues;
-    console.log(presentation, '[resentation');
-    console.log(presentation_id, 'presentation_id')
     return Question.findAll({
       attributes: { exclude: ['user_id'] },
       where: {
