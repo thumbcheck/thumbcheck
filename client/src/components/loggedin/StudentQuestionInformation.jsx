@@ -4,6 +4,7 @@ import {List,Map} from 'immutable';
 export default React.createClass({
   showQuestionChoices: function() {
     let questionChoices = this.props.currentPresentation.getIn(['currentQuestion','questionChoices']);
+    console.log('questionchoices', this.props.currentPresentation.getIn(['currentQuestion']));
     if (questionChoices) {
       questionChoices = questionChoices.toJS();
       return questionChoices.map((choice) => {
@@ -12,9 +13,10 @@ export default React.createClass({
     }
   },
   render: function() {
+    console.log('in student question information')
     return (
       <div>
-        <h1>{this.props.currentPresentation.getIn(['currentQuestion', 'title'])}</h1>
+        <h1>{this.props.currentPresentation.getIn(['currentQuestion', 'prompt'])}</h1>
         {this.showQuestionChoices()}
       </div>
     );

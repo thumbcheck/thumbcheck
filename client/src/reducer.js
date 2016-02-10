@@ -75,7 +75,7 @@ export default function(state = fromJS(/*temp*/initialState), action) {
   case 'PREPLANNED_PRESENTATION':
     return EducatorLoggedInActions.startPreplannedPresentation(state);
   case 'MOVE_NEXT_QUESTION':
-    return EducatorLoggedInActions.moveToNextQuestion(state);
+    return EducatorLoggedInActions.moveToNextQuestion(state, action.option);
   case 'SELECT_TYPE_THUMB_CHECK':
     return EducatorLoggedInActions.selectTypeThumbCheck(state);
   case 'SELECT_TYPE_OPEN_RESPONSE':
@@ -104,6 +104,8 @@ export default function(state = fromJS(/*temp*/initialState), action) {
     return EducatorLoggedInActions.clearCurrentPresentationData(state);
   case 'SET_NEW_PRESENTATION':
     return EducatorAPIActions.setNewPresentation(state, action.response);
+  case 'END_PREPLANNED_PRESENTATION':
+    return EducatorLoggedInActions.endPreplannedPresentation(state);
   }
 
   return state;

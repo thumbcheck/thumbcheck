@@ -9,6 +9,7 @@ import RaiseHand from './RaiseHand';
 import BinaryThumbsGraph from '../results-graphs/BinaryThumbs';
 import checkHasVoted from '../../helpers/checkHasVoted';
 import renderCorrectGraphType from '../../helpers/renderCorrectGraphType';
+import StudentQuestionInformation from '../loggedin/StudentQuestionInformation';
 import {toJS, fromJS} from 'immutable';
 
 export const Student = React.createClass({
@@ -26,6 +27,17 @@ export const Student = React.createClass({
      return <StudentAnswering ref="answer" {...this.props} />;
    }
  },
+  renderPreplannedPresentationHeader: function() {
+    console.log('preplanned', this.props.preplannedPresentation);
+    if(this.props.preplannedPresentation && (this.props.shareThumbsCheckResults || this.props.sharingAllThumbsCheckResults)) {
+      return <StudentQuestionInformation {...this.props} />
+    } else {
+      return null;
+    }
+ },
+  renderCorrectGraphType: function() {
+    return this.props.shareThumbsCheckResults || this.props.sharingAllThumbsCheckResults ? renderCorrectGraphType(this.props) : null;
+  },
  render: function() {
    console.log('on student main', this.props);
    return (
@@ -44,9 +56,8 @@ export const Student = React.createClass({
                       questions={this.props.questions}
                       addStudentIdentity={this.props.addStudentIdentity} /> :
            null}
-         {this.props.shareThumbsCheckResults || this.props.sharingAllThumbsCheckResults ?
-           renderCorrectGraphType(this.props) :
-           null}
+          {this.renderPreplannedPresentationHeader()}
+          {this.renderCorrectGraphType()}
      </div>
    );
  }

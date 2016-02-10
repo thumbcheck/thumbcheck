@@ -4,6 +4,8 @@ import SliderNativeBootstrap from './QuestionSlider';
 import renderCorrectGraphType from '../../helpers/renderCorrectGraphType';
 import PresentationNextQuestionButton from '../loggedin/PresentationNextQuestionButton';
 import EducatorQuestionInformation from '../loggedin/EducatorQuestionInformation';
+import PreplannedPresentationVotingButton from '../loggedin/PreplannedPresentationVotingButton';
+import EndPreplannedPresentationButton from '../loggedin/EndPreplannedPresentationButton';
 
 export default React.createClass({
   showGraph: function() {
@@ -105,7 +107,12 @@ export default React.createClass({
   },
   renderNextQuestionButton: function() {
     if(this.props.preplannedPresentation) {
-      return <PresentationNextQuestionButton {...this.props}/>
+      return (
+        <div>
+          <PresentationNextQuestionButton {...this.props}/>
+          <EndPreplannedPresentationButton {...this.props}/>
+        </div>
+      )
     } else {
       return null;
     }
@@ -122,15 +129,15 @@ export default React.createClass({
           disabled="no" />
           : null}
 
-        {!this.props.preplannedPresentation ? this.renderProperButton() : null}
+      {/** Render question information if in preplanned presentation*/}
+        {this.props.preplannedPresentation ? <PreplannedPresentationVotingButton {...this.props} /> : this.renderProperButton()}
+        {this.props.preplannedPresentation ? <EducatorQuestionInformation {...this.props} /> : null}
 
         <div className={this.showGraph()}>
           <div>Results from last check-in</div>
           {renderCorrectGraphType(this.props)}
         </div>
 
-      {/** Render question information if in preplanned presentation*/}
-        {this.props.preplannedPresentation ? <EducatorQuestionInformation {...this.props} /> : null}
         
         {this.props.shareThumbsCheckResults || this.props.shareThumbsCheckResults === undefined || this.props.sharingAllThumbsCheckResults ?
           <p></p> :
@@ -139,6 +146,7 @@ export default React.createClass({
         <QuestionButton takingQuestions={this.props.takingQuestions}
                         toggleTakingQuestions={this.props.toggleTakingQuestions} />
         {this.renderNextQuestionButton()}
+
       </div>
     );
   }
