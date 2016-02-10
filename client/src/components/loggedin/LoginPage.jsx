@@ -30,15 +30,20 @@ export default React.createClass({
         }
       });
     }
+  },
 
+  handleEnter: function (e){
+    if (e.keyCode == 13){
+      this.handleLogin(e);
+    }
   },
 
   render: function() {
     return (
       <div>
         <p>{this.props.errMessage}</p>
-          Username: <input type="text" name="username" ref={(ref) => this.usernameInput = ref} /><br/>
-          Password: <input type="password" name="pswd" ref={(ref) => this.passwordInput = ref} /><br/>
+          Username: <input type="text" name="username" ref={(ref) => this.usernameInput = ref} onKeyDown ={this.handleEnter} /><br/>
+          Password: <input type="password" name="pswd" ref={(ref) => this.passwordInput = ref} onKeyDown ={this.handleEnter} /><br/>
           <a className="btn btn-primary btn-md" role="button" onClick={this.handleLogin} >Log In</a>
       </div>
     );
