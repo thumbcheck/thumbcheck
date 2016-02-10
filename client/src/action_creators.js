@@ -249,6 +249,7 @@ export function logout() {
       dispatch(action);
     })
   }
+}
 
 export function setEducatorID(educatorID) {
   return {

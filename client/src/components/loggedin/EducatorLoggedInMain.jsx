@@ -19,11 +19,7 @@ export default React.createClass({
           <Navbar lowerStudentHand={this.props.lowerStudentHand}
                questions={this.props.questions} toggleTakingQuestions={this.props.toggleTakingQuestions}
                sharingAllThumbsCheckResults={this.props.sharingAllThumbsCheckResults} takingQuestions={this.props.takingQuestions}
-<<<<<<< 64b39b4335b4dfd7dea6e084c0e09f6e655395b5
-               toggleSharingAllThumbsCheckResults={this.props.toggleSharingAllThumbsCheckResults} logout={this.props.logout}/> 
-=======
-               toggleSharingAllThumbsCheckResults={this.props.toggleSharingAllThumbsCheckResults} />
->>>>>>> Cookies are bening encoded, educatorID is being read in the front end
+               toggleSharingAllThumbsCheckResults={this.props.toggleSharingAllThumbsCheckResults} logout={this.props.logout}/>
           <EditPresentation {...this.props} />
         </div>
       )
@@ -35,11 +31,7 @@ export default React.createClass({
           <Navbar lowerStudentHand={this.props.lowerStudentHand}
                questions={this.props.questions} toggleTakingQuestions={this.props.toggleTakingQuestions}
                sharingAllThumbsCheckResults={this.props.sharingAllThumbsCheckResults} takingQuestions={this.props.takingQuestions}
-<<<<<<< 64b39b4335b4dfd7dea6e084c0e09f6e655395b5
-               toggleSharingAllThumbsCheckResults={this.props.toggleSharingAllThumbsCheckResults} logout={this.props.logout}/>  
-=======
-               toggleSharingAllThumbsCheckResults={this.props.toggleSharingAllThumbsCheckResults} />
->>>>>>> Cookies are bening encoded, educatorID is being read in the front end
+               toggleSharingAllThumbsCheckResults={this.props.toggleSharingAllThumbsCheckResults} logout={this.props.logout}/>
           <h1>Welcome! You have reached the exclusive members page!</h1>
           <PresentationList {...this.props}/>
         </div>
