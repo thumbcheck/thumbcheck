@@ -25,7 +25,7 @@ export default React.createClass({
   },
   confirmHandRaise: function() {
     // set student id and name on client state
-    const studentId = Math.floor(Math.random() * (1000 - 1) * 1);
+    const studentId = Math.floor(Math.random() * (10000 - 1) * 1);  
     const inputValue = this.studentNameInput.value;
     this.props.addStudentIdentity(studentId, inputValue);
     this.props.addQuestion(studentId, inputValue);

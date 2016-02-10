@@ -129,6 +129,13 @@ router.route('/api/presentations')
       res.send(201, result);
     });
   })
+// delete a given presentation  
+router.route('/api/presentations/:presentation_id')
+  .delete((req,res) => {
+    presentationController.deletePresentation(req.params.presentation_id, (result) => {
+      res.send(200, result);
+    });
+  })  
 
 //get all the presentation of a given user
 router.route('/api/presentations/users/:userid')

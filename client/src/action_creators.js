@@ -278,7 +278,7 @@ export function clearCurrentPresentation() {
     type: 'CLEAR_CURRENT_PRESENTATION_DATA'
   };
 }
-export function getAllPresentations(educatorID) {
+export function getAllPresentations(educatorID) {  
   return function(dispatch) {
     let apiCall = ApiFunctions.getUserPresentations(educatorID);
     apiCall
@@ -358,4 +358,22 @@ export function addPresentation(presentationData) {
       });
   };
 }
-
+export function deletePresentation(presentationId, educatorId) {
+  return function(dispatch) {
+    let apiCall = ApiFunctions.deletePresentation(presentationId);
+    apiCall
+      .success((response) => { 
+        ApiFunctions.getUserPresentations(educatorId)               
+          .success((response2) => {
+            let action = {
+            type: 'SET_ALL_PRESENTATION_DATA',
+            data: response2
+            };
+            dispatch(action);
+          })          
+      })
+      .error((jqXHR, textStatus, errorThrown) => {
+      console.log('Error: ', jqXHR, textStatus, errorThrown);
+      });
+  };
+}
