@@ -10,7 +10,6 @@ export default React.createClass({
     this.props.selectTypeThumbCheck();    
   },
   chooseMultipleChoice: function() {
-    console.log("this is GREAT!!!");
     this.props.selectTypeMultipleChoice();
   },
   chooseOpenResponse: function() {
@@ -63,7 +62,6 @@ export default React.createClass({
     if (this.props.editingQuestionIdInfo[0] !== ".") {
       editingId = this.props.editingQuestionIdInfo.toJS().id;
     }        
-    console.log('questionData', questionData);
     this.props.addPresentationQuestion(questionData, editingId);
     this.props.createQuestion();
   },

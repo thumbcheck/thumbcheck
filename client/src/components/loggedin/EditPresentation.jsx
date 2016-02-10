@@ -6,7 +6,6 @@ import CreateEditQuestions from './CreateEditQuestions';
 export default React.createClass({
   renderTitle: function() {
     let currentPresentationTitle = this.props.currentPresentation.toJS().presentation.title || null;
-    console.log('currentPresentationTitle in renderTitle', currentPresentationTitle)
     return (
       <div>
         <h2>Presentation Title: {currentPresentationTitle} </h2>
@@ -14,7 +13,8 @@ export default React.createClass({
     )
   },  
   showPresentationQuestions: function() {    
-    let deleteQuestion = this.props.deleteQuestion, createQuestion=this.props.createQuestion;
+    let deleteQuestion = this.props.deleteQuestion; 
+    let createQuestion=this.props.createQuestion;
     let currentPresentationQuestionData = this.props.currentPresentation.toJS().questionChoice;    
     if(currentPresentationQuestionData) {      
       return currentPresentationQuestionData.map(function(questionData) {
@@ -41,9 +41,7 @@ export default React.createClass({
     )
   },
   render: function() {
-    console.log('editpresentationprops', this.props)
     if (this.props.creatingQuestion) {
-      console.log(this.props)
       return <CreateEditQuestions {...this.props} />
     } else {
       return (

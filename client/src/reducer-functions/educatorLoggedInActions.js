@@ -113,10 +113,28 @@ export function toggle5choices(state) {
 export function createQuestion(state, edit, questionData, cancel) {
   let toggle = !state.get('creatingQuestion');
   if (edit) {
-    const newState = fromJS({creatingQuestion: toggle, editingQuestionIdInfo: questionData});
+    const newState = fromJS({
+      creatingQuestion: toggle, 
+      editingQuestionIdInfo: questionData,
+      createQuestionTypeMultipleChoice: false,
+      createQuestionTypeThumbCheck: false,
+      createQuestionTypeOpenResponse: false,
+      a3choice: false,
+      a4choice: false,
+      a5choice: false
+    });
     return state.merge(newState);
   } else {
-    const newState = fromJS({creatingQuestion: toggle, editingQuestionIdInfo: null});
+    const newState = fromJS({
+      creatingQuestion: toggle,
+      editingQuestionIdInfo: null,
+      createQuestionTypeMultipleChoice: false,
+      createQuestionTypeThumbCheck: false,
+      createQuestionTypeOpenResponse: false,
+      a3choice: false,
+      a4choice: false,
+      a5choice: false
+    });
     return state.merge(newState);
   }
 }
