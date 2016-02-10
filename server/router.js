@@ -58,6 +58,12 @@ router.route('/login')
     return passport.authenticate('local-login', {successRedirect: '/success', failureRedirect: '/fail'})(req,res, next);
   });
 
+router.route('/logout')  
+  .post((req,res) => { 
+    res.clearCookie('remember');    
+    res.send(200, 'logged out');
+  })  
+
 router.route('/api/users')
   .post((req,res) => {
     console.log('in api users post', req.body);

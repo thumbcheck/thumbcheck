@@ -17,7 +17,7 @@ export default React.createClass({
           <Navbar lowerStudentHand={this.props.lowerStudentHand}
                questions={this.props.questions} toggleTakingQuestions={this.props.toggleTakingQuestions}
                sharingAllThumbsCheckResults={this.props.sharingAllThumbsCheckResults} takingQuestions={this.props.takingQuestions}
-               toggleSharingAllThumbsCheckResults={this.props.toggleSharingAllThumbsCheckResults} /> 
+               toggleSharingAllThumbsCheckResults={this.props.toggleSharingAllThumbsCheckResults} logout={this.props.logout}/> 
           <EditPresentation {...this.props} />
         </div>
       )
@@ -29,7 +29,7 @@ export default React.createClass({
           <Navbar lowerStudentHand={this.props.lowerStudentHand}
                questions={this.props.questions} toggleTakingQuestions={this.props.toggleTakingQuestions}
                sharingAllThumbsCheckResults={this.props.sharingAllThumbsCheckResults} takingQuestions={this.props.takingQuestions}
-               toggleSharingAllThumbsCheckResults={this.props.toggleSharingAllThumbsCheckResults} />  
+               toggleSharingAllThumbsCheckResults={this.props.toggleSharingAllThumbsCheckResults} logout={this.props.logout}/>  
           <h1>Welcome! You have reached the exclusive members page!</h1>
           <PresentationList {...this.props}/>
         </div>

@@ -240,6 +240,17 @@ export function educatorLogin(currentRoom) {
   };
 }
 
+export function logout() {  
+  return function(dispatch){
+    let apiCall = ApiFunctions.logout((response) => {
+      let action = {
+        type: 'SET_INITIAL_STATE'          
+      };
+      dispatch(action);
+    })             
+  }
+}
+
 export function setCurrentPresentationID(presentationID) {
   return {
     meta: {remote: true},

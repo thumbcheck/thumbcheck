@@ -1,7 +1,6 @@
 import {Map, fromJS, toJS, List} from 'immutable';
 
-export function educatorLogin(state, currentRoom) {
-  console.log('in educatorLogin!!!!!!!!!!!');
+export function educatorLogin(state, currentRoom) {  
   let newState = fromJS({
     educatorLoggedIn: true,
     userType: 'educator',

@@ -29,7 +29,7 @@ const store = createStoreWithMiddleware(reducer);
 // store.dispatch(setParticipantID(generateID()));
 generateID();
 
-store.subscribe(() => {
+store.subscribe(() => {  
   let currentState = store.getState().toJS();
   console.log('newstate', currentState)
   if(currentState.connected) {

@@ -36,7 +36,7 @@ export default function mapStateToProps(state) {
 
     createQuestionTypeThumbCheck: state.get('createQuestionTypeThumbCheck'),
     createQuestionTypeOpenResponse: state.get('createQuestionTypeOpenResponse'),
-    createQuestionTypeMultipleChoice: state.get('createQuestionTypeMultipleChoice'),
+    createQuestionTypeMultipleChoice: state.get('createQuestionTypeMultipleChoice'), 
 
     a3choice: state.get('a3choice'),
     a4choice: state.get('a4choice'),
