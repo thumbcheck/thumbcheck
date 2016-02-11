@@ -272,8 +272,23 @@ html,body { height: 100%; margin: 0px; padding: 0px; font-family: 'HelveticaNeue
 	bottom: 30px;
 	right: 230px;
 }
-
-
+.create-presentation-container {
+	padding: 5% 30% 0 30%;	
+	text-align: center;
+}
+.big-input {
+	height: 2em;
+	margin-right: 3%;
+}
+.align-up {
+	margin-top: -8px;
+}
+.create-question-container {
+	padding: 5% 0 0 20%;
+}
+.question-input {
+	min-width: 50%;
+}
 /*  ************* student page styling  ************* */
 .student-content {
 	margin: 5% 10% 0 10%;
