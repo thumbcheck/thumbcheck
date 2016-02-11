@@ -32,7 +32,6 @@ export default React.createClass({
     let presentationArray = this.props.allEducatorPresentations;
     return presentationArray.map((presentation) => {
       presentation = presentation.toJS();
-      return <PresentationListItem key={presentation.id} title={presentation.title} presentationID={presentation.id} {...this.props} />;
       return (        
           <PresentationListItem key={presentation.id} title={presentation.title} presentationID={presentation.id} {...this.props} />        
       )  
@@ -45,23 +44,25 @@ export default React.createClass({
   render: function() {
     console.log('main page', this.props);
     return (
-      <div>
-        <h2>Presentations:</h2>
-        <div className="table-responsive">
-          <table className="table-hover content-table">
-            <tbody>
-              {this.props.allEducatorPresentations ? this.displayPresentations() : null}
-            </tbody>    
-          </table>
-        </div>        
+      <div className='presentation-list-container'>
+        <div className='presentation-list-header text-center'>
+          Your Presentations
+        </div>
+        <div className="col-md-12">
+          <div className="panel panel-default table-responsive presentation-list-table-container ">
+            <table className="table table-hover table-bordered content-table very-light-grey">
+              <tbody>
+                {this.props.allEducatorPresentations ? this.displayPresentations() : null}
+              </tbody>    
+            </table>
+          </div>        
+        </div>
         <button type = 'button'
                 className = "btn grey white-text"
                 onClick = {this.createPresentation}>
                 Create Presentation
         </button>
         <div className='presentations-container'></div>
-        <h5>Your Room: <strong>{this.props.currentRoom}</strong></h5>
-        <h5>Room URL: <strong>{window.location.href.split('?')[0]}</strong></h5>
       </div>
     );
   }
