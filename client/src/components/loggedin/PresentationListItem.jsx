@@ -16,13 +16,17 @@ export default React.createClass({
   render: function() {
     return (
       <tr className="row">
-        <td>{this.props.title}</td>
-        <td className="presentation-list-item-button-container presentation-list-item-play" onClick={this.startPreplannedPresentation}>
-          Play
+        <td className="presentation-list-item-button-container presentation-list-item-play col-md-12 col-xs-12" onClick={this.startPreplannedPresentation}>
+          {this.props.title}
+          {/*<span className='hidden-small-screen'>Play</span>*/}
+          <img className="presentation-list-item-button" src="/images/playbutton.png" />  
+        </td>
+        {/*<td className="presentation-list-item-button-container presentation-list-item-play" onClick={this.startPreplannedPresentation}>
+          <span className='hidden-xs'>Play</span>
           <img className="presentation-list-item-button" src="/images/playbutton.png" />
-        </td>            
+        </td>*/}            
         <td className="presentation-list-item-button-container presentation-list-item-edit" onClick={this.viewPresentation}>
-          Edit
+          <span className='hidden-small-screen'>Edit</span>
           <img className="presentation-list-item-button" src="/images/editbutton.ico" />
         </td>        
         <td className="presentation-list-item-delete" onClick={ this.deletePresentation } aria-hidden="true"><img className="remove-icon" src="/images/icons/remove.png"/></td>                                       

@@ -48,7 +48,7 @@ export default React.createClass({
         <div className='presentation-list-header text-center'>
           Your Presentations
         </div>
-        <div className="col-md-12">
+        <div className="col-md-10 col-md-offset-1 col-xs-12">
           <div className="panel panel-default table-responsive presentation-list-table-container ">
             <table className="table table-hover table-bordered content-table very-light-grey">
               <tbody>
