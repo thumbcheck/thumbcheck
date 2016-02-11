@@ -41,10 +41,11 @@ export default React.createClass({
   render: function() {
     return (
       <div>
+        <p>Log in to your account</p>
+        <label>Username:</label><input type="text" name="username" ref={(ref) => this.usernameInput = ref} onKeyDown ={this.handleEnter} /><br/>
+        <label>Password:</label><input type="password" name="pswd" ref={(ref) => this.passwordInput = ref} onKeyDown ={this.handleEnter} /><br/>
         <p>{this.props.errMessage}</p>
-          Username: <input type="text" name="username" ref={(ref) => this.usernameInput = ref} onKeyDown ={this.handleEnter} /><br/>
-          Password: <input type="password" name="pswd" ref={(ref) => this.passwordInput = ref} onKeyDown ={this.handleEnter} /><br/>
-          <a className="btn btn-primary btn-md" role="button" onClick={this.handleLogin} >Log In</a>
+        <a className="btn btn-primary btn-md" role="button" onClick={this.handleLogin} >Log In</a>
       </div>
     );
   }

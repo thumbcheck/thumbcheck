@@ -61,26 +61,44 @@ export default React.createClass({
     if(this.props.choice === 'teacher') {
       return (
         <div>
-          <p><a className="btn btn-primary btn-md" onClick={this.handleCreateRoom} role="button">Create a lecture room</a></p>
-          <LoginPage {...this.props} />
-          <p>Don&#39;t have an account yet? <a className="btn btn-primary btn-md" role="button" onClick={this.chooseSignup} >Sign Up</a></p>
-          <a className="btn btn-warning btn-md" role="button" onClick={this.chooseStudent} >I&#39;m a Student</a>
+          <div className="Grid">
+            <div className="Grid-cell mycontent-left">
+            Don't want to sign up for an account? No problem!
+              <p><a className="btn btn-primary btn-lg" onClick={this.handleCreateRoom} role="button">Start Presentation Now</a></p>
+            </div>
+            <div className="Grid-cell">
+              <LoginPage {...this.props} />
+              <p>Don&#39;t have an account yet? <a className="btn btn-primary btn-md" role="button" onClick={this.chooseSignup} >Sign Up</a></p>
+            </div>
+          </div>
+          <a className="btn btn-warning btn-lg" role="button" onClick={this.chooseStudent} >Join a presentation</a>
         </div>
       )
     } else if(this.props.choice === 'signup') {
       return (
         <div>
-          <SignupPage {...this.props} />
-          <p>Already have an account? <a className="btn btn-primary btn-md" role="button" onClick={this.chooseTeacher} >Log In</a></p>
-          <a className="btn btn-warning btn-md" role="button" onClick={this.chooseStudent} >I&#39;m a Student</a>
+          <div className="Grid">
+            <div className="Grid-cell mycontent-left">
+            Don't want to sign up for an account? No problem!
+              <p><a className="btn btn-primary btn-lg" onClick={this.handleCreateRoom} role="button">Start Presentation Now</a></p>
+            </div>
+            <div className="Grid-cell">
+              <SignupPage {...this.props} />
+              <p>Already have an account? <a className="btn btn-primary btn-md" role="button" onClick={this.chooseTeacher} >Log In</a></p>
+            </div>
+          </div>
+          <a className="btn btn-warning btn-lg" role="button" onClick={this.chooseStudent} >Join a presentation</a>
         </div>
       )
     } else {
       return (
         <div>
-          <p>Join existing room <input ref={(ref) => this.studentInput = ref} onKeyDown ={this.handleEnter} /> <a className="btn btn-primary btn-md" role="button" onClick={this.handleStudentSubmit} >Join</a></p>
+          <p>Enter room name to join existing presentation: </p>
+          <p><input className="input_width input-lg" ref={(ref) => this.studentInput = ref} onKeyDown ={this.handleEnter} /> <a className="btn btn-primary btn-lg" role="button" onClick={this.handleStudentSubmit} >Join</a></p>
           <p>{this.props.errMessage}</p>
-          <a className="btn btn-warning btn-md" role="button" onClick={this.chooseTeacher} >I&#39;m an Educator</a>
+          <hr/>
+          <p>Want to start a presentation?</p>
+          <a className="btn btn-warning btn-lg" role="button" onClick={this.chooseTeacher} >Click to Begin</a>
         </div>
       )
     }

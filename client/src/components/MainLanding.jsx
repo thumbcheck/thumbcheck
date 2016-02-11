@@ -39,9 +39,9 @@ export const Main = React.createClass({
         return <Educator {...this.props} />
       } else {
         return (
-          <div className="main-landing-parent-container">
+          <div className="jumbotron main-landing-parent-container">
             <div className="main-landing-container center-text">
-                <div className="jumbotron center-text main-landing-content">
+                <div className="center-text main-landing-content">
                   <h1 className="jumbo-text">Welcome to Thumbcheck</h1>
                   <RoleChoice chooseRole={this.props.chooseRole}
                               setError={this.props.setError}
