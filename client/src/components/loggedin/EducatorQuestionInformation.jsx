@@ -26,27 +26,28 @@ export default React.createClass({
     if (questionChoices) {
       questionChoices = questionChoices.toJS();
       return questionChoices.map((choice, index) => {
-        return <div key={index}>{choice[0]}: {choice[1]}</div>
+        return <div key={index}>{ choice[0].toUpperCase() }: {choice[1]}</div>
       });      
     }
   },
   renderQuestionHeader: function() {
     return (
       <div>
-        <h1>Presentation: {this.props.currentPresentation.getIn(['presentation','title'])}</h1>
-        <h2>Question: {this.props.currentPresentation.getIn(['currentQuestion', 'prompt'])}</h2>
+        <span className="pull-left big-text">{this.props.currentPresentation.getIn(['presentation','title'])}</span>
+        <span className="bigger-text push-right-padding">{this.props.currentPresentation.getIn(['currentQuestion', 'prompt'])}</span>
       </div>
     );
   },
   renderPreplannedPresentationButton: function() {
     let questionType = this.props.currentPresentation.getIn(['currentQuestion', 'questionType']);
-    let color = 'orange';
+    let color = 'green';
     let text = '';
     if (questionType === 'Thumbs Check') {
       color = 'orange', text = 'Thumbscheck';
     } else if (questionType === 'Open Response') {
       color='blue', text="Open Response";
     } else {
+      color = 'green';
       let answer = this.props.currentPresentation.getIn(['currentQuestion', 'questionChoices']);
       let answerLength = answer.size;
       let checkInFunction;
@@ -59,7 +60,7 @@ export default React.createClass({
       }
 
       return (
-        <button value="multipleChoice3" type='button' className="btn orange request-btn white-text thumb-check-start" onClick={this[checkInFunction]}>
+        <button value="multipleChoice3" type='button' className="btn green request-btn white-text thumb-check-start" onClick={this[checkInFunction]}>
           Mutiple Choice
         </button>
       )

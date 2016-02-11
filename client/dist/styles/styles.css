@@ -21,14 +21,17 @@ html,body { height: 100%; margin: 0px; padding: 0px; font-family: 'HelveticaNeue
 .orange-text { color: #FE5133; }
 
 /* ------ GENERAL SPACING AND SIZING STYLES ---- */
-.push-right { margin-right: 10px;	}
-.push-left { margin-left: 10px; }
-.push-top { margin-top: 10px; }
-.push-bottom { margin-bottom: 10px; }
+.push-right { margin-right: 1%;	}
+.push-right-padding { padding-right: 5%;	}
+.push-left { margin-left: 1%; }
+.push-top { margin-top: 1%; }
+.push-bottom { margin-bottom: 1%; }
 
-.bigger-text {
-  font-size: 2em;
-}
+.big-text { font-size: 1.5em; }
+.big-text-vh { font-size: 2.5vh; }
+.bigger-text { font-size: 2em; }
+.bigger-text-vh { font-size: 4vh; }
+.bold-text {font-weight: bold;}
 .center-text { text-align: center; }
 .dont-show { display: none; }
 
@@ -130,29 +133,45 @@ html,body { height: 100%; margin: 0px; padding: 0px; font-family: 'HelveticaNeue
 	margin-top: 6%;
 }
 .last-result-graph {
-	width: 500px;
-	height: 350px;
+	min-width: 1px;
+	min-height: 1px; 
+	width: 60%;
+	height: 60%;
 }
 .current-result-graph {
-	width: 600px;
-	height: 450px;
+	min-width: 1px;
+	min-height: 1px; 
+	width: 80%;
+	height: 80%;
 }
 .questions-queue {
 	position: absolute;
   left: 200px;
   top: 200px;
 }
+.results-text * {
+	font-size: 1.5em;
+}
 .slider-container {
 	height: 50px;
 	margin-bottom: 5%;
 }
 .question-slider {
-	width: 20%;
+	width: 30%;
 }
 .inlineD {
 	display: inline-block;
-	margin: 0 2% 0 2%;
+	margin: 0 4% 0 4%;
+	font-weight: bolder;
 }
+.presentation-container {
+	margin: 2% 13% 0 13%;
+	border: 1px solid grey;
+	padding: 2% 3% 1% 3%;
+	border-radius: 5px;
+	box-shadow: 0 1px 10px rgba(31, 50, 63, 0.75); 
+}
+
 /* ****** EDUCATOR LOGGED IN STYLING ****** */
 .preplanned-container {
 	padding: 2% 0 0 15%;

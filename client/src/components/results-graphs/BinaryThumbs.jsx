@@ -6,15 +6,13 @@ export default React.createClass({
 
   render: function() {
     let barChartData = {
-      labels: ["Thumbs-up                            Thumbs-down"],
+      labels: [],
       datasets: [{
         fillColor: "rgba(0,128,255,1)",
-        strokeColor: "black",
         data: [this.props.upCount]
       },
       {
         fillColor: "rgba(254,81,51,1)",
-        strokeColor: "black",
         data: [this.props.downCount]
       }]
     };

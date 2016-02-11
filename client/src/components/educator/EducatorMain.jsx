@@ -31,11 +31,12 @@ export const Educator = React.createClass({
      <div>
        <Navbar {...this.props}/>          
         <div className="educator-container">
-          <div className="center-text">
-            <h4>Share this URL: <strong>{window.location.href.split('?')[0]}</strong>
-              <br />Room Name: <strong>{this.props.currentRoom}</strong>
-              <div><strong>{this.props.numUsers}</strong> device(s) currently in this room</div>
-            </h4>
+          <div className="pull-right big-text-vh push-right center-text">Share this URL: {window.location.href.split('?')[0]}</div>
+          <div className="push-left big-text-vh">
+            <span>Room Name: <strong><span className="bold-text"> {this.props.currentRoom}</span></strong></span><br/>           
+            <span><span className="bold-text"> { this.props.numUsers }</span> { this.props.numUsers === 1 ? "device" : "devices"} currently in this room</span>          
+          </div>
+          <div className="presentation-container center-text">                                    
             {this.props.voting ?
               <ResultsDisplay ref="resultsDisplay" {...this.props} /> :
               <EducatorRequestCheckin {...this.props} />
