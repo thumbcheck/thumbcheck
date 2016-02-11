@@ -49,16 +49,30 @@ export default React.createClass({
   },
 
   render: function() {
-    return (
-      <div>
-        <h2>Sign up for an account</h2>
-        <p>{this.props.errMessage}</p>
-          Name: <input type="text" name="name" ref={(ref) => this.nameInput = ref} onKeyDown ={this.handleEnter} /><br/>
-          Email: <input type="text" name="email" ref={(ref) => this.emailInput = ref} onKeyDown ={this.handleEnter} /><br/>
-          Username: <input type="text" name="username" ref={(ref) => this.usernameInput = ref} onKeyDown ={this.handleEnter} /><br/>
-          Password: <input type="password" name="pswd" ref={(ref) => this.passwordInput = ref} onKeyDown ={this.handleEnter} /><br/>
+    if(this.props.isMobile){
+      return(
+        <div>
+          <p>Sign up for an account</p>
+          <input type="text" name="name" ref={(ref) => this.nameInput = ref} onKeyDown ={this.handleEnter} placeholder="Name" /><br/>
+          <input type="text" name="email" ref={(ref) => this.emailInput = ref} onKeyDown ={this.handleEnter} placeholder="Email" /><br/>
+          <input type="text" name="username" ref={(ref) => this.usernameInput = ref} onKeyDown ={this.handleEnter} placeholder="Username" /><br/>
+          <input type="password" name="pswd" ref={(ref) => this.passwordInput = ref} onKeyDown ={this.handleEnter} placeholder="Username" /><br/>
+          <p>{this.props.errMessage}</p>
+          <a className="btn btn-primary btn-md btn-small-screen" role="button" onClick={this.handleLogin} onKeyDown ={this.handleEnter} >Sign Up</a>
+        </div>
+      )
+    } else {
+      return (
+        <div>
+          <p>Sign up for an account</p>
+          <label>Name:</label><input type="text" name="name" ref={(ref) => this.nameInput = ref} onKeyDown ={this.handleEnter} /><br/>
+          <label>Email:</label><input type="text" name="email" ref={(ref) => this.emailInput = ref} onKeyDown ={this.handleEnter} /><br/>
+          <label>Username:</label><input type="text" name="username" ref={(ref) => this.usernameInput = ref} onKeyDown ={this.handleEnter} /><br/>
+          <label>Password:</label><input type="password" name="pswd" ref={(ref) => this.passwordInput = ref} onKeyDown ={this.handleEnter} /><br/>
+          <p>{this.props.errMessage}</p>
           <a className="btn btn-primary btn-md" role="button" onClick={this.handleLogin} onKeyDown ={this.handleEnter} >Sign Up</a>
-      </div>
-    );
+        </div>
+      );
+    }
   }
 });

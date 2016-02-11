@@ -6,14 +6,17 @@ import SignupPage from './loggedin/SignupPage';
 export default React.createClass({
   chooseTeacher: function () {
     this.props.chooseRole('teacher');
+    this.props.setError('');
   },
 
   chooseStudent: function () {
     this.props.chooseRole('');
+    this.props.setError('');
   },
 
   chooseSignup: function () {
     this.props.chooseRole('signup');
+    this.props.setError('');
   },
 
   handleStudentSubmit: function (e) {
@@ -61,26 +64,79 @@ export default React.createClass({
     if(this.props.choice === 'teacher') {
       return (
         <div>
-          <p><a className="btn btn-primary btn-md" onClick={this.handleCreateRoom} role="button">Create a lecture room</a></p>
-          <LoginPage {...this.props} />
-          <p>Don&#39;t have an account yet? <a className="btn btn-primary btn-md" role="button" onClick={this.chooseSignup} >Sign Up</a></p>
-          <a className="btn btn-warning btn-md" role="button" onClick={this.chooseStudent} >I&#39;m a Student</a>
+        <div className="subtitle">
+          <div className="Grid">
+            <div className="Grid-cell mycontent-left">
+            <p>Don't want to sign up for an account?</p>
+              <p><a className="btn btn-primary btn-lg" onClick={this.handleCreateRoom} role="button">Start Presentation Now</a></p>
+            </div>
+            <div className="Grid-cell mycontent-right">
+              <LoginPage isMobile={false} {...this.props} />
+              <p>Don&#39;t have an account yet? <a className="btn btn-primary btn-md" role="button" onClick={this.chooseSignup} >Sign Up</a></p>
+            </div>
+          </div>
+          <a className="btn btn-warning btn-lg" role="button" onClick={this.chooseStudent} >Join a presentation</a>
+        </div>
+
+        <div className="small-screen">
+          <div className="Grid">
+            <div className="Grid-cell mycontent-left">
+              <p><a className="btn btn-primary btn-lg" onClick={this.handleCreateRoom} role="button">Start Presentation Now</a></p>
+            </div>
+            <div className="Grid-cell">
+            <LoginPage chooseSignup={this.chooseSignup} isMobile={true} {...this.props} />
+            </div>
+          </div>
+          <a className="btn btn-warning btn-md" role="button" onClick={this.chooseSignup} >Sign Up</a>
+          <a className="btn btn-warning btn-md" role="button" onClick={this.chooseStudent} >Join a presentation</a>
+        </div>
         </div>
       )
     } else if(this.props.choice === 'signup') {
       return (
         <div>
-          <SignupPage {...this.props} />
-          <p>Already have an account? <a className="btn btn-primary btn-md" role="button" onClick={this.chooseTeacher} >Log In</a></p>
-          <a className="btn btn-warning btn-md" role="button" onClick={this.chooseStudent} >I&#39;m a Student</a>
+          <div className="subtitle">
+            <div className="Grid">
+              <div className="Grid-cell mycontent-left">
+              <p>Don't want to sign up for an account?</p>
+                <p><a className="btn btn-primary btn-lg" onClick={this.handleCreateRoom} role="button">Start Presentation Now</a></p>
+              </div>
+              <div className="Grid-cell mycontent-right">
+                <SignupPage chooseTeacher={this.chooseTeacher} isMobile={false} {...this.props} />
+                <p>Already have an account? <a className="btn btn-primary btn-md" role="button" onClick={this.chooseTeacher} >Log In</a></p>
+              </div>
+            </div>
+            <a className="btn btn-warning btn-lg" role="button" onClick={this.chooseStudent} >Join a presentation</a>
+          </div>
+          <div className="small-screen">
+            <div className="Grid">
+              <div className="Grid-cell mycontent-left">
+                <p><a className="btn btn-primary btn-lg" onClick={this.handleCreateRoom} role="button">Start Presentation Now</a></p>
+              </div>
+              <div className="Grid-cell">
+                <SignupPage chooseTeacher={this.chooseTeacher} isMobile={true} {...this.props} />
+              </div>
+            </div>
+            <a className="btn btn-warning btn-md" role="button" onClick={this.chooseTeacher} >Log In</a>
+            <a className="btn btn-warning btn-md" role="button" onClick={this.chooseStudent} >Join a presentation</a>
+          </div>
         </div>
       )
     } else {
       return (
         <div>
-          <p>Join existing room <input ref={(ref) => this.studentInput = ref} onKeyDown ={this.handleEnter} /> <a className="btn btn-primary btn-md" role="button" onClick={this.handleStudentSubmit} >Join</a></p>
-          <p>{this.props.errMessage}</p>
-          <a className="btn btn-warning btn-md" role="button" onClick={this.chooseTeacher} >I&#39;m an Educator</a>
+        <div className="bigger-text subtitle">
+        Get real-time presentation feedback!</div>
+          <div className="main-landing-student-choice">
+            <p>Join existing presentation: </p>
+            <p><input className="input_width input-lg" ref={(ref) => this.studentInput = ref} onKeyDown ={this.handleEnter} /> <a className="btn btn-primary btn-lg" role="button" onClick={this.handleStudentSubmit} >Join</a></p>
+            <p>{this.props.errMessage}</p>
+          </div>
+          <hr className="hr"/>
+          <div className="main-landing-educator-choice">
+            <p>Want to start a presentation?</p>
+            <a className="btn btn-warning btn-lg" role="button" onClick={this.chooseTeacher} >Get Started</a>
+          </div>
         </div>
       )
     }
