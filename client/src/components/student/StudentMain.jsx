@@ -42,7 +42,7 @@ export const Student = React.createClass({
    console.log('on student main', this.props);
    return (
      <div className="student-container center-text">
-         <h4>You are in room: <strong>{this.props.currentRoom}</strong></h4>         
+         <h4 className="in-room-text">You are in room: <strong>{this.props.currentRoom}</strong></h4>         
          {(this.props.takingQuestions && this.props.takingQuestions.toJS().allowQuestions) ?
            <RaiseHand handRaised={this.props.handRaised}
                       id={this.props.id}
@@ -52,7 +52,7 @@ export const Student = React.createClass({
                       questions={this.props.questions}
                       addStudentIdentity={this.props.addStudentIdentity} /> :
            null}
-         <h4><strong>{this.props.numUsers}</strong> device(s) currently in this room</h4>         
+         <h4 className="in-room-text"><strong>{this.props.numUsers}</strong> device(s) currently in this room</h4>         
          <div className="student-content">
            {this.renderProperElement()}
          </div>

@@ -16,11 +16,11 @@ export default React.createClass({
     let previousQuestionTitle = this.props.justVoted ? currentQuestionTitle : this.props.currentPresentation.getIn(['previousQuestion', 'prompt']);
     if (this.props.voting) {
       return (
-        <h1>{currentQuestionTitle}</h1>
+        <h1 className="current-question-text">{currentQuestionTitle}</h1>
       )
     } else if (this.props.shareThumbsCheckResults || this.props.sharingAllThumbsCheckResults && previousPresentationTitle) {
       return (
-        <h1>{previousQuestionTitle}</h1>
+        <h1 className="previous-question-text">{previousQuestionTitle}</h1>
       )
     } else {
       return null;
@@ -33,14 +33,14 @@ export default React.createClass({
       if (currentQuestionOptions) {
         currentQuestionOptions = currentQuestionOptions.toJS();
         return currentQuestionOptions.map((choice) => {
-          return <div key={choice[0]}>{choice[0]}: {choice[1]}</div>
+          return <div className="current-question-text" key={choice[0]}>{choice[0]}: {choice[1]}</div>
         });
       }
     } else if ((this.props.shareThumbsCheckResults || this.props.sharingAllThumbsCheckResults && previousPresentationTitle)) {
       if (previousQuestionOptions) {
         previousQuestionOptions = previousQuestionOptions.toJS();
         return previousQuestionOptions.map((choice) => {
-          return <div key={choice[0]}>{choice[0]}: {choice[1]}</div>
+          return <div className="previous-question-text" key={choice[0]}>{choice[0]}: {choice[1]}</div>
         });
       }
     } else {

@@ -10,28 +10,28 @@ export default React.createClass({
     if (this.props.questionType === 'multipleChoice3') {
       return (
         <div>
-          <button value="a" className="btn btn-warning btn-lg" onClick={this.sendChoice} > A </button>
-          <button value="b" className="btn btn-warning btn-lg" onClick={this.sendChoice} > B </button>
-          <button value="c" className="btn btn-warning btn-lg" onClick={this.sendChoice} > C </button>
+          <button value="a" className="btn btn-warning btn-lg btn-mult btn-a" onClick={this.sendChoice} > A </button>
+          <button value="b" className="btn btn-warning btn-lg btn-mult btn-b" onClick={this.sendChoice} > B </button>
+          <button value="c" className="btn btn-warning btn-lg btn-mult btn-c" onClick={this.sendChoice} > C </button>
         </div>
       )
     } else if (this.props.questionType === 'multipleChoice4') {
       return (
         <div>
-          <button value="a" className="btn btn-warning btn-lg" onClick={this.sendChoice} > A </button>
-          <button value="b" className="btn btn-warning btn-lg" onClick={this.sendChoice} > B </button>
-          <button value="c" className="btn btn-warning btn-lg" onClick={this.sendChoice} > C </button>
-          <button value="d" className="btn btn-warning btn-lg" onClick={this.sendChoice} > D </button>
+          <button value="a" className="btn btn-warning btn-lg btn-mult btn-a" onClick={this.sendChoice} > A </button>
+          <button value="b" className="btn btn-warning btn-lg btn-mult btn-b" onClick={this.sendChoice} > B </button>
+          <button value="c" className="btn btn-warning btn-lg btn-mult btn-c" onClick={this.sendChoice} > C </button>
+          <button value="d" className="btn btn-warning btn-lg btn-mult btn-d" onClick={this.sendChoice} > D </button>
         </div>
       )
     } else if (this.props.questionType === 'multipleChoice5') {
       return (
         <div>
-          <button value="a" className="btn btn-warning btn-lg" onClick={this.sendChoice} > A </button>
-          <button value="b" className="btn btn-warning btn-lg" onClick={this.sendChoice} > B </button>
-          <button value="c" className="btn btn-warning btn-lg" onClick={this.sendChoice} > C </button>
-          <button value="d" className="btn btn-warning btn-lg" onClick={this.sendChoice} > D </button>
-          <button value="e" className="btn btn-warning btn-lg" onClick={this.sendChoice} > E </button>
+          <button value="a" className="btn btn-warning btn-lg btn-mult btn-a" onClick={this.sendChoice} > A </button>
+          <button value="b" className="btn btn-warning btn-lg btn-mult btn-b" onClick={this.sendChoice} > B </button>
+          <button value="c" className="btn btn-warning btn-lg btn-mult btn-c" onClick={this.sendChoice} > C </button>
+          <button value="d" className="btn btn-warning btn-lg btn-mult btn-d" onClick={this.sendChoice} > D </button>
+          <button value="e" className="btn btn-warning btn-lg btn-mult btn-e" onClick={this.sendChoice} > E </button>
         </div>
       )
     }

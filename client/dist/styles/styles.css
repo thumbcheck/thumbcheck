@@ -166,7 +166,7 @@ html,body { height: 100%; margin: 0px; padding: 0px; font-family: 'HelveticaNeue
 	margin: 5% 10% 0 10%;
 }
 .waiting-text {
-  font-size: 80px;
+  font-size: 5vh;
   font-family: HelveticaNeue-Thin;
   padding-bottom: 15px;
   text-shadow: 6px 6px 10px rgba(f, f, f, 0.6);
@@ -174,19 +174,36 @@ html,body { height: 100%; margin: 0px; padding: 0px; font-family: 'HelveticaNeue
   font-weight: 400;
 }
 .thumbs {
-	width: 200px;
+	height: 30vh;
 	margin-left: 5%;
 }
 .raise-hand-container {	
 	position: absolute;
-	top: 6%;
-	right: 8%;
+	top: 0;
+	right: 0;
 }
 .student-hand-icon {
 	width: 35%
 }
 .raise-hand-button {
 	font-size: 1.3em;
+  top: 0;
+  right: 0;
 }
-
-
+.current-question-text {
+  font-size: 5vh;
+  font-family: HelveticaNeue-Thin;
+}
+.previous-question-text{
+  font-size: 5vh;
+  font-family: HelveticaNeue-Thin;
+}
+.in-room-text {
+  text-align: left;
+  font-family: HelveticaNeue-Thin;
+  font-size: 2vh;
+}
+.btn-mult {
+  width: 15vw;
+  height: 15vw;
+}
