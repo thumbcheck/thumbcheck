@@ -67,10 +67,10 @@ export default React.createClass({
         <div className="subtitle">
           <div className="Grid">
             <div className="Grid-cell mycontent-left">
-            Don't want to sign up for an account?
+            <p>Don't want to sign up for an account?</p>
               <p><a className="btn btn-primary btn-lg" onClick={this.handleCreateRoom} role="button">Start Presentation Now</a></p>
             </div>
-            <div className="Grid-cell">
+            <div className="Grid-cell mycontent-right">
               <LoginPage isMobile={false} {...this.props} />
               <p>Don&#39;t have an account yet? <a className="btn btn-primary btn-md" role="button" onClick={this.chooseSignup} >Sign Up</a></p>
             </div>
@@ -98,10 +98,10 @@ export default React.createClass({
           <div className="subtitle">
             <div className="Grid">
               <div className="Grid-cell mycontent-left">
-              Don't want to sign up for an account?
+              <p>Don't want to sign up for an account?</p>
                 <p><a className="btn btn-primary btn-lg" onClick={this.handleCreateRoom} role="button">Start Presentation Now</a></p>
               </div>
-              <div className="Grid-cell">
+              <div className="Grid-cell mycontent-right">
                 <SignupPage chooseTeacher={this.chooseTeacher} isMobile={false} {...this.props} />
                 <p>Already have an account? <a className="btn btn-primary btn-md" role="button" onClick={this.chooseTeacher} >Log In</a></p>
               </div>

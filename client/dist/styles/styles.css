@@ -143,11 +143,15 @@ label {
   flex: 0 0 50%
 }
 .mycontent-left {
-  border-right: 1px dashed #333;
+  border-right: 1px solid white;
   line-height: 1.5;
 }
 
-@media (max-width: 640px) {
+.mycontent-right {
+  padding-left: 5%;
+}
+
+@media (max-width: 800px) {
 
   .main-landing-container {
     margin: 0 0 0 0;
