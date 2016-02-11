@@ -33,14 +33,14 @@ export default React.createClass({
       if (currentQuestionOptions) {
         currentQuestionOptions = currentQuestionOptions.toJS();
         return currentQuestionOptions.map((choice) => {
-          return <div className="current-question-text" key={choice[0]}>{choice[0]}: {choice[1]}</div>
+          return <div className="current-question-text mult-choice-options" key={choice[0]}>{choice[0].toUpperCase()}: {choice[1]}</div>
         });
       }
     } else if ((this.props.shareThumbsCheckResults || this.props.sharingAllThumbsCheckResults && previousPresentationTitle)) {
       if (previousQuestionOptions) {
         previousQuestionOptions = previousQuestionOptions.toJS();
         return previousQuestionOptions.map((choice) => {
-          return <div className="previous-question-text" key={choice[0]}>{choice[0]}: {choice[1]}</div>
+          return <div className="previous-question-text mult-choice-options" key={choice[0]}>{choice[0].toUpperCase()}: {choice[1]}</div>
         });
       }
     } else {
