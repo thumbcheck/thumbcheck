@@ -33,8 +33,8 @@ export default React.createClass({
   renderQuestionHeader: function() {
     return (
       <div>
-        <span className="pull-left big-text">{this.props.currentPresentation.getIn(['presentation','title'])}</span>
-        <span className="bigger-text push-right-padding">{this.props.currentPresentation.getIn(['currentQuestion', 'prompt'])}</span>
+        <span className="pull-left big-text-vh dont-show-small-screen-800">{this.props.currentPresentation.getIn(['presentation','title'])}</span>
+        <span className="bigger-text">{this.props.currentPresentation.getIn(['currentQuestion', 'prompt'])}</span>
       </div>
     );
   },

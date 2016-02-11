@@ -9,11 +9,12 @@ export default React.createClass({
     if (questionIndex < questionsLength - 1) {
       return (
         <div>
-          <button type = 'button'
-                  className = "btn grey white-text"
+          <div
+                  className = ""
                   onClick = {this.props.moveToNextQuestion}>
-                  Next Question
-          </button>
+                  <span className="next-question-text dont-show-small-screen-800 big-text-vh">Next Question</span>
+                  <img className="next-icon" src="/images/icons/next_icon.ico"/>
+          </div>
         </div>
       )
     } else {

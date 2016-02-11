@@ -31,9 +31,15 @@ export const Educator = React.createClass({
      <div>
        <Navbar {...this.props}/>          
         <div className="educator-container">
-          <div className="pull-right big-text-vh push-right center-text">Share this URL: {window.location.href.split('?')[0]}</div>
-          <div className="push-left big-text-vh">
-            <span>Room Name: <strong><span className="bold-text"> {this.props.currentRoom}</span></strong></span><br/>           
+          {/* shows only on small screen */}
+          <div className="center-text dont-show-big-screen">
+            <div className="center-text">Share this URL: {window.location.href.split('?')[0]}</div>
+            <div><span className="bold-text"> { this.props.numUsers }</span> { this.props.numUsers === 1 ? "device" : "devices"} currently in this room</div>          
+          </div>
+
+          <div className="pull-right push-right center-text text-small-screen dont-show-small-screen">Share this URL: {window.location.href.split('?')[0]}</div>
+          <div className="push-left text-small-screen dont-show-small-screen">
+            <span className="">Room Name: <strong><span className="bold-text dont-show-small-screen"> {this.props.currentRoom}</span></strong></span><br/>           
             <span><span className="bold-text"> { this.props.numUsers }</span> { this.props.numUsers === 1 ? "device" : "devices"} currently in this room</span>          
           </div>
           <div className="presentation-container center-text">                                    
