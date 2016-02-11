@@ -18,7 +18,7 @@ export default React.createClass({
     };
     return ( 
            <div>              
-             <BarGraph data={barChartData} className={this.props.lastOrCurrent} />
+             <BarGraph data={barChartData} className={"graph-small-screen " + this.props.lastOrCurrent} />
              <div>
               <span className="up-thumb-count">Thumbs up count: {this.props.upCount}</span>
               <span className="down-thumb-count move-right">Thumbs down count: {this.props.downCount}</span>

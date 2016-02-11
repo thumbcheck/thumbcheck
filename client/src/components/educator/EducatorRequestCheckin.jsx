@@ -149,7 +149,7 @@ export default React.createClass({
         {this.props.preplannedPresentation ? <PreplannedPresentationVotingButton {...this.props} /> : this.renderProperButton()}        
 
         <div className={this.showGraph()}>
-          <div>Results from last check-in</div>
+          <div className="big-text-vh">Results from last check-in</div>
           {renderCorrectGraphType(this.props)}
         </div>
 
