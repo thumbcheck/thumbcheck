@@ -8,28 +8,28 @@ export default React.createClass({
     let barChartData = {
       labels: ["   A             B             C             D             E"],
       datasets: [{
-        fillColor: "rgba(255,42,0,1)",
-        strokeColor: "rgba(255,42,0)",
+        fillColor: "rgba(0,128,255,1)",
+        strokeColor: "black",
         data: [this.props.aCount]
       },
       {
-        fillColor: "rgba(0,98,255,1)",
-        strokeColor: "rgba(0,98,255,1)",
+        fillColor: "rgba(254,81,51,1)",
+        strokeColor: "black",
         data: [this.props.bCount]
       },
       {
-        fillColor: "rgba(55,161,74,1)",
-        strokeColor: "rgba(55,161,74,1)",
+        fillColor: "rgba(34,178,34,1)",
+        strokeColor: "black",
         data: [this.props.cCount]
       },
       {
-        fillColor: "rgba(161,55,142,1)",
-        strokeColor: "rgba(161,55,142,1)",
+        fillColor: "rgba(234,255,0,1)",
+        strokeColor: "black)",
         data: [this.props.dCount]
       },
       {
-        fillColor: "rgba(161,127,55,1)",
-        strokeColor: "rgba(161,127,55,1)",
+        fillColor: "rgba(255,0,55,255)",
+        strokeColor: "black",
         data: [this.props.eCount]
       }
       ]
