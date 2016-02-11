@@ -44,25 +44,32 @@ export default React.createClass({
   render: function() {
     console.log('main page', this.props);
     return (
-      <div className='presentation-list-container'>
-        <div className='presentation-list-header text-center'>
-          Your Presentations
+      <div className='container'>
+        <div className='row'>
+          <div className="col-xs-9 col-md-5 col-md-offset-4">
+            <div className='presentation-list-header text-center col-md-8'>
+              Your Presentations
+            </div>
+          </div>
+          <div className='col-xs-3 col-md-2 presentation-list-add presentation-list-text' onClick = {this.createPresentation}>
+            <span className='hidden-small-screen'>Create Presentation</span>
+            <img className="presentation-list-addbutton" src="/images/icons/addpresentation.png" />  
+          </div>
         </div>
-        <div className="col-md-12">
-          <div className="panel panel-default table-responsive presentation-list-table-container ">
-            <table className="table table-hover table-bordered content-table very-light-grey">
-              <tbody>
-                {this.props.allEducatorPresentations ? this.displayPresentations() : null}
-              </tbody>    
-            </table>
-          </div>        
+        <div className='row'>
+          <div className="col-md-10 col-md-offset-1 col-xs-12">
+            <div className="panel panel-default table-responsive presentation-list-table-container">
+              <table className="table table-hover table-bordered content-table very-light-grey">
+                <tbody>
+                  {this.props.allEducatorPresentations ? this.displayPresentations() : null}
+                </tbody>    
+              </table>
+            </div>        
+          </div>
         </div>
-        <button type = 'button'
-                className = "btn grey white-text"
-                onClick = {this.createPresentation}>
-                Create Presentation
-        </button>
-        <div className='presentations-container'></div>
+        <div className='row text-center link' onClick = {this.createPresentation}>
+          <p className='presentation-list-text'>Don't have anything planned? Start an impromptu presentation here!</p>
+        </div>
       </div>
     );
   }
