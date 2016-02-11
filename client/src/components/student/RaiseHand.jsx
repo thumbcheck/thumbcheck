@@ -62,7 +62,7 @@ export default React.createClass({
             this.props.id === undefined ?
               <div>
                 <input type="text" placeholder="Enter your name" ref={(ref) => this.studentNameInput = ref}  onKeyDown ={this.handleEnter} />
-                <button onClick={this.confirmHandRaise} className="btn btn-success">Confirm hand raise</button>
+                <button onClick={this.confirmHandRaise} className="btn green white-text">Confirm hand raise</button>
               </div>
               : null
             : null
