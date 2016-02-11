@@ -29,7 +29,7 @@ export default React.createClass({
       color='blue', text="Open Response";
     } else {
       let answer = this.props.currentPresentation.getIn(['currentQuestion', 'questionChoices']);
-      let answerLength = answer.size;
+      let answerLength = answer ? answer.size : null;
       let checkInFunction;
       if (answerLength === 3) {
         checkInFunction = 'sendCheckin3'
