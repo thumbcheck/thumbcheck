@@ -15,17 +15,12 @@ export default React.createClass({
   },
   render: function() {
     return (
-      <tr className="row">
-        <td className="presentation-list-item-button-container presentation-list-item-play col-md-12 col-xs-12" onClick={this.startPreplannedPresentation}>
+      <tr className="row presentation-list-row">
+        <td className="presentation-list-item-button-container col-md-12 col-xs-12" onClick={this.startPreplannedPresentation}>
           {this.props.title}
-          {/*<span className='hidden-small-screen'>Play</span>*/}
           <img className="presentation-list-item-button" src="/images/playbutton.png" />  
-        </td>
-        {/*<td className="presentation-list-item-button-container presentation-list-item-play" onClick={this.startPreplannedPresentation}>
-          <span className='hidden-xs'>Play</span>
-          <img className="presentation-list-item-button" src="/images/playbutton.png" />
-        </td>*/}            
-        <td className="presentation-list-item-button-container presentation-list-item-edit" onClick={this.viewPresentation}>
+        </td>          
+        <td className="presentation-list-item-button-container" onClick={this.viewPresentation}>
           <span className='hidden-small-screen'>Edit</span>
           <img className="presentation-list-item-button" src="/images/editbutton.ico" />
         </td>        
