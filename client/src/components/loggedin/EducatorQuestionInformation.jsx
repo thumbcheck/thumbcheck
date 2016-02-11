@@ -61,7 +61,7 @@ export default React.createClass({
 
       return (
         <button value="multipleChoice3" type='button' className="btn green request-btn white-text thumb-check-start" onClick={this[checkInFunction]}>
-          Mutiple Choice
+          Multiple Choice
         </button>
       )
     }
