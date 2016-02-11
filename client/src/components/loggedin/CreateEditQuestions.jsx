@@ -99,16 +99,18 @@ export default React.createClass({
   },
   render: function() {
     return (
-      <div>
+      <div className="create-question-container">
+        <div className="bigger-text push-bottom">Add a Question</div>
+        <span className="big-text">
         <div>
-          <span>Question: </span>
-          <input defaultValue={this.questionPrompt} type="text" name="question" onChange={this.handleQuestionPromptChange} />
+          <span className="push-right">Prompt </span>
+          <input className="question-input" defaultValue={this.questionPrompt} type="textarea" name="question" onChange={this.handleQuestionPromptChange} />
         </div>
-        <div>
-          <span>Response Type: </span>
-          <button onClick={this.chooseThumbCheck}>Thumbcheck</button>
-          <button onClick={this.chooseMultipleChoice}>Multiple Choice</button>
-          <button onClick={this.chooseOpenResponse}>Open Response</button>
+        <div className="push-bottom">
+          <span>Response Type </span>
+          <button className="btn push-right grey big-text white-text" onClick={this.chooseThumbCheck}>Thumbcheck</button>
+          <button className="btn push-right grey big-text white-text" onClick={this.chooseMultipleChoice}>Multiple Choice</button>
+          <button className="btn push-right grey big-text white-text" onClick={this.chooseOpenResponse}>Open Response</button>
         </div>
 
         {this.props.createQuestionTypeMultipleChoice ?
@@ -181,13 +183,11 @@ export default React.createClass({
           </div>
         </div> :
          null}
-        <button onClick={this.handleQuestionSubmission}>
-          Save
-        </button>
-        <button onClick={ this.cancelQuestion }>
-          Cancel
-        </button>
-
+        
+        <button className="btn orange white-text push-right big-text align-up" onClick={this.handleQuestionSubmission} >Create</button>
+        <img className="next-icon align-up" src="/images/icons/cancel_icon1.png" onClick={ this.cancelQuestion }/>                  
+        
+        </span>
       </div>
     );
   }

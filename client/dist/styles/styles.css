@@ -283,6 +283,12 @@ html,body { height: 100%; margin: 0px; padding: 0px; font-family: 'HelveticaNeue
 .align-up {
 	margin-top: -8px;
 }
+.create-question-container {
+	padding: 5% 0 0 20%;
+}
+.question-input {
+	min-width: 50%;
+}
 /*  ************* student page styling  ************* */
 .student-content {
 	margin: 5% 10% 0 10%;
