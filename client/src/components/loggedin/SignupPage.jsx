@@ -42,16 +42,22 @@ export default React.createClass({
 
   },
 
+  handleEnter: function (e){
+    if (e.keyCode == 13){
+      this.handleLogin(e);
+    }
+  },
+
   render: function() {
     return (
       <div>
         <h2>Sign up for an account</h2>
         <p>{this.props.errMessage}</p>
-          Name: <input type="text" name="name" ref={(ref) => this.nameInput = ref} /><br/>
-          Email: <input type="text" name="email" ref={(ref) => this.emailInput = ref} /><br/>
-          Username: <input type="text" name="username" ref={(ref) => this.usernameInput = ref} /><br/>
-          Password: <input type="password" name="pswd" ref={(ref) => this.passwordInput = ref} /><br/>
-          <a className="btn btn-primary btn-md" role="button" onClick={this.handleLogin} >Sign Up</a>
+          Name: <input type="text" name="name" ref={(ref) => this.nameInput = ref} onKeyDown ={this.handleEnter} /><br/>
+          Email: <input type="text" name="email" ref={(ref) => this.emailInput = ref} onKeyDown ={this.handleEnter} /><br/>
+          Username: <input type="text" name="username" ref={(ref) => this.usernameInput = ref} onKeyDown ={this.handleEnter} /><br/>
+          Password: <input type="password" name="pswd" ref={(ref) => this.passwordInput = ref} onKeyDown ={this.handleEnter} /><br/>
+          <a className="btn btn-primary btn-md" role="button" onClick={this.handleLogin} onKeyDown ={this.handleEnter} >Sign Up</a>
       </div>
     );
   }
