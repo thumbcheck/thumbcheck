@@ -28,6 +28,7 @@ export default React.createClass({
     } else if (questionType === 'Open Response') {
       color='blue', text="Open Response";
     } else {
+      color='green';
       let answer = this.props.currentPresentation.getIn(['currentQuestion', 'questionChoices']);
       let answerLength = answer.size;
       let checkInFunction;
@@ -40,13 +41,13 @@ export default React.createClass({
       }
 
       return (
-        <button value="multipleChoice3" type='button' className="btn orange request-btn white-text thumb-check-start" onClick={this[checkInFunction]}>
+        <button value="multipleChoice3" type='button' className="push-top btn green request-btn white-text thumb-check-start" onClick={this[checkInFunction]}>
           Mutiple Choice
         </button>
       )
     }
 
-    const classNames = "btn " + color + " request-btn white-text thumb-check-start";
+    const classNames = "btn " + color + " push-top request-btn white-text thumb-check-start";
 
     return <button type='button' className={classNames} onClick={this.sendCheckin}>
             {text}

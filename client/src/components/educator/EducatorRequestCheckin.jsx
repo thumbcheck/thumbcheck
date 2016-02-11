@@ -70,13 +70,13 @@ export default React.createClass({
        if (this.props.questionType && this.props.questionType[0].toLowerCase() === 'm') {
          return (
           <div>
-            <button value="multipleChoice3" type='button' className="btn orange request-btn white-text thumb-check-start" onClick={this.sendCheckin3}>
+            <button value="multipleChoice3" type='button' className="btn green request-btn white-text thumb-check-start push-right" onClick={this.sendCheckin3}>
               A-B-C
             </button>
-            <button type='button' value="multipleChoice4" className="btn green request-btn white-text thumb-check-start" onClick={this.sendCheckin4}>
+            <button type='button' value="multipleChoice4" className="btn blue request-btn white-text thumb-check-start push-right" onClick={this.sendCheckin4}>
               A-B-C-D
             </button>
-            <button type='button' value="multipleChoice5" className="btn blue request-btn white-text thumb-check-start" onClick={this.sendCheckin5}>
+            <button type='button' value="multipleChoice5" className="btn purple request-btn white-text thumb-check-start" onClick={this.sendCheckin5}>
               A-B-C-D-E
             </button>
           </div>
@@ -108,8 +108,18 @@ export default React.createClass({
   renderNextQuestionButton: function() {
     if(this.props.preplannedPresentation) {
       return (
-        <div>
-          <PresentationNextQuestionButton {...this.props}/>
+        <div className="pull-right">
+          <PresentationNextQuestionButton {...this.props}/>          
+        </div>
+      )
+    } else {
+      return null;
+    }
+  },
+  renderEndPresentationButton: function() {
+    if(this.props.preplannedPresentation) {
+      return (
+        <div className="pull-left">          
           <EndPreplannedPresentationButton {...this.props}/>
         </div>
       )
@@ -120,18 +130,23 @@ export default React.createClass({
   render: function() {
     return (      
       <div>
-        {!this.props.preplannedPresentation ? <SliderNativeBootstrap
-          defaultValue = {this.mapStateToSliderNumber()}
-          handleChange={ this.changeSliderValue }
-          step={1}
-          max={2}
-          min={0}
-          disabled="no" />
+        {!this.props.preplannedPresentation ? 
+          <div>
+            <div className="big-text push-bottom">Select Question Type</div>
+            <SliderNativeBootstrap
+            defaultValue = {this.mapStateToSliderNumber()}
+            handleChange={ this.changeSliderValue }
+            step={1}
+            max={2}
+            min={0}
+            disabled="no" />
+          </div>
           : null}
 
       {/** Render question information if in preplanned presentation*/}
-        {this.props.preplannedPresentation ? <PreplannedPresentationVotingButton {...this.props} /> : this.renderProperButton()}
-        {this.props.preplannedPresentation ? <EducatorQuestionInformation {...this.props} /> : null}
+        {this.renderNextQuestionButton()}        
+        {this.props.preplannedPresentation ? <EducatorQuestionInformation {...this.props} /> : null}        
+        {this.props.preplannedPresentation ? <PreplannedPresentationVotingButton {...this.props} /> : this.renderProperButton()}        
 
         <div className={this.showGraph()}>
           <div>Results from last check-in</div>
@@ -141,11 +156,11 @@ export default React.createClass({
         
         {!this.props.showgraph || this.props.shareThumbsCheckResults || this.props.sharingAllThumbsCheckResults ?
           <p></p> :
-          <p><button type='button' className='btn grey white-text' onClick={this.props.toggleThumbsCheckResultsGraph}>Show Results to Participants</button></p>
+          <p><button type='button' className='btn grey white-text push-top' onClick={this.props.toggleThumbsCheckResultsGraph}>Show Results to Participants</button></p>
         }
-        <QuestionButton takingQuestions={this.props.takingQuestions}
-                        toggleTakingQuestions={this.props.toggleTakingQuestions} />
-        {this.renderNextQuestionButton()}
+        {/* <QuestionButton takingQuestions={this.props.takingQuestions}
+                        toggleTakingQuestions={this.props.toggleTakingQuestions} /> */}
+        { this.renderEndPresentationButton() }
 
       </div>
     );

@@ -17,6 +17,7 @@ export default React.createClass({
  render: function() {
    return (
      <div>       
+       <div className="bigger-text"><u>Responses</u></div>
        { this.renderOpenResults() }
        <div>Number of students who responded: { this.renderOpenResults('yes') }</div>
      </div>

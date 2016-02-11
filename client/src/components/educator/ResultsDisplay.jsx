@@ -7,16 +7,17 @@ export default React.createClass({
   
   render: function() {    
     return (
-      <div className="results-container">
+      <div className="results-container">        
 
         {this.props.preplannedPresentation ? <EducatorQuestionInformation {...this.props}/> : null}
         { renderCorrectGraphType(this.props) } 
-
-        <button className="btn orange request-btn white-text end-thumb-check" onClick={this.props.stopVote}>
-          END VOTE
+        
+        <button className="btn orange request-btn white-text end-thumb-check push-top" onClick={this.props.stopVote}>
+          End Check-in
         </button>
-        <QuestionButton takingQuestions={this.props.takingQuestions}
-                        toggleTakingQuestions={this.props.toggleTakingQuestions} />
+        {/* <QuestionButton takingQuestions={this.props.takingQuestions}
+                        toggleTakingQuestions={this.props.toggleTakingQuestions} /> */} 
+
       </div>
     );    
   }
