@@ -197,8 +197,21 @@ html,body { height: 100%; margin: 0px; padding: 0px; font-family: 'HelveticaNeue
 }
 
 .presentation-list-table-container {
-  font-size: 2.5vh;
+  font-size: 5vh;
 }
+
+@media (max-width: 768px) {
+  .presentation-list-table-container {
+    font-size: 1.25vh;
+  }
+}
+
+@media (max-width: 992px) {
+  .presentation-list-table-container {
+    font-size: 1.5vh;
+  }
+}
+
 
 .presentation-list-item-button-container {
   cursor: pointer;

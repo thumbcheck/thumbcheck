@@ -15,7 +15,7 @@ export default React.createClass({
   },
   render: function() {
     return (
-      <tr class="row">
+      <tr className="row">
         <td>{this.props.title}</td>
         <td className="presentation-list-item-button-container presentation-list-item-play" onClick={this.startPreplannedPresentation}>
           Play
