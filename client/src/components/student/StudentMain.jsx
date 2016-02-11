@@ -15,14 +15,16 @@ import {toJS, fromJS} from 'immutable';
 export const Student = React.createClass({
  renderProperElement: function() {
    if(!this.props.voting) {
-    return <Wait />
+    return <Wait sharingAllThumbsCheckResults={this.props.sharingAllThumbsCheckResults}
+                 shareThumbsCheckResults={this.props.shareThumbsCheckResults} />;
      // if(this.props.voting === false) {
      //   return <Wait/>;
      // } else {
      //   return <Wait />;
      // }
    } else if (checkHasVoted(this.props.haveVoted, window.localStorage.getItem('participantID'))) {
-     return <WaitAnswered />;
+     return <WaitAnswered sharingAllThumbsCheckResults={this.props.sharingAllThumbsCheckResults}
+                          shareThumbsCheckResults={this.props.shareThumbsCheckResults} />;
    } else {
      return <StudentAnswering ref="answer" {...this.props} />;
    }
