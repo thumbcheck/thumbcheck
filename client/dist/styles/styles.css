@@ -271,22 +271,48 @@ label {
 
 .last-result-graph {
 	min-width: 1px;
-	min-height: 1px; 
+	min-height: 300px; 
 	width: 60%;
 	height: 60%;
+	max-height: 500px;
+	max-width: 1000px;
 }
 .current-result-graph {
 	min-width: 1px;
-	min-height: 1px; 
+	min-height: 300px; 
 	width: 80%;
 	height: 80%;
+	max-height: 500px;
+	max-width: 1000px;
 }
-/*.thumbs-graph {
+.thumbs-graph {
 	min-width: 1px;
-	min-height: 1px; 
-	max-width: 60%;
+	min-height: 380px; 
+	max-width: 550px;
 	height: 100%;
-}*/
+	max-height: 500px;	
+}
+@media (max-width: 600px ) {
+	.last-result-graph {
+		min-width: 1px;
+		min-height: 250px; 
+		width: 60%;
+		height: 60%;
+	}
+	.current-result-graph {
+		min-width: 1px;
+		min-height: 250px; 
+		width: 80%;
+		height: 80%;
+	}
+	.thumbs-graph {
+		min-width: 1px;
+		min-height: 250px; 
+		max-width: 600px;
+		height: 100%;
+	}
+}
+
 .questions-queue {
 	position: absolute;
   left: 200px;
