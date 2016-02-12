@@ -69,10 +69,10 @@ export default React.createClass({
             </div>        
           </div>
         </div>
-        <div className='row text-center' onClick = {this.createPresentation}>
+        <div className='row text-center'>
           <div className='col-xs-12'>
-          <span className='presentation-list-text'>Don't have anything planned? Start an impromptu presentation here!</span>
-          <img className="presentation-list-item-button" src="/images/playbutton.png" />  
+            <span className='presentation-list-text'>Don't have anything planned? Start an impromptu presentation here!</span>
+            <img className="presentation-list-item-button" src="/images/playbutton.png" />  
           </div>
         </div>
       </div>

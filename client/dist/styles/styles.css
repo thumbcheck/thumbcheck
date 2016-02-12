@@ -449,6 +449,10 @@ label {
 
 }
 
+.presentation-list-item-button {
+  cursor: pointer;
+}
+
 .presentation-list-addbutton {
   height: 20px;
   width: 20px;
