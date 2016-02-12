@@ -208,7 +208,7 @@ label {
 	font-size: 1.8em;
 }
 .raise-hand-icon {
-	width: 35px;
+	width: 40px;
 	padding-right: 5px;
 }
 .wheel-icon{
@@ -433,7 +433,35 @@ label {
 .question-input {
 	min-width: 50%;
 }
+.choose-button {
+	background-color: #FFFFFF;
+	border: 1px solid black;
+	font-size: 2vw;
+}
+.choose-button:hover {
+	background-color: #000000;
+	border: 1px solid white;
+	color: white;
+}
 
+.choice-selected {
+	background-color: #000000;
+	border: 1px solid white;
+	color: white;
+}
+.choice-selected:hover {	
+	background-color: #000000;
+	border: 1px solid white;
+	color: white;
+}
+.choice-selected:focus {
+	background-color: #000000;
+	border: 1px solid white;
+	color: white;
+}
+.choose-button-mc:focus {
+	font-size: 1.1em;
+}
 
 
 
