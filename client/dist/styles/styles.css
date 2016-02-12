@@ -575,7 +575,8 @@ label {
 }
 .thumbs {
 	height: 30vh;
-	margin-left: 5%;
+	margin-left: 2%;
+  margin-right: 2%;
 }
 .raise-hand-container {
 	position: absolute;
@@ -598,6 +599,7 @@ label {
 }
 .mult-choice-options {
   text-align: left;
+  font-size: 3vh;
 }
 .in-room-text {
   text-align: left;

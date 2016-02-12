@@ -10,7 +10,7 @@ export default React.createClass({
     return (
       <div>
         <p>Enter your answer <input ref={(ref) => this.studentOpenResponse = ref} /> </p>
-        <p><a className="btn blue white-text" role="button" onClick={this.handleOpenSubmit} >Submit</a></p>
+        <p><a className="btn request-btn blue white-text" role="button" onClick={this.handleOpenSubmit} >Submit</a></p>
       </div>
       )
   }
