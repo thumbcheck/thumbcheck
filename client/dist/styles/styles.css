@@ -371,7 +371,7 @@ html,body { height: 100%; margin: 0px; padding: 0px; font-family: 'HelveticaNeue
 		font-size: 1.1em;
 	}
 	.presentation-container {
-	margin: 5% 6% 0 6%;
+	margin: 5`% 6% 0 6%;
 	border: 1px solid grey;
 	padding: 2% 3% 1% 3%;
 	border-radius: 5px;
@@ -622,12 +622,19 @@ html,body { height: 100%; margin: 0px; padding: 0px; font-family: 'HelveticaNeue
   font-family: HelveticaNeue-Thin;
 }
 .previous-question-text{
+  margin-top: 0px;
   font-size: 5vh;
+  font-family: HelveticaNeue-Thin;
+  margin-left: 22%;
+}
+.previous-question-header{
+	font-size: 5vh;
   font-family: HelveticaNeue-Thin;
 }
 .mult-choice-options {
   text-align: left;
   font-size: 3vh;
+  /*margin-left: 20%;*/
 }
 .in-room-text {
   text-align: left;
