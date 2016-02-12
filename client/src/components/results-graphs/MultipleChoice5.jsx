@@ -1,6 +1,7 @@
 import React from 'react';
 import chartJS from 'react-chartjs';
 const BarGraph = chartJS.Bar;
+import options from './chartOptions.js';
 
 export default React.createClass({
 
@@ -20,11 +21,11 @@ export default React.createClass({
         data: [this.props.cCount]
       },
       {
-        fillColor: "rgba(234,255,0,1)",        
+        fillColor: "rgba(255,212,0,1)",        
         data: [this.props.dCount]
       },
       {
-        fillColor: "rgba(255,0,55,255)",        
+        fillColor: "rgba(255,0,255,1)",        
         data: [this.props.eCount]
       }
       ]
@@ -32,7 +33,7 @@ export default React.createClass({
 
     return (
       <div>
-        <BarGraph data={barChartData} className={"graph-small-screen " + this.props.lastOrCurrent} />
+        <BarGraph options={options} data={barChartData} className={"graph-small-screen " + this.props.lastOrCurrent} />
         <div className="">
           <span className="up-thumb-count">Selected A: {this.props.aCount}</span>          
           <span className="down-thumb-count move-right">Selected B: {this.props.bCount}</span>

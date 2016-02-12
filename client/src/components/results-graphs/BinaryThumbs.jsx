@@ -1,6 +1,7 @@
 import React from 'react';
 import chartJS from 'react-chartjs';
 const BarGraph = chartJS.Bar;
+import options from './chartOptions.js';
 
 export default React.createClass({
 
@@ -18,7 +19,7 @@ export default React.createClass({
     };
     return ( 
            <div>              
-             <BarGraph data={barChartData} className={"graph-small-screen " + this.props.lastOrCurrent} />
+             <BarGraph options={options} data={barChartData} className={"graph-small-screen thumbs-graph " + this.props.lastOrCurrent} />
              <div>
               <span className="up-thumb-count">Thumbs up count: {this.props.upCount}</span>
               <span className="down-thumb-count move-right">Thumbs down count: {this.props.downCount}</span>
