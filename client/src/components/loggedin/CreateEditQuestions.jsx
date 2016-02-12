@@ -102,37 +102,37 @@ export default React.createClass({
       <div className="create-question-container">
         <div className="bigger-text push-bottom">Add a Question</div>
         <span className="big-text">
-        <div>
+        <div className="push-bottom">
           <span className="push-right">Prompt </span>
           <input className="question-input" defaultValue={this.questionPrompt} type="textarea" name="question" onChange={this.handleQuestionPromptChange} />
         </div>
         <div className="push-bottom">
           <span>Response Type </span>
-          <button className="btn push-right grey big-text white-text" onClick={this.chooseThumbCheck}>Thumbcheck</button>
-          <button className="btn push-right grey big-text white-text" onClick={this.chooseMultipleChoice}>Multiple Choice</button>
-          <button className="btn push-right grey big-text white-text" onClick={this.chooseOpenResponse}>Open Response</button>
+          <button className={ this.props.createQuestionTypeThumbCheck ? "btn push-right choose-button choice-selected" : "btn push-right choose-button" } onClick={this.chooseThumbCheck}>Thumbcheck</button>
+          <button className={ this.props.createQuestionTypeMultipleChoice ? "btn push-right choose-button choice-selected" : "btn push-right choose-button" } onClick={this.chooseMultipleChoice}>Multiple Choice</button>
+          <button className={ this.props.createQuestionTypeOpenResponse ? "btn push-right choose-button choice-selected" : "btn push-right choose-button" } onClick={this.chooseOpenResponse}>Open Response</button>
         </div>
 
         {this.props.createQuestionTypeMultipleChoice ?
-         <div> 
-          <button onClick={this.choose3choices}>A-B-C</button>
-          <button onClick={this.choose4choices}>A-B-C-D</button>
-          <button onClick={this.choose5choices}>A-B-C-D-E</button>
+         <div className="push-bottom"> 
+          <button className="green btn push-right white-text choose-button-mc" onClick={this.choose3choices}>A-B-C</button>
+          <button className="blue btn push-right white-text choose-button-mc" onClick={this.choose4choices}>A-B-C-D</button>
+          <button className="purple btn push-right white-text choose-button-mc" onClick={this.choose5choices}>A-B-C-D-E</button>
           </div> :
          null}
         
         {this.props.a3choice ?
          <div> 
-          <div>
-            <span>A: </span>
+          <div className="push-bottom">
+            <span>A </span>
             <input type="text" name="Aans" onChange={this.handleMultipleChoiceAChange}/>
-          </div>
-          <div>
-            <span>B: </span>
+          </div >
+          <div className="push-bottom">
+            <span>B </span>
             <input type="text" name="Bans" onChange={this.handleMultipleChoiceBChange}/>
           </div>
-          <div>
-            <span>C: </span>
+          <div className="push-bottom">
+            <span>C </span>
             <input type="text" name="Cans" onChange={this.handleMultipleChoiceCChange}/>
           </div>
           </div> :
@@ -140,20 +140,20 @@ export default React.createClass({
 
         {this.props.a4choice ?
         <div>
-          <div>
-            <span>A: </span>
+          <div className="push-bottom">
+            <span>A </span>
             <input type="text" name="Aans" onChange={this.handleMultipleChoiceAChange}/>
           </div>
-          <div>
-            <span>B: </span>
+          <div className="push-bottom">
+            <span>B </span>
             <input type="text" name="Bans" onChange={this.handleMultipleChoiceBChange}/>
           </div>
-          <div>
-            <span>C: </span>
+          <div className="push-bottom">
+            <span>C </span>
             <input type="text" name="Cans" onChange={this.handleMultipleChoiceCChange}/>
           </div>
-          <div>
-            <span>D: </span>
+          <div className="push-bottom">
+            <span>D </span>
             <input type="text" name="Dans" onChange={this.handleMultipleChoiceDChange}/>
           </div>
         </div> :
@@ -161,31 +161,31 @@ export default React.createClass({
         
         {this.props.a5choice ?
         <div>
-          <div>
-            <span>A: </span>
+          <div className="push-bottom">
+            <span>A </span>
             <input type="text" name="Aans" onChange={this.handleMultipleChoiceAChange}/>
           </div>
-          <div>
-            <span>B: </span>
+          <div className="push-bottom">
+            <span>B </span>
             <input type="text" name="Bans" onChange={this.handleMultipleChoiceBChange}/>
           </div>
-          <div>
-            <span>C: </span>
+          <div className="push-bottom">
+            <span>C </span>
             <input type="text" name="Cans" onChange={this.handleMultipleChoiceCChange}/>
           </div>
-          <div>
-            <span>D: </span>
+          <div className="push-bottom">
+            <span>D </span>
             <input type="text" name="Dans" onChange={this.handleMultipleChoiceDChange}/>
           </div>
-          <div>
-            <span>E: </span>
+          <div className="push-bottom">
+            <span>E </span>
             <input type="text" name="Eans" onChange={this.handleMultipleChoiceEChange}/>
           </div>
         </div> :
          null}
         
-        <button className="btn orange white-text push-right big-text align-up" onClick={this.handleQuestionSubmission} >Create</button>
-        <img className="next-icon align-up" src="/images/icons/cancel_icon1.png" onClick={ this.cancelQuestion }/>                  
+        <button className="btn orange white-text push-right big-text push-top" onClick={this.handleQuestionSubmission} >Create</button>
+        <img className="next-icon push-top" src="/images/icons/cancel_icon1.png" onClick={ this.cancelQuestion }/>                  
         
         </span>
       </div>
