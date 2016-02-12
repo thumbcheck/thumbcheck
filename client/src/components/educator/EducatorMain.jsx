@@ -37,7 +37,7 @@ export const Educator = React.createClass({
             <div><span className="bold-text"> { this.props.numUsers }</span> { this.props.numUsers === 1 ? "device" : "devices"} currently in this room</div>          
           </div>
 
-          <div className="pull-right push-right center-text text-small-screen dont-show-small-screen">Share this URL: {window.location.href.split('?')[0]}</div>
+          <div className="pull-right push-right center-text text-small-screen dont-show-small-screen">Share this URL: {window.location.host + window.location.pathname} {/*window.location.host + window.pathname.split('?')[0] */}</div>
           <div className="push-left text-small-screen dont-show-small-screen">
             <span className="">Room Name: <strong><span className="bold-text dont-show-small-screen"> {this.props.currentRoom}</span></strong></span><br/>           
             <span><span className="bold-text"> { this.props.numUsers }</span> { this.props.numUsers === 1 ? "device" : "devices"} currently in this room</span>          
