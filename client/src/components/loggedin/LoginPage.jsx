@@ -62,13 +62,13 @@ export default React.createClass({
     } else {
       return (
         <div>
-        <table className="login">
+        <table>
           <tbody>
             <tr>
               <td colSpan="2"><p>Log in to your account</p></td>
             </tr>
             <tr>
-              <td>Username:</td><td><input type="text" name="username" ref={(ref) => this.usernameInput = ref} onKeyDown ={this.handleEnter} /><br/></td>
+              <td className="login">Username:</td><td><input type="text" name="username" ref={(ref) => this.usernameInput = ref} onKeyDown ={this.handleEnter} /><br/></td>
             </tr>
             <tr>
               <td>Password:</td><td><input type="password" name="pswd" ref={(ref) => this.passwordInput = ref} onKeyDown ={this.handleEnter} /><br/></td>

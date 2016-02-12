@@ -119,7 +119,7 @@ html,body { height: 100%; margin: 0px; padding: 0px; font-family: 'HelveticaNeue
   padding-left: 5%;
 }
 
-td {
+.login {
   text-align: right;
 }
 .subtitle {
