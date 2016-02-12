@@ -71,8 +71,7 @@ export default React.createClass({
               <p><a className="btn btn-primary btn-lg" onClick={this.handleCreateRoom} role="button">Start Presentation Now</a></p>
             </div>
             <div className="Grid-cell main-landing-right">
-              <LoginPage isMobile={false} {...this.props} />
-              <p><a onClick={this.chooseSignup}>Don&#39;t have an account yet? </a></p>
+              <LoginPage chooseSignup={this.chooseSignup} isMobile={false} {...this.props} />
             </div>
           </div>
           <a className="btn btn-warning btn-lg" role="button" onClick={this.chooseStudent} >Join a presentation</a>
@@ -102,7 +101,6 @@ export default React.createClass({
               </div>
               <div className="Grid-cell main-landing-right">
                 <SignupPage chooseTeacher={this.chooseTeacher} isMobile={false} {...this.props} />
-                <p><a onClick={this.chooseTeacher}>Already have an account?</a></p>
               </div>
             </div>
             <a className="btn btn-warning btn-lg" role="button" onClick={this.chooseStudent} >Join a presentation</a>

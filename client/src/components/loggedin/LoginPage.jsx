@@ -62,13 +62,13 @@ export default React.createClass({
     } else {
       return (
         <div>
-        <table className="login">
+        <table>
           <tbody>
             <tr>
               <td colSpan="2"><p>Log in to your account</p></td>
             </tr>
             <tr>
-              <td>Username:</td><td><input type="text" name="username" ref={(ref) => this.usernameInput = ref} onKeyDown ={this.handleEnter} /><br/></td>
+              <td className="login">Username:</td><td><input type="text" name="username" ref={(ref) => this.usernameInput = ref} onKeyDown ={this.handleEnter} /><br/></td>
             </tr>
             <tr>
               <td>Password:</td><td><input type="password" name="pswd" ref={(ref) => this.passwordInput = ref} onKeyDown ={this.handleEnter} /><br/></td>
@@ -79,6 +79,7 @@ export default React.createClass({
           </tbody>
         </table>
           <p>{this.props.errMessage}</p>
+          <p><a onClick={this.props.chooseSignup}>Don&#39;t have an account yet? </a></p>
         </div>
       );
     }
