@@ -43,20 +43,37 @@ export default React.createClass({
       return (
         <div>
           <p>Log in to your account</p>
-          <input type="text" name="username" ref={(ref) => this.usernameInput = ref} onKeyDown ={this.handleEnter} placeholder="Username" /><br/>
-          <input type="password" name="pswd" ref={(ref) => this.passwordInput = ref} onKeyDown ={this.handleEnter} placeholder="Password" /><br/>
+          <table className="login">
+          <tr>
+          <td><input type="text" name="username" ref={(ref) => this.usernameInput = ref} onKeyDown ={this.handleEnter} placeholder="Username" /><br/></td>
+          </tr>
+          <tr>
+          <td><input type="password" name="pswd" ref={(ref) => this.passwordInput = ref} onKeyDown ={this.handleEnter} placeholder="Password" /><br/></td>
+          </tr>
+          <tr>
+          <td><a className="btn btn-primary btn-md btn-small-screen" role="button" onClick={this.handleLogin} >Log In</a></td>
+          </tr>
+          </table>
           <p>{this.props.errMessage}</p>
-          <a className="btn btn-primary btn-md btn-small-screen" role="button" onClick={this.handleLogin} >Log In</a>
+
         </div>
       )
     } else {
       return (
         <div>
-          <p>Log in to your account</p>
-          <label>Username:</label><input type="text" name="username" ref={(ref) => this.usernameInput = ref} onKeyDown ={this.handleEnter} /><br/>
-          <label>Password:</label><input type="password" name="pswd" ref={(ref) => this.passwordInput = ref} onKeyDown ={this.handleEnter} /><br/>
+        <p>Log in to your account</p>
+        <table className="login">
+         <tr>
+          <td>Username:</td><td><input type="text" name="username" ref={(ref) => this.usernameInput = ref} onKeyDown ={this.handleEnter} /><br/></td>
+        </tr>
+        <tr>
+          <td>Password:</td><td><input type="password" name="pswd" ref={(ref) => this.passwordInput = ref} onKeyDown ={this.handleEnter} /><br/></td>
+        </tr>
+        <tr>
+        <td></td><td><a className="btn btn-primary btn-md btn-small-screen" role="button" onClick={this.handleLogin} >Log In</a></td>
+        </tr>
+        </table>
           <p>{this.props.errMessage}</p>
-          <a className="btn btn-primary btn-md" role="button" onClick={this.handleLogin} >Log In</a>
         </div>
       );
     }
