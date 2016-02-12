@@ -10,13 +10,26 @@ export default React.createClass({
   },
   render: function() {
     return (
-      <div>
-        {this.props.title}
-        <span className="pull-right">
-        	<button onClick={ this.editQuestion } >EDIT</button>
-        	<span className="remove-icon" onClick={ this.deleteQuestion } aria-hidden="true"><img className="remove-icon" src="/images/icons/remove.png"/></span>        	
-       	</span>
-      </div>
+      <tr className='row table-list-row'>
+        <td className='col-md-12 col-xs-12' >
+          {this.props.title}
+        </td>
+        <td className='table-list-item-container' onClick={ this.editQuestion }>
+          <span className='hidden-small-screen'>Edit</span>
+          <img className="table-list-item-button" src="/images/editbutton.ico" />
+        </td>
+        <td className="table-list-item-delete"  onClick={ this.deleteQuestion } aria-hidden="true">
+          <img className="remove-icon" src="/images/icons/remove.png"/>
+        </td>
+      </tr> 
     );
   }
 });
+
+      // {<div>
+      //   {this.props.title}
+      //   <span className="pull-right">
+      //     <button onClick={ this.editQuestion } >EDIT</button>
+      //     <span className="remove-icon" onClick={ this.deleteQuestion } aria-hidden="true"><img className="remove-icon" src="/images/icons/remove.png"/></span>         
+      //   </span>
+      // </div>}
