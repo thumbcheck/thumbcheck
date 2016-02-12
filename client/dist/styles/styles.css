@@ -575,7 +575,8 @@ label {
 }
 .thumbs {
 	height: 30vh;
-	margin-left: 5%;
+	margin-left: 2%;
+  margin-right: 2%;
 }
 .raise-hand-container {
 	position: absolute;
