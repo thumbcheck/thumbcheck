@@ -40,9 +40,14 @@ export const Main = React.createClass({
       } else {
         return (
           <div className="jumbotron main-landing-parent-container">
+          <div className="dont-show-small-screen">Thumbscheck.me</div>
+          <div className="main-landing-title-bar">
             <div className="main-landing-container center-text">
+            <h1 className="jumbo-text">Welcome to Thumbcheck</h1>
+            <div className="subtitle subtitle-text">
+            <i> Know your audience with a tap of a button</i>
+            </div>
                 <div className="center-text main-landing-content">
-                  <h1 className="jumbo-text">Welcome to Thumbcheck</h1>
                   <RoleChoice chooseRole={this.props.chooseRole}
                               setError={this.props.setError}
                               errMessage={this.props.errMessage}
@@ -50,6 +55,7 @@ export const Main = React.createClass({
                               educatorLogin={this.props.educatorLogin}
                               educatorLoggedIn={this.props.educatorLoggedIn} />
                   </div>
+            </div>
             </div>
           </div>
         );
