@@ -208,7 +208,7 @@ label {
 	font-size: 1.8em;
 }
 .raise-hand-icon {
-	width: 40px;
+	width: 40px;	
 	padding-right: 5px;
 }
 .wheel-icon{
@@ -402,6 +402,9 @@ label {
 	}		
 	.question-slider { width: 60%; }
 }
+.next-button-container {
+	margin-left: 82%;
+}
 .next-icon {
 	width: 30px;
 	min-width: 10px;
@@ -412,9 +415,14 @@ label {
 	vertical-align: middle;	
 }
 .end-pres-btn {
-	position: absolute;
-	bottom: 30px;
-	right: 230px;
+	display: inline;
+	margin-left: 82%;	
+}
+.clearing {
+	display: inline;
+}
+.inline-stuff {
+	display: inline;
 }
 .create-presentation-container {
 	padding: 5% 30% 0 30%;	
