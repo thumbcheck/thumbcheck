@@ -42,25 +42,24 @@ export default React.createClass({
     this.props.createOrEditPresentation();
   },
   render: function() {
-    console.log('main page', this.props);
     return (
-      <div className='presentation-list-container'>
+      <div className='table-list-container'>
         <div className='row'>
           <div className="col-xs-offset-2 col-xs-8 col-md-4 col-md-offset-4">
-            <div className='presentation-list-header text-center'>
+            <div className='table-list-header text-center'>
               <span>Your Presentations</span>
             </div>
           </div>
-          <div className='col-xs-2 col-md-4 presentation-list-create-presentation-container' onClick = {this.createPresentation}>
-            <div className='presentation-list-add'>
-              <span className='hidden-small-screen presentation-list-text'>Create Presentation</span>
-              <img className="presentation-list-addbutton" src="/images/icons/addpresentation.png" />  
+          <div className='col-xs-2 col-md-4 table-list-create-container' onClick = {this.createPresentation}>
+            <div className='table-presentation-list-add table-list-text'>
+              <span className='hidden-small-screen'>Create Presentation</span>
+              <img className="table-list-addbutton" src="/images/icons/addpresentation.png" />  
             </div>
           </div>
         </div>
         <div className='row'>
           <div className="col-md-10 col-md-offset-1 col-xs-12">
-            <div className="panel panel-default table-responsive presentation-list-table-container">
+            <div className="panel panel-default table-responsive table-list-table-container">
               <table className="table table-hover table-bordered content-table very-light-grey">
                 <tbody>
                   {this.props.allEducatorPresentations ? this.displayPresentations() : null}
@@ -69,12 +68,12 @@ export default React.createClass({
             </div>        
           </div>
         </div>
-        <div className='row text-center'>
+        {/*<div className='row text-center'>
           <div className='col-xs-12'>
             <span className='presentation-list-text'>Don't have anything planned? Start an impromptu presentation here!</span>
             <img className="presentation-list-item-button" src="/images/playbutton.png" />  
           </div>
-        </div>
+        </div>*/}
       </div>
     );
   }

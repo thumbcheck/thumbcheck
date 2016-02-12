@@ -350,19 +350,6 @@ label {
 	/*min-width: 300px;*/
 }
 
-.presentation-list-row {
-  margin-bottom: 10px;
-}
-
-.presentation-list-item-button-container {
-  cursor: pointer;
-}
-
-.presentation-list-item-button {
-  height: 20px;
-  width: 20px;
-  margin-left: 10px;
-}
 @media (max-width: 850px) {
 	.graph-small-screen {		
 		max-width: 100%;
@@ -466,56 +453,74 @@ label {
 
 
 
-/*  ************* Presentation List  ************* */
+/*  ************* Presentation/Question List  ************* */
 
-.presentation-list-container {
+.table-list-container {
   padding: 0% 2% 0% 2%;
 }
 
-.presentation-list-text {
+.table-question-list-add {
+  font-size: 2.75vh;
+  padding-top: 20px;
+  width: 250px; 
+  padding-left: 50px;
+}
+
+.table-list-text {
   cursor: pointer;
   font-size: 2.75vh;
 }
 
-.presentation-list-text:hover {
+.table-list-text:hover {
   color: #9c9c9c;
 }
 
-.presentation-list-add {
+.table-presentation-list-add {
   font-size: 2.75vh;
   padding-top: 25px;
   width: 300px;
   padding-left: 20px;
 }
 
-.presentation-list-header {
+.table-list-header {
   font-size: 5vh;
   font-weight: bold;
   padding-bottom: 10px;
 }
 
-.presentation-list-icon {
-  height: 50px;
-  width: 50px;
-  margin-left: 20px;
-}
-
-.presentation-list-create-presentation-container {
+.table-list-create-container {
   padding-left: 75px;
   padding-top: 10px;
 }
 
-.presentation-list-table-container {
+.table-list-table-container {
   font-size: 4vh;
   box-shadow: 0 4px 5px 0 rgba(0, 0, 0, .14), 0 1px 10px 0 rgba(0, 0, 0, .12), 0 2px 4px -1px rgba(0, 0, 0, .2)
 
 }
 
-.presentation-list-item-button {
+.table-list-item-button {
+  height: 20px;
+  width: 20px;
+  margin-left: 5px;
   cursor: pointer;
 }
 
-.presentation-list-addbutton {
+.table-list-item-container {
+  cursor: pointer;
+}
+
+.table-question-list-goback {
+  float: right;
+  padding-right: 100px;
+  cursor: pointer;
+}
+
+.table-list-goback-text {
+  padding-right: 10px;
+}
+
+.table-list-addbutton {
   height: 20px;
   width: 20px;
   margin-bottom: 5px;
@@ -523,19 +528,24 @@ label {
   cursor: pointer;
 }
 @media (max-width: 768px) {
-  .presentation-list-header {
+  .table-list-header {
     font-size: 3.25vh;
     padding-top: 15px;
   }
-  .presentation-list-table-container {
+  .table-list-table-container {
     font-size: 2.25vh;
   }
-  .presentation-list-item-button {
+  .table-list-item-button {
     height: 10px;
     width: 10px;
   }
 
-  .presentation-list-item-delete {
+  .table-list-create-container {
+    padding-left: 0;
+    padding-top: 0;
+  }
+
+  .table-list-item-delete {
     width: 20px;
   }
 
@@ -547,20 +557,17 @@ label {
     cursor: pointer;
     font-size: 1.75vh;
     }
-  .presentation-list-add {
+  .table-list-add {
     width: 40px;
     padding-left: 20px;
   }
-  .presentation-list-create-presentation-container {
-    padding-left: 0px;
-    padding-top: 0px;
+
+  .table-list-text {
+  cursor: pointer;
   }
 
-  .presentation-list-text {
-  cursor: pointer;
-  font-size: 1.75vh;
 }
-}
+
 /*  ************* student page styling  ************* */
 .student-content {
 	margin: 5% 10% 0 10%;
