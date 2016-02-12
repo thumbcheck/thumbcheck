@@ -4,7 +4,10 @@
   src: url('../images/HelveticaNeue-Thin.otf'); /*URL to font*/
 }
 html,body { height: 100%; margin: 0px; padding: 0px; font-family: 'HelveticaNeue-Thin';}
-#app {height: 100%;}
+#app {
+  height: 100%;
+
+}
 
 /* ------- GENERAL COLOR STYLES  ------- */
 .blue { background-color: #0080FF; }
@@ -60,81 +63,90 @@ html,body { height: 100%; margin: 0px; padding: 0px; font-family: 'HelveticaNeue
 }
 
 /* ****** LANDING PAGE ************ */
+
 .main-landing-parent-container {
-	padding-top: 7%;
-	height: 100%;
+
+  padding-top: 0%;
+	height:100%;
   background: url(/images/cliche_learning1.png) no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
+  overflow:auto;
 	font-family: 'HelveticaNeue-Thin';
+  color: white;
 }
 .main-landing-container {
-	margin: 0 15% 0 15%;
+  vertical-align: middle;
+  margin: 5% 15% 0 15%;
 	border-radius: 10px;
+  padding-top: 2%;
 	background-color: rgba(0, 0, 0, 0.7);
 }
+.jumbotron {
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+.jumbo-text {
+  font-family: 'HelveticaNeue-Thin';
+  margin-bottom: 0.1em;
+}
 .main-landing-content {
+
 	color: white;
 	padding: 3.5% 1% 3.5% 1%;
 	background-color: rgba(0, 0, 0, 0);
 }
-
 .main-landing-student-choice {
-  padding-top: 5%;
-  padding-bottom: 3%;
+  padding-top: 0;
+  padding-bottom: 1%;
 }
-
 .main-landing-educator-choice {
-  padding-top: 3%;
-  padding-bottom: 3%;
+  padding-top: 1%;
+  padding-bottom: 1%;
 }
-
+.main-landing-left {
+  border-right: 1px solid white;
+  line-height: 1.5;
+}
+.main-landing-right {
+  padding-left: 5%;
+}
+td {
+  text-align: right;
+}
 .subtitle {
   line-height: 1.5em;
 }
-
+.subtitle-text {
+  color: #A9A9A9;
+}
 .hr {
   width: 80%;
 }
-
-.jumbo-text {
-	font-family: 'HelveticaNeue-Thin';
-	margin-bottom: 0.5em;
-}
-
-label {
-  display:inline-block;
-  float:left;
-  width:1px;
-}
-
 .input_width{
   max-width: 100%;
 }
-
+.small-screen {
+  display:none;
+  visibility: hidden;
+}
+.btn-small-screen {
+  width: 100%;
+}
+.label {
+  text-align: right;
+}
 .Grid {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
 }
-
 .Grid-cell {
   padding: 10px;
   flex: 1;
 }
-
-.small-screen {
-  display:none;
-  visibility: hidden;
-}
-
-/*.big-screen: {
-  display: block;
-  visibility: visible;
-}*/
-
 .Grid--fit > .Grid-cell {
   flex: 1;
 }
@@ -143,14 +155,6 @@ label {
 }
 .Grid--1of2 > .Grid-cell {
   flex: 0 0 50%
-}
-.mycontent-left {
-  border-right: 1px solid white;
-  line-height: 1.5;
-}
-
-.mycontent-right {
-  padding-left: 5%;
 }
 
 @media (max-width: 900px) {
@@ -162,56 +166,37 @@ label {
    .subtitle {
     display:none;
     visibility: hidden;
-   /* display: block;
-    visibility: visible;*/
+
     font-size: 1.25em;
   }
 }
 
-.btn-small-screen {
-  width: 100%;
-}
-
-@media (max-width: 640px) {
+@media (max-width: 708px) {
 
   .main-landing-container {
-    margin: 0 0 0 0;
+    margin: 2% 0 0 0;
   }
   .main-landing-content {
     padding: 3.5% 0 3.5% 0;
   }
-
   .Grid {
     flex-direction: column;
   }
-
   .btn-small-screen {
     width: 100%;
   }
-
-  .mycontent-left {
+  .main-landing-left {
     border-right: 0px;
   }
-
   .subtitle {
     display:none;
     visibility: hidden;
-   /* display: block;
-    visibility: visible;*/
     font-size: 1.25em;
   }
-/*  .big-screen: {
-    display: none;
-    visibility: hidden;
-  }*/
-
   .small-screen {
     display: block;
     visibility: visible;
   }
-
-
-
 }
 
 /*  ********** educator page styling  ************* */

@@ -64,26 +64,29 @@ export default React.createClass({
     } else {
       return (
         <div>
-          <p>Sign up for an account</p>
           <table className="signup">
-          <tr>
-          <td>Name:</td><td><input type="text" name="name" ref={(ref) => this.nameInput = ref} onKeyDown ={this.handleEnter} /><br/></td>
-          </tr>
-          <tr>
-          <td>Email:</td><td><input type="text" name="email" ref={(ref) => this.emailInput = ref} onKeyDown ={this.handleEnter} /><br/></td>
-          </tr>
-          <tr>
-          <td>Username:</td><td><input type="text" name="username" ref={(ref) => this.usernameInput = ref} onKeyDown ={this.handleEnter} /><br/></td>
-          </tr>
-          <tr>
-          <td>Password:</td><td><input type="password" name="pswd" ref={(ref) => this.passwordInput = ref} onKeyDown ={this.handleEnter} /><br/></td>
-          </tr>
-          <tr>
-          <td></td><td><a className="btn btn-primary btn-md btn-small-screen" role="button" onClick={this.handleLogin} onKeyDown ={this.handleEnter} >Sign Up</a></td>
-          </tr>
+            <tbody>
+              <tr>
+                <td colSpan="2"><p>Sign up for an account</p></td>
+              </tr>
+              <tr>
+                <td>Name:</td><td><input type="text" name="name" ref={(ref) => this.nameInput = ref} onKeyDown ={this.handleEnter} /><br/></td>
+              </tr>
+              <tr>
+                <td>Email:</td><td><input type="text" name="email" ref={(ref) => this.emailInput = ref} onKeyDown ={this.handleEnter} /><br/></td>
+              </tr>
+              <tr>
+                <td>Username:</td><td><input type="text" name="username" ref={(ref) => this.usernameInput = ref} onKeyDown ={this.handleEnter} /><br/></td>
+              </tr>
+              <tr>
+                <td>Password:</td><td><input type="password" name="pswd" ref={(ref) => this.passwordInput = ref} onKeyDown ={this.handleEnter} /><br/></td>
+              </tr>
+              <tr>
+                <td></td><td><a className="btn btn-primary btn-md btn-small-screen" role="button" onClick={this.handleLogin} onKeyDown ={this.handleEnter} >Sign Up</a></td>
+              </tr>
+            </tbody>
           </table>
           <p>{this.props.errMessage}</p>
-
         </div>
       );
     }
