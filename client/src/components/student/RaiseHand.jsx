@@ -51,18 +51,21 @@ export default React.createClass({
       <div className="raise-hand-container">
 
         {this.nameInQueue() ?
-            <img onClick={this.toggleHandRaise} data-toggle="tooltip" data-placement="right" title="Lower your hand" className="student-hand-icon" src="/images/icons/student_raise_hand2.png" />
-          : <button className="btn blue white-text raise-hand-button"
+          <button className="btn white raise-hand-button black-border"
                 onClick={this.toggleHandRaise} >
+                Lower Hand
+          </button>            
+          : <button className="btn white raise-hand-button black-border"
+                onClick={this.toggleHandRaise}>
                 Raise Hand
           </button> }
 
 
           {this.props.handRaised ?
             this.props.id === undefined ?
-              <div>
-                <input type="text" placeholder="Enter your name" ref={(ref) => this.studentNameInput = ref}  onKeyDown ={this.handleEnter} />
-                <button onClick={this.confirmHandRaise} className="btn green white-text">Confirm hand raise</button>
+              <div className="push-top">
+                <input className="" type="text" placeholder="Enter your name" ref={(ref) => this.studentNameInput = ref}  onKeyDown ={this.handleEnter} />
+                <button onClick={this.confirmHandRaise} className="btn green white-text">Enter Name</button>
               </div>
               : null
             : null

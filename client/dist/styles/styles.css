@@ -10,7 +10,7 @@ html,body { height: 100%; margin: 0px; padding: 0px; font-family: 'HelveticaNeue
 .blue { background-color: #0080FF; }
 .orange { background-color: #FE5133; }
 .green { background-color: #22b222; }
-.yellow {background-color: #EAFF00; }
+.yellow {background-color: #ffd400; }
 .purple { background-color: #FF00FF; }
 
 .red { background-color: #FF0000; }
@@ -19,6 +19,8 @@ html,body { height: 100%; margin: 0px; padding: 0px; font-family: 'HelveticaNeue
 .blue-text { color: #0080FF; }
 .white-text { color: #FFFFFF!important; }
 .orange-text { color: #FE5133; }
+.white {background-color: #FFFFFF;}
+.black-border {border:1px solid #000000;}
 
 .very-light-grey {background-color: #FDFDFD}
 
@@ -279,6 +281,12 @@ label {
 	width: 80%;
 	height: 80%;
 }
+/*.thumbs-graph {
+	min-width: 1px;
+	min-height: 1px; 
+	max-width: 60%;
+	height: 100%;
+}*/
 .questions-queue {
 	position: absolute;
   left: 200px;
@@ -367,11 +375,10 @@ label {
 	border-radius: 5px;
 	box-shadow: 0 1px 10px rgba(31, 50, 63, 0.75); 
 	}	
-	.dont-show-small-screen-800 {
-		display: none;
-	}
-	.prompt-text-small {padding: 0;}
+	.dont-show-small-screen-800 { display: none; }
+	.prompt-text-small {padding: 0;}	
 }
+
 .text-small-screen {
 	font-size: 2.3vh;
 }
@@ -389,7 +396,8 @@ label {
 	}
 	.dont-show-big-screen {
 		display: block;
-	}	
+	}		
+	.question-slider { width: 60%; }
 }
 .next-icon {
 	width: 30px;
@@ -489,16 +497,14 @@ label {
 }
 .raise-hand-container {
 	position: absolute;
-	top: 0;
-	right: 0;
+	top: 2%;
+	right: 2%;
 }
 .student-hand-icon {
 	width: 35%
 }
 .raise-hand-button {
-	font-size: 1.3em;
-  top: 0;
-  right: 0;
+	font-size: 1.3em;  
 }
 .current-question-text {
   font-size: 5vh;
