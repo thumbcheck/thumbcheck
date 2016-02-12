@@ -16,7 +16,7 @@ export default React.createClass({
 
   	if (questions && questions.length > 0) {
 	  	return questions.map(function(tuple, index) {
-	    	return <li key={tuple[0]} className="questions-list">{tuple[1]}<span className="remove-icon remove-right" onClick={removeQuestion.bind((tuple[0]))} aria-hidden="true"><img className="remove-icon" src="/images/icons/remove.png"/></span></li>
+	    	return <li key={index} className="questions-list">{tuple[1]}<span className="remove-icon remove-right" onClick={removeQuestion.bind((tuple[0]))} aria-hidden="true"><img className="remove-icon" src="/images/icons/remove.png"/></span></li>
 	  	});
 	  } else {
 	  	return <li className="questions-list">No questions currently</li>
