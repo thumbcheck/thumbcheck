@@ -40,7 +40,7 @@ export const Main = React.createClass({
       } else {
         return (
           <div className="jumbotron main-landing-parent-container">
-          <div className="dont-show-small-screen">Thumbscheck.me</div>
+          <div className="dont-show-small-screen">Thumbcheck.me</div>
           <div className="main-landing-title-bar">
             <div className="main-landing-container center-text">
             <h1 className="jumbo-text">Welcome to Thumbcheck</h1>
