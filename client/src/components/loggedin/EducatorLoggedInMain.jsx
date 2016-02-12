@@ -32,7 +32,7 @@ export default React.createClass({
           <Navbar {...this.props} />
           <div className="preplanned-container">
             <PresentationList {...this.props}/>
-            <div><strong>{this.props.numUsers}</strong> device(s) currently in this room</div>
+            {/*<div><strong>{this.props.numUsers}</strong> device(s) currently in this room</div>*/}
           </div>
         </div>
       );
