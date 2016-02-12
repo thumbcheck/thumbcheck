@@ -3,7 +3,7 @@ import React from 'react';
 export default React.createClass({
   render: function() {
     return (
-      <div>
+      <span>
         <div className='play-container'></div>
         <div
                 className = "end-pres-btn big-text-vh"
@@ -12,7 +12,7 @@ export default React.createClass({
                 <img className="next-icon" src="/images/icons/cancel_icon1.png"/>
 
         </div>
-      </div>
+      </span>
     );
   }
 });

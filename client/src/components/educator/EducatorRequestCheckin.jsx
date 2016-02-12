@@ -107,10 +107,8 @@ export default React.createClass({
   },
   renderNextQuestionButton: function() {
     if(this.props.preplannedPresentation) {
-      return (
-        <div className="pull-right">
-          <PresentationNextQuestionButton {...this.props}/>          
-        </div>
+      return (        
+          <PresentationNextQuestionButton {...this.props}/>                        
       )
     } else {
       return null;
@@ -119,9 +117,9 @@ export default React.createClass({
   renderEndPresentationButton: function() {
     if(this.props.preplannedPresentation) {
       return (
-        <div className="pull-left">          
+        <span className="pull-left">          
           <EndPreplannedPresentationButton {...this.props}/>
-        </div>
+        </span>
       )
     } else {
       return null;
@@ -152,15 +150,16 @@ export default React.createClass({
           <div className="big-text-vh">Results from last check-in</div>
           {renderCorrectGraphType(this.props)}
         </div>
-
         
         {!this.props.showgraph || this.props.shareThumbsCheckResults || this.props.sharingAllThumbsCheckResults ?
           <p></p> :
-          <p><button type='button' className='btn grey white-text push-top' onClick={this.props.toggleThumbsCheckResultsGraph}>Show Results to Participants</button></p>
-        }
+          <p className="inline-stuff">            
+            <button type='button' className='clearing btn grey white-text push-top' onClick={this.props.toggleThumbsCheckResultsGraph}>Show Results to Participants</button>            
+            { this.renderEndPresentationButton() }
+          </p>
+        }        
         {/* <QuestionButton takingQuestions={this.props.takingQuestions}
-                        toggleTakingQuestions={this.props.toggleTakingQuestions} /> */}
-        { this.renderEndPresentationButton() }
+                        toggleTakingQuestions={this.props.toggleTakingQuestions} /> */}        
 
       </div>
     );
