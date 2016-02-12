@@ -387,6 +387,9 @@ html,body { height: 100%; margin: 0px; padding: 0px; font-family: 'HelveticaNeue
 .dont-show-big-screen {
 	display: none;
 }
+.next-button-container {	
+	padding-left: 80%;
+}
 @media (max-width: 600px ) {
 	.text-small-screen {
 		font-size: 4vw;
@@ -400,11 +403,8 @@ html,body { height: 100%; margin: 0px; padding: 0px; font-family: 'HelveticaNeue
 		display: block;
 	}
 	.question-slider { width: 60%; }
-	}
 }
-.next-button-container {
-	margin-left: 82%;
-}
+
 .next-icon {
 	width: 30px;
 	min-width: 10px;
@@ -416,7 +416,7 @@ html,body { height: 100%; margin: 0px; padding: 0px; font-family: 'HelveticaNeue
 }
 .end-pres-btn {
 	display: inline;
-	margin-left: 82%;
+	margin-left: 80%;	
 }
 .clearing {
 	display: inline;

@@ -8,11 +8,11 @@ export default React.createClass({
     let questionsLength = this.props.currentPresentation.get('questionChoice').size;
     if (questionIndex < questionsLength - 1) {
       return (        
-          <span className="next-button-container"              
+          <div className="next-button-container"             
                   onClick = {this.props.moveToNextQuestion}>
                   <span className="next-question-text dont-show-small-screen-800 big-text-vh">Next Question</span>
                   <img className="next-icon" src="/images/icons/next_icon.ico"/>
-          </span>        
+          </div>        
       )
     } else {
       return null;
