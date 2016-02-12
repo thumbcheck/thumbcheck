@@ -4,7 +4,7 @@ import SliderNativeBootstrap from './QuestionSlider';
 import renderCorrectGraphType from '../../helpers/renderCorrectGraphType';
 import PresentationNextQuestionButton from '../loggedin/PresentationNextQuestionButton';
 import EducatorQuestionInformation from '../loggedin/EducatorQuestionInformation';
-import PreplannedPresentationVotingButton from '../loggedin/PreplannedPresentationVotingButton';
+import PreplannedPresentationVotingButton from '../loggedin/PrePlannedPresentationVotingButton';
 import EndPreplannedPresentationButton from '../loggedin/EndPreplannedPresentationButton';
 
 export default React.createClass({

@@ -1,7 +1,7 @@
 import React from 'react';
 import {List,Map} from 'immutable';
 import ResultsDisplay from '../educator/ResultsDisplay';
-import PreplannedPresentationVotingButton from './PreplannedPresentationVotingButton';
+import PreplannedPresentationVotingButton from './PrePlannedPresentationVotingButton';
 
 export default React.createClass({
   sendCheckin: function() {
