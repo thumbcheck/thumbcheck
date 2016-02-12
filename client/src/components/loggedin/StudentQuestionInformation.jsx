@@ -20,7 +20,7 @@ export default React.createClass({
       )
     } else if (this.props.shareThumbsCheckResults || this.props.sharingAllThumbsCheckResults && previousPresentationTitle) {
       return (
-        <h1 className="previous-question-text">{previousQuestionTitle}</h1>
+        <div className="previous-question-header">{previousQuestionTitle}</div>
       )
     } else {
       return null;
