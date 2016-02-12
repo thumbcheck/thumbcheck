@@ -79,6 +79,7 @@ export default React.createClass({
           </tbody>
         </table>
           <p>{this.props.errMessage}</p>
+          <p><a onClick={this.props.chooseSignup}>Don&#39;t have an account yet? </a></p>
         </div>
       );
     }

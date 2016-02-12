@@ -111,8 +111,14 @@ html,body { height: 100%; margin: 0px; padding: 0px; font-family: 'HelveticaNeue
   line-height: 1.5;
 }
 .main-landing-right {
+  /*display: block;
+  margin: 0 auto;*/
+  display:flex;
+  justify-content:center;
+  align-items:center;
   padding-left: 5%;
 }
+
 td {
   text-align: right;
 }
@@ -212,7 +218,7 @@ td {
 	font-size: 1.8em;
 }
 .raise-hand-icon {
-	width: 40px;	
+	width: 40px;
 	padding-right: 5px;
 }
 .wheel-icon{
@@ -408,7 +414,7 @@ td {
 }
 .end-pres-btn {
 	display: inline;
-	margin-left: 82%;	
+	margin-left: 82%;
 }
 .clearing {
 	display: inline;
@@ -475,7 +481,7 @@ td {
 .table-question-list-add {
   font-size: 2.75vh;
   padding-top: 20px;
-  width: 250px; 
+  width: 250px;
   padding-left: 50px;
 }
 
