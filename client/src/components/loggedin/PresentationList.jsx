@@ -44,16 +44,18 @@ export default React.createClass({
   render: function() {
     console.log('main page', this.props);
     return (
-      <div className='container'>
+      <div className='presentation-list-container'>
         <div className='row'>
-          <div className="col-xs-9 col-md-5 col-md-offset-4">
-            <div className='presentation-list-header text-center col-md-8'>
-              Your Presentations
+          <div className="col-xs-offset-2 col-xs-8 col-md-4 col-md-offset-4">
+            <div className='presentation-list-header text-center'>
+              <span>Your Presentations</span>
             </div>
           </div>
-          <div className='col-xs-3 col-md-2 presentation-list-add presentation-list-text' onClick = {this.createPresentation}>
-            <span className='hidden-small-screen'>Create Presentation</span>
-            <img className="presentation-list-addbutton" src="/images/icons/addpresentation.png" />  
+          <div className='col-xs-2 col-md-4 presentation-list-create-presentation-container' onClick = {this.createPresentation}>
+            <div className='presentation-list-add'>
+              <span className='hidden-small-screen presentation-list-text'>Create Presentation</span>
+              <img className="presentation-list-addbutton" src="/images/icons/addpresentation.png" />  
+            </div>
           </div>
         </div>
         <div className='row'>
@@ -67,8 +69,11 @@ export default React.createClass({
             </div>        
           </div>
         </div>
-        <div className='row text-center link' onClick = {this.createPresentation}>
-          <p className='presentation-list-text'>Don't have anything planned? Start an impromptu presentation here!</p>
+        <div className='row text-center' onClick = {this.createPresentation}>
+          <div className='col-xs-12'>
+          <span className='presentation-list-text'>Don't have anything planned? Start an impromptu presentation here!</span>
+          <img className="presentation-list-item-button" src="/images/playbutton.png" />  
+          </div>
         </div>
       </div>
     );
