@@ -34,7 +34,9 @@ router.route('/room')
   .post((req, res) => {
     createRoom((roomName) => {
       const token = jwt.encode({ roomName: roomName }, tokenSecret);
-      res.cookie('thumb', token, { maxAge: 7200000 })
+      console.log('token in room', token);
+      console.log('token decoded', jwt.decode(token, tokenSecret))
+      res.cookie('thumb', token, { maxAge: 7200000 });
       res.send(roomName+'?type=host');
     });
   });
@@ -44,7 +46,7 @@ router.route('/login')
     userController.getUser(req.body, (result) => {
       const token = jwt.encode({ username: req.body.username, educator_id: result.educator_id }, tokenSecret);
       if (result.found) {
-        res.cookie('remember', token, { maxAge: 7200000 })
+        res.cookie('remember', token, { maxAge: 7200000 });
       }
       res.send(200, result);
     });
