@@ -29,13 +29,14 @@ export const Main = React.createClass({
  /*** NEED TO REFACTOR LOCAL STORAGE ITEMS ***/
   render: function() {
     let isLoggedIn = this.getCookie('remember');
+    let isEducator = this.getCookie('thumb');
 
     if (this.canWriteLocalStorage()) {
       if (this.props.userType === 'student') {
         return (<Student {...this.props} />)
       } else if(this.props.userType === 'educator' && isLoggedIn) {
         return <EducatorLoggedInMain {...this.props} />
-      } else if (this.props.userType === 'educator') {
+      } else if (this.props.userType === 'educator' && isEducator) {
         return <Educator {...this.props} />
       } else {
         return (
