@@ -34,8 +34,6 @@ router.route('/room')
   .post((req, res) => {
     createRoom((roomName) => {
       const token = jwt.encode({ roomName: roomName }, tokenSecret);
-      console.log('token in room', token);
-      console.log('token decoded', jwt.decode(token, tokenSecret))
       res.cookie('thumb', token, { maxAge: 7200000 });
       res.send(roomName+'?type=host');
     });
@@ -63,16 +61,6 @@ router.route('/logout')
 
 //creates new users
 router.route('/api/users')
-  .post((req,res) => {
-    userController.createUser(req.body, (result) => {
-      const token = jwt.encode({ username: req.body.username, educator_id: result.educator_id }, tokenSecret);
-      console.log('IN USER CREATION', result.status);
-      if (result.status === 'Account created') {
-        res.cookie('remember', token, { maxAge: 7200000 })
-      }
-      res.send(201, result);
-    });
-  })
   .get((req,res) => {
     userController.getAllUsers((result) => {
       res.send(200, result);
