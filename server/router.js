@@ -33,6 +33,8 @@ router.route('/')
 router.route('/room')
   .post((req, res) => {
     createRoom((roomName) => {
+      const token = jwt.encode({ roomName: roomName }, tokenSecret);
+      res.cookie('thumb', token, { maxAge: 7200000 });
       res.send(roomName+'?type=host');
     });
   });
@@ -42,9 +44,8 @@ router.route('/login')
     userController.getUser(req.body, (result) => {
       const token = jwt.encode({ username: req.body.username, educator_id: result.educator_id }, tokenSecret);
       if (result.found) {
-        res.cookie('remember', token, { maxAge: 7200000 })
+        res.cookie('remember', token, { maxAge: 7200000 });
       }
-      console.log('RESULT FROM DATABSE!!!!!!!!',result)
       res.send(200, result);
     });
   });
@@ -60,17 +61,6 @@ router.route('/logout')
 
 //creates new users
 router.route('/api/users')
-  .post((req,res) => {
-    console.log('in api users post', req.body);
-    userController.createUser(req.body, (result) => {
-      const token = jwt.encode({ username: req.body.username, educator_id: result.educator_id }, tokenSecret);
-      console.log('IN USER CREATION', result.status);
-      if (result.status === 'Account created') {
-        res.cookie('remember', token, { maxAge: 7200000 })
-      }
-      res.send(201, result);
-    });
-  })
   .get((req,res) => {
     userController.getAllUsers((result) => {
       res.send(200, result);
@@ -82,7 +72,6 @@ router.route('/api/users')
 router.route('/api/userid')
   .post((req,res) => {
     const decoded = jwt.decode(req.body.cookies, tokenSecret);
-    console.log('DECODED IN SERVER', decoded, decoded.educator_id);
     res.send(200, {'educator_id': decoded.educator_id, 'username': decoded.username});
   })
 
@@ -129,13 +118,13 @@ router.route('/api/presentations')
       res.send(201, result);
     });
   })
-// delete a given presentation  
+// delete a given presentation
 router.route('/api/presentations/:presentation_id')
   .delete((req,res) => {
     presentationController.deletePresentation(req.params.presentation_id, (result) => {
       res.send(200, result);
     });
-  })  
+  })
 
 //get all the presentation of a given user
 router.route('/api/presentations/users/:userid')
