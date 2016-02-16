@@ -12,7 +12,6 @@ export function setAllPresentations(state, data) {
 }
 
 export function setPresentation(state, data) {
-  console.log(data, 'logging data');
   let questions = [];
   data.questions.forEach((question) => {
     let questionObject = {};

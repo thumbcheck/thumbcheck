@@ -14,8 +14,7 @@ export default React.createClass({
     }
   },
 
-  render: function() {
-    console.log('add pres page', this.props);
+  render: function() {    
     return (
       <div className="create-presentation-container">
         <div className="bigger-text push-bottom">Name Your Presentation</div>

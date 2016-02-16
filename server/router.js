@@ -61,6 +61,15 @@ router.route('/logout')
 
 //creates new users
 router.route('/api/users')
+  .post((req,res) => {    
+    userController.createUser(req.body, (result) => {
+      const token = jwt.encode({ username: req.body.username, educator_id: result.educator_id }, tokenSecret);      
+      if (result.status === 'Account created') {
+        res.cookie('remember', token, { maxAge: 7200000 })
+      }
+      res.send(201, result);
+    });
+  })
   .get((req,res) => {
     userController.getAllUsers((result) => {
       res.send(200, result);

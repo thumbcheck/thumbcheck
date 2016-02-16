@@ -71,8 +71,7 @@ export function editPresentation(presentationData) {
       url: /**NEED TO ADD**/'',
       data: presentationData
     })
-    .success(function(data) {
-      console.log(data);
+    .success(function(data) {      
     })
     .error(function(jqXHR, textStatus, errorThrown) {
       console.log('Error: ', qXHR, textStatus, errorThrown);

@@ -25,8 +25,7 @@ export const Educator = React.createClass({
  sharingAllThumbsCheckResults: function() {
    this.props.toggleSharingAllThumbsCheckResults();
  },
- render: function() {         
-   console.log('on educator main', this.props); 
+ render: function() {          
    return (
      <div>
        <Navbar {...this.props}/>          

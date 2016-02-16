@@ -30,8 +30,7 @@ const store = createStoreWithMiddleware(reducer);
 generateID();
 
 store.subscribe(() => {  
-  let currentState = store.getState().toJS();
-  console.log('newstate', currentState)
+  let currentState = store.getState().toJS();  
   if(currentState.connected) {
     socket.emit('state', store.getState().toJS());
   }

@@ -3,8 +3,7 @@ import {connect} from 'react-redux';
 import * as actionCreators from '../action_creators';
 
 export const Test = React.createClass({
-  render: function() {
-    console.log(this.props.voting);
+  render: function() {    
     return (
       <div>
       {this.props.voting.toString()} Hello

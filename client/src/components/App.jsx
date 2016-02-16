@@ -1,8 +1,7 @@
 import React from 'react';
 
 export default React.createClass({
-  render: function() {
-    console.log(this.props.children, 'in app.jsx');
+  render: function() {    
     return this.props.children;
   }
 });
