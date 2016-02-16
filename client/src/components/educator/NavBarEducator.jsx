@@ -38,8 +38,7 @@ export default React.createClass({
     this.props.logout({roomname: this.props.currentRoom});
   },
 
-  renderLogout: function() {
-    console.log('is Educator Logged in in Navbar?', this.props)    
+  renderLogout: function() {       
       return (
         <div>
           <li role="separator" className="divider"></li>
@@ -50,8 +49,7 @@ export default React.createClass({
       )            
   },
 
-  render: function() {  	
-  	console.log('nav props', this.props);
+  render: function() {  	  	
     return (
     	<nav className="navbar navbar-default navbar-custom">
 			  <div className="container-fluid blue">

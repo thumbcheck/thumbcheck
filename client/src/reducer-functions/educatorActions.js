@@ -79,8 +79,7 @@ export function startVote(state, option) {
         haveVoted: []
       }
     });
-  }
-  console.log(newState, 'newSTATE')
+  }  
   return state.merge(newState);
 }
 

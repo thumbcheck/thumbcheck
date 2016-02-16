@@ -39,8 +39,7 @@ export default React.createClass({
     }
 
   },
-  render: function() {
-    console.log('EDUCATOR ID', this.props.educatorID);
+  render: function() {    
     return (
       <div className="">
         { this.renderProperElement() }

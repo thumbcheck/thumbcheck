@@ -5,8 +5,7 @@ export default React.createClass({
     this.props.createOrEditPresentation();
   },
   startPreplannedPresentation: function() {
-    this.props.setCurrentPresentationID(this.props.presentationID);
-    console.log('in preplanned presentation', this.props.presentationID);
+    this.props.setCurrentPresentationID(this.props.presentationID);    
     this.props.startPreplannedPresentation();
   },
   deletePresentation: function() {    

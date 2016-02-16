@@ -6,8 +6,7 @@ export default React.createClass({
     const username = this.usernameInput.value.toLowerCase();
     const password= this.passwordInput.value.toLowerCase();
     const that = this;
-
-    console.log(username, password);
+    
     if (!username || !password) {
       this.props.setError('Please enter a username or password.');
     } else {
@@ -21,8 +20,7 @@ export default React.createClass({
         }
       })
       .success(function(data) {
-        if(data.found === 1) {
-          console.log('User Found. Trigger Login')
+        if(data.found === 1) {          
           that.props.educatorLogin(username);
           window.location.assign(username+'?type=host');
         } else {

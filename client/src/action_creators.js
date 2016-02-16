@@ -28,8 +28,7 @@ export function downvote() {
   };
 }
 
-export function vote(participantID) {
-  console.log(participantID);
+export function vote(participantID) {  
   return {
     meta: {remote: true},
     type: 'VOTE',
@@ -52,8 +51,7 @@ export function stopVote() {
   };
 }
 
-export function multipleChoiceAnswer(answer) {
-  console.log(answer);
+export function multipleChoiceAnswer(answer) {  
   return {
     meta: {remote: true},
     type: 'MULTIPLE_CHOICE_ANSWER',
@@ -323,8 +321,7 @@ export function addPresentationQuestion(questionData, editingQuestionId, editing
       var apiCall = ApiFunctions.addPresentationQuestion(questionData);
     }
       apiCall
-        .success((data) => {
-          console.log('response from GET or PUT', data);
+        .success((data) => {          
           let queryInput = editingQuestionPresentationId || data['presentation_id'];
           ApiFunctions.getPresentation(queryInput)
           .success((response) => {

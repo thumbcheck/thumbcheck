@@ -29,8 +29,7 @@ export const Student = React.createClass({
      return <StudentAnswering ref="answer" {...this.props} />;
    }
  },
-  renderPreplannedPresentationHeader: function() {
-    console.log('preplanned', this.props.preplannedPresentation);
+  renderPreplannedPresentationHeader: function() {    
     if(this.props.preplannedPresentation && (this.props.shareThumbsCheckResults || this.props.sharingAllThumbsCheckResults)) {
       return <StudentQuestionInformation {...this.props} />
     } else {
@@ -40,8 +39,7 @@ export const Student = React.createClass({
   renderCorrectGraphType: function() {
     return this.props.shareThumbsCheckResults || this.props.sharingAllThumbsCheckResults ? renderCorrectGraphType(this.props) : null;
   },
- render: function() {
-   console.log('on student main', this.props);
+ render: function() {   
    return (
      <div className="student-container center-text">
          <h4 className="in-room-text push-left">You are in room: <strong>{this.props.currentRoom}</strong></h4>         

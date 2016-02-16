@@ -34,8 +34,7 @@ export function downvote() {
     type: 'DOWNVOTE'
   };
 }
-export function vote(participantID) {
-  console.log(participantID);
+export function vote(participantID) {  
   return {
     meta: {remote: true},
     type: 'VOTE',

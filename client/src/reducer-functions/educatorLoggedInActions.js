@@ -147,8 +147,7 @@ export function createQuestion(state, edit, questionData, cancel) {
 }
 
 export function setCurrentPresentationID(state, presentationID) {
-  let newState = {currentPresentationID: presentationID};
-  console.log('setting questions', newState);
+  let newState = {currentPresentationID: presentationID};  
   return state.merge(newState);
 }
 
